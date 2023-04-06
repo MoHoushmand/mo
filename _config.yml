@@ -1,0 +1,103 @@
+# Book settings
+title: Mo Houshmand
+author: Daniel Mo Houshmand
+logo: img/mologo/mo2.png
+
+only_build_toc_files: true
+
+# Execution settings
+execute:
+  execute_notebooks: force
+  exclude_patterns:
+    - '_build'
+    - 'Thumbs.db'
+    - '.DS_Store' 
+    - '*pattern3withwildcard'
+    - 'dsData.zip'
+    - 'notes'
+
+# Parse and render settings
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
+  myst_url_schemes: [mailto, http, https]
+  myst_dmath_double_inline: true
+
+extensions: 
+    - myst_parser 
+    - sphinx_design
+
+# HTML-specific settings
+html:
+  use_issues_button: True
+  use_repository_button: True
+  use_multitoc_numbering: True
+  use_edit_page_button: True
+  style_nav_header_background: #0538f5
+  search_bar_text: Search this book...
+  extra_navbar: Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  home_page_in_navbar: True
+  extra_footer: ''
+  collapse_navigation: False
+  sticky_navigation: True
+  navigation_depth: 4
+  includehidden: False
+  titles_only: False
+  baseurl: "https://mohoushmand.com"
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Launch button settings
+launch_buttons:
+  notebook_interface: classic
+  binderhub_url: https://mybinder.org
+  thebe: True
+
+# Information about where the book exists on the web
+repository:
+  url: https://mohoushmand.github.io/
+  path_to_book: docs
+  branch: main
+
+sphinx:
+  extra_extensions:
+  - sphinx_inline_tabs
+  - sphinx_jupyterbook_latex
+  - myst_nb
+  - sphinx_copybutton
+  - sphinx_design
+  config:
+    html_theme: sphinx_rtd_theme
+    pygments_style: material
+    html_title: Daniel Mo Houshmand
+    html_static_path: [_static]
+    html_css_files: [custom.css]
+    html_sidebars:  globaltoc.html, relations.html, sourcelink.html, searchbox.html, localtoc.html
+    html_theme_options:
+      logo_only: true
+      use_download_button: True
+      repository_url: https://github.com/MoHoushmand/MoHoushmand.github.io
+      display_version: True
+      prev_next_buttons_location: bottom
+      collapse_navigation: True
+      sticky_navigation: True
+      navigation_depth: 5
+      includehidden: True
+      titles_only: False
