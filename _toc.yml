@@ -31,23 +31,16 @@ parts:
     - file: applied_mathematics/applied_math
       sections:
       - file: applied_mathematics/PDEs/NS_eq
-
   - caption: Data Science
     #numbered: False
     chapters:
     - file: data_science/stats/ds
       sections:
-      - file: data_science/stats/statsML
+      - file: data_science/stats/statML
 
-  - caption: Quantum Mechanics
+  - caption: Quantum Information
     #numbered: True  # Only applies to chapters in Part 1.
     chapters:  
-    - file: quantum_mechanics/quantum_mechanics
-  - caption: Quantum Computer Hardware
-    #numbered: True  # Only applies to chapters in Part 1.
-    chapters:  
-    - file:  quantum_computers/quantum_computers
-  - caption: Quantum Machine Learning
-    #numbered: True  # Only applies to chapters in Part 1.
-    chapters:  
-    - file: quantum_machine_learning/quantum_machine_learning
+    - file: quantum_information/quantum_mechanics/quantum_mechanics
+    - file: quantum_information/quantum_computers/quantum_computers
+    - file: quantum_information/quantum_machine_learning/quantum_machine_learning

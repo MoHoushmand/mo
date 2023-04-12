@@ -1,0 +1,52 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+options:
+  numbered: true
+#defaults:  # The defaults key will be applied to all chapters and sub-sections
+#titlesonly: True
+#expand_subsections: True
+parts:
+  - caption: About
+    #numbered: True  # Only applies to chapters in Part 1.
+    chapters:  
+    - file: about/about
+      sections:
+      - file: about/CV/CV
+  - caption: Art
+    numbered: true
+    #numbered: True  # Only applies to chapters in Part 1.
+    chapters:  
+    - file: art/art
+      sections:
+      - file: art/fluidart/acp
+    #numbered: False  # Only applies to chapters in Part 1.
+  - caption: Applied Mathematics
+    #numbered: False
+    chapters:
+    - file: applied_mathematics/applied_math
+      sections:
+      - file: applied_mathematics/PDEs/NS_eq
+  - caption: Data Science
+    #numbered: False
+    chapters:
+    - file: data_science/stats/ds
+      sections:
+      - file: data_science/stats/statML
+
+  - caption: Quantum Mechanics
+    #numbered: True  # Only applies to chapters in Part 1.
+    chapters:  
+    - file: quantum_mechanics/quantum_mechanics
+  - caption: Quantum Computer Hardware
+    #numbered: True  # Only applies to chapters in Part 1.
+    chapters:  
+    - file:  quantum_computers/quantum_computers
+  - caption: Quantum Machine Learning
+    #numbered: True  # Only applies to chapters in Part 1.
+    chapters:  
+    - file: quantum_machine_learning/quantum_machine_learning
