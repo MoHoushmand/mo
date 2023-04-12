@@ -24,7 +24,7 @@
 :::{grid-item}
 :columns: 8
 :class: sd-fs-3
-**Welcome to my personal homepage**, where I share my passions, experiences, and expertise in the realms of Artificial Intelligence, Data Science, Art, Data Science, Computational Science and Quantum Information.
+**Welcome to my personal homepage**, where I share my passions, experiences, and expertise in the realms of Art, Artificial Intelligence, and Quantum Information.
 
 ```{button-ref} start/your-first-book
 :ref-type: doc
@@ -42,7 +42,7 @@ Here, you will find a showcase of some of my Artwork, highlighting my love for `
 
 Furthermore delve into the fascinating world of Quantum Information and the Hardware of Quantum Computers, as I share my insights and knowledge on cutting-edge technologies. Learn about my academic background in Applied Mathematics, Mechanics & Numerical Physics (MSc), Civil Engineering - Constructional techniques with High performance prestressed concrete, Continuum Mechanics covering Solid Mechanics & Fluid Mechanics, Computational Fluid Dynamics and *professional certifications and specialisations* in Mathematics for Machine Learning, Deep Reinforcement Learning, Quantum Machine Learning, and more than a decade with thousands of hours spent on the Architecture, Algorithms, Protocols, Quantum Interenet and Quantum Computers with a special emphasis on how to naively engineer and scale up Fault Tolerent Topological Quantum Computers with braiding of Anyonic Qubits (and Majorana Zero Bound). 
 
-In this space, I also share my experiences in applied behavioral analysis, cybersecurity, and software development. Uncover the story behind the Zipminator software I developed at NA - a cyber-security, password protecting encrypting DataFrames, GDPR/Privacy complience checker with self-destructing functionalitises.    , and explore the breadth of my 20+ years of experience in applied behavioral analysis.
+In this space, explore the breadth of my 20+ years of experience in applied behavioral analysis, cybersecurity, and software development. Uncover the story behind the `Zipminator` software I developed at NAV- a cyber-security, password protecting encrypting DataFrames, GDPR/Privacy complience checker with self-destructing functionalitises.    , 
 
 As a firm believer in social responsibility, I dedicate a portion of this website to my charity work and ongoing commitment to helping those in need. Join me in my efforts to create positive change and empower others to reach their full potential.
 
@@ -52,10 +52,9 @@ Feel free to browse, learn, and connect with me as you explore the various facet
 Any typos or any shape of improvements are more than highly appreciated! 
 > **Daniel Mo Houshmand** <br> **mobile:** $+47 98079896$ <br> **email**: `mo@daria.com`
 ```
- 
 
 Thank you for visiting, and enjoy your stay!
- 
+
 ---
 
 ```{grid-item-card}
