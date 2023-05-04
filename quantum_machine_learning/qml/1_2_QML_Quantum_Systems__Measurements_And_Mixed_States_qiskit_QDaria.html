@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>30. Measurements revisited &mdash; Daniel Mo Houshmand</title>
+  <title>37. Measurements revisited &mdash; Daniel Mo Houshmand</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
@@ -48,7 +48,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="35. Unitary evolution" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html" />
+    <link rel="next" title="48. Evolution in Closed Systems" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html" />
     <link rel="prev" title="24. Classical and Quantum Probability Theory" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html" /> 
 </head>
 
@@ -74,6 +74,7 @@ const thebe_selector_output = ".output, .cell_output"
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Art</span></p>
@@ -124,67 +125,123 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">30. Measurements revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#more-on-measurements">31. More on Measurements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#the-born-rule">33. The Born Rule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#the-geometry-of-probability-distribution">27. The Geometry of Probability Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#stochastic-matrix">28. Stochastic Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">29. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#qubits-revisited">30. Qubits revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#superposition-revisited">31. Superposition revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#bloch-sphere-revisited">32. Bloch Sphere revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#interference">33. Interference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">34. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#multiple-qubits-revisited">35. Multiple Qubits revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#further-reading">36. Further reading</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">37. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#bra-ket-notation">38. Bra-Ket Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#dot-product">39. Dot product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ket-bra">40. Ket-Bra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#more-on-the-bra-ket-notation">41. More on the bra-ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#more-on-measurements">42. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#collapse-of-the-wave-function">43. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#the-born-rule">44. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#measuring-multiqubit-systems">45. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#mixed-states">46. Mixed States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#density-matrix">47. Density Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">48. Evolution in Closed Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#unitary-evolution">49. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#more-on-the-unitary-evolution">50. More on the Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#open-quantum-systems">51. Open Quantum Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">52. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">53. Classical Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#hamiltonian">54. Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-ising-model">55. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">56. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#commuting-hamiltonian">57. Commuting Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">58. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-approximate-optimization-algorithm">59. Quantum Approximate Optimization Algorithm.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#solovay-kitaev-theorem">60. Solovay-Kitaev theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-circuits">61. Quantum Circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#hadamard-gate">62. Hadamard gate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#the-cnot-gate">63. The CNOT gate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">64. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">65. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">66. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">67. Adiabatic Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#adiabatic-theorem">68. Adiabatic Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">69. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">70. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">71. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">72. Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#id1">73. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">74. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#implementations">75. Implementations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#superconducting-architectures">76. Superconducting Architectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#dissadvantages">77. Dissadvantages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#trapped-ions">78. Trapped ions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#photonic-systems">79. Photonic Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">80. Quantum Approximate Optimization Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#id1">81. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">82. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">83. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">84. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">85. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">86. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">87. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#more-qboost">88. More QBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">89. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">90. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">91. Clustering by Quantum Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#mapping-clustering-to-discrete-optimization">92. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">93. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">94. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">95. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">96. Kernel Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#an-inference">97. An Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#thinking-backward-learning-methods-based-on-what-the-hardware-can-do">98. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">99. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">100. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">101. An Inference Circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#tror-ikke-skal-vaere-her-men-i-11">102. (Tror ikke skal være her men i (11))</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probalistic-graphical-model">103. Probalistic Graphical Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#gfx">104. GFX!!!??</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">105. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#optimization-and-sampling-pgms">106. Optimization and Sampling PGMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-igjen-i-lyx-husk-implementering-og-plots">107. Se igjen i lyx (Husk implementering og plots)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">108. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">109. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">110. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">111. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">112. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#introduction">113. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#id1">114. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#even-more-quantum-phase-estimation">115. Even more Quantum Phase Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">116. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">117. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">118. Overview of the Harrow-Hassidim-Lloyd Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#introduction">119. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">120. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-matrix-inversion">121. Quantum Matrix Inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">122. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#using-quantum-linear-algebra-for-learning">123. Using Quantum Linear Algebra for Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">124. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">125. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">126. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-assisted-gaussian-processes">127. Quantum-Assisted Gaussian Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">128. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">129. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#preliminaries">130. Preliminaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#data-preparation">131. Data preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#training">132. Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">133. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#the-variational-circuit">134. The variational circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#importing-libraries">135. Importing libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#implementing-the-circuit">136. Implementing the circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#loading-data">137. Loading data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#visualising-the-decision-boundary">138. Visualising the decision boundary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#more-training">139. More Training</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ruter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ruter/ruter.html">Ruter</a></li>
 </ul>
 
         </div>
@@ -201,7 +258,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">30. </span>Measurements revisited</li>
+      <li class="breadcrumb-item active"><span class="section-number">37. </span>Measurements revisited</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.ipynb" rel="nofollow"> View page source</a>
       </li>
@@ -212,10 +269,11 @@ const thebe_selector_output = ".output, .cell_output"
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="measurements-revisited">
-<h1><span class="section-number">30. </span>Measurements revisited<a class="headerlink" href="#measurements-revisited" title="Permalink to this headline"></a></h1>
+<h1><span class="section-number">37. </span>Measurements revisited<a class="headerlink" href="#measurements-revisited" title="Permalink to this headline"></a></h1>
 <p>In the previous we introduced quantum states as a generalization of classical probabilities. But we left it open how to exactly extract a certain event with a certain probability. To formalize this, we have to introduce measurements. Prior to introducing measurements, we neet to introduce a bit more of the notation. Remembering that we introduced a quantum state as a column vector, which we write as a ket.</p>
-<section id="bra-ket-notation">
-<h2><span class="section-number">30.1. </span>Bra-Ket Notation<a class="headerlink" href="#bra-ket-notation" title="Permalink to this headline"></a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bra-ket-notation">
+<h1><span class="section-number">38. </span>Bra-Ket Notation<a class="headerlink" href="#bra-ket-notation" title="Permalink to this headline"></a></h1>
 <p>So we have a vertical bar, and an angle sign, an in-between we write the name of the vector or the variable. And in the simplest case, this is a two-level system, it’s a qubit, so it can take– it’s a vector of two elements, and both elements are complex. Now, a complex number, in general, is written in this form.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\text{Ket:}\mid\psi\rangle=\left[\begin{array}{c}
@@ -228,8 +286,8 @@ a_{1}
 <p><span class="math notranslate nohighlight">\(\text{Bra:}\langle\psi\mid=\mid\psi\rangle^{\dagger}=\left[\bar{a_{0}}\bar{a_{1}}\right]\)</span></p>
 <p>And since this is a transpose, it’s going to be a row vector. And each of the complex components is going to take its complex conjugate. So that’s it.</p>
 </section>
-<section id="dot-product">
-<h2><span class="section-number">30.2. </span>Dot product<a class="headerlink" href="#dot-product" title="Permalink to this headline"></a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="dot-product">
+<h1><span class="section-number">39. </span>Dot product<a class="headerlink" href="#dot-product" title="Permalink to this headline"></a></h1>
 <p>So you can think of it as when we talk about stochastic vectors, we can also transpose them. But since we talk about real numbers, in the case of stochastic vectors, this complex component doesn’t make any sense. Whereas here, we have to take care that we deal with complex numbers and there’s something to get out of this. So for instance, with this notation it’s very easy to write dot productions. So for instance, if we take the bra of some arbitrary state side, and we follow it up by a ket, that’s going to be the product of a row vector with a column vector. In other words, it’s going to be a dot product.</p>
 <p>It expands as the absolute value of <span class="math notranslate nohighlight">\(a_{0}\)</span> squared plus the absolute value of <span class="math notranslate nohighlight">\(a_{1}\)</span> squared. And we know that since the vector is normalized this is just 1. So there’s just one particular way of writing the two norm– by the square of the 2 norm of the quantum state.</p>
 <div class="math notranslate nohighlight">
@@ -242,8 +300,8 @@ a_{1}
 1
 \end{array}\right]=0\end{split}\]</div>
 </section>
-<section id="ket-bra">
-<h2><span class="section-number">30.3. </span>Ket-Bra<a class="headerlink" href="#ket-bra" title="Permalink to this headline"></a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="ket-bra">
+<h1><span class="section-number">40. </span>Ket-Bra<a class="headerlink" href="#ket-bra" title="Permalink to this headline"></a></h1>
 <p>If we take a ket and a bra, which we also write in this form– it’s just easier to write– there’s not going to be a scalar, this is going to be a matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mid0\rangle\langle0\mid=\mid0\times0\mid=\left[\begin{array}{c}
@@ -258,8 +316,8 @@ a_{1}
 <p>A measurement is a central concept in quantum mechanics. An easy way to think about it as a sample from a probability distribution: it is a random variable with a number of outcomes, each outcome is produced with a certain probability. <br></p>
 <p>Measurement connect the quantum world to our classical one: we cannot directly observe the quantum state in nature, we can only gather statistics about it with measurements. It sounds like a harsh boundary between a quantum and a classical system that can only be bridged by measurement. The reality is more subtle: unless a quantum system is perfectly isolated, it interacts with its surrounding environment. This leads to introduction of mixed states, which in one limit recover classical probabilities.</p>
 </section>
-<section id="more-on-the-bra-ket-notation">
-<h2><span class="section-number">30.4. </span>More on the bra-ket notation<a class="headerlink" href="#more-on-the-bra-ket-notation" title="Permalink to this headline"></a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="more-on-the-bra-ket-notation">
+<h1><span class="section-number">41. </span>More on the bra-ket notation<a class="headerlink" href="#more-on-the-bra-ket-notation" title="Permalink to this headline"></a></h1>
 <p>Before we deep dive into what measurements are, we need to introduce one more notation to complement the ket: it called a bra and it is denoted by
 $<span class="math notranslate nohighlight">\(\langle\psi|\)</span><span class="math notranslate nohighlight">\( 
 for some quantum state 
@@ -328,9 +386,8 @@ Together they form the bra-ket or Dirac notation. A bra is the conjugate transpo
 </div>
 <p>This should look familiar: it is a projection to the first element of the canonical basis. It is true in general that <span class="math notranslate nohighlight">\(|\psi\rangle\langle\psi|\)</span> is going to be a projector to <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>. It is very intuitive: take some other quantum state <span class="math notranslate nohighlight">\(|\phi\rangle\)</span> and apply the matrix <span class="math notranslate nohighlight">\(|\psi\rangle\langle\psi|\)</span> on it: <span class="math notranslate nohighlight">\(|\psi\rangle\langle\psi|\phi\rangle\)</span>. Now the right-most two terms are a bra and a ket, so it is a dot product: the overlap between <span class="math notranslate nohighlight">\(|\phi\rangle\)</span> and <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>. Since this is a scalar, it just scales the left-most term, which is the ket <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>, so in effect, we projected <span class="math notranslate nohighlight">\(|\phi \rangle\)</span> on this vector.</p>
 </section>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="more-on-measurements">
-<h1><span class="section-number">31. </span>More on Measurements<a class="headerlink" href="#more-on-measurements" title="Permalink to this headline"></a></h1>
+<h1><span class="section-number">42. </span>More on Measurements<a class="headerlink" href="#more-on-measurements" title="Permalink to this headline"></a></h1>
 <p>A measurement in quantum mechanics is an operator-valued random variable. The theory of measurements is rich and countless questions about them are still waiting to be answered. Most quantum computers that we have today, however, only implement one very specific measurement, which makes our discussion a lot simpler. This measurement is in the canonical basis. In other words, the measurement contains two projections,
 $<span class="math notranslate nohighlight">\(\mid0\rangle\langle 0\mid\)</span><span class="math notranslate nohighlight">\( 
 and 
@@ -373,42 +430,44 @@ which is the column vector
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (0.42.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit-terra==0.23.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit) (0.23.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit-ibmq-provider==0.20.2 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit) (0.20.2)
+Requirement already satisfied: qiskit-terra==0.23.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit) (0.23.3)
 Requirement already satisfied: qiskit-aer==0.12.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit) (0.12.0)
-Requirement already satisfied: qiskit-ibmq-provider==0.20.2 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit) (0.20.2)
-Requirement already satisfied: scipy&gt;=1.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-aer==0.12.0-&gt;qiskit) (1.10.1)
 Requirement already satisfied: numpy&gt;=1.16.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-aer==0.12.0-&gt;qiskit) (1.23.5)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: websockets&gt;=10.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (11.0.2)
-Requirement already satisfied: requests&gt;=2.19 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2.28.2)
-Requirement already satisfied: urllib3&gt;=1.21.1 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.26.15)
-Requirement already satisfied: websocket-client&gt;=1.5.1 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.5.1)
-Requirement already satisfied: requests-ntlm&lt;=1.1.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.1.0)
+Requirement already satisfied: scipy&gt;=1.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-aer==0.12.0-&gt;qiskit) (1.10.1)
 Requirement already satisfied: python-dateutil&gt;=2.8.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2.8.2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy&gt;=1.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (1.11.1)
-Requirement already satisfied: symengine&gt;=0.9 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (0.10.0)
-Requirement already satisfied: ply&gt;=3.10 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (3.11)
-Requirement already satisfied: psutil&gt;=5 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (5.9.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: requests&gt;=2.19 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2.28.2)
+Requirement already satisfied: requests-ntlm&lt;=1.1.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.1.0)
+Requirement already satisfied: websocket-client&gt;=1.5.1 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.5.1)
+Requirement already satisfied: websockets&gt;=10.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (11.0.2)
+Requirement already satisfied: urllib3&gt;=1.21.1 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.26.15)
+Requirement already satisfied: sympy&gt;=1.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (1.11.1)
 Requirement already satisfied: dill&gt;=0.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (0.3.6)
 Requirement already satisfied: rustworkx&gt;=0.12.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (0.12.1)
+Requirement already satisfied: ply&gt;=3.10 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (3.11)
+Requirement already satisfied: psutil&gt;=5 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (5.9.0)
+Requirement already satisfied: symengine&gt;=0.9 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (0.10.0)
 Requirement already satisfied: stevedore&gt;=3.0.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (5.0.0)
-Requirement already satisfied: six&gt;=1.5 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.16.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests&gt;=2.19-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2022.12.7)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.16.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests&gt;=2.19-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2022.12.7)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests&gt;=2.19-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (3.4)
 Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests&gt;=2.19-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (3.1.0)
-Requirement already satisfied: cryptography&gt;=1.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (39.0.1)
 Requirement already satisfied: ntlm-auth&gt;=1.0.2 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.5.0)
+Requirement already satisfied: cryptography&gt;=1.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (39.0.1)
 Requirement already satisfied: pbr!=2.1.0,&gt;=2.0.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from stevedore&gt;=3.0.0-&gt;qiskit-terra==0.23.3-&gt;qiskit) (5.11.1)
-Requirement already satisfied: mpmath&gt;=0.19 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from sympy&gt;=1.3-&gt;qiskit-terra==0.23.3-&gt;qiskit) (1.2.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mpmath&gt;=0.19 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from sympy&gt;=1.3-&gt;qiskit-terra==0.23.3-&gt;qiskit) (1.2.1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cffi&gt;=1.12 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from cryptography&gt;=1.3-&gt;requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.15.1)
-Requirement already satisfied: pycparser in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=1.3-&gt;requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2.21)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pycparser in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=1.3-&gt;requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2.21)
 </pre></div>
 </div>
 </div>
@@ -433,13 +492,13 @@ Requirement already satisfied: pycparser in /Users/mol/micromamba/envs/moenv/lib
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cec57b89bbe328a0689dfb89e33cbed63d02618e394f7791e8a5341b88e4c82e.png" src="../../_images/cec57b89bbe328a0689dfb89e33cbed63d02618e394f7791e8a5341b88e4c82e.png" />
+<img alt="../../_images/99d139af5742edfbbbe7fd9c772f536807029fa001d6be349ffb040fe64fc18f.png" src="../../_images/99d139af5742edfbbbe7fd9c772f536807029fa001d6be349ffb040fe64fc18f.png" />
 </div>
 </div>
 <p>You see that the outcome is random, with roughly half of the outcomes being 0.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="collapse-of-the-wave-function">
-<h1><span class="section-number">32. </span>Collapse of the Wave Function<a class="headerlink" href="#collapse-of-the-wave-function" title="Permalink to this headline"></a></h1>
+<h1><span class="section-number">43. </span>Collapse of the Wave Function<a class="headerlink" href="#collapse-of-the-wave-function" title="Permalink to this headline"></a></h1>
 <p>To make it more formal, if we remember the mentioned the <em>Born Rule</em>, which tells you that you get some outcomes 0 of the qubit state with probability the absolute value of
 $<span class="math notranslate nohighlight">\(\mid a_{0}\mid^{2}\)</span>$</p>
 <p>And the state afterwards becomes the 0 ket \mid0\rangle collapse of the wave function . So the superposition is destroyed and you only get one part of the superposition. This is random which part you get with a certain probability, but this is what we call the collapse of the wave function. And the way we write it down is actually with this formalism. So the measurement outcome is actually a projection.</p>
@@ -463,12 +522,12 @@ you know that you can write the square of the two norm in this form. So we can a
 \[\text{state afterwards:}\frac\mid0\rangle\langle0\mid\psi\rangle{\langle\psi\mid0\rangle\langle0\mid\psi\rangle}\]</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="the-born-rule">
-<h1><span class="section-number">33. </span>The Born Rule<a class="headerlink" href="#the-born-rule" title="Permalink to this headline"></a></h1>
+<h1><span class="section-number">44. </span>The Born Rule<a class="headerlink" href="#the-born-rule" title="Permalink to this headline"></a></h1>
 <p>This is the mathematical way of describing how you pull out samples from a quantum state, and otherwise how we apply measurements to this particular probability distribution.</p>
 <p>https://en.wikipedia.org/wiki/Born_rule:</p>
 <p>The Born rule (also called the Born law, Born’s rule, or Born’s law), formulated by German physicist Max Born in 1926, is a physical law[citation needed] of quantum mechanics giving the probability that a measurement on a quantum system will yield a given result.[1] In its simplest form it states that the probability density of finding the particle at a given point is proportional to the square of the magnitude of the particle’s wavefunction at that point.</p>
 <section id="measurements-quiz">
-<h2><span class="section-number">33.1. </span>Measurements Quiz<a class="headerlink" href="#measurements-quiz" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">44.1. </span>Measurements Quiz<a class="headerlink" href="#measurements-quiz" title="Permalink to this headline"></a></h2>
 <p>Checkboxes:</p>
 <ul class="simple">
 <li><p>A bra <span class="math notranslate nohighlight">\(\langle\psi\mid\)</span> is</p></li>
@@ -555,7 +614,7 @@ the state after the measurement will be</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;11&#39;: 55, &#39;00&#39;: 45}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;00&#39;: 48, &#39;11&#39;: 52}
 </pre></div>
 </div>
 </div>
@@ -564,17 +623,19 @@ the state after the measurement will be</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="measuring-multiqubit-systems">
-<h1><span class="section-number">34. </span>Measuring multiqubit systems<a class="headerlink" href="#measuring-multiqubit-systems" title="Permalink to this headline"></a></h1>
+<h1><span class="section-number">45. </span>Measuring multiqubit systems<a class="headerlink" href="#measuring-multiqubit-systems" title="Permalink to this headline"></a></h1>
 <p>Most quantum computers implement local measurements, which means that each qubit is measured separately. So if we have a two qubit system where the first qubit is in the equal superposition and the second one is in <span class="math notranslate nohighlight">\(|0\rangle\)</span>, that is, we have the state <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|00\rangle + |01\rangle)\)</span>, we will observe 0 and 0 as outcomes of the measurements on the two qubits, or 0 and 1.</p>
-<p>#W
-2.3 Mixed States</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mixed-states">
+<h1><span class="section-number">46. </span>Mixed States<a class="headerlink" href="#mixed-states" title="Permalink to this headline"></a></h1>
 <p>Quantum computers we have today are not idealized. To better understand noises and how it affects quantum states, a bit more notation needs to be introduced. This section will address mixed states and which elements in noise affecting quantum computers.</p>
 <p>Kets that represent a quantum state are technically speaking also called a pure quantum state. An entirely equivalent notation to pure quantum states is called a Bezoutian matrix, which is a ket and the bra of this quantum state.</p>
 <div class="math notranslate nohighlight">
 \[\mid\psi\rangle\text{is a pure quantum state }\]</div>
 <p>We can rewrite every single operation that we would otherwise do in a ket in this formalism. For instance, to get the probability of the outcome 0 can be written as$<span class="math notranslate nohighlight">\(\text{Tr}\left[\mid0\rangle\langle0\mid\rho\right]\)</span>$</p>
-<section id="density-matrix">
-<h2><span class="section-number">34.1. </span>Density Matrix<a class="headerlink" href="#density-matrix" title="Permalink to this headline"></a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="density-matrix">
+<h1><span class="section-number">47. </span>Density Matrix<a class="headerlink" href="#density-matrix" title="Permalink to this headline"></a></h1>
 <p>We apply the same projection as we applied in our ket, but this time we apply it on this row density matrix. And instead of the length, the normal of this vector, we take the trace of this matrix. So we apply this matrix on this matrix, the outcome is a matrix, and we calculate a trace of it which is the sum of its diagonal elements. So why do we need these density matrices? Why do we need this alternative formalism? Well, the reason is, because we can also create probabilistic mixtures over pure states.</p>
 <div class="math notranslate nohighlight">
 \[\rho=\sum_{i}p_{i}\mid\psi_{i}\times\psi_{i}\mid\]</div>
@@ -623,8 +684,7 @@ i+n &amp; k+p
 <p>– True</p>
 <p>• By tracing out a subsystem of a pure state, you…</p>
 <p>– might end up with a mixed state.</p>
-<p>– you take the marginal probability distribution over one variable.
-#F</p>
+<p>– you take the marginal probability distribution over one variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -638,7 +698,7 @@ i+n &amp; k+p
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d755b11da9e2ac306f27cd283969c8fad5d4645675b2c9ab44082037f5627e72.png" src="../../_images/d755b11da9e2ac306f27cd283969c8fad5d4645675b2c9ab44082037f5627e72.png" />
+<img alt="../../_images/de8a035647022abdd79cbbf37a0917973a42fd3ef8bd591978df43bb043b9a74.png" src="../../_images/de8a035647022abdd79cbbf37a0917973a42fd3ef8bd591978df43bb043b9a74.png" />
 </div>
 </div>
 <p>What happens if we make measurements on an entangled state? Let’s look at the statistics again on the <span class="math notranslate nohighlight">\(|\phi^+\rangle\)</span> state:</p>
@@ -656,7 +716,7 @@ i+n &amp; k+p
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9c14b09bf504d28b97d4ed407b7f37bd5a3628aba5314e0b6d23f7c69be5fe69.png" src="../../_images/9c14b09bf504d28b97d4ed407b7f37bd5a3628aba5314e0b6d23f7c69be5fe69.png" />
+<img alt="../../_images/e2e1140d03b2514990f4ba4162a088639dc668da672421942c8a8045beb4af5f.png" src="../../_images/e2e1140d03b2514990f4ba4162a088639dc668da672421942c8a8045beb4af5f.png" />
 </div>
 </div>
 <p>We only observe 00 and 11. Since the state is <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|00\rangle+|11\rangle)\)</span>, this should not come as a shock. Yet, there is something remarkable going on here. At the end of the last section, we saw the same statistics, but from measurements on the same qubit. Now we have two, spatially separate qubits exhibiting the same behaviour: this is a very strong form of correlations. This means that if we measure just one qubit, and get, say, 0 as the outcome, we <em>know</em> with certainty that if we measured the other qubit, we would also get 0, even though the second measurement is also a random variable.</p>
@@ -720,7 +780,6 @@ Density matrix of the equally mixed state of |0&gt;&lt;0| and |1&gt;&lt;1|
 <p>The second density matrix above has only diagonal elements and they are equal: this is the equivalent way of writing a uniform distribution. We know that the uniform distribution has maximum entropy, and for this reason, a density matrix with this structure is called a maximally mixed state. In other words, we are perfectly ignorant of which elements of the canonical basis constitute the state.</p>
 <p>We would like a quantum state to be perfectly isolated from the environment, but in reality, the quantum computers we have today and for the next couple of years cannot achieve a high degree of isolation. So coherences are slowly lost to the environment – this is a process called decoherence. The speed at which this happens determines the length of the quantum algorithms we can run on the quantum computer: if it happens fast, we have time to apply a handful gates or do any other form calculation, and then we quickly have to pull out (measure) the results.</p>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -746,7 +805,7 @@ Density matrix of the equally mixed state of |0&gt;&lt;0| and |1&gt;&lt;1|
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html" class="btn btn-neutral float-left" title="24. Classical and Quantum Probability Theory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html" class="btn btn-neutral float-right" title="35. Unitary evolution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html" class="btn btn-neutral float-right" title="48. Evolution in Closed Systems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
