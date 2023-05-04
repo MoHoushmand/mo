@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>16.3. Operations on NV center qubits &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_computers/nv_center_qubits/nv_center_qubits_op.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="17. Quantum Annealing" href="../quantum_annealing/quantum_annealing.html" />
+    <link rel="prev" title="16. NV Center Qubits" href="nv_center_qubits.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="nv_center_qubits.html">16. NV Center Qubits</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">16.3. Operations on NV center qubits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="nv_center_qubits.html"><span class="section-number">16. </span>NV Center Qubits</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">16.3. </span>Operations on NV center qubits</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_computers/nv_center_qubits/nv_center_qubits_op.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="operations-on-nv-center-qubits">
+<h1><span class="section-number">16.3. </span>Operations on NV center qubits<a class="headerlink" href="#operations-on-nv-center-qubits" title="Permalink to this headline"></a></h1>
+<p>In this second video, Tim will continue his lecture on NV center qubits. He will elaborate on the control of multiple nuclear spin qubits, and show how these NV centers can create a quantum network.</p>
+<p>Previously, we have seen how we can control the electron spin of the NV center in diamond as a qubit.
+In this lecture, we will learn how we can use the NV center to also control multiple nuclear spin qubits,
+and how we can link NV centres together using photons to create a quantum network.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o2.png" /></p>
+</div>
+</div>
+</div>
+<p>The first thing to realize is that this electron spin is surrounded by an entire cloud of nuclear spins.
+About 1% of diamond consists of Carbon-13, which is a spin-1/2 system and the rest consists of Carbon-12, which has no spin.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o3.png" /></p>
+</div>
+</div>
+</div>
+<p>Now normally speaking, these nuclear spins are a source of decoherence.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o4.png" /></p>
+</div>
+</div>
+</div>
+<p>They flip-flop around randomly, and create a slowly-varying magnetic field on the NV-center.
+If we prepare the NV center in a quantum superposition state, then this fluctuating magnetic field changes the NV energy levels, that causes its phase evolution to become random and the quantum state is lost. This dephasing time is only about 5 microseconds, not that long.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o5.png" /></p>
+</div>
+</div>
+</div>
+<p>Luckily, we can play a trick. We can apply a pulse that inverts the state of the NV. That if we flip it, this also inverts the effect of the magnetic field on the spin. So, if we have the same time before and after this flip, then the effect of the field exactly cancels and the quantum state is protected. We call this a spin echo. Of course this cancelation only works if the magnetic field is constant over time.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o6.png" /></p>
+</div>
+</div>
+</div>
+<p>But don’t worry. As long as the field fluctuates slowly, we can just flip the electron spin multiple times, faster and faster, so that everything still averages out. In this graph you can see that this works.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o7.png" /></p>
+</div>
+</div>
+</div>
+<p>We bring the electron spin in a super position and as we apply more and more pulses, we protect the electron spin longer and longer. In this way, we can even protect the quantum state for over a second, so really over macroscopic time scales and about six orders of magnitude better than without flipping the electron. We thus have very good coherence for the electron spins. How can we now use this to control multiple nuclear spins in the environment? The key here is that if the electron spin is, let’s say, in a state pointing downwards, then it creates a dipolar magnetic field.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o8.png" /></p>
+</div>
+</div>
+</div>
+<p>Each nuclear spin has a different position and angle from the electron spin, so that each of them feels a different magnetic field. This gives each nuclear spin a unique frequency, so that we can apply radiofrequency pulses that are resonant only with a particular targeted nuclear spin. We can selectively control the spins. Moreover, if we now flip the electron to its zero state, it does not create a magnetic field.</p>
+<p>Now the same RF pulse will have no effect on this nuclear spin.
+The evolution of the nuclear spin thus depends on the state of the electron spin: it rotates if the electron spin is in state -1, but it doesn’t rotate for state 0.
+This means we have a controlled quantum gate between the electron and nuclear spin. A CNOT.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o9.png" /></p>
+</div>
+</div>
+</div>
+<p>That is exactly what we need for quantum computation.
+This enables us to control multiple nuclear spins near a single NV center.
+Each NV center becomes a system of 5 or even more qubits.
+How do we link these NV centres together into a network?
+For that we use photons.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o10.png" /></p>
+</div>
+</div>
+</div>
+<p>Consider two NV centres in two different diamonds.
+We first make each of these NV centres emit a photon that is entangled with the spin state.
+And then we take these two photons and bring them together on a beam splitter.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o11.png" /></p>
+</div>
+</div>
+</div>
+<p>After this beam splitter it is fundamentally impossible to tell which photon came from which NV center.
+This means if the detectors behind the beam splitter register a certain pattern of photons,
+then we know, that for example, one of the NV centres is pointing up
+and the other one is pointing down.
+Because we fundamentally cannot know which one is up and which one is down,
+quantum mechanics tells us that we have created an entangled state
+between two distant NV centers.
+Note that this does not succeed every time you try.
+Not all measurement outcomes lead to entanglement
+and photons are also often lost on their way to the detectors.
+This is not a problem because we are just trying to create entanglement
+to use it as a resource to perform quantum computation in our network.
+So we can just keep trying and trying until we get the right measurement outcome,
+which then heralds the generation of entangled state, and then we can use it in the network.
+This works.
+Here you see a state-of-the-art experiment in Delft, where we created entanglement
+between one NV center in the physics building, all the way on the left and another NV center,
+About 1,3 kilometres away, at the other side of the Delft campus.
+This experiment was done to provide a more stringent test if quantum entanglement really exists.
+The outcome was yes, quantum mechanics is still correct.
+So, we can now go and use this entanglement to build quantum networks for quantum technology.
+The next big step will be to combine the control of multiple qubits in each node
+with optical links to generate entanglement, in order to build increasingly larger quantum networks.
+all the way on the right.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o12.png" /></p>
+</div>
+</div>
+</div>
+<p>Of course there are still many challenges.
+We need really good quantum control over all these spins and photons.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m3o13.png" /></p>
+</div>
+</div>
+</div>
+<p>We need to understand how to efficiently run quantum computations and error correction
+over these networks, and we need to build the complex electronics and software
+to control the networks.
+For this, we need physics, quantum computer science and engineering to come together.
+It will be really exciting to see if we can really build large-scale quantum networks
+and make quantum computation and quantum cryptography a reality.</p>
+<p> Main takeways </p>
+<ul class="simple">
+<li><p>Spin echo is a way to protect the electron spins from decoherence caused by the surrounding nuclear spins.</p></li>
+<li><p>The dipolar magnetic field of the electron spin gives a unique energy splitting to differently positioned nuclear spins, allowing selective control.</p></li>
+<li><p>The nuclear spin’s dependence on the electron spin state forms the basis for controlled quantum gates.</p></li>
+<li><p>Using a beam splitter, photons can be used to generate entanglement between two distant NV centers.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="practice-quiz-7">
+<h2><span class="section-number">16.3.1. </span>Practice Quiz 7<a class="headerlink" href="#practice-quiz-7" title="Permalink to this headline"></a></h2>
+<section id="question-1-a-quantum-network">
+<h3><span class="section-number">16.3.1.1. </span>Question 1: A quantum network<a class="headerlink" href="#question-1-a-quantum-network" title="Permalink to this headline"></a></h3>
+<p>What is the procedure explained in the lecture for connecting different NV centers to build a quantum network? We shine a laser onto an NV center and:</p>
+<ul class="simple">
+<li><p>The NV center reflects the light. This reflected light carries information about the quantum state, and is subsequently sent to a different NV. The collision of the light with the other NV causes it to carry that information too.</p></li>
+<li><p>Measure the NV center to learn its state. This information is send to a different NV. Using this information we can manipulate the NV to reproduce the state at the first node.</p></li>
+<li><p>Excite the electron. As the electron falls back, a photon is emitted. This photon is sent to a different NV and subsequently collected by its electron, after which the electron has reproduced the state of the first excited electron.</p></li>
+<li><p>Similarly shine a laser on the other NV center. We let the photons, which are emitted due to electrons falling back, interfere. By measuring them, we effectively entangle the two NV centers.</p></li>
+</ul>
+<p> Explanation </p>
+<p>Reflected light does not carry information and measuring would destroy the quantum state and any entanglement. Letting a second NV center absorb an emitted photon from the NV center is in theory possible, but experimentally very inefficient. To date, photon interference of the emitted photons from two NV centers is the best way to entangle distant nodes.</p>
+</section>
+</section>
+<section id="quiz-7-operations-on-nv-center-qubits">
+<h2><span class="section-number">16.3.2. </span>Quiz 7: Operations on NV center qubits<a class="headerlink" href="#quiz-7-operations-on-nv-center-qubits" title="Permalink to this headline"></a></h2>
+<section id="question-1-controlling-nuclear-spins">
+<h3><span class="section-number">16.3.2.1. </span>Question 1: Controlling nuclear spins<a class="headerlink" href="#question-1-controlling-nuclear-spins" title="Permalink to this headline"></a></h3>
+<p>What are the ways to control an individual nuclear spin in an NV center experiment?
+Mark the two that correctly apply.</p>
+<ul class="simple">
+<li><p>Using microwave pulses.</p></li>
+<li><p><strong>Using the interaction with the electron.</strong></p></li>
+<li><p><strong>Using radio frequencies.</strong></p></li>
+<li><p>Using lasers for nuclear excitations.</p></li>
+<li><p>Applying a variable magnetic field.</p></li>
+</ul>
+<p>Explanation</p> As explained in the lecture, nuclear spins are controlled using the interaction with the electron and using radio frequency pulses. Microwave pulses are used to control the electron spins.
+</section>
+<hr class="docutils" />
+<section id="nv-eigenstates">
+<h3><span class="section-number">16.3.2.2. </span>2.1: NV eigenstates<a class="headerlink" href="#nv-eigenstates" title="Permalink to this headline"></a></h3>
+<p><strong>Dynamical decoupling (DD)</strong> <br>
+In the lecture, Tim told us all about the trick we can apply to protect superpositions against decoherence from random phase rotations. This process is termed dynamical decoupling (DD). In the following questions, we will together mathematically investigate the beautiful features of dynamical decoupling.</p>
+<p>The eigenstates of the spin- <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> carbon-13 nuclei are <span class="math notranslate nohighlight">\(\left|s=-\frac{1}{2}\right\rangle\)</span> and <span class="math notranslate nohighlight">\(\left|s=\frac{1}{2}\right\rangle\)</span>. The values <span class="math notranslate nohighlight">\(s\)</span> also correspond to the eigenvalues of the spin observable.
+What would the eigenstates of the conventional spin-1 NV electron be?</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(|s=-1\rangle\)</span> and <span class="math notranslate nohighlight">\(|s=1\rangle\)</span></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(|s=-1\rangle,|s=0\rangle\)</span> and <span class="math notranslate nohighlight">\(|s=1\rangle\)</span></strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(\left|s=-\frac{1}{2}\right\rangle\)</span> and <span class="math notranslate nohighlight">\(\left|s=\frac{1}{2}\right\rangle\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(|s=-1\rangle,\left|s=-\frac{1}{2}\right\rangle_{1}\left|s=\frac{1}{2}\right\rangle\)</span>, and <span class="math notranslate nohighlight">\(|s=1\rangle\)</span></p></li>
+</ul>
+<p><strong>Hint (1 of 1):</strong> Check https://en.wikipedia.org/wiki/Spin_(physics)#Higher_spins, section “Higher Spins” for
+Next Hint the relevant <span class="math notranslate nohighlight">\(\mathbf{S z}\)</span> spin matrix.</p>
+<p>Explanation</p>
+<p>When solving for the eigenstates of the 3-by-3 matrix, one finds the three eigenvalues to be 1,0,-1.</p>
+</section>
+<hr class="docutils" />
+<section id="spin-1-qubit-2-2">
+<h3><span class="section-number">16.3.2.3. </span>Spin-1 Qubit 2.2<a class="headerlink" href="#spin-1-qubit-2-2" title="Permalink to this headline"></a></h3>
+<p>What combinations of eigenstates of the spin-1 NV electron (see question 2.1) can we use to make a qubit of the NV electron?
+Mark all that correctly apply.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(|s=-1\rangle,|s=0\rangle\)</span> and <span class="math notranslate nohighlight">\(|s=1\rangle\)</span></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(|s=0\rangle\)</span> and <span class="math notranslate nohighlight">\(|s=1\rangle\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(|s=-1\rangle\)</span> and <span class="math notranslate nohighlight">\(|s=1\rangle\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(|s=-1\rangle\)</span> and <span class="math notranslate nohighlight">\(|s=0\rangle\)</span></strong></p></li>
+</ul>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p>An example of an admonition with a title.
+<span class="math notranslate nohighlight">\(|s=0\rangle\)</span> and <span class="math notranslate nohighlight">\(|s=1\rangle\)</span></p>
+</div>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p>An example of an admonition with a title.
+<strong><span class="math notranslate nohighlight">\(|s=-1\rangle\)</span> and <span class="math notranslate nohighlight">\(|s=1\rangle\)</span></strong></p>
+</div>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p>An example of an admonition with a title.
+<strong><span class="math notranslate nohighlight">\(|s=-1\rangle\)</span> and <span class="math notranslate nohighlight">\(|s=0\rangle\)</span></strong></p>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>The {-1,0,1} basis would correspond to a qutrit, not a qubit. All the other combinations are theoretically possible bases. However, in practice we only use the {-1,0} or {0,1} as qubit basis, since a high magnetic field is needed to separate the {-1,1} states by Zeeman splitting.</p>
+</div>
+<p>Explanation
+The {-1,0,1} basis would correspond to a qutrit, not a qubit. All the other combinations are theoretically possible bases. However, in practice we only use the {-1,0} or {0,1} as qubit basis, since a high magnetic field is needed to separate the {-1,1} states by Zeeman splitting.</p>
+</section>
+<hr class="docutils" />
+<section id="interaction-with-the-environment-2-3">
+<h3><span class="section-number">16.3.2.4. </span>Interaction with the environment 2.3<a class="headerlink" href="#interaction-with-the-environment-2-3" title="Permalink to this headline"></a></h3>
+<p>In the NV center, each carbon atom produces a small magnetic field, which has an effect on the electron spin’s energy. The magnetic fields caused by the carbon atoms thus influence the state of the electron. If this influence isn’t compensated for, it appears as unwanted noise. The noise caused by nuclear spins on the electron is proportional to the eigenvalue of the electron’s state (value corresponding to the eigenstate).</p>
+<p>Judging from the eigenstates we have previously found for this system, which of the electron eigenstates are vulnerable to this noise?
+Mark all that correctly apply.</p>
+<ul class="simple">
+<li><p><strong>The <span class="math notranslate nohighlight">\(|s=-1\rangle\)</span> state</strong></p></li>
+<li><p>The <span class="math notranslate nohighlight">\(|s=0\rangle\)</span> state</p></li>
+<li><p><strong>The <span class="math notranslate nohighlight">\(|s=1\rangle\)</span> state</strong></p></li>
+</ul>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Explanation
+Since <span class="math notranslate nohighlight">\(-1\)</span>, <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> are the possible eigenvalues, and the noise is proportional to these values, only the non-zero eigenvalues correspond to states which are vulnerable to noise from the nuclear spins.</p>
+</div>
+<p><em>Zeeman splitting??</em></p>
+</section>
+<hr class="docutils" />
+<section id="interaction-with-the-environment-2-4">
+<h3><span class="section-number">16.3.2.5. </span>Interaction with the environment 2.4<a class="headerlink" href="#interaction-with-the-environment-2-4" title="Permalink to this headline"></a></h3>
+<p>Now, suppose we take the electron <span class="math notranslate nohighlight">\(|s=-1\rangle\)</span> eigenstate to be <span class="math notranslate nohighlight">\(|1\rangle\)</span> and the <span class="math notranslate nohighlight">\(|s=0\rangle\)</span> eigenstate to be <span class="math notranslate nohighlight">\(|0\rangle\)</span>. This will be our qubit from now on.
+Since the spin bath is so big, and the nuclear spins are very weak, we can approximate the total noise the electron picks up from the environment as an almost constant (quasi-static) magnetic field. The noise picked up by the electron in a certain time <span class="math notranslate nohighlight">\(\tau\)</span> will be equal to <span class="math notranslate nohighlight">\(\mathrm{N}\left(=e^{i \phi}\right.\)</span> ).
+For the next question we will prepare our electron in the superposition</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha|0\rangle+\beta|1\rangle
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> random (complex) numbers under the condition the state is normalized.
+What does this superposition look like after this period <span class="math notranslate nohighlight">\(\tau\)</span> ?
+Express your answers in <span class="math notranslate nohighlight">\(\alpha, \beta\)</span> and N. Fill in Jalpha and \beta for <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> respectively. Do not use spaces. Indicate multiplication with an asterisk (*).</p>
+<ul class="simple">
+<li><p>Prefactor <span class="math notranslate nohighlight">\(|0\rangle\)</span></p></li>
+</ul>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p><strong><span class="math notranslate nohighlight">\(\alpha\)</span></strong></p>
+</div>
+<p>\alpha</p>
+<ul class="simple">
+<li><p>Prefactor <span class="math notranslate nohighlight">\(|1\rangle\)</span></p></li>
+</ul>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p><strong><span class="math notranslate nohighlight">\(N*\beta\)</span></strong></p>
+</div>
+<p>N*\beta</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>As seen in question <span class="math notranslate nohighlight">\(2.3\)</span>, only the <span class="math notranslate nohighlight">\(|1\rangle\)</span> state picks up noise from the environment. The <span class="math notranslate nohighlight">\(|0\rangle\)</span> state remains unaffected. This is called dephasing of the qubit.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="interaction-with-the-environment">
+<h3><span class="section-number">16.3.2.6. </span>Interaction with the environment<a class="headerlink" href="#interaction-with-the-environment" title="Permalink to this headline"></a></h3>
+<p><span class="math notranslate nohighlight">\(0.0 / 1.0\)</span> point (graded)
+Continuing with the created state from the last exercise, we now perform a bit flip on the electron. This is one of the <span class="math notranslate nohighlight">\(\pi\)</span> pulses shown in Tim’s second video at <span class="math notranslate nohighlight">\(1: 20-2: 40\)</span>. What does the state now look like?
+Prefactor <span class="math notranslate nohighlight">\(|0\rangle\)</span></p>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p><strong><span class="math notranslate nohighlight">\(N*\beta\)</span></strong>
+N*\beta</p>
+</div>
+<p>Prefactor <span class="math notranslate nohighlight">\(|1\rangle\)</span></p>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p><strong><span class="math notranslate nohighlight">\(\alpha\)</span></strong></p>
+</div>
+<p>\alpha</p>
+</section>
+<hr class="docutils" />
+<section id="interaction-with-the-environment-2-6">
+<h3><span class="section-number">16.3.2.7. </span>Interaction with the environment 2.6<a class="headerlink" href="#interaction-with-the-environment-2-6" title="Permalink to this headline"></a></h3>
+<p>0.0/1.0 point (graded)
+We again wait for another period of exactly <span class="math notranslate nohighlight">\(\tau\)</span>, which thus introduces the exact same noise as before. What does the state look like after this waiting period? Don’t omit a potential global phase in the answer.</p>
+<p>Prefactor <span class="math notranslate nohighlight">\(|0\rangle\)</span></p>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p><strong><span class="math notranslate nohighlight">\(N*\beta\)</span></strong></p>
+</div>
+<p>N*\beta</p>
+<ul class="simple">
+<li><p>Prefactor <span class="math notranslate nohighlight">\(|1\rangle\)</span></p></li>
+</ul>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p><strong><span class="math notranslate nohighlight">\(N*\alpha\)</span></strong></p>
+</div>
+<p>N*\alpha</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>You’ve probably answered <span class="math notranslate nohighlight">\(N * \beta|0\rangle+N * \alpha|1\rangle\)</span>, which is of course correct. However, <span class="math notranslate nohighlight">\(N\)</span> here is a global phase factor (it appears in front of every state in the superposition). Global phase factors do not affect your state and can thus be neglected. Therefore, the answer <span class="math notranslate nohighlight">\(\backslash\)</span> betalket <span class="math notranslate nohighlight">\(\{0\}+\backslash\)</span> alphalket <span class="math notranslate nohighlight">\(\{1\}\)</span> is also right.</p>
+</div>
+</section>
+<section id="interaction-with-the-environment-2-7">
+<h3><span class="section-number">16.3.2.8. </span>Interaction with the environment 2.7<a class="headerlink" href="#interaction-with-the-environment-2-7" title="Permalink to this headline"></a></h3>
+<p>We have now designed a pulse sequence which mitigates the noise, but does not recover our initial state. This is because we have only applied a <span class="math notranslate nohighlight">\(\pi\)</span> pulse in total, thus the outcome state is a flipped state. We now want to design a DD sequence which returns to the initial state.
+What is the shortest sequence that achieves this?
+Multiples of <span class="math notranslate nohighlight">\(\tau\)</span> indicate waiting periods where noise will occur, and <span class="math notranslate nohighlight">\(\pi\)</span> indicates a pi pulse, or bit flip.</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\tau-\pi-2 \tau-\pi-\tau\)</span></strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau-\pi-\tau-\pi-\tau\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau-\pi-2 \tau-2 \pi-2 \tau-\pi-\tau\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau-\pi-\tau-\pi-\tau-\pi-\tau-\pi-\tau\)</span></p></li>
+</ul>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p><strong><span class="math notranslate nohighlight">\(\tau-\pi-2 \tau-\pi-\tau\)</span></strong></p>
+</div>
+<div class="admonition-hint-1-of-1 admonition">
+<p class="admonition-title">Hint (1 of 1):</p>
+<p>Carefully look at the steps we have taken up so far and at the state we ended in lastly. What has changed, and how do we get back at our initial state?</p>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>As we have seen in the preceeding questions, the sequence of <span class="math notranslate nohighlight">\(\tau-\pi-\tau\)</span> resulted in a bit flip regarding our initial state. To get back at this initial state from the state we were in, we need to perform another bitflip. So, by repeating this first sequence we will get back at our initial state, which is what we wanted to achieve!</p>
+</div>
+</section>
+</section>
+<section id="additional-reading">
+<h2><span class="section-number">16.3.3. </span>Additional reading<a class="headerlink" href="#additional-reading" title="Permalink to this headline"></a></h2>
+<section id="loophole-free-bell-test">
+<h3><span class="section-number">16.3.3.1. </span>Loophole-free Bell test<a class="headerlink" href="#loophole-free-bell-test" title="Permalink to this headline"></a></h3>
+<p>Back in 2015, the group of professor Hanson from QuTech managed to prove entanglement by proving the Bell inequality. Read more about this here: Paper on Loophole-free Bell test https://www.nature.com/articles/nature15759</p>
+</section>
+<section id="new-entanglement-on-demand">
+<h3><span class="section-number">16.3.3.2. </span>New: Entanglement on demand!<a class="headerlink" href="#new-entanglement-on-demand" title="Permalink to this headline"></a></h3>
+<p>Scientists from Delft managed to create superposition faster than it would decohere, allowing deterministic entanglement.
+Paper on entanglement on demand https://www.nature.com/articles/s41586-018-0200-5</p>
+<p>Or look at this video! https://www.youtube.com/watch?v=vWXkzOg3GOU</p>
+<p>Video on entanglement on demand</p>
+</section>
+<hr class="docutils" />
+<section id="bonus-question-bandgap-of-a-nv-center-ungraded">
+<h3><span class="section-number">16.3.3.3. </span>Bonus question: Bandgap of a NV center (ungraded)<a class="headerlink" href="#bonus-question-bandgap-of-a-nv-center-ungraded" title="Permalink to this headline"></a></h3>
+<figure class="align-default" id="quantum-network">
+<img alt="gfx/gfx3/NVminus_cear.png" src="gfx/gfx3/NVminus_cear.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 16.1 </span><span class="caption-text">Quantum Network</span><a class="headerlink" href="#quantum-network" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the figure, you can see the so-called bandgap diagram of an NV center. The <span class="math notranslate nohighlight">\(y\)</span>-axis represents energy and the horizontal lines are the energy states. Each electron is represented by an up-or down-arrow.</p>
+<p>In this particular bandgap diagram you can see six trapped electrons. This sixth electron is added by excitation of one of the initially trapped electrons from the valence band to a higher energy state. This vacancy is easily filled up with one of the many electrons present in the valence band.
+This new system, with 6 trapped electrons is called the NV minus state.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="bonus-question-bandgap-of-a-nv-center">
+<h2><span class="section-number">16.3.4. </span>Bonus question: Bandgap of a NV center<a class="headerlink" href="#bonus-question-bandgap-of-a-nv-center" title="Permalink to this headline"></a></h2>
+<p>Looking at the figure above. Why do we only use the 4 electrons that are trapped in the bandgap?</p>
+<ul class="simple">
+<li><p>States in the bandgap are protected against the electron transfers to and from the diamond.</p></li>
+<li><p>The number of possible qubit states for 6 trapped electrons is too large, making computation impossible.</p></li>
+<li><p>The degenerate excited states are only symmetric with respect to the bandgap states.</p></li>
+</ul>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Electrons in the valence band can move around freely, so information cannot be stored in the spin of such an electron, or transferred for the purpose of reading out a nuclear spin. This is because such an electron may randomly leave the valence band state that it sits in, and be replaced by another electron from the valence band. The electrons inside the band gap are protected from the valence band, so we can avoid these random substitutions.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_computers/nv_center_qubits"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nv_center_qubits.html" class="btn btn-neutral float-left" title="16. NV Center Qubits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../quantum_annealing/quantum_annealing.html" class="btn btn-neutral float-right" title="17. Quantum Annealing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

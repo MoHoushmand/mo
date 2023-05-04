@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11. Spin Qubits &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_computers/spin_qubits/spin_qubits.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="11.4. Operations on spin qubits" href="spin_qubits_op.html" />
+    <link rel="prev" title="10.10. Quantum Annealing" href="../qubits/annealing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Spin Qubits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spin_qubits_op.html">11.4. Operations on spin qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spin_qubits_op.html#question-4-single-qubit-gates-with-spin-qubits">11.5. Question 4: Single-qubit gates with spin qubits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">11. </span>Spin Qubits</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_computers/spin_qubits/spin_qubits.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="spin-qubits">
+<h1><span class="section-number">11. </span>Spin Qubits<a class="headerlink" href="#spin-qubits" title="Permalink to this headline"></a></h1>
+<p>In the first module we discussed all the basic building blocks of a quantum computer. It is now time to dive deeper into the block at the bottom of the stack: the quantum chip! Qubits can be realized in many different physical platforms, and in the next week’s we will introduce you to some of these realizations.</p>
+<p>In this module, we will start with an introduction about electron spin qubits realized in semiconductor quantum dots. These qubits highly resemble the classical semiconductor transistors that we use everyday in almost every electronic equipment. This unique characteristic has attracted a lot of attention from the most important semiconductor companies. Check out this article about Intel’s vision about spin qubits.</p>
+<p>Lieven Vandersypen, Professor in applied physics, will explain how we can control single electrons and isolate them in semiconducting islands called quantum dots. Once we have isolated single electrons, we need to be able to manipulate their spins and make those spins interact with each other in a controllable manner. This will be the topic of the second lecture, given by Menno Veldhorst.</p>
+<p>This module contains 2 lectures and 2 quizzes. Good luck and have fun!</p>
+<p>Click Next to get started.</p>
+<p>When we look back at the development of semi-conducting technology, a great moment was in 1947 - the demonstration of the first transistor. Shortly after that, people began to put several transistors together on a circuit with capacitors and resistors; and developed the first transistor radio. Even though this technology was quite remarkable, it clearly had its limits; how many components could you really solder together by hand on a board?</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum k0" src="../../_images/m2a-1.png" /></p>
+</div>
+</div>
+</div>
+<p>So a second momentous step was in 1958 - the first demonstration of an integrated circuit, where all of the relevant components were integrated monolithically in the same piece of germanium or silicon, and that’s led to the remarkably powerful and complex processors that we use in computers and memory chips today.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m2a-2.png" /></p>
+</div>
+</div>
+</div>
+<p>Now, based on this very same core technology of transistors and integrated circuits, we have found in the last decade how to build some of the highest-quality quantum bits. If we look at how a transistor is built, essentially, it is a switch that controls the flow of electrons between two contacts using the voltage applied to a single gate.</p>
+<p>If we now imagine that we replace the one gate by multiple gates side-by-side separating the contacts, then with the gates we can locally pull in electrons or push away electrons, depending on the polarity of the voltage that we apply to the gates.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m2a-3.png" /></p>
+</div>
+</div>
+</div>
+<p>In this way it is actually possible to isolate small puddles of electrons from the rest of the world. A quantum dot is the small space where electrons are pulled in below one gate separated by other puddles of electrons.</p>
+<p>As a community, it’s now become routine to go to the extreme limit, where below each of these electrodes, just one single electron is isolated; and the spin of that electron is going to be our quantum bit.
+So how in the world can we isolate individual electrons and control them? It starts with the notion of the charging energy, that is the energy that results from the Coulomb repulsion between electrons. As we add charges to the island, this costs energy, and if you go to very small capacitances, it turns out that the charging energy, the energy required to add one single electron charge, can be larger than the thermal energy. To give some examples, for a small island with a radius of a 100 nanometers, the charging energy is 3 meV. To put that number into perspective, the thermal energy at 4K is ten times less than this. So at 4K it is actually possible to control the number of charges on these islands one-by-one.
+How do we know that individual charges are being added to the island?</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m2a-4.png" /></p>
+</div>
+</div>
+</div>
+<p>The standard method is to look at the current that flows between the contacts through the quantum dot – the central island. In this schematic, we see a set of lines, called electrochemical potential lines, that can be pushed up or pulled down by the gate voltage as a ladder, and each line indicates the energy needed to add the next electron to the island. What we see in the configuration on the left is that this energy is larger than the energy of the highest occupied state in the reservoirs, called the Fermi energy, so the electrons in the reservoir don’t have enough energy to go into the quantum dot. Furthermore, the line at the dot below it is lower than the Fermi energy in both reservoirs so no electron can leave the dot.</p>
+<p>In other words, electrons cannot be removed from the island and electrons cannot be added to the island; current is blocked. We call this Coulomb blockade. In the configuration on the right, we have adjusted the gate voltage in such a way that the ladder comes down, and the electrochemical potential μ(N) lies exactly within the window between the source and drain Fermi energies or electrochemical potentials. In this condition, if an electron can move from the source into the island, then from the island it can move out to the drain. However, before the first electron leaves, no second electron can enter. So individual electrons are really being added one by one as they pass through the quantum dot. But altogether, these many electrons moving through one by one, do produce a measurable current.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="../../_images/m2a-5.png" /></p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Ne" src="../../_images/m2a-6.png" /></p>
+</div>
+</div>
+</div>
+<p>The current flows whenever the electrochemical potential lies within this biased window between source and drain. We see this beautifully in measurements as sharp peaks in the conductors and current through the quantum dot for specific gate voltages where we have reached an alignment as shown in the schematic on the right, and for the intermediate gate voltages, the current is blocked. A second important method to measure and detect the presence or absence of individual electrons is what we call charge sensing.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="../../_images/m2a-7.png" /></p>
+</div>
+</div>
+</div>
+<p>Basically, if you imagine a single quantum dot and another quantum dot next to it, as you have seen, the current through the second quantum dot sensitively depends on the gate voltage; with a small change in gate voltage we can produce a large current or completely shut off the current.
+Now imagine a second quantum dot is placed next to the first. It turns out that a single charge added to the second quantum dot acts like a small shifting gate voltage through capacitive coupling, it shifts the position of the levels in the first quantum dot. So when a single charge is added to one quantum dot, the current through a neighbouring quantum dot is changed in a measurable way. Let’s look at an example of two quantum dots.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="quantum_computers/quantum_computers/qc_img/gfx2/m2a-8.png" /></p>
+</div>
+</div>
+</div>
+<p>In this case we need an additional gate in between the two quantum dots to control their coupling. By lowering the voltage on this tunnel barrier gate we can tune the electrical potential in such way that the two electrons are well isolated from each other. If we draw a gate voltage space where the gate voltage that controls the potential of one quantum dot is plotted on the horizontal axis, and the gate voltage that controls the second quantum dot on the vertical axis; then, if the two quantum dots are uncoupled, for specific voltages on the first gate electrode electrons are added to the first quantum dot.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="quantum_computers/quantum_computers/qc_img/gfx2/m2a-9.png" /></p>
+</div>
+</div>
+</div>
+<p>These transitions are represented by the vertical lines in the plot.
+Similarly, for specific voltages on the second gate electrode, electrons are added one at a time to the second quantum dot. These are the horizontal lines. If we now consider two quantum dots in each other’s vicinity, two effects will happen.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="../../_images/m2a-10.png" /></p>
+</div>
+</div>
+</div>
+<p>The first is that crosstalk. The voltage applied to the first gate electrode also affects the potential of the second quantum dot, which sits to its side; and vice versa. That’s why, the lines that were vertical and horizontal before, are now aligned at an angle.</p>
+<p>A second effect is that a change in the number of electrons in one quantum dot changes the alignment of the levels in the second quantum dot, which is seen in the diagram as discrete shifts in the position of the charge transitions.
+So now, how to go from these simple concepts of early demonstrations to large-scale circuits? First we require all the quantum dots to be as identical and uniform as they can be, so that it becomes practical to control the properties of many quantum dots, representing the qubits. To do that, even though university clean rooms have been a great way to get started, it has become clear that we really need access to industry-standard clean rooms, that are optimized not for creative science and exploring new ideas, like university clean rooms, but that are optimized for producing many components that are all as clean and identical as they can be. With this motivation, in 2015, we started a close collaboration with Intel that is focused on using 300 mm technology to produce high quality quantum dot arrays.
+Now, even if quantum dot arrays are placed along a line, eventually, we do need two- dimensional arrays. Bringing wires to all the qubits in a two-dimensional array may be very difficult; however fruitful ideas have been explored to adjust qubits or quantum dots using cross-bar technology - the same technology that is used today in displays and memory chips.</p>
+<p>Where a limited number of wires, that are running horizontally and vertically, can be used to adjust a much larger number of components, like pixels on a display or quantum dots in a two-dimensional array. With this approach, we envision that perhaps something like 1024 qubits can be integrated into a single array, no larger than 30 x 30 micrometres. To go beyond that, we envision true quantum integrated circuits, where different local arrays are interconnected with other local arrays on the same chip using what we call quantum links, links that can carry quantum information, that can transfer entanglement. Many ideas for producing such links have been tested and are being tested in the lab today. In addition, we imagine a layer of classical electronics co-integrated with the qubits in the same way, to distribute signals on the chip efficiently. No doubt, it’s a phenomenal challenge to realize such complex circuits. All the pieces are falling in place and we are working hard to make it happen.</p>
+<section id="main-takeaways">
+<h2><span class="section-number">11.1. </span>Main takeaways<a class="headerlink" href="#main-takeaways" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>In quantum dots, single electrons can be confined to be used as quantum bits.</p></li>
+<li><p>Spin qubits have to be operated at sufficiently low temperatures, such that the charging energy exceeds the thermal energy.</p></li>
+<li><p>The coulomb blockade prevents electrons to enter or leave the dot when the electrochemical potential of the quantum dot does not match the Fermi energy.</p></li>
+<li><p>Neighbouring dots experience inter-dot capacitance and crosstalk.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="practice-quiz-4">
+<h2><span class="section-number">11.2. </span>Practice Quiz 4<a class="headerlink" href="#practice-quiz-4" title="Permalink to this headline"></a></h2>
+<p>In one of the videos, Lieven used a “ladder” diagram to describe situations in which electrons from the reservoir can and cannot jump on the quantum dot. This ladder picture is often handy when thinking about how to induce and stop current from going through the quantum dot. Below are a few exercises to help you make sure you are comfortable with this picture.</p>
+<p>::::{grid}
+:gutter: 3</p>
+<p>:::{grid-item-card} a
+:shadow: md</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="../../_images/m2aq1_current_left.png" /></p>
+</div>
+</div>
+</div>
+<p>Here’s the first card.
+:::</p>
+<p>:::{grid-item-card} b
+:shadow: md</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="../../_images/m2aq1_current_right.png" /></p>
+</div>
+</div>
+</div>
+<p>Here’s the second card.
+:::</p>
+<p>:::{grid-item-card} c
+:shadow: md</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="../../_images/m2aq1_no_flow.png" /></p>
+</div>
+</div>
+</div>
+<p>Here’s the third card.
+:::
+::::</p>
+<hr class="docutils" />
+<section id="question-1">
+<h3><span class="section-number">11.2.1. </span>Question 1<a class="headerlink" href="#question-1" title="Permalink to this headline"></a></h3>
+</section>
+<hr class="docutils" />
+<section id="question-2-industrial-involvement">
+<h3><span class="section-number">11.2.2. </span>Question 2: Industrial involvement<a class="headerlink" href="#question-2-industrial-involvement" title="Permalink to this headline"></a></h3>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>While university cleanrooms provide a better environment for the exploration of new ideas, collaboration with industry gives experimentalists access to higher-quality substrates, as well as precise, large-scale facilities for producing large numbers of identical quantum dots.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="quiz-4-introducing-spin-qubits">
+<h2><span class="section-number">11.3. </span>Quiz 4: Introducing spin qubits<a class="headerlink" href="#quiz-4-introducing-spin-qubits" title="Permalink to this headline"></a></h2>
+<section id="question-1-quantum-dots-and-transistors">
+<h3><span class="section-number">11.3.1. </span>Question 1: Quantum dots and transistors<a class="headerlink" href="#question-1-quantum-dots-and-transistors" title="Permalink to this headline"></a></h3>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Quantum dots and transistors are similar, in that they are both involved in controlling the behaviour of electrons (either attracting or repelling them) by applying local voltages to charge conducting leads. Both of these devices have non-linear current-voltage responses, and both can be fabricated at sizes ranging from 10 to 100 nanometres. The main difference between quantum dots and transistors is that quantum dots require more gates to produce an electric field which can trap single electrons.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="question-2-single-electron-confinement">
+<h3><span class="section-number">11.3.2. </span>Question 2: Single electron confinement<a class="headerlink" href="#question-2-single-electron-confinement" title="Permalink to this headline"></a></h3>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Thermal excitation is a primary source of error in quantum computing, which is why many quantum computing experiments are done at low temperature. To determine the working temperature, it is often necessary to compare the thermal energy with the energy necessary to stop the device from functioning as expected (in this case, by knocking the electron out of the dot). There are other ways that thermal excitations can disturb electron spins, that involve much lower energies, so the working temperature for these devices is much lower in practice, near <span class="math notranslate nohighlight">\(0.01 K\)</span></p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="question-3-charge-stability-diagrams">
+<h3><span class="section-number">11.3.3. </span>Question 3: Charge stability diagrams<a class="headerlink" href="#question-3-charge-stability-diagrams" title="Permalink to this headline"></a></h3>
+<p>::::{grid}
+:gutter: 2</p>
+<p>:::{grid-item-card} a
+:shadow: md</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="../../_images/ChargeStability1.jpg" /></p>
+</div>
+</div>
+</div>
+<p>Here’s the first card.
+:::</p>
+<p>:::{grid-item-card} b
+:shadow: md</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="../../_images/ChargeStability2.jpg" /></p>
+</div>
+</div>
+</div>
+<p>Here’s the second card.
+:::
+::::</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>If in both graphs the lines had been vertical, the dot would have solely been coupled to <span class="math notranslate nohighlight">\(B2\)</span> and not at all to <span class="math notranslate nohighlight">\(B1\)</span> and <span class="math notranslate nohighlight">\(B3\)</span>. The slight tilt shows that the dot is also coupled equally to <span class="math notranslate nohighlight">\(B1\)</span> and <span class="math notranslate nohighlight">\(B3\)</span>. However, the coupling with the gate <span class="math notranslate nohighlight">\(B2\)</span> is still stronger than the others revealing that the dot is located under the gate <span class="math notranslate nohighlight">\(B2\)</span>.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="question-4-charge-sensing">
+<h3><span class="section-number">11.3.4. </span>Question 4: Charge sensing<a class="headerlink" href="#question-4-charge-sensing" title="Permalink to this headline"></a></h3>
+<p>::::{grid}
+:gutter: 1</p>
+<p>:::{grid-item-card} a
+:shadow: md</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="Quantum Network" src="../../_images/m2aq4_Presentation6.jpg" /></p>
+</div>
+</div>
+</div>
+<p>Here’s the first card.
+:::
+::::</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Whenever an electron moves closer to the sensing dot, the potential for the sensing dot decreases (as an electron is of course negatively charged). Looking at the graph, the red dot will shift upwards in case of a decrease of electric potential. Therefore, if the displacement is not too large (as in the case of two weakly coupled quantum dots), the current increases.</p>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Connectors can be tens of thousands of times larger than the typical quantum dot. This means that, even though a standard semiconductor wafer is large enough to contain millions of quantum dots and fit in a dilution refrigerator, it can only be connected to a few thousand connectors, making individual control over each qubit impossible.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="question-5-challenges-for-spin-qubits">
+<h3><span class="section-number">11.3.5. </span>Question 5: Challenges for spin qubits<a class="headerlink" href="#question-5-challenges-for-spin-qubits" title="Permalink to this headline"></a></h3>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Connectors can be tens of thousands of times larger than the typical quantum dot. This means that, even though a standard semiconductor wafer is large enough to contain millions of quantum dots and fit in a dilution refrigerator, it can only be connected to a few thousand connectors, making individual control over each qubit impossible.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_computers/spin_qubits"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../qubits/annealing.html" class="btn btn-neutral float-left" title="10.10. Quantum Annealing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spin_qubits_op.html" class="btn btn-neutral float-right" title="11.4. Operations on spin qubits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

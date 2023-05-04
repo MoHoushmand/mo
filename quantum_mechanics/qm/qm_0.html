@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.1. Entanglement &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_mechanics/qm/qm_0.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Quantum Computation" href="../../quantum_computation/quantum_computation.html" />
+    <link rel="prev" title="2. Quantum Mechanics" href="../quantum_mechanics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../quantum_mechanics.html">2. Quantum Mechanics</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Entanglement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entanglement-further-explained">2.2. Entanglement further explained</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#one-bit-teleportation">2.3. One-bit “Teleportation”</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../quantum_mechanics.html"><span class="section-number">2. </span>Quantum Mechanics</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2.1. </span>Entanglement</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_mechanics/qm/qm_0.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="entanglement">
+<h1><span class="section-number">2.1. </span>Entanglement<a class="headerlink" href="#entanglement" title="Permalink to this headline"></a></h1>
+<p>Quantum entanglement is a special connection between two qubits. There are many ways to generate entanglement. One way to produce it is by bringing two qubits close together, perform an operation to entangle them and then move them apart again. When they are entangled, you can move them arbitrarily far apart from each other and they will remain entangled. This entanglement will manifest itself in the outcomes of measurements on these qubits. When measured these qubits will always yield zero or one perfectly at random, but no matter how far away they are from each other, they will always yield the same outcome.
+Entanglement has two very special properties that enable all the applications derived from it.</p>
+<ol class="arabic simple">
+<li><p>The first property is that entanglement cannot be shared. If two qubits are maximally entangled with each other, then no other party in the universe can have a share of this entanglement. This property is called the <code class="docutils literal notranslate"><span class="pre">monogamy</span></code> of entanglement.</p></li>
+<li><p>The second property of entanglement, which makes it so powerful, is called <code class="docutils literal notranslate"><span class="pre">maximal</span> <span class="pre">coordination</span></code>. This property manifests itself when measuring the qubits.
+When two qubits that are entangled are measured in the same basis, no matter how far away they are from each other, they will always yield the same outcome. This outcome is not decided beforehand, but it is completely random and is decided when the measurement happens.
+It’s almost romantic to think that two particles can be entangled even when they are millions of kilometres apart.</p></li>
+</ol>
+<hr class="docutils" />
+<p>More about quantum entanglement. How is it generated and what are the implications?
+Entanglement further explained</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="entanglement-further-explained">
+<h1><span class="section-number">2.2. </span>Entanglement further explained<a class="headerlink" href="#entanglement-further-explained" title="Permalink to this headline"></a></h1>
+<p>So what is entanglement precisely? Imagine we have 2 particles: we have particle <span class="math notranslate nohighlight">\(A\)</span> and particle B. And these particles can be either full, which is the filled have here, empty, or a superposition of the two. Now let’s say that particle A and B are entangled. The weird thing about this entanglement is that when we would measure one of the particles, say we’d like to measure particle A, and we get the outcome/result full. Instantaneously the particle at B collapses into the full state as well. This happens instantaneously, so even faster than the speed of light.
+However, particle B, or an observer at particle B would never know if Alice, the observer at A has already measured her particle. In order for him to know if Alice measured her particle, Alice needs to send a signal over a classical internet,
+$<span class="math notranslate nohighlight">\(
+  \int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
+\)</span>$
+which cannot exceed the speed of light, to notify Bob, who is at particle B, if the particle has been measured. Only then they can compare their results and see if their particles were indeed entangled. The particles can also be entangled in a different way. So, this corresponds to when the particle A would be full when we measure it, particle B would be empty, and vice versa: if A would result in empty, B would result in full. If we do not know beforehand which kind of entanglement we have, we can also not know what the state of B will be after measuring A.
+Question 1: Entanglement from relative phases
+In Module 1, we note that entangled states are those that cannot be written as tensor products.
+The tensor product of two single-qubit states looks like this:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}[
+\left[\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right]\otimes\left[\begin{array}{c}
+\gamma\\
+\delta
+\end{array}\right]=\left[\begin{array}{c}
+\alpha\gamma\\
+\alpha\delta\\
+\beta\gamma\\
+\beta\delta
+\end{array}\right]
+\]\end{split}\]</div>
+<p>As an example, note that the state
+$<span class="math notranslate nohighlight">\(\frac{\mid00\rangle+\mid11\rangle}{\sqrt{2}}=\frac{1}{\sqrt{2}}\left[\begin{array}{c}
+1\\
+0\\
+0\\
+1
+\end{array}\right]\)</span>$</p>
+<p>cannot be written as a tensor product, since</p>
+<div class="math notranslate nohighlight">
+\[(\alpha\gamma)(\beta\delta)\]</div>
+<p>must be equal to
+$<span class="math notranslate nohighlight">\((\alpha\delta)(\beta\gamma)\)</span>$ arithmetically, but this cannot be true if we multiply the coefficients of the given state. Is the state following state entangled?</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{1}{\sqrt{2}}\left[\begin{array}{c}
+1\\
+1\\
+1\\
+-1
+\end{array}\right]\end{split}\]</div>
+<p>Indeed!</p>
+<section id="different-ways-of-entanglement">
+<h2><span class="section-number">2.2.1. </span>Different Ways of Entanglement<a class="headerlink" href="#different-ways-of-entanglement" title="Permalink to this headline"></a></h2>
+<p>Entanglement can be generated in different ways. This difference will manifest itself in the outcome statistics when performing measurements. In this example you can see an entangled pair of qubits that always produces the opposite answers, rather than the same answers as we saw before.</p>
+</section>
+<section id="question-1-entanglement-with-general-correlations">
+<h2><span class="section-number">2.2.2. </span>Question 1: Entanglement with general correlations<a class="headerlink" href="#question-1-entanglement-with-general-correlations" title="Permalink to this headline"></a></h2>
+<p>Correlated and anti-correlated states aren’t the only maximally entangled states. In fact, any state which can be written as</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\sqrt{2}}\left(\mid\psi\rangle\otimes\mid\phi\rangle+\mid\psi^{\perp}\rangle\otimes\mid\phi^{\perp}\rangle\right)\]</div>
+<p>is maximally entangled, where the symbol <span class="math notranslate nohighlight">\(\mid\psi^{\perp}\rangle\)</span> is a state which is orthogonal to (has zero inner product with) <span class="math notranslate nohighlight">\(\mid\psi\rangle\)</span></p>
+<p>For example, if we set $<span class="math notranslate nohighlight">\(\mid\psi\rangle=\mid\phi\rangle=\mid0\rangle\)</span><span class="math notranslate nohighlight">\(, then \)</span><span class="math notranslate nohighlight">\(\mid\psi^{\perp}\rangle=\mid\phi^{\perp}\rangle=\mid1\rangle\)</span><span class="math notranslate nohighlight">\(, and we produce the state \)</span><span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\left(\mid00\rangle+\mid11\rangle\right)\)</span>$, which is the familiar fully-correlated entangled state we saw earlier.</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <span class="math notranslate nohighlight">\(\mathbf{\frac{1}{\sqrt{2}}\left(\mid00\rangle+\mid11\rangle\right)}\)</span></p></li>
+<li><p>[] <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\left(\mid00\rangle+\mid01\rangle\right)\)</span></p></li>
+<li><p>[] <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{3}}\left(\mid0+\rangle+\mid-1\rangle\right)\)</span></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <span class="math notranslate nohighlight">\(\mathbf{\frac{1}{\sqrt{2}}\left(\mid0+\rangle+\mid1-\rangle\right)}\)</span></p></li>
+</ul>
+</div>
+<p>Which of the following states are maximally entangled?</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Multiplying the 1 state by <span class="math notranslate nohighlight">\(-1\)</span> also results in a state orthogonal to the <span class="math notranslate nohighlight">\(0\)</span> state, so we’re allowed to insert these states into the construction above. The states of the plus/minus basis are orthogonal, which allows us to use them in the construction as well, though it is important to keep the order of the terms in the tensor product correct.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="teleportation">
+<h2><span class="section-number">2.2.3. </span>Teleportation<a class="headerlink" href="#teleportation" title="Permalink to this headline"></a></h2>
+<p>Quantum teleportation is a method to send qubits using entanglement. Teleportation works as follows: First Alice and Bob need to establish an entangled pair of qubits between them. Alice then takes the qubit that she wants to send and the qubit that is entangled with Bob’s qubit and performs a measurement on them. This measurement collapses the qubits and destroys the entanglement, but gives her two classical outcomes in the form of two classical bits. She takes this two classical bits and sends them over the classical internet to Bob. Bob then applies a correction operation that depends on these two classical bits to his qubit. This allows him to recover the qubit that was originally in Alice’s possession. Note that we have now transmitted a qubit without really using a physical carrier that is capable of transmitting qubits. But of course you already need entanglement to do this. It is also important to note that quantum teleportation does not allow for faster than light communication. This is so because Bob cannot make sense of the qubit in her possession before he gets the classical measurement outcomes from Alice. These classical measurement outcomes must take a certain amount of time to be transmitted. And this time is lower bounded by the speed of light.</p>
+<section id="teleportation-further-explained">
+<h3><span class="section-number">2.2.3.1. </span>Teleportation further explained<a class="headerlink" href="#teleportation-further-explained" title="Permalink to this headline"></a></h3>
+<p>So we’ve talked a lot about entanglement, but now we will see how we can use this entanglement to teleport a certain quantum state. So let’s take a look at how this works. First, we have two stations: we have station Alice and we have station Bob. Alice and Bob share an entangled state, which means Bob has one qubit of the entangled state and Alice has the other one of the entangled state. What Alice also has is another qubit which is not entangled with any of those which has a state A. Alice and Bob’s goal is to teleport Alice’s state A to Bob’s qubit. The first thing they do is to perform some operations which we again denote as a black box. After the operations have been done, Alice will measure her qubits. Since Alice has 2 qubits the total outcome can be 4 different situations. For example: both the qubits could be measured into the state empty, the first qubit might have been full and the second empty and vice versa. And there is also the situation where both of the qubits are measured to be full. And these four situation also results in 4 different states for Bob. So in the empty-empty case we get the full state A back, but as you can see not all the measurement outcomes result in this nice state A. They do resemble A, but they are rotated or flipped a bit. So Bob needs to do something in order to correctly retrieve the state A. And for this he needs Alice’s help. What does Alice do? Alice uses her information she had on the measured qubits to send Bob instructions. If her first bit was measured to be full, she says to Bob: rotate your qubit 180 degrees clockwise. If it’s empty, do nothing. Almost the same goes for the second qubit, only now the rotation is 90 degrees clockwise. So if it’s full, Bob has to rotate the bit, if it’s empty Bob has to do nothing. So let’s take a look at what this would result in. So let’s take a look at the first case: Alice measured empty-empty. She knows now: I measured empty-empty, and because of my clever operations in the black box I know that Bob must already be in the state A. So I order him to do nothing. She sends Bob this information over a classical internet, so she cannot exceed the speed of light on this one. Then we go to the second possibility, so she measured full on the first qubit and empty on the second qubit. Remember: the instruction on this one was: rotate your qubit 180 degrees clockwise. So let’s take a look. We see we have an A upside down here, and we have to rotate it 180 degrees. And we see that we get the correct state A. So it works for this outcome. But now we take a look at what happened for the third possibility. What is the first qubit was empty and the second qubit was full. This corresponds to a 90 degrees clockwise rotation. So she sends this information to Bob, and Bob says: OK, right, 90 degrees, I can do this! So we see we have this sort of flipped A here, and were going to rotate it 90 degrees clockwise, again resulting in the state A. And you can already a little bit check for the final case, when both the qubits are full, we have to rotate 180 degrees clockwise and also rotate 90 degrees clockwise. So this would again result in: first the 180 degrees clockwise… ..and now the 90 degrees clockwise, which is again the state A. So if Bob follows the orders of Alice correctly, and Alice of course sends the correct information, Bob will always retrieve the quantum state A that Alice initially had. So the quantum state has been teleported from Alice’s lab to Bob’s lab.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="one-bit-teleportation">
+<h1><span class="section-number">2.3. </span>One-bit “Teleportation”<a class="headerlink" href="#one-bit-teleportation" title="Permalink to this headline"></a></h1>
+<p>There’s a simpler protocol, called “one-bit teleportation”, which does not consume an entangled state, but requires Alice and Bob to be close together, such that they can perform the <span class="math notranslate nohighlight">\(\text{CNOT\)</span> CNOT gate on their qubits:</p>
+<p><span class="math notranslate nohighlight">\(\text{CNOT:\)</span> $<span class="math notranslate nohighlight">\(\ensuremath{\mid00\rangle\mapsto\mid00\rangle,\mid01\rangle\mapsto\mid01\rangle,\mid10\rangle}}\mapsto\mid11\rangle,\mid11\rangle\mapsto\mid10\rangle\)</span>$</p>
+<p>Alice begins with the state $<span class="math notranslate nohighlight">\(\mid+\rangle=\frac{1}{\sqrt{2}}\left(\mid0\rangle+\mid1\rangle\right)\)</span><span class="math notranslate nohighlight">\(
+and Bob begins with the state \)</span><span class="math notranslate nohighlight">\(\mid\psi\rangle=\alpha\mid0\rangle+\beta\mid1\rangle\)</span>$</p>
+<p>They then perform the <span class="math notranslate nohighlight">\(\text{CNOT}\)</span>.</p>
+<p>What is the resulting state?</p>
+<p>[] <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\left(\alpha\mid0\rangle+\beta\mid1\rangle\right)\otimes\left(\mid0\rangle+\mid1\rangle\right)\)</span>
+[x] <span class="math notranslate nohighlight">\(\mathbf{\frac{1}{\sqrt{2}}\left[\left(\alpha\mid0\rangle+\beta\mid1\rangle\right)\otimes\mid0\rangle+\left(\beta\mid0\rangle+\alpha\mid1\rangle\right)\otimes\mid1\rangle\right]}\)</span>
+[] <span class="math notranslate nohighlight">\(\left(\alpha\mid0\rangle+\beta\mid1\rangle\right)\otimes\mid0\rangle+\left(\beta\mid0\rangle+\alpha\mid1\rangle\right)\otimes\mid1\rangle\)</span></p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>If Bob now measures his qubit in the Z basis and receives 0, Alice has received Bob’s initial state. If Bob receives a <span class="math notranslate nohighlight">\(1\)</span>, he can send a classical message to Alice telling her to perform the X operation, at which point she will possess Bob’s initial state.</p>
+</div>
+<section id="measurement">
+<h2><span class="section-number">2.3.1. </span>Measurement<a class="headerlink" href="#measurement" title="Permalink to this headline"></a></h2>
+<p>Measurement is the act of observing a quantum state. This observation will yield classical information such as a bit. It is important to note that this measurement process will change the quantum state. For instance if the state is in superposition, this measurement will ‘collapse’ it into a classical state; zero or one. This collapse process happens randomly. Before we do the measurement we have no way of knowing what the outcome will be. What we can do however is to calculate the probability of each outcome. This probability is a prediction about the quantum state, a prediction that we can test by preparing the state many times, measuring it and then counting the fraction of each outcome.</p>
+<section id="question-1-probability-of-measurement-outcome">
+<h3><span class="section-number">2.3.1.1. </span>Question 1: Probability of measurement outcome<a class="headerlink" href="#question-1-probability-of-measurement-outcome" title="Permalink to this headline"></a></h3>
+<p>A measurement defines a basis, with the measurement operator <span class="math notranslate nohighlight">\(\sum_{k}r_{k}\left\vert \psi_{k}\right\rangle \left\langle \psi_{k}\right\vert\)</span>  being a weighted sum of ‘outer products’ of these basis vectors. Once such a measurement is applied to an input state <span class="math notranslate nohighlight">\(\left\vert \phi\right\rangle\)</span>  , one of the states from the measurement’s predefined basis is returned, with a probability given by Born’s rule: <span class="math notranslate nohighlight">\(p_{k}=\left\vert \left\langle \phi\vert\psi_{k}\right\rangle \right\vert ^{2}\)</span>. For example, if we perform a measurement of the <span class="math notranslate nohighlight">\(\text{Z} operator\)</span> <span class="math notranslate nohighlight">\(\left(\left\vert 0\right\rangle \left\langle 0\right\vert -\left\vert 1\right\rangle \left\langle 1\right\vert \right)\)</span> on the state <span class="math notranslate nohighlight">\(\left\vert +\right\rangle =\frac{\left\vert 0\right\rangle +\left\vert 1\right\rangle }{\sqrt{2}}\)</span> , we can calculate the probability of the <span class="math notranslate nohighlight">\(\left\vert 0\right\rangle state being output: p_{0}=\left\vert \left\langle +\vert0\right\rangle \right\vert ^{2}\)</span>. We write out the inner product: $<span class="math notranslate nohighlight">\(\left\langle +\vert0\right\rangle =\left(\frac{\left\langle 0\right\vert +\left\langle 1\right\vert }{\sqrt{2}}\right)\left\vert 0\right\rangle =\frac{1}{\sqrt{2}}\left(\left\langle 0\vert0\right\rangle +\left\langle 1\vert0\right\rangle \right)\)</span>$</p>
+<p>We know that <span class="math notranslate nohighlight">\(\left\langle 0\vert0\right\rangle =1\)</span> and <span class="math notranslate nohighlight">\(\left\langle 1\vert0\right\rangle =0\)</span> , since the <span class="math notranslate nohighlight">\(0/1\)</span> basis is orthonormal (see the ket notation for more information). This allows us to simplify the inner product:</p>
+<div class="math notranslate nohighlight">
+\[\left(\frac{\left\langle 0\right\vert +\left\langle 1\right\vert }{\sqrt{2}}\right)\left\vert 0\right\rangle =\frac{1}{\sqrt{2}}\left(1+0\right)=\frac{1}{\sqrt{2}}\]</div>
+<p>Therefore, <span class="math notranslate nohighlight">\(p_{0}=\frac{1}{2}\)</span>, since it is the squared magnitude of the inner product which we have calculated.</p>
+<p>Suppose that we measure the operator $<span class="math notranslate nohighlight">\(X=\left\vert +\right\rangle \left\langle +\right\vert -\left\vert -\right\rangle \left\langle -\right\vert\)</span><span class="math notranslate nohighlight">\(  
+with the state \)</span>\mid0\rangle<span class="math notranslate nohighlight">\( as input. What is the probability that the state \)</span>\mid+\rangle$ is produced withou replicating the calculation above.</p>
+<p>[] <span class="math notranslate nohighlight">\(0\)</span>
+[] <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span>
+[x] <span class="math notranslate nohighlight">\(\frac{\mathbf{1}}{\mathbf{2}}\)</span><span class="math notranslate nohighlight">\(
+[] \)</span>1$</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>This probability must be equal to the probability that we calculated earlier, which is simply the squared magnitude of the inner product between the 0 and + states.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="measurement-in-superposition">
+<h2><span class="section-number">2.3.2. </span>Measurement in superposition<a class="headerlink" href="#measurement-in-superposition" title="Permalink to this headline"></a></h2>
+<p>When performing measurement we do not necessarily have to collapse into the zero or the one state. We can also choose to collapse into a pair of superposition states. This has important consequences when measuring entangled pairs. When both parties perform the same type of measurement the outcomes will always agree. But if one party performs one type and the other party performs the other type the answers will no longer agree. In fact they will be completely uncorrelated.</p>
+<section id="question-1-partial-measurement-of-an-entangled-state">
+<h3><span class="section-number">2.3.2.1. </span>Question 1: Partial measurement of an entangled state<a class="headerlink" href="#question-1-partial-measurement-of-an-entangled-state" title="Permalink to this headline"></a></h3>
+<p>We can take a closer look at what happens when a maximally entangled state is measured using two bases which are not identical. Suppose that the initial state is <span class="math notranslate nohighlight">\(\frac{\left\vert 00\right\rangle +\left\vert 11\right\rangle }{\sqrt{2}}\)</span>, and we measure the operator <span class="math notranslate nohighlight">\(Z\otimes I\)</span> (this corresponds to Alice measuring <span class="math notranslate nohighlight">\(Z\)</span> and Bob measuring nothing):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}Z\otimes I=\begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; -1
+\end{bmatrix}\end{split}\]</div>
+<p>Which of the eigenstates of <span class="math notranslate nohighlight">\(Z\otimes I\)</span> may be output from this measurement, and with what probabilities? See also the exercise in “Measurement”.</p>
+<p>[] <span class="math notranslate nohighlight">\(\mid00\rangle with probability \frac{1}{2}, \mid10\rangle\)</span> with probability <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>
+[] <span class="math notranslate nohighlight">\(\mid00\rangle, \mid01\rangle , \mid10\rangle or \mid11\rangle\)</span> each with probability <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span>
+[x] <span class="math notranslate nohighlight">\(\mid00\rangle with probability \frac{1}{2}, \mid11\rangle\)</span> with probability <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span></p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Explanation The measurement cannot return the 01 or 10 states, since the inner product of the input state with those basis states is zero. The inner products of the input state with the 00 and 11 states are equal, leading to a 50-50 distribution.</p>
+</div>
+</section>
+<section id="question-2-partial-measurement-of-an-entangled-state-continued">
+<h3><span class="section-number">2.3.2.2. </span>Question 2: Partial measurement of an entangled state - continued<a class="headerlink" href="#question-2-partial-measurement-of-an-entangled-state-continued" title="Permalink to this headline"></a></h3>
+<p>0 points possible (ungraded) Suppose that Alice and Bob have prepared some entangled state, and Alice has performed the partial measurement described above, resulting in the basis state \mid00\rangle .</p>
+<p>What happens if Bob measures <span class="math notranslate nohighlight">\(𝑍\)</span> or <span class="math notranslate nohighlight">\(𝑋\)</span> on his qubit? See the previous ket notation, and/or previous exercises for definitions.</p>
+<p>[] If Bob measures <span class="math notranslate nohighlight">\(𝑍\)</span> , he receives <span class="math notranslate nohighlight">\(\mid0\rangle\)</span>, but if Bob measures <span class="math notranslate nohighlight">\(X\)</span>, he receives a random state from the basis defined by <span class="math notranslate nohighlight">\(X\)</span>.
+[x] If Bob measures <span class="math notranslate nohighlight">\(𝑍\)</span> , he receives he receives a random state from the basis defined by <span class="math notranslate nohighlight">\(𝑍\)</span> , and if Bob measures <span class="math notranslate nohighlight">\(𝑋\)</span> , he receives <span class="math notranslate nohighlight">\(\mid+\rangle\)</span>
+[] Bob’s state will be random, and uncorrelated with Alice’s, regardless of the operator measured.</p>
+</section>
+</section>
+<section id="repeaters">
+<h2><span class="section-number">2.3.3. </span>Repeaters<a class="headerlink" href="#repeaters" title="Permalink to this headline"></a></h2>
+<p>Repeaters enable long distance communication over a quantum network. An optical fiber can transmit a qubit over roughly <span class="math notranslate nohighlight">\(100\)</span> kilometers. If you want to send a quantum information over an very long distance just a fiber is not good enough. To send information over this long distances we need quantum repeaters. Quantum repeaters can be thought of as a series of short entangled links connecting the two points. The quantum information can then be teleported through these links and arrive safely at its destination.</p>
+<section id="repeaters-further-explained">
+<h3><span class="section-number">2.3.3.1. </span>Repeaters Further Explained<a class="headerlink" href="#repeaters-further-explained" title="Permalink to this headline"></a></h3>
+<p>So now I’d like to explain to you the quantum repeater. First of all, why do we need a quantum repeater? Well, suppose you want to create entanglement between to places which are very far apart. That problem is, is that when you send a qubit it might lose its information during its travels. So the longer the distance the qubit has to travel, the more information might be lost. So we would like to minimize these distances as much as possible. And for this we can use repeaters. So how do these repeaters actually work? Let’s take a look. First of all we start with the two separate stations: we have station Alice and we have station Bob. Alice has two qubits which are entangled and Bob also has two qubits which are entangled, but the two stations are not entangled with each other. This is where the repeater comes in, which is shown here in the middle. So for the next step Alice and Bob both send one of their qubits to the repeater, which looks like this. Now important to note here is that there is still no entanglement between Alice and Bob, because these two particles are not entangled. To create this entanglement, we need to do operations. These clever operations are performed here, in this black box. This black box performs some operations on the qubits and eventually measures them, which results in the qubits in the repeater to collapse and generate an entangled state between Alice and Bob. So we can see now that the two qubits which were there in the middle initially are now gone and there is a pure entangled state between Alice and Bob. Now I know I might have been a little bit vague about what happened in the black box. But this is because what happens in the black box might be a little bit too technical. If you’re still interested in the details, I’d like to refer you to the link below which explains what happens in the repeaters in more detail.</p>
+</section>
+<section id="question-1-definition-of-a-quantum-repeater">
+<h3><span class="section-number">2.3.3.2. </span>Question 1: Definition of a quantum repeater<a class="headerlink" href="#question-1-definition-of-a-quantum-repeater" title="Permalink to this headline"></a></h3>
+<p>d</p>
+<p>dw</p>
+<p>[x] True
+[] False</p>
+<p>dw</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Explanation We can think of the repeater protocol as being divided into two smaller protocols. First, Alice and the repeater generate shared entanglement. Then, Bob and the repeater generate shared entanglement, which they use to teleport half of the Alice/repeater entangled state to Bob</p>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>The energy gap between the spin-up and spin-down states is quite small, much smaller than the charging energy of a quantum dot, seen in the previous quiz. Since the fermi level of the reservoir is biased to be between the spin-down and spin-up states, this allows an even small fluctuation to excite a spin-down electron into the reservoir.</p>
+</div>
+</section>
+<section id="fff">
+<h3><span class="section-number">2.3.3.3. </span>fff<a class="headerlink" href="#fff" title="Permalink to this headline"></a></h3>
+<p>As discussed in the lecture, in order to read out the state of a spin qubit in a quantum dot, we move the Fermi level of the reservoir in between the two spin states. Then, only a spin-up electron can tunnel out of the dot to one of the available states in the reservoir. A spin-down electron will remain trapped inside the quantum dot.
+Which could be a limiting factor of this readout protocol?</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Explanation We can think of the repeater protocol as being divided into two smaller protocols. First, Alice and the repeater generate shared entanglement. Then, Bob and the repeater generate shared entanglement, which they use to teleport half of the Alice/repeater entangled state to Bob</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> It is not possible to read out a superposition of spin states.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Three quantum dots are required to perform this readout protocol.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Magnetic noise can prevent the spin-up electron to tunnel out, since the Lorentz force accelerates the electron perpendicular to the direction of motion.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> A spin-down electron can acquire the energy necessary to tunnel out of the dot from thermal fluctuations.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_mechanics/qm"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../quantum_mechanics.html" class="btn btn-neutral float-left" title="2. Quantum Mechanics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../quantum_computation/quantum_computation.html" class="btn btn-neutral float-right" title="3. Quantum Computation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>63. Thinking backward: learning methods based on what the hardware can do &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(11)__Kernel_Methods_qiskit.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="66. GFX!!!" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html" />
+    <link rel="prev" title="59. Mapping clustering to discrete optimization" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">63. </span>Thinking backward: learning methods based on what the hardware can do</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(11)__Kernel_Methods_qiskit.ipynb" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>#W</p>
+<p>1.5 Kernel Methods</p>
+<p>SPEAKER: Let’s talk about kernel methods. That used to be extremely popular between, say, the mid-1990s until maybe seven, six years ago. What kernel methods do is a kind of a nonlinear embedding. But they do it in a clever way. So I will talk about non-linear embedding. What we want to achieve is that given some data set in some high dimensional space which has some intrinsic topology, while this date set can be very difficult to classify into two groups by some simple function– for instance, you can have this structure where one class is embedded inside the other. And what we do is we develop some kind of a nonlinear embedding that would pull the points apart in some higher dimensional space. So in this new embedding space, you can easily separate the two classes by, say a hyperplane, which is the easiest form of classifying two data sets. And this hyperplane would tell you that whether you are on top of it, then you belong to one class. And if you are below it, then you are in the other class. And what kernel functions allow you to do is to do something which essentially achieves this effect but without having to calculate the actual embedding. So when we talked about clustering, we talked about the gram matrix In this context, this is also going to be called the kernel matrix, which characterizes distances or similarities between points in the high dimensional space, for instance, by the inner product between the vectors. So this would be the inner product in the original space. And after embedding, you can calculate the inner product between these embedded vectors. And now you can define that this inner product in the embedded space is actually just some function, some kernel function. And it turns out that if this function fulfills certain basic requirements– namely, it’s a positive semidefinite kernel– then you don’t actually have to know defined embedding. It’s enough to calculate this product which is very cheap in many cases. And you can construct very interesting algorithms. So examples include kernelized k-means. So in this case, you have the k-means means clustering that we discussed, but instead of the Euclidean distance, you can come off the new distance functions. For instance, you can create this exponential decay over the Euclidean distance. So here inside, you have the Euclidean distance. But now it’s inside the exponential that decays fast. So remote points would have mattered a lot less than things closer to the centroid of the k-means. And another great example is support vector machines, which ensure certain sparsity structure in the model, and they generalize well. So these models went out of fashion because in essence, they are shallow. So you only calculate this non-linear embedding, and that’s it. So they are not very good in this automatic feature extraction that deep learning enables you to do. Nevertheless, they are interesting, and as you will see, they are interesting kernels that you can calculate naturally with quantum computers.</p>
+<p>• A nonlinear embedding of the data instances in a higher dimensional space can make classification easier. Why?</p>
+<p>– The classes might be easier to separate by a hyperplane in the high-dimensional space.</p>
+<p>• The embedding space can be infinite dimensional. Consider, for instance, the kernel <span class="math notranslate nohighlight">\(e^{(-\gamma\parallel x_{i}-x_{j}\parallel_{2}^{2}}\)</span> mentioned in the video.</p>
+<p>– True</p>
+<p>#F</p>
+<p>#W
+1.6 An Inference  ?</p>
+<p>SPEAKER: So normally, we would take a look at some learning algorithm, dissect it, and analyze the parts of it to see whether we can find a quantum algorithm that could accelerate that part of the learning protocol. But we can start thinking about learning problems the other way around. We can start from the hardware, looking at the particular quantum computer and what are the kind of things it can naturally do. So we are in this era where quantum computers are imperfect. So we have to factor in these imperfections. And if you look at the actual capabilities, we can develop completely new learning algorithms. So one of the first examples of this kind of thinking was a particular type of kernel for learning that can be executed on a shallow circuit gate model quantum computer. So in this case, we start with a very simple state preparation. And then the only thing we are going to do on this circuit is a Hadamard operation, which will allow us to do interference. So in the first two learning protocols that we looked at, we talked about how you can map a problem to an Ising model. In other words, we used a kind of a Hamiltonian encoding. In this case, we are going to use the amplitude encoding. So if we are given some vector in our data set, which we normalized to one, then we can encode it in the probability amplitudes in a superposition. And so then we have to be careful of how we actually prepare it. But for some data sets, this can be approximated well with shallow circuits. So given this encoding, we can start thinking about new kernels. So the kernel that we are going to calculate is exactly this one. It does not really have a classical analog. It’s easy to calculate classically as well, but it’s very natural to do on a gate model quantum computer. The shape of the kernel function is going to be something like this. So it’s not like the exponential decay of the kernel that you saw in the previous video. It’s slightly different, and it might be useful for certain kind of data sets. So the circuit that are going to need, assuming that our data set is only two dimensional, is the following. We have a data qubit. Every single data point is actually going to be included in this single qubit. So this superposition is going to be interesting. Then we have an ancilla qubit, which will be entangled with the test instance that we are trying to calculate the kernel and the data instances that we are given in a training set. Then we have an index qubit, which just keeps track of this index here. And then we have a class qubit, which will contain the label corresponding to a particular data instance. And the protocol is very, very simple. First, you have to prepare a state. The state looks a bit strange. So this is our amplitude encoded test instance, the one for which we’re going to calculate the kernel. And here, we have our amplitude encoding data instances. Here’s our index register. For bookkeeping, it’s also here. Note that these are tensor product states. So these things are not really entangled here. And then we have the ancilla qubit. So the zero state of the ancilla qubit is entangled with the test instance, and the excited state, the one state of the ancilla, is entangled with our data instances. And then to finish it off, we also have the class qubit corresponding to the data instances. So we can think of it as a big black box that does all this preparation. Plus, we have some normalization constant to take care at, you know, this superposition is actually a quantum state. And what we are doing next is nothing but this Hadamard operation here. So since the zero state of the ancilla is entangled with the test state and the excited state is entangled with the data instances, by applying the Hadamard gate again on ancilla, you interfere the data instances with your test instance. So the state that you are going to get will have this form. It will have the test instance plus the data instance. And the test instance minus the data instance is encoded in these vectors. So that’s the interference part. And now what we do is we do a measurement on the ancilla if you have a certain probability of success. So by success, I mean that the superposition collapses to this particular part. And based on this, if I forget the output one, then we just discard the result and run the circuit again. And if we get this result so we collapse it to this particular outcome, then we do a measurement in the class qubit as well. And the probability of getting certain results here, we create you exactly this kernel. So the point is that you repeatedly run this algorithm. Sometimes you succeed here. Then you measure here, and based on that, you can calculate this kernel, which could be interesting for a number of applications.</p>
+<p>• This protocol is attractive because the state preparation step does not include any entangling gates, and therefore it is easy to execute on contemporary quantum computers.</p>
+<p>– False</p>
+<p>• We are using amplitude encoding in this protocol. How many qubits would we need to encode four-dimensional vectors?</p>
+<p>– 2</p>
+<p>• If we had three data points, would a single-qubit index register still be sufficient?
+#F</p>
+<p>Kernel methods are widespread in machine learning and they were particularly common before deep learning became a dominant paradigm. The core idea is to introduce a new notion of distance between high-dimensional data points by replacing the inner product <span class="math notranslate nohighlight">\((x_i, x_j)\)</span> by a function that retains many properties of the inner product, yet which is nonlinear. This function <span class="math notranslate nohighlight">\(k(.,.)\)</span> is called a kernel. Then, in many cases, wherever a learning algorithm would use an inner product, the kernel function is used instead.</p>
+<p>The intuition is that the kernel function acts as an inner product on a higher dimensional space and encompasses some <span class="math notranslate nohighlight">\(\phi(.)\)</span> mapping from the original space of the data points to this space. So intuitively, the kernel function is <span class="math notranslate nohighlight">\(k(x_i, x_j)=(\phi(x_i), \phi(x_j))\)</span>. The hope is that points that were not linearly separable in the original space become linearly separable in the higher dimensional space. The <span class="math notranslate nohighlight">\(\phi(.)\)</span> function may map to an infinite dimensional space and it does not actually have to be specified. As long as the kernel function is positive semidefinite, the idea works.</p>
+<p>Many kernel-based learning algorithms are instance-based, which means that the final model retains some or all of the training instances and they play a role in the actual prediction. Support vector machines belong here: support vectors are the training instances which are critically important in defining the boundary between two classes. Some important kernels are listed below.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>            Kernel function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Linear</p></td>
+<td><p><span class="math notranslate nohighlight">\((x_i,x_j)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Polynomial</p></td>
+<td><p><span class="math notranslate nohighlight">\(((x_i,x_j)+c)^d\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Radial basis function</p></td>
+<td><p><span class="math notranslate nohighlight">\(\exp(-\gamma|x_i-x_j|^2)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>The choice of kernel and the parameters of the kernel are often arbitrary and either some trial and error on the dataset or hyperparameter optimization helps choose the right combination. Quantum computers naturally give rise to certain kernels and it is worth looking at a specific variant of how it is constructed.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="thinking-backward-learning-methods-based-on-what-the-hardware-can-do">
+<h1><span class="section-number">63. </span>Thinking backward: learning methods based on what the hardware can do<a class="headerlink" href="#thinking-backward-learning-methods-based-on-what-the-hardware-can-do" title="Permalink to this headline"></a></h1>
+<p>Instead of twisting a machine learning algorithm until it only contains subroutines that have quantum variants, we can reverse our thinking and ask: given a piece of quantum hardware and its constraints, can we come up with a new learning method? For instance, interference is a very natural thing to do: we showed an option in the first notebook on quantum states, and it can also be done with a Hadamard gate.
+For this to work we need to encode both training and testvectors as amplitudes in a statevector built up out of four registers:</p>
+<p><span class="math notranslate nohighlight">\(|0\rangle_c|00..0\rangle_m|00..0\rangle_i|0\rangle_a\)</span></p>
+<p>The amplitude of such state will be equal to the value of a feature in a training vector or test vector. To do that we use four registers. The first is a single bit, acting as the ancilla ancilla (a), which will will code for either a training (a=0) or a testvector (a=1). The second register, in the notebook example a single bit, will code for the m-th training vector. The third register, in the notebook example also reduced to a single bit, codes for the i-th feature. Lastly the class bit (c) codes for class -1 (c=0), or 1 (c=1).
+Hence, if after fully encoding all training data and test data into the state <span class="math notranslate nohighlight">\(|\psi&gt;\)</span> the state |1010&gt; has coefficient 0.46 :</p>
+<p><span class="math notranslate nohighlight">\(|\psi\rangle\ = ....+ 0.46|1010\rangle +....\)</span>  ,</p>
+<p>Then that implies that the second feature (i=1) of the first (m=0) training vector (a=0), which classifies as class 1 (c=1), has the value 0.46. Note, we assume both training vectors and test vector are normalized.</p>
+<p>In a more general expression we can write for a fully encoded state (NB we arrange the order of the registers to be consistent with the code below):</p>
+<p><span class="math notranslate nohighlight">\(|\psi\rangle = \frac{1}{\sqrt{2M}}\sum_{m=0}^{M-1}|y_m\rangle|m\rangle|\psi_{x^m}\rangle|0\rangle + |y_m\rangle|m\rangle|\psi_{\tilde{x}}\rangle|1\rangle\)</span></p>
+<p>with:</p>
+<p><span class="math notranslate nohighlight">\(|\psi_{x^m}\rangle = \sum_{i=0}^{N-1}x_i^m|i\rangle, \; |\psi_{\tilde{x}}\rangle = \sum_{i=0}^{N-1}\tilde{x_i}|i\rangle. \quad\)</span> N being equal to the number of features in the the training and test vectors</p>
+<p>As the last summation is independent on m, there will M copies of the test vector in the statevector, one for every training vector.</p>
+<p>We now only need to apply a Hadamard gate to the ancilla to interfere the test and training instances. Measuring and post-selecting on the ancilla gives rise to a kernel [<span class="xref myst">1</span>].</p>
+<p>Let’s start with initializations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">ClassicalRegister</span><span class="p">,</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">QuantumCircuit</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">execute</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">BasicAer</span> <span class="k">as</span> <span class="n">Aer</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">backend</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;qasm_simulator&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are constructing an instance-based classifier: we will calculate a kernel between all training instances and a test example. In this sense, this learning algorithm is lazy: no actual learning happens and each prediction includes the entire training set.</p>
+<p>As a consequence, state preparation is critical to this protocol. We have to encode the training instances in a superposition in a register, and the test instances in another register. Consider the following training instances of the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/iris">Iris dataset</a>: <span class="math notranslate nohighlight">\(S = \{(\begin{bmatrix}0 \\ 1\end{bmatrix}, 0), (\begin{bmatrix}0.790 \\ 0.615\end{bmatrix}, 1)\}\)</span>, that is, one example from class 0 and one example from class 1. Furthermore, let’s have two test instances, <span class="math notranslate nohighlight">\(\{\begin{bmatrix}-0.549\\ 0.836\end{bmatrix}, \begin{bmatrix}0.053 \\ 0.999\end{bmatrix}\}\)</span>. These examples were cherry-picked because they are relatively straightforward to prepare.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_set</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.79</span><span class="p">,</span> <span class="mf">0.615</span><span class="p">]]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">test_set</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.549</span><span class="p">,</span> <span class="mf">0.836</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.053</span> <span class="p">,</span> <span class="mf">0.999</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To load the data vectors, we use amplitude encoding as explained above, which means that, for instance, the second training vector will be encoded as <span class="math notranslate nohighlight">\(0.78861006|0\rangle + 0.61489363|1\rangle\)</span>. Preparing these vectors only needs a rotation, and we only need to specify the corresponding angles. The first element of the training set does not even need that: it is just the <span class="math notranslate nohighlight">\(|1\rangle\)</span> state, so we don’t specify an angle for it.</p>
+<p>To get the angle we need to solve the equation <span class="math notranslate nohighlight">\(a|0\rangle + b|1\rangle=\cos\left(\frac{\theta}{2}\right)|0\rangle + i \sin \left(\frac{\theta}{2}\right) |1\rangle\)</span>. Therefore, we will use <span class="math notranslate nohighlight">\(\theta=2 \arccos(a)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_angle</span><span class="p">(</span><span class="n">amplitude_0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">amplitude_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In practice, the state preparation procedure we will consider requires the application of several rotations in order to prepare each data point in the good register. Don’t hesitate to check it by yourself by running the circuit below with a pen and paper.</p>
+<p>The following function builds the circuit. We plot it and explain it in more details below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_state</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">angles</span><span class="p">):</span>
+    <span class="n">ancilla_qubit</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">index_qubit</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">data_qubit</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">class_qubit</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="c1"># Put the ancilla and the index qubits into uniform superposition</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">ancilla_qubit</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">index_qubit</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+    <span class="c1"># Prepare the test vector</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">cu3</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ancilla_qubit</span><span class="p">,</span> <span class="n">data_qubit</span><span class="p">)</span>
+    <span class="c1"># Flip the ancilla qubit &gt; this moves the input </span>
+    <span class="c1"># vector to the |0&gt; state of the ancilla</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">ancilla_qubit</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+
+    <span class="c1"># Prepare the first training vector</span>
+    <span class="c1"># [0,1] -&gt; class 0</span>
+    <span class="c1"># We can prepare this with a Toffoli</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">ccx</span><span class="p">(</span><span class="n">ancilla_qubit</span><span class="p">,</span> <span class="n">index_qubit</span><span class="p">,</span> <span class="n">data_qubit</span><span class="p">)</span>
+    <span class="c1"># Flip the index qubit &gt; moves the first training vector to the </span>
+    <span class="c1"># |0&gt; state of the index qubit</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">index_qubit</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+    <span class="c1"># Prepare the second training vector</span>
+    <span class="c1"># [0.790, 0.615] -&gt; class 1</span>
+    <span class="c1">#</span>
+    <span class="c1"># Ideally we would do this with a double controlled, i.e a ccry, gate</span>
+    <span class="c1"># However in qiskit we cannot build such a gate, hence we resort to</span>
+    <span class="c1"># the following construction</span>
+    
+    <span class="n">circuit</span><span class="o">.</span><span class="n">ccx</span><span class="p">(</span><span class="n">ancilla_qubit</span><span class="p">,</span> <span class="n">index_qubit</span><span class="p">,</span> <span class="n">data_qubit</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">ry</span><span class="p">(</span><span class="o">-</span><span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data_qubit</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">ccx</span><span class="p">(</span><span class="n">ancilla_qubit</span><span class="p">,</span> <span class="n">index_qubit</span><span class="p">,</span> <span class="n">data_qubit</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">ry</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data_qubit</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+    <span class="c1"># Flip the class label for training vector #2</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="n">index_qubit</span><span class="p">,</span> <span class="n">class_qubit</span><span class="p">)</span>
+   
+    <span class="k">return</span> <span class="n">circuit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us see the circuit for the distance-based classifier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">circuit_drawer</span>
+
+<span class="c1"># Compute the angles for the testvectors</span>
+<span class="n">test_angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_angle</span><span class="p">(</span><span class="n">test_set</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span> <span class="n">get_angle</span><span class="p">(</span><span class="n">test_set</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])]</span>
+<span class="c1"># Compute the angle for the second training vector (as the first vector is trivial)</span>
+<span class="n">training_angle</span> <span class="o">=</span> <span class="n">get_angle</span><span class="p">(</span><span class="n">training_set</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">test_angles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">training_angle</span><span class="p">]</span>
+<span class="n">state_preparation_0</span> <span class="o">=</span> <span class="n">prepare_state</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
+<span class="n">circuit_drawer</span><span class="p">(</span><span class="n">state_preparation_0</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">training_angle</span> <span class="o">=</span> <span class="n">get_angle</span><span class="p">(</span><span class="n">training_set</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">test_angles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">training_angle</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">state_preparation_0</span> <span class="o">=</span> <span class="n">prepare_state</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">circuit_drawer</span><span class="p">(</span><span class="n">state_preparation_0</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+
+<span class="nn">Cell In[4], line 13,</span> in <span class="ni">prepare_state</span><span class="nt">(q, c, angles)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Prepare the test vector</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">circuit</span><span class="o">.</span><span class="n">cu3</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ancilla_qubit</span><span class="p">,</span> <span class="n">data_qubit</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># Flip the ancilla qubit &gt; this moves the input </span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># vector to the |0&gt; state of the ancilla</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">ancilla_qubit</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;QuantumCircuit&#39; object has no attribute &#39;cu3&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The vertical lines are barriers to make sure that all gates are finished by that point. They also make a natural segmentation of the state preparation.</p>
+<p>In the first section, the ancilla and index qubits are put into uniform superposition.</p>
+<p>The second section entangles the test vector with the ground state of the ancilla.</p>
+<p>In the third section, we prepare the state <span class="math notranslate nohighlight">\(|1\rangle\)</span>, which is the first training instance, and entangle it with the excited state of the ancilla and the ground state of the index qubit with a Toffoli gate and a Pauli-X gate. The Toffoli gate is also called the controlled-controlled-not gate, describing its action.</p>
+<p>The fourth section prepares the second training instance and entangles it with the excited state of the ancilla and the index qubit. Next, the class qubit is flipped conditioned on the index qubit being <span class="math notranslate nohighlight">\(|1\rangle\)</span>. This creates the connection between the encoded training instances and the corresponding class label.</p>
+<p>Let’s dissect the last part where we prepare the second training state, which is <span class="math notranslate nohighlight">\(\begin{pmatrix}0.790 \\ 0.615\end{pmatrix}\)</span> and we entangle it with the excited state of the ancilla and the excited state of the index qubit. We use <code class="docutils literal notranslate"><span class="pre">angles[1]</span></code>, which is ~<code class="docutils literal notranslate"><span class="pre">1.325/2</span></code>. Why? We have to rotate the basis state <span class="math notranslate nohighlight">\(|0\rangle\)</span> to contain the vector we want. We could write this generic state as <span class="math notranslate nohighlight">\(\begin{pmatrix} \cos(\theta/2) \\ \sin(\theta/2)\end{pmatrix}\)</span>. Looking at the documentation of the gate implementing the rotation, you’ll see that the function argument divides the angle by two, so we have to adjust for that – this is why we divided <span class="math notranslate nohighlight">\(\theta\)</span> by two. If you calculate the arccos or arcsin values, you will get the value in <code class="docutils literal notranslate"><span class="pre">angles[1]</span></code>.</p>
+<p>We need to apply the rotation to data qubit only if ancilla AND index qubits are 1, in other words, we have to implement a double controlled rotation. Qiskit does not have this type of gate. Hence, we’ll build it in two stages of half the required angle, designed in such a way they either add or cancel. The quantum AND gate is the CCX (also known as Toffoli), which flips the target qubit if both controls are 1. Applying the CCX flips only the data qbit of the target state. The subsequent rotation over half the desired angle works on all states, but after applying the second CCX the targed state has actually rotated in the opposite direction. Applying the reverse rotation adds the second half of the rotation for the target state,ans cancels the rotation for all other states (See Bloch sphere diagram outlining these 4 steps)</p>
+<p><img alt="Bloch sphere" src="quantum_machine_learning/qml/figures/blochsphere.jpg" /></p>
+<br>
+Let's now see what final state the circuit has produced. Note, the print is a non-normalized statevector:<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Xtest x&#39;</span><span class="p">,</span> <span class="s1">&#39;Xtrn0 x&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Xtest y&#39;</span><span class="p">,</span><span class="s1">&#39;Xtrn0 y&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Xtest x&#39;</span><span class="p">,</span><span class="s1">&#39;Xtrn1 x&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;Xtest y&#39;</span><span class="p">,</span><span class="s1">&#39;Xtrn1 y&#39;</span><span class="p">]</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">state_preparation_0</span><span class="p">,</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;statevector_simulator&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">outp</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">get_statevector</span><span class="p">(</span><span class="n">state_preparation_0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Statevector after insertion of data and testvectors</span><span class="se">\n\n</span><span class="s1">cdia   coefficient&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">outp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="s1">&#39;04b&#39;</span><span class="p">),</span><span class="s1">&#39;    </span><span class="si">% 5.4f</span><span class="s1">   &#39;</span> <span class="o">%</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">outp</span><span class="p">[</span><span class="n">z</span><span class="p">],</span><span class="mi">3</span><span class="p">)),</span> <span class="n">val</span><span class="p">[</span><span class="n">z</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statevector after insertion of data and testvectors
+
+cdia   coefficient
+0000     -0.5490    Xtest x
+0001      0.0000    Xtrn0 x
+0010      0.0000    
+0011      0.0000    
+0100      0.8360    Xtest y
+0101      1.0000    Xtrn0 y
+0110      0.0000    
+0111      0.0000    
+1000      0.0000    
+1001      0.0000    
+1010     -0.5490    Xtest x
+1011      0.7900    Xtrn1 x
+1100      0.0000    
+1101      0.0000    
+1110      0.8360    Xtest y
+1111      0.6130    Xtrn1 y
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the table you can see how both the test vector (Xtst x, Xtsty), as well as the training vectors ((Xtrn0 x, Xtrn0 y) - class0) and ((Xtrn1 x,Xtrn1 y) - class1) are embedded in the state vector. The training vector class is indicated in the class bit (c). The test vector is coded by the 0-state of the ancilla (a), and the training vector is coded by the 1-state of the ancilla. Note also the data bit (d) coding for the value of the x or y feature of the training vectors, and the index bit (i) coding for training vector 1 or 2.</p>
+<p>We are now ready for the final step</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-natural-kernel-on-a-shallow-circuit">
+<h1><span class="section-number">64. </span>A natural kernel on a shallow circuit<a class="headerlink" href="#a-natural-kernel-on-a-shallow-circuit" title="Permalink to this headline"></a></h1>
+<p>Having done the state preparation, the actual prediction is nothing but a Hadamard gate applied on the ancilla, followed by measurements. Since the ancilla is in a uniform superposition at the end of the state preparation and it is entangled with the registers encoding the test and training instances, applying a second Hadamard on the ancilla interferes the entangled registers. The state before the measurement is  <span class="math notranslate nohighlight">\(\frac{1}{2\sqrt{M}}\sum_{m=0}^{M-1}|y_m\rangle|m\rangle(|\psi_{x^m}\rangle+|\psi_{\tilde{x}}\rangle)|0\rangle+|y_m\rangle|m\rangle(|\psi_{x^m}\rangle-|\psi_{\tilde{x}}\rangle)|1\rangle\)</span>, where <span class="math notranslate nohighlight">\(|\psi_{\tilde{x}}\rangle\)</span> is the encoded test instance and <span class="math notranslate nohighlight">\(\psi_{x^m}\rangle\)</span> is the m-th training instance. For our example M, the number of training samples, equals 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">interfere_data_and_test_instances</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">angles</span><span class="p">):</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+    <span class="n">circuit</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">circuit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we measure the ancilla, the outcome probability of observing 0 will be <span class="math notranslate nohighlight">\(\frac{1}{4M}\sum_{i=0}^{M-1} |\tilde{x} + x_m|^2\)</span>. This creates a kernel of the following form:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc70fa1ba90&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/1156c618e81b97578ace9b5319f89509883d6d5e27013a3b7face16602e2cb8a.png" src="../../_images/1156c618e81b97578ace9b5319f89509883d6d5e27013a3b7face16602e2cb8a.png" />
+</div>
+</div>
+<p>This is the kernel that performs the classification. We perform the post-selection on observing 0 on the measurement on the ancilla and calculate the probabilities of the test instance belonging to either class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">postselect</span><span class="p">(</span><span class="n">result_counts</span><span class="p">):</span>
+    <span class="n">total_samples</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">result_counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="c1"># define lambda function that retrieves only results where the ancilla is in the |0&gt; state</span>
+    <span class="n">post_select</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">counts</span><span class="p">:</span> <span class="p">[(</span><span class="n">state</span><span class="p">,</span> <span class="n">occurences</span><span class="p">)</span> <span class="k">for</span> <span class="n">state</span><span class="p">,</span> <span class="n">occurences</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">]</span>
+
+    <span class="c1"># perform the postselection</span>
+    <span class="n">postselection</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">post_select</span><span class="p">(</span><span class="n">result_counts</span><span class="p">))</span>
+    <span class="n">postselected_samples</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">postselection</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="n">ancilla_post_selection</span> <span class="o">=</span> <span class="n">postselected_samples</span><span class="o">/</span><span class="n">total_samples</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ancilla post-selection probability was found to be &#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">ancilla_post_selection</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">retrieve_class</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">binary_class</span><span class="p">:</span> <span class="p">[</span><span class="n">occurences</span> <span class="k">for</span> <span class="n">state</span><span class="p">,</span> <span class="n">occurences</span> <span class="ow">in</span> <span class="n">postselection</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">binary_class</span><span class="p">)]</span>
+
+    <span class="n">prob_class0</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">retrieve_class</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">postselected_samples</span>
+    <span class="n">prob_class1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">retrieve_class</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">postselected_samples</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Probability for class 0 is&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">prob_class0</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Probability for class 1 is&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">prob_class1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the first instance we have:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_0</span> <span class="o">=</span> <span class="n">interfere_data_and_test_instances</span><span class="p">(</span><span class="n">state_preparation_0</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">circuit_0</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(</span><span class="n">circuit_0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="n">postselect</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;1011&#39;: 222, &#39;1110&#39;: 272, &#39;0001&#39;: 35, &#39;1111&#39;: 4, &#39;0101&#39;: 1, &#39;1010&#39;: 5, &#39;0000&#39;: 38, &#39;0100&#39;: 447}
+Ancilla post-selection probability was found to be  0.744
+Probability for class 0 is 0.636
+Probability for class 1 is 0.364
+</pre></div>
+</div>
+</div>
+</div>
+<p>And for the second one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">test_angles</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">training_angle</span><span class="p">]</span>
+<span class="n">state_preparation_1</span> <span class="o">=</span> <span class="n">prepare_state</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
+<span class="n">circuit_1</span> <span class="o">=</span> <span class="n">interfere_data_and_test_instances</span><span class="p">(</span><span class="n">state_preparation_1</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">circuit_1</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(</span><span class="n">circuit_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="n">postselect</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;1110&#39;: 339, &#39;1111&#39;: 13, &#39;1010&#39;: 88, &#39;1011&#39;: 63, &#39;0000&#39;: 1, &#39;0100&#39;: 520}
+Ancilla post-selection probability was found to be  0.926
+Probability for class 0 is 0.55
+Probability for class 1 is 0.45
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1><span class="section-number">65. </span>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h1>
+<p>[1] M. Schuld, M. Fingerhuth, F. Petruccione. (2017). <a class="reference external" href="https://doi.org/10.1209/0295-5075/119/60002">Implementing a distance-based classifier with a quantum interference circuit</a>. <em>Europhysics Letters</em>, 119(6), 60002. <a id='1'></a></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_machine_learning/qml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html" class="btn btn-neutral float-left" title="59. Mapping clustering to discrete optimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html" class="btn btn-neutral float-right" title="66. GFX!!!" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

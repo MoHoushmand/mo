@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>43. W &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation(06)__Adiabatic_Quantum_Computing_qiskit.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="50. Quantum approximate optimization algorithm" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html" />
+    <link rel="prev" title="39. Gate-Model Quantum Computing" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">43. </span>W</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation(06)__Adiabatic_Quantum_Computing_qiskit.ipynb" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="w">
+<h1><span class="section-number">43. </span>W<a class="headerlink" href="#w" title="Permalink to this headline"></a></h1>
+<p>2 Adiabatic Quantum Computing</p>
+<p>PETER WITTEK: We introduced the gate model quantum computer as a universal way of transforming quantum states into other quantum states. Today, we are looking at a different model called that adiabatic quantum computing, which can also achieve universal quantum computations. But to do this, we have to understand a bit more of the underlying physics. So we talked about Hamiltonians, which describe the energy of the system, and we talked about unitaries, which describe the evolution of a system. So let’s go back to our classical Ising model or the quantum mechanical description, where we had this thing where that operator is acting.</p>
+<div class="math notranslate nohighlight">
+\[H=-\sum_{&lt;i,j&gt;}J_{ij}\sigma_{i}^{z}\sigma_{j}^{z}+\sum_{i}h_{i}\sigma_{i}^{z}-\sum_{&lt;i,j&gt;}g_{i}\sigma_{j}^{x}\]</div>
+<div class="math notranslate nohighlight">
+\[E=\langle\psi\mid H\mid\psi\rangle\]</div>
+<p>So this was the energy of the system. It was the expectation value of the Hamiltonian in a particular quantum state. So in that view, just look at this H\mid\psi\rangle – the Hamiltonian acting on the state. It has the exact same form as a unitary acting on it U\mid\psi\rangle to get the evolution of the state . And there is actually a correspondence. And this is what is described by the Schrodinger equation.</p>
+<div class="math notranslate nohighlight">
+\[i\hbar\frac{d}{dt}\mid\psi(t)\rangle=H\mid\psi(t)\rangle\]</div>
+<p>So it says that the temporal evolution of the system \frac{d}{dt}\mid\psi(t)\rangle is described by the Hamiltonian H\mid\psi(t)\rangle applied to that state– that time-dependent state. And then you have the imaginary number here and the reduced Planck constant, but the main part is that the temporal evolution depends on the Hamiltonian. And if you solve it, in the case where the Hamiltonian does not depend on time, and what you get is this formula, which is exactly the unitary acting on a particular state for some duration t.</p>
+<div class="math notranslate nohighlight">
+\[U=e^{\frac{iHt}{\hbar}}\]</div>
+<p>So basically, every unitary operation has an underlying Hamiltonian. And every gate in a gate model quantum computer has an underlying Hamiltonian. And the Hamiltonian is always a Hermitian operator, which means that it’s adjoined as itself, which implies actually why this operation is unitary. So there’s a very direct connection between the mathematical properties of these objects. So with that in mind, let’s take a look at the adiabatic theorem.</p>
+<p>Adiabatic Theorem</p>
+<p>Imagine that you have two Hamiltonians. One, which I call H0 is just a transverse field.</p>
+<div class="math notranslate nohighlight">
+\[H_{0}=\sum_{i}\sigma^{x}\]</div>
+<p>It’s just a transverse field acting on a number of sites. We know that the ground state– the lowest energy state of this– is the equal superposition. Now, we can take another Hamiltonian– for instance, our classical Ising model</p>
+<div class="math notranslate nohighlight">
+\[H_{1}=-\sum_{&lt;i,j&gt;}J_{ij}\sigma_{i}^{z}\sigma_{j}^{z}+\sum_{i}h\sigma_{i}^{z}\]</div>
+<p>– and they can take a time-dependent Hamiltonian, which mixes the two.</p>
+<div class="math notranslate nohighlight">
+\[H(t)=(1-t)H_{0}+tH_{1}\qquad t\in[0:1]\]</div>
+<p>So t starts in 0 and goes all the way up to 1. So at t equals 0, it’s just a transverse field and at t equals 1, it’s only the classical Ising model. And if we changed this time sufficiently slow and we start in the ground state of this Hamiltonian, then we end up in the ground state of this Hamiltonian. And as I explained in the video on the classical Ising model, this is actually a hard problem to solve for nature because it can happen that the system gets trapped in a local optimum. Whereas here, we are applying this trick– this adiabatic transition– to go from a ground state and ensure that we stay in the lowest energy solution throughout the change, and then we can read out the solution– the global solution– of our problem. The caveat here is that there is a speed limit. A gap of a Hamiltonian means the difference between the ground state, the lowest energy state, and the first excited state. And if you denote the gate by delta, then each and every one of the time steps in this change will have a different gap. You have to take the minimum of that and square it. And the speed limit will depend on the inverse of that. So if there is a very, very close case of the excited state being very close to the ground state, then the speed limit can be very, very bad. So it’s not true that you can solve, say, NP-hard problems faster or exponentially faster because those problems, the hard cases typically have a very, very, very tiny gap, which we are implied that the speed limit is actually exponential. So we can use this to perform universal calculations.</p>
+<div class="math notranslate nohighlight">
+\[H=-\sum_{&lt;i,j&gt;}J_{ij}\sigma_{i}^{z}\sigma_{j}^{z}+\sum_{i}h_{i}\sigma_{i}^{z}-\sum g_{i}g_{j}\sigma_{i}^{x}\]</div>
+<p>That’s called adiabatic quantum computing. So in this case, the Hamiltonian has this part <span class="math notranslate nohighlight">\(-\sum_{&lt;i,j&gt;}J_{ij}\sigma_{i}^{z}\sigma_{j}^{z}\)</span>, which is just your classical Ising model. And we have to add one more term <span class="math notranslate nohighlight">\(-\sum g_{i}g_{j}\sigma_{i}^{x}\)</span>, which is an interaction between transverse fields. So it’s not the transverse field Ising model because there, the transverse field only acts on the individual sites. Here, you have interaction between these transverse fields. If you are able to implement this Hamiltonian in the hardware, then this model can simulate universal quantum calculations, gate model quantum calculations, and therefore it can transform any quantum state into any other quantum state.</p>
+<p>Checkbox</p>
+<p>• The time-dependent Schrödinger equation establishes the connection between the Hamiltonian that we discussed in the lecture on quantum many-body systems and the untiary operations we talked about in transforming quantum states. Is it true that every Hamiltonian implies unitary operators? True</p>
+<p>• Does the adiabatic theorem allow a physics trick to solve NP-hard computational problems exponentially faster? No</p>
+<p>• Adiabatic quantum computing… is universal if it is able to implement a specific Hamiltonian.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="f">
+<h1><span class="section-number">44. </span>F<a class="headerlink" href="#f" title="Permalink to this headline"></a></h1>
+<p>When we talk about quantum computing, we actually talk about several different paradigms. The most common one is gate-model quantum computing, in the vein we discussed in the previous notebook. In this case, gates are applied on qubit registers to perform arbitrary transformations of quantum states made up of qubits.</p>
+<p>The second most common paradigm is quantum annealing. This paradigm is often also referred to as adiabatic quantum computing, although there are subtle differences. Quantum annealing solves a more specific problem – universality is not a requirement – which makes it an easier, albeit still difficult engineering challenge to scale it up. The technology is up to 2000 superconducting qubits in 2018, compared to the less than 100 qubits on gate-model quantum computers. D-Wave Systems has been building superconducting quantum annealers for over a decade and this company holds the record for the number of qubits – 2048. More recently, an IARPA project was launched to build novel superconducting quantum annealers. A quantum optics implementation was also made available by QNNcloud that implements a coherent Ising model. Its restrictions are different from superconducting architectures.</p>
+<p>Gate-model quantum computing is conceptually easier to understand: it is the generalization of digital computing. Instead of deterministic logical operations of bit strings, we have deterministic transformations of (quantum) probability distributions over bit strings. Quantum annealing requires some understanding of physics, which is why we introduced classical and quantum many-body physics in a previous notebook. Over the last few years, quantum annealing inspired gate-model algorithms that work on current and near-term quantum computers (see the notebook on variational circuits). So in this sense, it is worth developing an understanding of the underlying physics model and how quantum annealing works, even if you are only interested in gate-model quantum computing.</p>
+<p>While there is a plethora of quantum computing languages, frameworks, and libraries for the gate-model, quantum annealing is less well-established. D-Wave Systems offers an open source suite called Ocean. A vendor-independent solution is XACC, an extensible compilation framework for hybrid quantum-classical computing architectures, but the only quantum annealer it maps to is that of D-Wave Systems. Since XACC is a much larger initiative that extends beyond annealing, we choose a few much simpler packages from Ocean to illustrate the core concepts of this paradigm. However, before diving into the details of quantum annealing, it is worth taking a slight detour to connect the unitary evolution we discussed in a closed system and in the gate-model paradigm and the Hamiltonian describing a quantum many-body system. We also briefly discuss the adiabatic theorem, which provides the foundation why quantum annealing would work at all.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="unitary-evolution-and-the-hamiltonian">
+<h1><span class="section-number">45. </span>Unitary evolution and the Hamiltonian<a class="headerlink" href="#unitary-evolution-and-the-hamiltonian" title="Permalink to this headline"></a></h1>
+<p>We introduced the Hamiltonian as an object describing the energy of a classical or quantum system. Something more is true: it gives a description of a system evolving with time. This formalism is expressed by the Schrödinger equation:</p>
+<div class="math notranslate nohighlight">
+\[
+i\hbar {\frac {d}{dt}}|\psi(t)\rangle = H|\psi(t)\rangle,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hbar\)</span> is the reduced Planck constant. Previously we said that it is a unitary operator that evolves state. That is exactly what we get if we solve the Schrödinger equation for some time <span class="math notranslate nohighlight">\(t\)</span>: <span class="math notranslate nohighlight">\(U = \exp(-i Ht/\hbar)\)</span>. Note that we used that the Hamiltonian does not depend on time. In other words, every unitary we talked about so far has some underlying Hamiltonian.</p>
+<p>The Schrödinger equation in the above form is the time-dependent variant: the state depends on time. The time-independent Schrödinger equation reflects what we said about the Hamiltonian describing the energy of the system:</p>
+<div class="math notranslate nohighlight">
+\[
+ H|\psi \rangle =E|\psi \rangle,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(E\)</span> is the total energy of the system.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-adiabatic-theorem-and-adiabatic-quantum-computing">
+<h1><span class="section-number">46. </span>The adiabatic theorem and adiabatic quantum computing<a class="headerlink" href="#the-adiabatic-theorem-and-adiabatic-quantum-computing" title="Permalink to this headline"></a></h1>
+<p>An adiabatic process means that conditions change slowly enough for the system to adapt to the new configuration. For instance, in a quantum mechanical system, we can start from some Hamiltonian <span class="math notranslate nohighlight">\(H_0\)</span> and slowly change it to some other Hamiltonian <span class="math notranslate nohighlight">\(H_1\)</span>. The simplest change could be a linear schedule:</p>
+<div class="math notranslate nohighlight">
+\[
+H(t) = (1-t) H_0 + t H_1,
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(t\in[0,1]\)</span> on some time scale. This Hamiltonian depends on time, so solving the Schrödinger equation is considerably more complicated. The adiabatic theorem says that if the change in the time-dependent Hamiltonian occurs slowly, the resulting dynamics remain simple: starting close to an eigenstate, the system remains close to
+an eigenstate. This implies that if the system started in the ground state, if certain conditions are met, the system stays in the ground state.</p>
+<p>We call the energy difference between the ground state and the first excited state the gap. If <span class="math notranslate nohighlight">\(H(t)\)</span> has a nonnegative gap for each <span class="math notranslate nohighlight">\(t\)</span> during the transition and the change happens slowly, then the system stays in the ground state. If we denote the time-dependent gap by <span class="math notranslate nohighlight">\(\Delta(t)\)</span>, a coarse approximation of the speed limit scales as <span class="math notranslate nohighlight">\(1/\min(\Delta(t))^2\)</span>.</p>
+<p>This theorem allows something highly unusual. We can reach the ground state of an easy-to-solve quantum many body system, and change the Hamiltonian to a system we are interested in. For instance, we could start with the Hamiltonian <span class="math notranslate nohighlight">\(\sum_i \sigma^X_i\)</span> – its ground state is just the equal superposition. Let’s see this on two sites:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">IX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">XI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">H_0</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">IX</span> <span class="o">+</span> <span class="n">XI</span><span class="p">)</span>
+<span class="n">λ</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H_0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvalues:&quot;</span><span class="p">,</span> <span class="n">λ</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenstate for lowest eigenvalue&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues: [-2.  0.  0.  2.]
+Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we could turn this Hamiltonian slowly into a classical Ising model and read out the global solution.</p>
+<img src="figures/annealing_process.svg" alt="Annealing process" style="width: 400px;"/>
+<p>Adiabatic quantum computation exploits this phenomenon and it is able to perform universal calculations with the final Hamiltonian being <span class="math notranslate nohighlight">\(H=-\sum_{&lt;i,j&gt;} J_{ij} \sigma^Z_i \sigma^Z_{j} - \sum_i h_i \sigma^Z_i - \sum_{&lt;i,j&gt;} g_{ij} \sigma^X_i\sigma^X_j\)</span>. Note that is not the transverse-field Ising model: the last term is an X-X interaction. If a quantum computer respects the speed limit, guarantees the finite gap, and implements this Hamiltonian, then it is equivalent to the gate model with some overhead.</p>
+<p>The quadratic scaling on the gap does not appear too bad. So can we solve NP-hard problems faster with this paradigm? It is unlikely. The gap is highly dependent on the problem, and actually difficult problems tend to have an exponentially small gap. So our speed limit would be quadratic over the exponentially small gap, so the overall time required would be exponentially large.</p>
+<p>#W
+Chapter 4 Quantum Annealing</p>
+<p>SPEAKER: We talked about adiabatic quantum computation as a way to exploit phenomena on the adiabatic theorem to perform universal quantum calculations. We can also do something slightly different. Adiabatic quantum competition is somewhat idealized. And a less idealized version is quantum annealing. So if you remember, to get the speed limit right when you perform the adiabatic transition– the annealing– you have to respect the gap and the minimum gap that you experience on all the Hamiltonians that you transition through. This is very hard to calculate. So the speed limit is intrinsically hard to get.</p>
+<p>So instead, what you can do is just anneal over and over again– say, anneal 1,000 times. It doesn’t take long. It takes maybe 50 milliseconds. And then you can pull out these 1,000 different configurations, and look at their energy levels, and pick the one with the lowest energy. So this does not give you any guarantee that this is going to be the ground state and the global optimum for your problem, but this might give you a better solution than what, say, a classical heuristic algorithm would give you. And there’s some work going on where you can bound how far you are from the actual solution by using some fast classical heuristics, and then you will get an idea whether you are in the ground state or whether you’re actually close to it.</p>
+<p>So in principle, this model works very well. And then if you want to perform universal calculations, you must have both <span class="math notranslate nohighlight">\(\sigma_{z}\)</span> interactions, like between the sigma z operators, and also between <span class="math notranslate nohighlight">\(\sigma_x\)</span> operators. This is again, something difficult to achieve. So if you resort to just solving the classical Ising model, then you can solve this quadratic unconstrained binary optimization problems– QUBOs– which are NP-hard, so there’s value in solving specific operations, as opposed to solving a much harder problem that allows you to perform universal calculations. Then there are all sorts of experimental conditions that you face. For instance, there is a 2,000-qubit quantum annealer implemented by D-Wave Systems. This is a superconducting architecture, which means that you have to cool it down to about 10 millikelvin or so. But that’s not absolute zero, so you’re operating at finite temperature, which means that in principle, it might happen that you don’t even get the ground state to begin with and there’s a higher chance of jumping out of it as you perform the transition. And then there is this problem that the electronic control that goes into the actual quantum chip interferes with the calculations. So the machine itself sits in a big box, which is a Faraday cage. It shields the device from external electromagnetic radiation, but the classical electronic circuit itself introduces some noise in the system. So these are intrinsic engineering challenges, which will interfere with your actual calculations.</p>
+<p>Yet, this is a very interesting model and you can get very interesting calculations by performing repeated annealing round. So we talked about the software stack for gate model quantum computers, so let’s take a look at how it works for quantum annealing.</p>
+<p>So we can start again with the problem definition. For instance, we can address the same problem– the traveling salesman problem– where we are to visit n cities and choosing the shortest possible way of visiting all of them. Then it easily maps to an optimization– a quadratic binary optimization problem, so that’s intrinsically an Ising model, so this is easy to do. And then what we have to do is something called a minor-embedding. So this step corresponds to the compilation in the gate model architecture. So in compilation, several things are going on. First of all, you map from some gate sets that you define in a circuit to the actual hardware. And then you also factor in the constraints of your architecture. For instance, if two qubits are not connected and you want to interact via the two, then the compiler has to do something to allow for that interaction. And when it comes to minor-embedding in an annealer, what can happen is that your qubits may not be fully connected. For instance in this 2,000-qubit architecture, you have these unit cells consisting of eight qubits and four qubits are fully connected between these two sides.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="chimera-graph">
+<h1><span class="section-number">47. </span>!!! Chimera Graph<a class="headerlink" href="#chimera-graph" title="Permalink to this headline"></a></h1>
+<p>And then each one of these qubits have longer-range interactions to the next unit cell, which is the same thing as writing this graph and having these long-range connections to the neighboring unit cells.</p>
+<p>So your problem has some intrinsic connectivity structure. And then this minor-embedding– this graph minor-embedding– is what embeds it in what the hardware actually provides. And then you can map it to the QPU and run your annealing over and over again in just a couple of milliseconds. So to be more specific, imagine that you have this problem. So you want to find the minimum energy configuration of sigma one times sigma two plus sigma two times sigma three plus sigma one times sigma three. If you write down what’s the connectivity structure of this, it’s actually a k3. So here, you would have sigma one interacting with sigma two, then you have sigma two interacting with sigma three, and finally you have sigma one interacting with sigma three. Now if you look at this graph, there is no k3. This is a completed graph on three nodes. So what you do is, for instance, this would correspond to your logical variable sigma one. That’s fine. This corresponds to sigma two. That’s also fine because they interact, so they are connected to each other. And now, you can create another logical variable by combining these two physical qubits. So these two would act as one logical qubit, sigma. Three and you increase the coupling here to make sure that these two physical qubits always have the same value to represent the same logical qubit. So you introduce a strong coupling here as a way to mimic the connectivity structure that you are looking for. So this task in itself is hard, so you use probabilistic methods to embed the problem that you have on the hardware. But once you do that, quantum annealing is an interesting and a straightforward thing to do on your optimization problem.</p>
+<p>Checkbox:</p>
+<p>• Only experimental difficulties make it hard to follow the adiabatic pathway.</p>
+<p>– False</p>
+<p>• Minor embedding is similar to quantum compilation in the gate model because…</p>
+<p>– It maps the connectivity structure of the qubits to the hardware.</p>
+<p>• Can you embed a K_{8} graph on a single cell in a Chimera graph?</p>
+<p>– No</p>
+<p>#F</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="quantum-annealing">
+<h1><span class="section-number">48. </span>Quantum annealing<a class="headerlink" href="#quantum-annealing" title="Permalink to this headline"></a></h1>
+<p>A theoretical obstacle to adiabatic quantum computing is that calculating the speed limit is clearly not trivial; in fact, it is harder than solving the original problem of finding the ground state of some Hamiltonian of interest. Engineering constraints also apply: the qubits decohere, the environment has finite temperature, and so on. <em>Quantum annealing</em> drops the strict requirements and instead of respecting speed limits, it repeats the transition (the annealing) over and over again. Having collected a number of samples, we pick the spin configuration with the lowest energy as our solution. There is no guarantee that this is the ground state.</p>
+<p>Quantum annealing has a slightly different software stack than gate-model quantum computers. Instead of a quantum circuit, the level of abstraction is the classical Ising model – the problem we are interested in solving must be in this form. Then, just like superconducting gate-model quantum computers, superconducting quantum annealers also suffer from limited connectivity. In this case, it means that if our problem’s connectivity does not match that of the hardware, we have to find a graph minor embedding. This will combine several physical qubits into a logical qubit. The workflow is summarized in the following diagram [<span class="xref myst">1</span>]:</p>
+<img src="figures/quantum_annealing_workflow.png" alt="Software stack on a quantum annealer" style="width: 400px;"/>
+<p>A possible classical solver for the Ising model is the simulated annealer that we have seen before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dimod</span>
+
+<span class="n">J</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mf">1.0</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">}</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">dimod</span><span class="o">.</span><span class="n">BinaryQuadraticModel</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">dimod</span><span class="o">.</span><span class="n">SPIN</span><span class="p">)</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">dimod</span><span class="o">.</span><span class="n">SimulatedAnnealingSampler</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">num_reads</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Energy of samples:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">solution</span><span class="o">.</span><span class="n">energy</span> <span class="k">for</span> <span class="n">solution</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">dimod</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">J</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mf">1.0</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">}</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;dimod&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a look at the minor embedding problem. This part is NP-hard in itself, so we normally use  probabilistic heuristics to find an embedding. For instance, for many generations of the quantum annealer that D-Wave Systems produces has unit cells containing a <span class="math notranslate nohighlight">\(K_{4,4}\)</span> bipartite fully-connected graph, with two remote connections from each qubit going to qubits in neighbouring unit cells. A unit cell with its local and remote connections indicated is depicted following figure:</p>
+<img src="figures/unit_cell.png" alt="Unit cell in Chimera graph" style="width: 80px;"/>
+<p>This is called the Chimera graph. The current largest hardware has 2048 qubits, consisting of <span class="math notranslate nohighlight">\(16\times 16\)</span> unit cells of 8 qubits each. The Chimera graph is available as a <code class="docutils literal notranslate"><span class="pre">networkx</span></code> graph in the package <code class="docutils literal notranslate"><span class="pre">dwave_networkx</span></code>. We draw a smaller version, consisting of <span class="math notranslate nohighlight">\(2\times 2\)</span> unit cells.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">dwave_networkx</span> <span class="k">as</span> <span class="nn">dnx</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">connectivity_structure</span> <span class="o">=</span> <span class="n">dnx</span><span class="o">.</span><span class="n">chimera_graph</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">dnx</span><span class="o">.</span><span class="n">draw_chimera</span><span class="p">(</span><span class="n">connectivity_structure</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/88e3c73b695047ff8ad7e1d355ee0069f74a89d698f0922409f29387cba32353.png" src="../../_images/88e3c73b695047ff8ad7e1d355ee0069f74a89d698f0922409f29387cba32353.png" />
+</div>
+</div>
+<p>Let’s create a graph that certainly does not fit this connectivity structure. For instance, the complete graph <span class="math notranslate nohighlight">\(K_n\)</span> on nine nodes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">complete_graph</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> 
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f226e5a027418387b3c7ab809f43f5f0a1e03505dc2de7a507070dc24a1b7682.png" src="../../_images/f226e5a027418387b3c7ab809f43f5f0a1e03505dc2de7a507070dc24a1b7682.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">minorminer</span>
+<span class="n">embedded_graph</span> <span class="o">=</span> <span class="n">minorminer</span><span class="o">.</span><span class="n">find_embedding</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(),</span> <span class="n">connectivity_structure</span><span class="o">.</span><span class="n">edges</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot this embedding:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dnx</span><span class="o">.</span><span class="n">draw_chimera_embedding</span><span class="p">(</span><span class="n">connectivity_structure</span><span class="p">,</span> <span class="n">embedded_graph</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/984f602e9e7250a8926997b5513c70353e1f4eab085f5d13b0d22f5af1108f0f.png" src="../../_images/984f602e9e7250a8926997b5513c70353e1f4eab085f5d13b0d22f5af1108f0f.png" />
+</div>
+</div>
+<p>Qubits that have the same colour corresponding to a logical node in the original problem defined by the <span class="math notranslate nohighlight">\(K_9\)</span> graph. Qubits combined in such way form a chain. Even though our problem only has 9 variables (nodes), we used almost all 32 available on the toy Chimera graph. Let’s find the maximum chain length:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_chain_length</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">embedded_graph</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_chain_length</span><span class="p">:</span>
+        <span class="n">max_chain_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">max_chain_length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>The chain on the hardware is implemented by having strong couplings between the elements in a chain – in fact, twice as strong as what the user can set. Nevertheless, long chains can break, which means we receive inconsistent results. In general, we prefer shorter chains, so we do not waste physical qubits and we obtain more reliable results.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1><span class="section-number">49. </span>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h1>
+<p>[1] M. Fingerhuth, T. Babej, P. Wittek. (2018). <a class="reference external" href="https://doi.org/10.1371/journal.pone.0208561">Open source software in quantum computing</a>. <em>PLOS ONE</em> 13(12):e0208561.  <a id='1'></a></p>
+<p>#W
+Chapter 5 Implementations</p>
+<p>5.1 Superconducting Architectures</p>
+<p>SPEAKER 1: We talked about an abstract description of gate model quantum computers, we talked about quantum annealers, but we never talked about how you actually build one of these things. So let’s take a look at the couple of competing approaches today, which could scale up to larger quantum computers. Well, the most popular approach is superconducting architectures. So in this case, you are using a silicon-based technology. This is great because you can use the same fabrication facilities as you would use for building your digital circuits in your phone or in your laptop. The only difference is that you cool it down to around 10 millikelvin with a massive refrigerator. And then you use microwave pulses to induce control and actually implement the gates and the interaction between the different qubits. And microwave pulses are great because control speed is very fast. You are in the range of nanoseconds. So in principle, the speed of this system is very, very good, but there are a couple of problems.</p>
+<p>5.1.1 Dissadvantages</p>
+<p>First of all, since you have this silicon wafer, this is fundamentally two dimensional. So imagine now that you have four qubits implemented. Then you can have full connectivity between every pair of qubits, so you can apply gates between any pair of qubits. But the moment you add a fifth one, that goes away because there’s no way to connect this fifth one with all of the other ones. Then you cannot cross the wires. So when it comes to a problem like this, this is where the quantum compiler starts to play an important role because what it would do if you want to interact these two qubits, it would implement something called a swap. For instance, it would swap these two, perform the interaction, and then swap them back. That’s the easiest thing to do. And a swap is very simple. So if you look at the circuit diagram of it, this is just a controlled NOT, followed by a controlled NOT the other way, and then a third one. So it introduces three gates to swap it here. And then you perform the gate that you wanted, then you could swap it back. So you would look at seven gates just to perform one gate operation. This would be a problem.</p>
+<p>The problem is short coherence time.</p>
+<p>So in these systems, you look at very, very short coherence times, which means that you can only execute gate sequences which are very short. So your circuit depth is basically the number of gates that you have lined up on your circuit, and this depth is very limited. And how limited it is? Well, we are looking at 10 to 20 gates. And now, you are using up three gates just to swap these two, so that’s a fundamental limitation in this architecture. And you have to be very careful when you design algorithms and compilers because you want to avoid introducing extra gates in your compilation, plus these systems have a cooling requirements. One of these refrigerators costs $0.5 million on its own, so that’s a major engineering bottleneck.</p>
+<p>5.2 Trapped ions</p>
+<p>Then we have trapped ions. In this case, we take individual ions– which are just charged atomic particles– we line them up, and we trap them in an electromagnetic field, and we use laser pulses to control their interaction. These are fantastic. They have a long coherence time, but they have their own disadvantages. Scalability is unclear. So recently, there are systems up to about 70 qubits implementing this system, but it’s unclear how well it will scale to larger and larger systems because we ideally want thousands of qubits. And the speed of control is much slower than in the case of superconducting architectures.</p>
+<p>5.3 Photonic Systems</p>
+<p>for instance, which are just light. You can take, for instance, the polarization of the light as qubit states, so it would be left polarized, right polarized, and the superposition in between. And they operate at room temperature, so that’s fantastic. But the problem is that these photonic circuits have photon loss. You can characterize it, but this loss is going to be there. And then photons cannot be stored, unlike these ions, which are suspended, or these silicon-based architectures, where the actual artificial atom or the flux qubit is actually carved on the silicon wafer. These are elusive in nature. So it’s unclear which one of these architectures is going to give us a large-scale perfect quantum computer. And there are also a couple of other approaches that try building one. So at this point, we just have to wait and see which one proves best.</p>
+<p>Checkbox</p>
+<p>• Why do silicon-based superconducting quantum computers have a connectivity problem? The two-dimensional layout makes connections difficult to establish between every pair of qubits.</p>
+<p>• Trapped ion quantum computers…</p>
+<p>– Operate at room temperature.</p>
+<p>– Have full connectivity.</p>
+<p>• Photonic quantum computers…</p>
+<p>– May encode qubits in photon polarization.
+#F</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_machine_learning/qml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html" class="btn btn-neutral float-left" title="39. Gate-Model Quantum Computing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html" class="btn btn-neutral float-right" title="50. Quantum approximate optimization algorithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from qiskit.tools.visualization import circuit_drawer
+
+# Compute the angles for the testvectors
+test_angles = [get_angle(test_set[0][0]), get_angle(test_set[1][0])]
+# Compute the angle for the second training vector (as the first vector is trivial)
+training_angle = get_angle(training_set[1][0])/2
+
+angles = [test_angles[0], training_angle]
+state_preparation_0 = prepare_state(q, c, angles)
+circuit_drawer(state_preparation_0, output='mpl')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[5], line 9[0m
+[1;32m      6[0m training_angle [38;5;241m=[39m get_angle(training_set[[38;5;241m1[39m][[38;5;241m0[39m])[38;5;241m/[39m[38;5;241m2[39m
+[1;32m      8[0m angles [38;5;241m=[39m [test_angles[[38;5;241m0[39m], training_angle]
+[0;32m----> 9[0m state_preparation_0 [38;5;241m=[39m [43mprepare_state[49m[43m([49m[43mq[49m[43m,[49m[43m [49m[43mc[49m[43m,[49m[43m [49m[43mangles[49m[43m)[49m
+[1;32m     10[0m circuit_drawer(state_preparation_0, output[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmpl[39m[38;5;124m'[39m)
+
+Cell [0;32mIn[4], line 13[0m, in [0;36mprepare_state[0;34m(q, c, angles)[0m
+[1;32m     10[0m circuit[38;5;241m.[39mbarrier()
+[1;32m     12[0m [38;5;66;03m# Prepare the test vector[39;00m
+[0;32m---> 13[0m [43mcircuit[49m[38;5;241;43m.[39;49m[43mcu3[49m(angles[[38;5;241m0[39m], [38;5;241m0[39m, [38;5;241m0[39m, ancilla_qubit, data_qubit)
+[1;32m     14[0m [38;5;66;03m# Flip the ancilla qubit > this moves the input [39;00m
+[1;32m     15[0m [38;5;66;03m# vector to the |0> state of the ancilla[39;00m
+[1;32m     16[0m circuit[38;5;241m.[39mx(ancilla_qubit)
+
+[0;31mAttributeError[0m: 'QuantumCircuit' object has no attribute 'cu3'
+AttributeError: 'QuantumCircuit' object has no attribute 'cu3'
+

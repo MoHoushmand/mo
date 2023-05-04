@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>72. Introduction &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_(13)__Quantum_Phase_Estimation_qiskit.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="78. Introduction" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html" />
+    <link rel="prev" title="66. GFX!!!" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">72. </span>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_(13)__Quantum_Phase_Estimation_qiskit.ipynb" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>#W
+Chapter 1 Quantum Fourier Transform</p>
+<p>SPEAKER 1: We talked about algorithms that work on shallow circuit quantum computers or noisy quantum computers. In other words, quantum computers, which don’t have a long coherence time. They have implementation difficulties. In this module, we will merely talk about algorithms that assume a perfect quantum computer and that require very high quality qubits and that allow you to run arbitrarily long algorithms. These are the kind of algorithms that can give you polynomial or exponential speed ups compared to best known classical algorithms. So these are what we call coherent protocols. Coherent not because they don’t necessarily interact with the environment. We might do some measurement as part of the protocol, but what we mean by coherent here is that we assume this level of perfection of the quantum computer that I mentioned. And what’s very important to most of these algorithms is that their inputs and outputs are all quantum states. This is slightly different than what we have seen so far because when you think about quantum annealing, you are actually preparing something classical. And then you get some classical output. If you think about QAOA, it is the same story. Now here, it’s very important that your inputs and outputs are quantum states. Because if you use state preparation, or you want to understand what the final output is and you want to do tomography, that can kill all the speed up that you get from the protocol itself. So it’s a slightly different paradigm. Before we look at one of the most important building blocks in quantum field transform, let’s take a look at what its classical variant does. So classically, we have some vector, which, for instance, describes a time series. And by applying Fourier transformation rate, we get, say, the frequency domain decomposition of the signal. So you go from the time domain to the frequency domain. And the way you do it is by applying this exponential operation for every single element on xj. And this reveals the frequency structure. As you are going to see in quantum field estimation, this is what we used to go from, say, an amplitude encoding to business encoding. So it’s very useful for a whole bunch of different things when you put it in the right context. Now, the quantum Fourier transformation achieves exactly this operation. So now you have the quantum state encoding x in amplitude encoding, so the elements of the x factor encoding in the amplitude. And you create a new vector y by applying the quantum Fourier transformation, where the elements or the amplitudes in this new vector are exactly these elements that you would do in a classical Fourier transformation. To keep things simple, I assumed that the number of elements in this vector, capital N, is some power of 2. It’s 2 to the n. So the actual transformation is surprisingly simple. So we are looking for some unitary that performs this transformation, right? And we can create this binary expansion of a number. So the binary expansion is just basically its digits expanded in the binary basis. And if you do that, then they can see the actual structure of how numbers transform, and that’s exactly what we are going to do. So this would be the Fourier transformation that we are looking for. So I just rewrote whatever was here, here. So this is what we want to get at the end of it. And we are going to rearrange things here, just some basic algebra, to see what is the actual operation we have to apply. So now we expand the k basis factor, or the label of the basis factor, in this binary expansion, right? So basically in this form. So now we go from 0 to 1 for all of these elements. So I’m expanding this sum into some n bits. And here are the n bits describing k. And I’m also expanding a little bit these parts, or k over 2n, in this binary form in this form. So I have two things going on in this step, these two. Then, when you look at just this form here, so whatever assumed exponential, that we can change it into a product. So now we can look at the product going from l equals 1 to n. And basically, I’m moving this summation out and make it into this product. And the next thing I’m going to do is I’m going to switch this product in front of the sum. So that’s what’s here. So now you have the product in front. You have the submission. kl, now here I got an index. That’s why you don’t have them explicitly written down. So kl goes from 0 to 1. And you still have this binary explanation here, with the basis vectors. And that didn’t change this, so this is the same, what you saw here. And now if we expand this very large sum, which is just 0 and 1, then we can read out what is the actual logarithm. Because what you have here is now for the 0 ket, 0 1 up for each of these kl, you have kl plus 0 here, which means that this whole phase is going to be 1. So it does not have a– well, its amplitude is 1. And then for the excited states, the 1 ket, we will have the actual corresponding value with this set to 1, which is just 2 pi i times x times 2 to the minus l, l going from 1 to m. And so this is equivalent to what we started with, and we can read the circuit from this one because this is just a couple of conditional rotations. So these will be the rotations that we want. And as you can see, the typical structure of a conditional operation, where you separate the two parts into two separate sections. So that’s it. In principle, it’s very simple, but it’s very resource intensive. You need lots of qubits, and eventually, you end up with a large number of gates, even though it is a simple structure. And therefore, you can’t really do it on this shallow circuit, shallow circuit, quantum computers that we have talked about so far. But you definitely need something that’s robust in noise and that’s large scale.</p>
+<p>• State tomography is the procedure to acquire a complete classical description of what a quantum state is. Why is it hard to? Remember our metaphor from the very beginning of the course: a quantum state is a probability distribution with some special properties.</p>
+<p>– Measuring the state only gives one sample, it does not reveal the entire probability distribution.</p>
+<p>– |Since a measurement changes the state, you have to repeat the entire calculation again to obtain another sample.</p>
+<p>• Which encoding does the quantum Fourier transformation use?</p>
+<p>– Amplitude encoding.</p>
+<p>• The derivation of the quantum algorithm is long, but eventually we find the U unitary that performs the desired transformation in the form $<span class="math notranslate nohighlight">\(\frac{1}{\sqrt{N}}(\mid0\rangle+e^{2\pi i0.x_{n}}\mid1\rangle)\otimes\ldots\otimes(\mid0\rangle+e^{2\pi i0.x_{1}.x_{2}\ldots x_{n}.x_{n-1}}\mid1\rangle\)</span>$. Why is this form advantageous?</p>
+<p>– It reduces dependency between qubits: only the last qubit depends on the value of all the others, the remaining qubits depend less and less on the input qubits.
+#F</p>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1><span class="section-number">72. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h1>
+<p>The quantum Fourier transform and quantum phase estimation provide the foundation for many quantum algorithms, including the quantum matrix inversion, which is extensively used in quantum machine learning. It is therefore worthwhile developing a good understanding of these building blocks before moving on to more complex algorithms.</p>
+<p>We must emphasize that starting with this notebook, the algorithms presented are coherent quantum protocols. By that, we mean that the input and output of an algorithm is a quantum state that we do not have classical information about. The protocol itself might use measurements: in this sense, they are not fully coherent, since we gain some, but incomplete classical information about the quantum system. We might also perform post-selection, which means that a gate is controlled by the classical output of a measurement. In some cases, we entirely discard a calculation based on a measurement output.</p>
+<p>Why does it matter that we begin and end up with quantum states? Can’t we just use state preparation starting from classical data and then perform tomography on the final state? We could do that, but state preparation and tomography are resource-intensive, and they are likely to destroy any quantum advantage.</p>
+<p>An additional problem is that the quantum Fourier transformation and other quantum algorithms similar in complexity require a very large number of gates on a large number of high-quality qubits. This is why the practical relevance of these algorithms is not immediate, but since they are the core of many quantum machine learning protocols, it is essential that we take a look at them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span> <span class="n">QuantumRegister</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">execute</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">BasicAer</span> <span class="k">as</span> <span class="n">Aer</span>
+<span class="n">π</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="quantum-fourier-transform">
+<h1><span class="section-number">73. </span>Quantum Fourier Transform<a class="headerlink" href="#quantum-fourier-transform" title="Permalink to this headline"></a></h1>
+<p>The quantum Fourier transform is a quantum algorithm for the discrete Fourier transform over the amplitudes of a wavefunction. The exposition here follows the introduction in [<span class="xref myst">1</span>]. A similar approach can be found in the <a class="reference external" href="https://github.com/Qiskit/qiskit-tutorials/blob/master/community/algorithms/shor_algorithm.ipynb">Qiskit tutorials</a>.</p>
+<p>The classical discrete Fourier transform acts on a vector <span class="math notranslate nohighlight">\(\vec{x}=\begin{bmatrix}x_0\\ \vdots\\ x_{N-1}\end{bmatrix}\)</span> and maps it to the vector <span class="math notranslate nohighlight">\(\vec{y}=\begin{bmatrix}y_0\\ \vdots\\ y_{N-1}\end{bmatrix}\)</span>, where <span class="math notranslate nohighlight">\(y_k = \frac{1}{\sqrt{N}}\sum_{j=0}^{N-1}x_je^{ \boldsymbol{2\pi i} \frac{jk}{N}}\)</span>.</p>
+<p>The quantum Fourier transform acts on an amplitude-encoded variant of this vector, the quantum state <span class="math notranslate nohighlight">\(|x\rangle=\sum_{i=0}^{N-1} x_i |i \rangle\)</span> and maps it to the quantum state <span class="math notranslate nohighlight">\(|y\rangle=\sum_{k=0}^{N-1} y_k |k \rangle\)</span>, where
+<span class="math notranslate nohighlight">\(y_k = \frac{1}{\sqrt{N}}\sum_{j=0}^{N-1}x_je^{\boldsymbol{2\pi i} \frac{jk}{N}}\)</span>. Since the transformed state is also in the superposition of the computational basis, in essence, only the amplitudes are transformed.</p>
+<p>To derive a circuit for a power of two <span class="math notranslate nohighlight">\(N=2^n\)</span>, consider the transform acts on the state <span class="math notranslate nohighlight">\(| x \rangle = | x_1...x_n \rangle\)</span> where <span class="math notranslate nohighlight">\(x_1\)</span> is the most significant bit, unlike the usual convention followed in the course. We will rewrite a number <span class="math notranslate nohighlight">\(y\)</span> in the fractional binary notation  as <span class="math notranslate nohighlight">\(j = 0.j_1...j_n = \sum_{k=1}^n j_k/2^k\)</span>. For example <span class="math notranslate nohighlight">\(0.8125_d = 0.1101_b = \sum_{k=1}^4 j_k/2^k = 1/2 + 1/4 + 0/8 + 1/16\)</span>, where the subscripts <span class="math notranslate nohighlight">\(d\)</span> stands for decimal and <span class="math notranslate nohighlight">\(b\)</span> for binary. The action of the unitary <span class="math notranslate nohighlight">\(U\)</span> describing the transform can be expanded as
+\begin{aligned}
+U |x \rangle = U |x_1 x_2 \cdots x_n \rangle&amp; = \frac{1}{\sqrt{N}} \sum_{k=0}^{2^n-1} e^{\boldsymbol{2\pi i} xk / 2^n} |k \rangle \
+&amp; = \frac{1}{\sqrt{N}} \sum_{k_1=0}^{1}\ldots\sum_{k_n=0}^{1} e^{\boldsymbol{2\pi i} x\left(\sum_{l=1}^n k_l2^{-l}\right) } \vert k_1 … k_n \rangle \
+&amp; = \frac{1}{\sqrt{N}} \sum_{k_1=0}^{1}\ldots\sum_{k_n=0}^{1} \bigotimes_{l=1}^n e^{\boldsymbol{2\pi i} x k_l2^{-l}} | k_1 … k_n \rangle \
+&amp; = \frac{1}{\sqrt{N}} \bigotimes_{l=1}^n \sum_{k_l=0}^{1}  e^{\boldsymbol{2\pi i} x k_l2^{-l}} | k_1 … k_n \rangle \
+&amp; = \frac{1}{\sqrt{N}} \bigotimes_{l=1}^n  \left(|0\rangle + e^{\boldsymbol{2\pi i} x 2^{-l} } |1\rangle \right) \
+&amp; = \frac{1}{\sqrt{N}} \left(|0\rangle + e^{\boldsymbol{2\pi i} 0.x_n} |1\rangle\right) \otimes…\otimes  \left(\vert0\rangle + e^{\boldsymbol{2\pi i} 0.x_1.x_2…x_{n-1}.x_n} |1\rangle\right)
+\end{aligned}</p>
+<p>This form of the QFT is useful for deriving a circuit, since only the last qubit depends on the the
+values of all the other input qubits. The remaining qubits depend less and less on the input qubits. The simple structure also allows to decompose the unitary as Hadamard gates and rotations. On three qubits, we can define the circuit as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">qft</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">qft</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qft</span><span class="o">.</span><span class="n">cu1</span><span class="p">(</span><span class="n">π</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qft</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qft</span><span class="o">.</span><span class="n">cu1</span><span class="p">(</span><span class="n">π</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qft</span><span class="o">.</span><span class="n">cu1</span><span class="p">(</span><span class="n">π</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qft</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">qft</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">qft</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">qft</span><span class="o">.</span><span class="n">cu1</span><span class="p">(</span><span class="n">π</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">qft</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">qft</span><span class="o">.</span><span class="n">cu1</span><span class="p">(</span><span class="n">π</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="ne">AttributeError</span>: &#39;QuantumCircuit&#39; object has no attribute &#39;cu1&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can plot it to make the qubit dependencies more apparent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">circuit_drawer</span>
+<span class="n">circuit_drawer</span><span class="p">(</span><span class="n">qft</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="word-wrap: normal;white-space: pre;line-height: 15px;">        ┌───┐                                     
+q_0: |0>┤ H ├─■────────■──────────────────────────
+        └───┘ │1.5708  │       ┌───┐              
+q_1: |0>──────■────────┼───────┤ H ├─■────────────
+                       │0.7854 └───┘ │1.5708 ┌───┐
+q_2: |0>───────────────■─────────────■───────┤ H ├
+                                             └───┘
+ c_0: 0 ══════════════════════════════════════════
+                                                  </pre></div></div>
+</div>
+<p>The conditional rotations dominate the complexity, which scales as <span class="math notranslate nohighlight">\(O(N^2)\)</span>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="w">
+<h1><span class="section-number">74. </span>W<a class="headerlink" href="#w" title="Permalink to this headline"></a></h1>
+<p>Chapter 2 Quantum Phase Estimation</p>
+<p>SPEAKER 1: The quantum Fourier transformation is a very important algorithmic primitive in quantum computing. It is the foundation of many other quantum protocols, including quantum phase estimation, in which we want to estimate the eigenvalues of some unitary operator. So what happens is that given a unitary operator and one of its eigenvectors, then this is going to be one of its eigenvalues. But since this is a unitary operator, all of its eigenvalues are going to be on the complex unit circle. In other words, we can write it in this form. So this is e to the 2 pi i times some theta angle around the unit circle– the complex unit circle. And it is this phase– this theta phase is what we are going to estimate to some finite precision. And the way it works– it has two parts. One is an inverse quantum Fourier transformation. That’s easy. What comes before that– that’s a little bit challenging to understand. So imagine that you have two sets of registers. You have n registers which define the precision of your estimation. So this is where the estimated eigenvalue’s going to be. And then you have the actual eigenvector coming in some m registers. And what we are going to do is we are going to apply the unitary operator over and over again in these controlled operations. But in each of these applications, the unitary will be applied for a different duration. So in the first application, we apply just the unitary itself. This is the unitary to the power of 2 to the 0. And then it’s the unitary to the power of 2 the first, and so on all the way to the unitary applied to 2 to the n minus 1 times. So we create the equal superposition of the 0 cat in this ancilla register where the eigenvalue’s going to be written. And each of these controlled unitaries is going to be applied in superposition so that at the end of this procedure, this is the state that you’re going to get. This is going to be your first qubit. So here, you have the unitary applied 2 to the n minus 1 times– so it’s this one– and all the way to the very last n-th qubit in your ancilla where you are estimating your eigenvalue. And if you look at this– look at the structure of this tensor product, you can actually rewrite it in this form. It’s just a very simple sum. And what’s interesting here is that– OK, so you have your basis. You are expanding in the canonical basis. And that you pick up a global phase. So, sure, you also have your original eigenvector here, but this phrase is global to both of them. So this is called the phase kickback. And it’s a common trick to use it for something meaningful. In this case, when you look at this form, it looks like something that you would get after the Fourier transformation of some state. And now, if we apply the inverse quantum Fourier transformation, then we can write back this global phase into the register, and hence estimating the eigenvalue that we were interested in the first place.</p>
+<p>• Why can we write the eigenvalue of a unitary mtarix as a phase <span class="math notranslate nohighlight">\(\theta\)</span> in $<span class="math notranslate nohighlight">\(e^{2i\pi\theta}\)</span>$</p>
+<p>– The eigenvalues of a unitary matrix always lie on the complex unit circle.</p>
+<p>• Why do we write <span class="math notranslate nohighlight">\(\mid\hat{\theta}\rangle\)</span> instead of <span class="math notranslate nohighlight">\(\mid\theta\rangle\)</span>?</p>
+<p>– <span class="math notranslate nohighlight">\(\mid\hat{\theta}\rangle\)</span> is a finite-bit representation of a continuous valued number.</p>
+<p>• What do we achieve by the series of controlled unitary applications before the inverse quantum Fourier transformation?</p>
+<p>– We create a superposition of U as it is applied for different durations.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="f">
+<h1><span class="section-number">75. </span>F<a class="headerlink" href="#f" title="Permalink to this headline"></a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="quantum-phase-estimation">
+<h1><span class="section-number">76. </span>Quantum phase estimation<a class="headerlink" href="#quantum-phase-estimation" title="Permalink to this headline"></a></h1>
+<p>The goal of a quantum phase estimation algorithm is, given a unitary operator <span class="math notranslate nohighlight">\(U\)</span> and an eigenvector <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> of <span class="math notranslate nohighlight">\(U\)</span>, to estimate <span class="math notranslate nohighlight">\(\theta\)</span> in  <span class="math notranslate nohighlight">\(U|\psi \rangle =e^{2 i \pi \theta}|\psi \rangle\)</span>. Since <span class="math notranslate nohighlight">\(U\)</span> is unitary, all of its eigenvalues have an absolute value of 1. By convention, <span class="math notranslate nohighlight">\(\theta\)</span> is taken to be in <span class="math notranslate nohighlight">\([0,1]\)</span> and is called the <em>phase</em> of <span class="math notranslate nohighlight">\(U\)</span> associated to <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>.</p>
+<p>The eigenvector <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> is encoded in one set of quantum registers. An additional set of <span class="math notranslate nohighlight">\(n\)</span> qubits forms an ancilla register. At the end of the procedure, this ancilla register should contain an approximation of the <a class="reference external" href="https://www.electronics-tutorials.ws/binary/binary-fractions.html">binary fraction</a> associated to <span class="math notranslate nohighlight">\(\theta\)</span>, with n-bits precision. A critical element is the ability to perform the controlled unitary <span class="math notranslate nohighlight">\(C-U^{2^k}\)</span> – it is usually assumed to be provided to the phase estimation protocol.</p>
+<p>First, the uniform superposition is prepared in the ancilla register via the application of Hadamard gates <span class="math notranslate nohighlight">\(H\)</span>. These qubits will act as controls for the unitary operators at different time steps. Our goal is to create a superposition of <span class="math notranslate nohighlight">\(U\)</span> as the unitary is applied for different durations. Since the eigenvalues are always situated on the complex unit circle, these differently evolved components in the superposition help reveal the eigenstructure. Given that the ancilla register we have a superposition of all possible time steps between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2^{n-1}\)</span>, we will end up with a superposition of all possible evolutions to encode binary representations of the eigenvalues. At the end of this procedure, we have the state
+\begin{aligned}
+&amp; \frac {1}{2^{\frac {n}{2}}} (|0\rangle+{e^{2 i \pi \theta \cdot 2^{n-1}}}|1\rangle ) \otimes \cdots (|0\rangle+{e^{2 i \pi \theta \cdot 2^{1}}}|1\rangle ) \otimes (|0\rangle+{e^{2i \pi \theta \cdot 2^{0}}}|1\rangle ) = \
+&amp;\frac {1}{2^{\frac {n}{2}}}\sum _{k=0}^{2^{n}-1}e^{2 i \pi \theta k}|k\rangle
+\end{aligned}
+in the ancilla. To write the ancilla in this form, we exploit that the controlled unitary operations when applied, introduce a global phase, and it is this global phase that we see in the ancilla. This phenomenon is also known as the phase kickback.</p>
+<p>As a final step, we apply an inverse Fourier transform on the ancilla. Measuring out in the computational basis, we get the phase in the ancilla register:</p>
+<p>\begin{align}
+\frac {1}{2^{\frac {n}{2}}}\sum _{k=0}^{2^{n}-1}e^{2i \pi \theta k}|k\rangle \otimes | \psi \rangle \xrightarrow{\mathcal{QFT}_n^{-1}} | \tilde{\theta} \rangle \otimes | \psi \rangle
+\end{align}</p>
+<p>where <span class="math notranslate nohighlight">\(\tilde{\theta}\)</span> is the n-bits approximation of the binary fraction representing <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>The circuit for phase estimation is the following:</p>
+<p><img alt="Quantum phase estimation" src="quantum_machine_learning/qml/figures/qpe.svg" /></p>
+<p>As a toy example, let’s take the <span class="math notranslate nohighlight">\(2\times 2\)</span> unitary matrix <span class="math notranslate nohighlight">\(\begin{bmatrix}e^{0} &amp; 0 \\0 &amp; e^{i \pi}\end{bmatrix}=\begin{bmatrix}1 &amp; 0 \\0 &amp; -1\end{bmatrix}\)</span>, which has the eigenvectors <span class="math notranslate nohighlight">\(|0\rangle\)</span> and <span class="math notranslate nohighlight">\(|1\rangle\)</span>, and phases <span class="math notranslate nohighlight">\(\theta_0=0\)</span> and <span class="math notranslate nohighlight">\(\theta_1=\frac{1}{2}\)</span>. Therefore, the <span class="math notranslate nohighlight">\(C-U^{2^k}\)</span> gate is a controlled-<span class="math notranslate nohighlight">\(Z\)</span> gate for <span class="math notranslate nohighlight">\(k=0\)</span> and the identity for <span class="math notranslate nohighlight">\(k\geq 1\)</span>.</p>
+<p>Starting with <span class="math notranslate nohighlight">\(|\psi\rangle=|0\rangle\)</span> in the main register, we prepare the superposition in the ancilla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+
+<span class="n">qpe</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;qiskit.extensions.standard.h.HGate at 0x7f3c8c3f1e80&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we perform the controlled unitary operations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Controlled-U0</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">cz</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1"># Controlled-U1</span>
+<span class="c1"># nothing: identity</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;qiskit.extensions.standard.cz.CzGate at 0x7f3c8c3f1860&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We apply quantum inverse Fourier transformation to write the phase to the ancilla register:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qpe</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">cu1</span><span class="p">(</span><span class="o">-</span><span class="n">π</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;qiskit.extensions.standard.swap.SwapGate at 0x7f3c8c3b5550&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will get the result from the two first registers</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qpe</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;qiskit.circuit.measure.Measure at 0x7f3c8c3f1be0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can plot the circuit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_drawer</span><span class="p">(</span><span class="n">qpe</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="word-wrap: normal;white-space: pre;line-height: 15px;">        ┌───┐                     ┌───┐   ┌─┐   
+q_0: |0>┤ H ├────X───────■────────┤ H ├─X─┤M├───
+        ├───┤    │ ┌───┐ │-1.5708 └───┘ │ └╥┘┌─┐
+q_1: |0>┤ H ├─■──X─┤ H ├─■──────────────X──╫─┤M├
+        └───┘ │    └───┘                   ║ └╥┘
+q_2: |0>──────■────────────────────────────╫──╫─
+                                           ║  ║ 
+ c_0: 0 ═══════════════════════════════════╩══╬═
+                                              ║ 
+ c_1: 0 ══════════════════════════════════════╩═
+                                                </pre></div></div>
+</div>
+<p>Let’s now test our circuit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;qasm_simulator&#39;</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">qpe</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(</span><span class="n">qpe</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;00&#39;: 1000}
+</pre></div>
+</div>
+</div>
+</div>
+<p>As expected the result is <span class="math notranslate nohighlight">\(|2 \cdot \theta_0\rangle=|2\cdot 0\rangle=|00\rangle\)</span></p>
+<p>Let’s now run the circuit for the eigenvector <span class="math notranslate nohighlight">\(|1\rangle\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qpe</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># create |1&gt; in the main register</span>
+
+<span class="n">qpe</span><span class="o">.</span><span class="n">cz</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">qpe</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">cu1</span><span class="p">(</span><span class="o">-</span><span class="n">π</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">qpe</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">qpe</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;qiskit.circuit.measure.Measure at 0x7f3c8c3f1e10&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;qasm_simulator&#39;</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">qpe</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(</span><span class="n">qpe</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;10&#39;: 1000}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result should be <span class="math notranslate nohighlight">\(|10\rangle\)</span>. Indeed, <span class="math notranslate nohighlight">\(10 \rightarrow 1\cdot 2^{-1} + 0 \cdot 2^0=\frac{1}{2}=\theta_1\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1><span class="section-number">77. </span>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h1>
+<p>[1] M. Nielsen, I. Chuang. (2000). <em>Quantum Computation and Quantum Information</em>. Cambridge University Press. <a id='1'></a></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_machine_learning/qml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html" class="btn btn-neutral float-left" title="66. GFX!!!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html" class="btn btn-neutral float-right" title="78. Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
