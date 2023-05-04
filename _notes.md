@@ -1,0 +1,222 @@
+## Zipminator
+
+In this space, explore the breadth of my 20+ years of experience in applied behavioral analysis, cybersecurity, and software development. Uncover the story behind the `Zipminator` software I developed at NAV- a cyber-security, password protecting encrypting DataFrames, GDPR/Privacy complience checker with self-destructing functionalitises.    ,
+
+As a firm believer in social responsibility, I dedicate a portion of this website to my charity work and ongoing commitment to helping those in need. Join me in my efforts to create positive change and empower others to reach their full potential.
+Feel free to browse, learn, and connect with me as you explore the various facets of my life and work. Whether you are drawn to my artistic creations or intrigued by my technical expertise, I invite you to share in my journey and passion for learning, innovation, and positive impact.
+
+As a professional artist, data scientist, and devoted father, I am driven by a desire to create lasting impact, empower others, and drive transformative technologies. This space serves as a reflection of my interdisciplinary background, diverse skillset, and the projects that have shaped my journey.
+
+Here, you will find a showcase of some of my Artwork, highlighting my love for `fluid art`, `NFT`, `Cryptography`, `design, and modeling techniques`. Explore both my Analytical Mindset and also my creative side and discover the captivating pieces that have been a significant part of my personal and professional growth.
+
+Furthermore delve into the fascinating world of Quantum Information and the Hardware of Quantum Computers, as I share my insights and knowledge on cutting-edge technologies. Learn about my academic background in Applied Mathematics, Mechanics & Numerical Physics (MSc), Civil Engineering - Constructional techniques with High performance prestressed concrete, Continuum Mechanics covering Solid Mechanics & Fluid Mechanics, Computational Fluid Dynamics and *professional certifications and specialisations* in Mathematics for Machine Learning, Deep Reinforcement Learning, Quantum Machine Learning, and more than a decade with thousands of hours spent on the Architecture, Algorithms, Protocols, Quantum Interenet and Quantum Computers with a special emphasis on how to naively engineer and scale up Fault Tolerent Topological Quantum Computers with braiding of Anyonic Qubits (and Majorana Zero Bound).
+
+In this space, explore the breadth of my 20+ years of experience in applied behavioral analysis, cybersecurity, and software development. Uncover the story behind the `Zipminator` software I developed at NAV- a cyber-security, password protecting encrypting DataFrames, GDPR/Privacy complience checker with self-destructing functionalitises.    ,
+
+
+
+
+---
+Here, you will find a showcase of some of my Artwork, highlighting my love for `Art & Science`. How I approach, start and finnish off a creative processes end-to-end, and discover how I made some of the pieces that have been a significant part of my personal and professional growth, and that I personally have found captivating. <br>
+
+```{grid-item-card}
+:shadow: md
+
+![alt text](./img/mologo/mo0.png)
+```
+
+```{note} Improvements!
+Any typos or any shape of improvements are more than highly appreciated! 
+> **Daniel Mo Houshmand** <br> **mobile:** $+47 98079896$ <br> **email**: `mo@daria.com`
+```
+
+[tegenskole.no](http://www.tegneskole.no/)
+
+---
+
+```{grid-item-card}
+:shadow: md
+
+![alt text](./img/mologo/mo0.png)
+```
+
+```{tableofcontents}
+```
+
+```{admonition} Explanation
+Explanation We can think of the repeater protocol as being divided into two smaller protocols. First, Alice and the repeater generate shared entanglement. Then, Bob and the repeater generate shared entanglement, which they use to teleport half of the Alice/repeater entangled state to Bob
+
+- [ ] It is not possible to read out a superposition of spin states.
+- [ ] Three quantum dots are required to perform this readout protocol.
+- [ ] Magnetic noise can prevent the spin-up electron to tunnel out, since the Lorentz force accelerates the electron perpendicular to the direction of motion.
+- [x] A spin-down electron can acquire the energy necessary to tunnel out of the dot from thermal fluctuations.
+```
+
+::::{grid} 2
+:reverse:
+
+:::{grid-item-card}
+:columns: 4
+:class: sd-m-auto
+
+<img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+
+:::
+
+:::{grid-item}
+:columns: 8
+:class: sd-fs-3
+Welcome to my personal homepage, where I share my passions, experiences, and knowledge in the realms of Art, Artificial Intelligence, and Quantum Information. As a professional artist, data scientist, and devoted father, I am driven by a desire to create lasting impact, empower others, and drive transformative technologies. This space serves as a reflection of my interdisciplinary background, diverse skillset, and the projects that have shaped me. <br>
+
+Sincerely yours, <br>
+
+- Daniel Mo Houshmand
+- `mo@daria.com`
+- mob: $+47 98079896$
+
+```{button-ref} intro
+:ref-type: doc
+:color: primary
+:class: sd-rounded-pill float-left
+
+
+Introduction
+```
+
+% The SVG rendering breaks latex builds for the GitHub badge, so only include in HTML
+
+::::@
+
+```{grid-item-card} sd-avatar-xl
+<img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+```
+
+---
+
+```{admination} Work in progress
+- This site is in its infancy and under development, mostly in English but some minor parts of it is in Norwegian at the moment for courses tutoring in **Fluid Art** at [tegenskole.no](http://www.tegneskole.no/) <br> 
+- The rest is a combination of experience, educations and project in the realm Art, Applied Behavioral Analysis, Data Science and Computational with Applied Mathematics, Mechanics, Numerical Phuysics and some sub fields of Artificial Intelligence. 
+- In my attempt to grasp the fundamentals of Quantum Computing, Quantum Computers and Quantum Machine Learning I have literally been taken thousand of pages of notes, codes and other recourses wher I have worked through tons of exercises. All that will be the heart of what I want to share with the readers in this jupyterbook format that enables flexibility to build a more instructively, interactive and visually appealing book at a later stage to make it easier to grasp for others who want to learn more about these subjects so you don't suffer as much as I did due to the complexity and hardness of it. 
+- However, I have to painfully admit that this is not an easy to read or grasp subject, and you will no matter patiently work hard to fascilitate the subjects to be sufficiently matured. To cliche; The more regularly you work through exercises and read other resources the faster and heavier you will comprehend. 
+- in Norwegian that is in the process of being translated to English.
+Any errors, typos or any shape of improvements are more than highly appreciated! <br>
+
+Kind regards 
+
+- **Daniel Mo Houshmand** 
+- **mo@daria.com**
+- **mob: $+47 98079896$**
+```
+
+---
+
+::::{grid} 2
+:reverse:
+
+:::{grid-item}
+:columns: 4
+:class: sd-m-auto
+
+<img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+
+:::
+
+:::{grid-item}
+:columns: 8
+:class: sd-fs-3
+Build beautiful, publication-quality books and documents from computational content.
+
+```{button-ref} intro
+:ref-type: doc
+:color: primary
+:class: sd-rounded-pill float-left
+
+
+Introduction
+```
+
+:::
+
+::::
+
+---
+::::{grid} 2
+:reverse:
+
+:::{grid-item}
+:columns: 4
+:class: sd-m-auto
+
+<img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+
+:::
+
+:::{grid-item}
+:columns: 8
+:class: sd-fs-3
+
+Welcome to my personal homepage, where I share my passions, experiences, and knowledge in the realms of Art, Artificial Intelligence, and Quantum Information. As a professional artist, data scientist, and devoted father, I am driven by a desire to create lasting impact, empower others, and drive transformative technologies.
+
+```{button-ref} intro
+:ref-type: doc
+:color: primary
+:class: sd-rounded-pill float-left
+Mo Houshmand
+```
+
+:::
+
+---
+
+---
+
+```{grid-item-card} sd-avatar-xl
+<img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+```
+
+---
+
+
+
+---
+<img src="img/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+
+::::{grid} 2
+:reverse:
+
+:::{grid-item}
+:columns: 4
+:class: sd-m-auto
+
+<img src="images/logo-square.svg" />
+
+:::
+
+::::
+
+::::{grid} 2
+:reverse:
+
+:::{grid-item}
+:columns: 4
+:class: sd-avatar-xl
+<img src="img/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+:::
+
+:::{grid-item}
+:columns: 8
+:class: sd-fs-3
+Welcome to my personal homepage, where I share my passions, experiences, and knowledge in the realms of Art, Artificial Intelligence, and Quantum Information. As a professional artist, data scientist, and devoted father, I am driven by a desire to create lasting impact, empower others, and drive transformative technologies. This space serves as a reflection of my interdisciplinary background, diverse skillset, and the projects that have shaped me. <br>
+
+:ref-type: doc
+:color: primary
+:class: sd-rounded-pill float-left
+Get started
+:::
+::::
+
+<br>
+
+<img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+
+---

@@ -1,6 +1,6 @@
 # The Hardware of Quantum Computers
 
-When we build a quantum computer, we need to integrate different kinds of technologies to be able to interact with the machine. The quantum computer contains the following 'building blocks':
+Building Quantum Computers is an extremely challenging task. In the following chapters, we will learn about the different building blocks of a quantum computer and how we build one by integrating different kinds of technologies interacting with the machine. 
 
 We will begin to give an overview of the whole system, a brief journey through all layers. In the next 4-6 chapters we will dive deeper in the layer of the quantum chip (qubits).
 
@@ -9,21 +9,15 @@ Each qubit needs its own specific material. These materials need to contain one 
 To fully understand the topics of this course, you will need some mathematical tools. In the chapters on Ket notation the mathematical basic principles  explained.
 
 
-When we build a computer, we have to integrate different kinds of technologies such as those for the
+Briefly speaking the quantum computer contains the following 'building blocks':
+- memory,
+- bus interconnect,
+- processor chips but also the
+- peripheral devices such as a
+- keyboard or a even
+- screen to be able to interact with the machine.
 
-• memory,
-
-• bus interconnect,
-
-• processor chips but also the
-
-• peripheral devices such as a
-
-– keyboard or a even
-
-– screen to be able to interact with the machine.
-
-The following discusses the big picture of a quantum computer: namely from how to program it, to reading out the result. Now the first word we want to emphasize is the word "compute". Even though QuTech is created to build a quantum computer together, we are actually not really building a quantum computer, but we are building a quantum accelerator. Namely, a computational devise that can be connected to a classical processor that will provide the performance for a series of applications that we can never reach classically. Here you see the global view of what we currently understand as a heterogeneous multicore architecture.
+In the following we will discusses the bigger picture of a quantum computer: namely from how to program it, to reading out the result. Now the first word we want to emphasize is the word "compute". We are actually not really building a quantum computer, but we are building a quantum accelerator. Namely, a computational devise that can be connected to a classical processor that will provide the performance for a series of applications that we can never reach classically. Here you see the global view of what we currently understand as a heterogeneous multicore architecture.
 
 ```{grid-item-card}
 :shadow: md
@@ -33,20 +27,15 @@ The following discusses the big picture of a quantum computer: namely from how t
 
 Heterogeneous because we have different kind of accelerator technologies. We have an
 
-• FPGA which stands for the field programmable gate array. We have
-
-• GPU's, for Graphic Programming Unit. These are the vector processors we are using to produce graphics computation.
-
-• The third alternative accelerator technology will be a quantum co-processor which has the quantum properties that will provide a substantial increase in the compute power. This is basically what we see.
+- FPGA which stands for the field programmable gate array. We have
+- GPU's, for Graphic Programming Unit. These are the vector processors we are using to produce graphics computation.
+- The third alternative accelerator technology will be a quantum co-processor which has the quantum properties that will provide a substantial increase in the compute power. This is basically what we see.
 
 That also means that when you write any application, you will most likely end up using different kinds of accelerators including the FPGA, the GPU and also the quantum accelerator and therefore your application has to be compiled for four different instruction sets; namely, your
 
 1. Intel processor for instance on the classical machine, your
-
 2. FPGA instruction set, the
-
 3. GPU instruction set, and also the
-
 4. quantum instruction set.
 
 ```{grid-item-card}
@@ -58,15 +47,12 @@ That also means that when you write any application, you will most likely end up
 That is very important to understand, so whatever we are going to discuss in the following talks is only going to focus on the quantum accelerator device or the application processes that we need classically as well as quantumly to be provided
 
 
-Whenever you talk about a computer, classically we have divided that in different layers;
+Whenever we talk about a computer, classically we have divided that in different layers; the lowest layer is always let's say the hardware, the
 
-the lowest layer is always let's say the hardware, the
+1. chip that has been designed. It is never a single chip or a single processor.
 
-1 chip that has been designed. It is never a single chip or a single processor.
-
-2 (Quantum to Classical) No, it has memory, it has interconnections, so a bus that allows the processor to communicate with the memory to retrieve instructions and to retrieve or produce the data. This is shown here.
-
-And then it goes up to the 3 microarchitecture that we need, up to the application level. I will now go in detail on each of those layers in a quantum context. Because we are basically adopting the same kind of layer view of what a quantum accelerator or a quantum computer would be, and we simply put the Q of quantum in front of every layer. And that is our research and working program. The highest level is the 7 (4) quantum algorithm that we know of. We don't even know yet what they will be. We have examples such as factorization that is used in cryptography in securing communication between machines.
+2. (Quantum to Classical) No, it has memory, it has interconnections, so a bus that allows the processor to communicate with the memory to retrieve instructions and to retrieve or produce the data. And then it goes up to the 
+3. Microarchitecture that we need, up to the application level. We will now go in detail on each of those layers in a quantum context. Because we are basically adopting the same kind of layer view of what a quantum accelerator or a quantum computer would be, and we simply put the Q of quantum in front of every layer. And that is our research and working program. The highest level is the 7 (4) quantum algorithm that we know of. We don't even know yet what they will be. We have examples such as factorization that is used in cryptography in securing communication between machines.
 
 But quantum algorithms can as well be designing a new molecule for personalized medicine. It can be that you might want to have a climate module that you want to run on your quantum accelerator that take all kind of mechanisms into account that we currently are unable to compute or even model on a classical machine. So that is the quantum algorithm layer, and that is where the biggest opportunity lies worldwide. Where many companies and organizations can actually start developing their own quantum application. Because every company or every end-user can think of how they can use that computational aspects of such a device.
 
@@ -82,7 +68,7 @@ All of this QASM basically maps very well one on one with the quantum instructio
 
 A qubit is a quantum bit. Classically, we reason in terms of bits, zeros and ones. And as you know we are now using qubits, quantum bits. And they can be also zero or one, but they can also be zero and one at the same time. And that is the famous superposition that we are exploiting in a quantum device. We can also combine two qubits so we don't have two different states but we have a combination of those states; namely 4 states at the same time.
 
-If I have 3 qubits, I have 2^3 = 8 states. Now what is very nice about quantum is that the quantum mechanics gives us parallelism for free. Because I can apply quantum gates on those 2^n different states. You will come to understand in the upcoming lectures that nothing really comes for free. There is still a lot of challenges that need to be resolved. But that is ultimately the big challenge and the big opportunity that quantum offers. That is why you have to understand what this instruction set is and the corresponding architecture should be. And that immediately brings us to the layer of the micro-architecture.
+we have 2^3 = 8 states. Now what is very nice about quantum is that the quantum mechanics gives us parallelism for free. Because I can apply quantum gates on those 2^n different states. You will come to understand in the upcoming lectures that nothing really comes for free. There is still a lot of challenges that need to be resolved. But that is ultimately the big challenge and the big opportunity that quantum offers. That is why you have to understand what this instruction set is and the corresponding architecture should be. And that immediately brings us to the layer of the micro-architecture.
 
 Just like any classical processors we have also a quantum micro architecture for my quantum device, which contains the processor, the memory and also the interconnects of how the processor will communicate with the qubits. It has local registers in the processor and an ALU, an arithmetic logical unit so that it can compute logical and arithmetical operations, and write back the result to memory so that the user gets an idea of what the algorithm has computed as a result.
 
@@ -94,33 +80,27 @@ And then ultimately it enters into the quantum chip. Which consists of these qub
 
 And that is why you maybe have to do a computation 10 times, maybe 100 times, we don't even know how many times we need to do that. And then you can make a histogram of what has been computed, and the readout that has the highest frequency of occurrence has a high probability of being read out by our micro-architecture and that is what we can report back to the end user. So that is something that you should not forget. A quantum device is a very powerful device, it gives massive parallelism in principle. But we need multiple runs and average out what those calculations of those results are. And the one with the highest frequency is the most likely result of your quantum device.
 
-Main takeaways
+```{admonition} Main takeaways
+- Current efforts are put into building a quantum accelerator, a computational add-on to the classical computers to exceed current performance.
+- Heterogeneous multicore architecture entails a Field Programmable Gate Array, a Graphics Programming Unit and a quantum co-processor.
+- The building blocks for a quantum computer are a quantum algorithm, a quantum language, a compiler, arithmetic, an instruction set, a micro-architecture, a quantum to classical conversion and a quantum chip.
+```
 
-• Current efforts are put into building a quantum accelerator, a computational add-on to the classical computers to exceed current performance.
+**Q1**
 
-• Heterogeneous multicore architecture entails a Field Programmable Gate Array, a Graphics Programming Unit and a quantum co-processor.
+When N classical bits are read out after a computation they can be found in one of $2^{N}$ different states (e.g. if you read out 2 classical bits from your computer's memory you will find them to be 00, 01, 10, or 11). When N qubits are read out after a computation they can also be found in one of $2^{N}$ different states, just like classical bits. Where, then, does the advantage of using a quantum accelerator for some tasks come from?
 
-• The building blocks for a quantum computer are a quantum algorithm, a quantum language, a compiler, arithmetic, an instruction set, a micro-architecture, a quantum to classical conversion and a quantum chip.
+- There is no advantage to using a quantum accelerator.
+- Unlike the classical bits, which can be in only one of the 2^{N} states before the read-out, the qubits can be in a superposition of the 2^{N} states (i.e. they can be in all 2^{N} states at the same time) before the read-out.
+- A quantum accelerator uses the spin of electrons as the unit of computation. Since electrons are smaller than the transistors used in classical computers, quantum accelerators are faster. unanswered
 
-Q1
-
-When N classical bits are read out after a computation they can be found in one of 2^{N} different states (e.g. if you read out 2 classical bits from your computer's memory you will find them to be 00, 01, 10, or 11). When N qubits are read out after a computation they can also be found in one of 2^{N} different states, just like classical bits. Where, then, does the advantage of using a quantum accelerator for some tasks come from?
-
-• There is no advantage to using a quantum accelerator.
-
-• Unlike the classical bits, which can be in only one of the 2^{N} states before the read-out, the qubits can be in a superposition of the 2^{N} states (i.e. they can be in all 2^{N} states at the same time) before the read-out.
-
-• A quantum accelerator uses the spin of electrons as the unit of computation. Since electrons are smaller than the transistors used in classical computers, quantum accelerators are faster. unanswered
-
-Q2
+**Q2**
 
 "Quantum parallelism" is a term that is sometimes simplistically used to refer to the fact that when using N qubits in superposition to do computation it is as if we are doing 2^{N} computations at the same time. What is the main reason this can be misleading?
 
-• While we can do operations on all the constituent states of a superposition simultaneously, we can only ever read out a single one of those states.
-
-• Qubits are much more difficult to work with than classical bits, and so we can’t really claim to be able to do computations on them.
-
-• It should be “ computations at the same time” instead of “ computations at the same time” because we only have qubits. correct
+- While we can do operations on all the constituent states of a superposition simultaneously, we can only ever read out a single one of those states. 
+- Qubits are much more difficult to work with than classical bits, and so we can’t really claim to be able to do computations on them.
+- It should be “ computations at the same time” instead of “ computations at the same time” because we only have qubits. correct
 
 ---
 
@@ -395,23 +375,24 @@ Dual vectors $$\text{Bra:}\langle\psi\mid=\left[\alpha^{*}\beta^{*}\right]$$
 
 This is important for calculating inner products, which we always do by multiplying the bra for one state by the ket of the other, forming a bra-ket.
 
-Inner products $$\equiv brackets \langle\psi\mid\phi\rangle=\left[\begin{array}{cc}
-\alpha^{*} & \beta^{*}\end{array}\right]\left[\begin{array}{c}
-\gamma\\
-\delta
-\end{array}\right]=\alpha^{*}\gamma+\beta^{*}\delta$$
+**Inner products:**
+
+$$\equiv brackets \langle\psi\mid\phi\rangle=\left[\begin{array}{cc}\alpha^{*} & \beta^{*}\end{array}\right]\left[\begin{array}{c}\gamma\\\delta\end{array}\right]=\alpha^{*}\gamma+\beta^{*}\delta$$
 
 A central feature of quantum mechanics is that, when we perform a measurement to determine whether a state is $0$ or $1$, for example, we get a random answer, and the probability of measuring a state to be $0$ is given by the squared magnitude of its $0$ coefficient.
 
-$\mid0\rangle/\mid1\rangle$ meaurement yields $\mid0\rangle$ with probability $\mid\langle\psi\mid0\rangle\mid^{2}=\mid\alpha\mid^{2}$
+$$\mid0\rangle/\mid1\rangle$ meaurement yields $\mid0\rangle$ with probability $\mid\langle\psi\mid0\rangle\mid^{2}=\mid\alpha\mid^{2}$$
 
 One consequence of this is that, since such a measurement on a qubit state must result in $0$ or $1$, these squared magnitudes must sum to $1$, since they are probabilities. This is called Born’s rule and the constraint that the probabilities must sum to $1$, is called normalization.
 
-Normalization: \langle\psi\mid\psi\rangle=\left[\begin{array}{cc}
+Normalization: 
+
+$$\langle\psi\mid\psi\rangle=\left[\begin{array}{cc}
 \alpha^{*} & \beta^{*}\end{array}\right]\left[\begin{array}{c}
 \alpha\\
 \beta
 \end{array}\right]=\mid\alpha\mid^{2}+\mid\beta\mid^{2}=1
+$$
 
 We can also express qubit states in different bases. Consider the often-used plus-minus basis, which consists of the normalized sum and difference of the 0 and 1 ket vectors. Given a state expressed in the 0/1 basis, we can calculate the coefficients required to express the same state in the plus-minus basis, as I have done here.
 
