@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>35. Unitary evolution &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="37. The Ising model" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html" />
+    <link rel="prev" title="30. Measurements revisited" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">35. </span>Unitary evolution</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.ipynb" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>3.1 Evolution in Closed Systems</p>
+<p>PETER WITTEK: We looked at what a quantum state is, and we looked at how we can pull out samples from a quantum state, and now it’s time to look at how we do quantum a computation. In other words, how we evolve this probability distribution. So we started with closed systems, which means that evolution is going to be unitary. This is the idealized version of a quantum calculation. But before we actually explain what it means and what it implies, let’s take a look at how we transform classical probability distributions. So remember that we have stochastic vectors which fulfill certain conditions,</p>
+<p>Unitary evolution:</p>
+<p>Recap $<span class="math notranslate nohighlight">\(\boldsymbol{p}=\left[\begin{array}{c}
+p_{0}\\
+p_{1}
+\end{array}\right]\qquad\begin{array}{c}
+p_{i}\geq0\\
+\sum p_{i}=0
+\end{array}\)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{p}\)</span>is a stochastic vector</p>
+<p>and we transform them with something called stochastic matrices.</p>
+<div class="math notranslate nohighlight">
+\[M\boldsymbol{p}=\boldsymbol{p}'\]</div>
+<p>where M is a stochastic matrix.</p>
+<p>So after the transformation, whatever you get is still a stochastic vector. It’s still a probability distribution. And in this case, this is a left stochastic matrix, which means that the columns of this matrix add up to 1. So when it comes to quantum states, we want to apply some operation on the state.</p>
+<div class="math notranslate nohighlight">
+\[U\mid\psi\rangle=\mid\psi'\rangle\]</div>
+<p>And whatever we get, we want to be sure that this is still a quantum state. So the matrix U that fulfills this condition has the probability that it’s unitary. Unitary means that if you apply it’s convex conjugate you get the identity.</p>
+<div class="math notranslate nohighlight">
+\[UU^{\dagger}=I\]</div>
+<p>Which means that the complex conjugate of the matrix is its actual inverse. It is also true if you apply the complex conjugate first and then the matrix itself.</p>
+<div class="math notranslate nohighlight">
+\[UU^{\dagger}=U^{\dagger}U\]</div>
+<p>That’s all that the operation has to fulfill. And as I mentioned, this is this idealized computation that the quantum computer executes. And it has some consequences. Obviously, it preserves the L2 norm.</p>
+<p>For Quantum states:</p>
+<p>Ideal Quantum computers implement unitary operations. Some properties</p>
+<p>Presents:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(l_{2}\)</span> norms</p></li>
+<li><p>Linear</p></li>
+<li><p>Reversible (digital computing)</p></li>
+</ol>
+<p>Otherwise, the final result would not be a quantum state.</p>
+<p><span class="math notranslate nohighlight">\(U\mid\psi\rangle=\underbrace{\mid\psi'\rangle}_{\text{quantum state}}\)</span></p>
+<p>And it’s also linear, since we are only applying matrix on a vector U. This becomes a little bit difficult when we want to apply nonlinear operations. For instance, we want to do some machine learning algorithm that’s intrinsically nonlinear, then we have to resort to all sorts of approximations and tricks. Then the calculation is reversible. So that comes from this property. We can always invert this matrix U^{\dagger}. So this is in stark contrast with what you see in digital computing, because in digital computing you actually lose information as you proceed in a calculation. For instance, if you apply an end operation, just by looking at the outcome of this end logical gate, you will not be able to tell what were the two initial bits that went into this gate. So you lose information. This cannot happen in this idealized quantum system. As an example, let’s look at this operation which is also called the NOT gate or the X gate.Example: $<span class="math notranslate nohighlight">\(X=\left[\begin{array}{cc}
+0 &amp; 1\\
+1 &amp; 0
+\end{array}\right]\)</span>$</p>
+<p>So if we look at what’s its complex conjugate. Well, it’s a symmetrical real matrix, so it’s complex conjugate transposed is going to be itself.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X^{\dagger}=\left[\begin{array}{cc}
+0 &amp; 1\\
+1 &amp; 0
+\end{array}\right]\end{split}\]</div>
+<p>It’s the same as X. Now, if we apply this gate on the 0 ket, we can write out what that means.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X\mid0\rangle=\left[\begin{array}{cc}
+0 &amp; 1\\
+1 &amp; 0
+\end{array}\right]\left[\begin{array}{c}
+1\\
+0
+\end{array}\right]=X\end{split}\]</div>
+<p>Then if you were to perform the matrix vector multiplication, then you’re going to see that it flips it into the 1 ket. You can very easily check that it does the same thing on the 0 ket.</p>
+<div class="math notranslate nohighlight">
+\[X\mid1\rangle=\mid0\rangle\]</div>
+<p>Now, when you apply to a generic quantum state, which is a superposition of the two basis vectors, then since it’s a linear it’s going to distribute to the individual elements of the qubit.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}X\mid\psi\rangle=X(a_{0}\mid0\rangle+a_{1}\mid1\rangle)$$ So if you have x applied to the 0 ket, and then x applied to the 1 ket-- in other words, you just have A0 times the 1 ket and A1 times the 0 ket. \\$$X\mid\psi\rangle=X(a_{0}\mid0\rangle+a_{1}\mid1\rangle=a_{0}X\mid0\rangle+a_{1}X\mid1\rangle=a_{0}\mid1\rangle+a_{1}\mid0\rangle\end{aligned}\end{align} \]</div>
+<div class="math notranslate nohighlight">
+\[\Downarrow\]</div>
+<p>So if we apply the inverse operation to the same thing, we actually get back the initial state that we started with. So you can see that it is actually invertible, and you can restore the original state after applying it.</p>
+<div class="math notranslate nohighlight">
+\[X^{\dagger}\left(a_{0}\mid1\rangle+a_{1}\mid0\rangle\right)\]</div>
+<p>Checkbox</p>
+<p>• A unitary matrix is always Hermitian.</p>
+<p>– False</p>
+<p>• What’s the effect of $<span class="math notranslate nohighlight">\(X^{\dagger}XX^{\dagger}X ?X^{\dagger}XX^{\dagger}X=I\)</span>$</p>
+<p>– <span class="math notranslate nohighlight">\(I\)</span>
+#F</p>
+<p>Classical probability distributions can be written as a stochastic vector, which can be transformed to another stochastic vector by applying a stochastic matrix. In other words, the evolution of stochastic vectors can be described by a stochastic matrix.</p>
+<p>Quantum states also evolve and their evolution is described by unitary matrices. This leads to some interesting properties in quantum computing. Unitary evolution is true for a closed system, that is, a quantum system perfectly isolated from the environment. This is not the case in the quantum computers we have today: these are open quantum systems that evolve differently due to to uncontrolled interactions with the environment. In this notebook, we take a glimpse at both types of evolution.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="unitary-evolution">
+<h1><span class="section-number">35. </span>Unitary evolution<a class="headerlink" href="#unitary-evolution" title="Permalink to this headline"></a></h1>
+<p>A unitary matrix has the property that its conjugate transpose is its inverse. Formally, it means that a matrix <span class="math notranslate nohighlight">\(U\)</span> is unitary if <span class="math notranslate nohighlight">\(UU^\dagger=U^\dagger U=\mathbb{1}\)</span>, where <span class="math notranslate nohighlight">\(^\dagger\)</span> stands for conjugate transpose, and <span class="math notranslate nohighlight">\(\mathbb{1}\)</span> is the identity matrix. A quantum computer is a machine that implements unitary operations.</p>
+<p>As an example, we have seen the NOT operation before, which is performed by the X gate in a quantum computer. While the generic discussion on gates will only occur in a subsequent notebook, we can study the properties of the X gate. Its matrix representation is <span class="math notranslate nohighlight">\(X = \begin{bmatrix} 0 &amp; 1\\ 1 &amp; 0\end{bmatrix}\)</span>. Let’s check if it is indeed unitary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XX^dagger&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X^daggerX&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>XX^dagger
+[[1 0]
+ [0 1]]
+X^daggerX
+[[1 0]
+ [0 1]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like a legitimate unitary operation. The unitary nature ensures that the <span class="math notranslate nohighlight">\(l_2\)</span> norm is preserved, that is, quantum states are mapped to quantum states.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The norm of the state |0&gt; before applying X&quot;</span><span class="p">)</span>
+<span class="n">zero_ket</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">zero_ket</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The norm of the state after applying X&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">zero_ket</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The norm of the state |0&gt; before applying X
+1.0
+The norm of the state after applying X
+1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Furthermore, since the unitary operation is a matrix, it is linear. Measurements are also represented by matrices. These two observations imply that everything a quantum computer implements is actually linear. If we want to see some form of nonlinearity, that must involve some classical intervention.</p>
+<p>Another consequence of the unitary operations is reversibility. Any unitary operation can be reversed. Quantum computing libraries often provide a function to reverse entire circuits. Reversing the X gate is simple: we just apply it again (its conjugate transpose is itself, therefore <span class="math notranslate nohighlight">\(X^2=\mathbb{1}\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span> <span class="n">QuantumRegister</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">execute</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">BasicAer</span> <span class="k">as</span> <span class="n">Aer</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">circuit_drawer</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">backend_statevector</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;statevector_simulator&#39;</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">backend_statevector</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_statevector</span><span class="p">(</span><span class="n">circuit</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.+0.j 0.+0.j]
+</pre></div>
+</div>
+</div>
+</div>
+<p>which is exactly <span class="math notranslate nohighlight">\(|0\rangle\)</span> as we would expect.</p>
+<p>In the next notebook, you will learn about classical and quantum many-body systems and the Hamiltonian. In the notebook on adiabatic quantum computing, you will learn that a unitary operation is in fact the Schrödinger equation solved for a Hamiltonian for some duration of time. This connects the computer science way of thinking about gates and unitary operations to actual physics, but there is some learning to be done before we can make that connection. Before that, let us take another look at the interaction with the environment.</p>
+<p>#W
+3.3 Open Quantum Systems</p>
+<p>SPEAKER: We talked about evolution in closed systems, which is exactly what a universal idealized quantum computer wants to achieve. Real quantum systems, however, are not closed systems. They are open systems. Which means that if you have a system of interest, for instance, your quantum processor, it actually is embedded in an environment or a thermal bath. And what happens is that your system interacts with this environment in a largely uncontrolled fashion. And since this interaction happens, the system’s own evolution is no longer described as a unitary operation. It’s described by a very different mathematical object. Technically speaking, it’s a CPTP map, which stands for Completely Positive Trace Preserving map. But we are not going to work with this, we just have to keep this picture in mind that you have a system interacting with an environment which destroys the unitary nature of the evolution. So to get a sense of what is going on, let’s talk about decoherence.</p>
+<div class="math notranslate nohighlight">
+\[v\rho+\frac{(1-v)I}{\underbrace{d}_{\text{Random noise}}}\]</div>
+<p>where $<span class="math notranslate nohighlight">\(v\in[0:1]\)</span>$ is visibility</p>
+<p>So we introduced density matrices. So when I take the density matrix of a pure state– for instance, take the density matrix of the equal superposition of the 0 and the 1 ket $<span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\left(\mid00\rangle+\mid11\rangle\right)\)</span>$.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\underbrace{\left(\begin{array}{cc}
+0.5 &amp; 0.5\\
+0.5 &amp; 0.5
+\end{array}\right)}_{\frac{1}{\sqrt{2}}\left(\mid00\rangle+\mid11\rangle\right)}\rightarrow\left(\begin{array}{cc}
+0.5 &amp; 0.3\\
+0.3 &amp; 0.5
+\end{array}\right)\rightarrow\left(\begin{array}{cc}
+0.5 &amp; 0\\
+0 &amp; 0.5
+\end{array}\right)\end{split}\]</div>
+<p>And we can mix it with random noise, which is just the identity matrix divided by the number of dimensions. So this would correspond to the maximally mixed state– the classical uniform distribution. And we can control how much noise we have by tuning this parameter called invisibility between 0 and 1. So over at invisibility 1 we have the pure state, but the lower invisibility we mix in this maximal and mixed state. And the more we mix, the more the coherences vanish. And when we reach 0 visibility, we end up with a maximally mixed state. So the speed at which happens affects our quantum calculations. Because we want to finish the calculation before this system completely decoheres.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left(\begin{array}{cc}
+0.5 &amp; \underbrace{0}_{T2}\\
+\underbrace{0}_{T2} &amp; 0.5
+\end{array}\right)\end{split}\]</div>
+<p>This is sometimes called the T2 time, and it’s one of the characteristics that you look at when you study how good a quantum computer is. Another way of looking at it is an equilibriation process. So this model is actually the exact same thing– what happens to a cup of coffee. So if you take a cup of coffee and you remove the lid, then you will have a lot of interaction between the environment, in the room where you are in, and your coffee. So it’s going to cool down and it is going to attain the temperature of the environment. So this is when it becomes in a thermal equilibrium with the environment. Once this happens, you are in a particular state. And for the quantum system, this is called the thermal state. And this is a very specific form. The configurations corresponding to certain energies follow a particular probability distribution, which is the Boltzmann distribution.</p>
+<p>So here we have the exponential of the energy divided by the temperature. This is the temperature. Divided by the partition function Z, which is just a normalization factor so that you are actually having a probability distribution.</p>
+<div class="math notranslate nohighlight">
+\[P(E_{i})=\frac{\exp(-\frac{E_{i}}{T})}{Z}\]</div>
+<div class="math notranslate nohighlight">
+\[Z=\sum\exp(-\frac{E_{i}}{T})\]</div>
+<p>So now, if you look at what it means, if you have 0 temperature, then this is just the single point which is called the ground state. If you have some finite temperature, then this is going to look something like this. So this is some finite temperature. And if you go to the infinite temperature limit then this completely flattens out, which also means that this energy distribution is basically the uniform distribution. So this, again, correspondence to the case of a maximally mixed state.</p>
+<p>Check</p>
+<p>• In an open system, a quantum system interacts with a bath, changing the temperature of the bath.</p>
+<p>– False</p>
+<p>• During the process of decoherence, the off-diagonal elements of the density matrix vanish.</p>
+<p>– True</p>
+<p>• At infinite temperature, the energy distribution of the thermal state is..</p>
+<p>– uniform</p>
+<p>#F</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="interaction-with-the-environment-open-systems">
+<h1><span class="section-number">36. </span>Interaction with the environment: open systems<a class="headerlink" href="#interaction-with-the-environment-open-systems" title="Permalink to this headline"></a></h1>
+<p>Actual quantum systems are seldom closed: they constantly interact with their environment in a largely uncontrolled fashion, which causes them to lose coherence. This is true for current and near-term quantum computers too.</p>
+<img src="figures/open_system.svg" alt="A quantum processor as an open quantum system" style="width: 400px;"/>
+<p>This also means that their actual time evolution is not described by a unitary matrix as we would want it, but some other operator (the technical name for it is a completely positive trace-preserving map).</p>
+<p>Quantum computing libraries often offer a variety of noise models that mimic different types of interaction, and increasing the strength of the interaction with the environment leads to faster decoherence. The timescale for decoherence is often called <span class="math notranslate nohighlight">\(T_2\)</span> time. Among a couple of other parameters, <span class="math notranslate nohighlight">\(T_2\)</span> time is critically important for the number of gates or the duration of the quantum computation we can perform.</p>
+<p>A very cheap way of studying the effects of decoherence is mixing a pure state with the maximally mixed state <span class="math notranslate nohighlight">\(\mathbb{1}/2^d\)</span>, where <span class="math notranslate nohighlight">\(d\)</span> is the number of qubits, with some visibility parameter in <span class="math notranslate nohighlight">\([0,1]\)</span>. This way we do not have to specify noise models or any other map modelling decoherence. For instance, we can mix the <span class="math notranslate nohighlight">\(|\phi^+\rangle\)</span> state with the maximally mixed state:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mixed_state</span><span class="p">(</span><span class="n">pure_state</span><span class="p">,</span> <span class="n">visibility</span><span class="p">):</span>
+    <span class="n">density_matrix</span> <span class="o">=</span> <span class="n">pure_state</span> <span class="o">@</span> <span class="n">pure_state</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
+    <span class="n">maximally_mixed_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">visibility</span><span class="o">*</span><span class="n">density_matrix</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">visibility</span><span class="p">)</span><span class="o">*</span><span class="n">maximally_mixed_state</span>
+
+<span class="n">ϕ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum visibility is a pure state:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mixed_state</span><span class="p">(</span><span class="n">ϕ</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The state is still entangled with visibility 0.8:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mixed_state</span><span class="p">(</span><span class="n">ϕ</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Entanglement is lost by 0.6:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mixed_state</span><span class="p">(</span><span class="n">ϕ</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Barely any coherence remains by 0.2:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mixed_state</span><span class="p">(</span><span class="n">ϕ</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum visibility is a pure state:
+[[0.5 0.  0.  0.5]
+ [0.  0.  0.  0. ]
+ [0.  0.  0.  0. ]
+ [0.5 0.  0.  0.5]]
+The state is still entangled with visibility 0.8:
+[[0.45 0.   0.   0.4 ]
+ [0.   0.05 0.   0.  ]
+ [0.   0.   0.05 0.  ]
+ [0.4  0.   0.   0.45]]
+Entanglement is lost by 0.6:
+[[0.4 0.  0.  0.3]
+ [0.  0.1 0.  0. ]
+ [0.  0.  0.1 0. ]
+ [0.3 0.  0.  0.4]]
+Barely any coherence remains by 0.2:
+[[0.3 0.  0.  0.1]
+ [0.  0.2 0.  0. ]
+ [0.  0.  0.2 0. ]
+ [0.1 0.  0.  0.3]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another way to look at what happens to a quantum state in an open system is through equilibrium processes. Think of a cup of coffee: left alone, it will equilibrate with the environment, eventually reaching the temperature of the environment. This includes energy exchange. A quantum state does the same thing and the environment has a defined temperature, just like the environment of a cup of coffee.</p>
+<p>The equilibrium state is called the thermal state. It has a very specific structure and we will revisit it, but for now, suffice to say that the energy of the samples pulled out of a thermal state follows a Boltzmann distribution. The Boltzmann – also called Gibbs – distribution is described as <span class="math notranslate nohighlight">\(P(E_i) = \frac {e^{-E_{i}/T}}{\sum _{j=1}^{M}{e^{-E_{j}/T}}}\)</span>, where <span class="math notranslate nohighlight">\(E_i\)</span> is an energy, and <span class="math notranslate nohighlight">\(M\)</span> is the total number of possible energy levels. Temperature enters the definition: the higher the temperature, the closer we are to the uniform distribution. In the infinite temperature limit, it recovers the uniform distribution. At high temperatures, all energy levels have an equal probability. In contrast, at zero temperature, the entire probability mass is concentrated on the lowest energy level, the ground state energy. To get a sense of this, let’s plot the Boltzmann distribution with vastly different temperatures:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
+<span class="n">energies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">T</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">temperatures</span><span class="p">):</span>
+    <span class="n">probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">energies</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">probabilities</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">probabilities</span> <span class="o">/=</span> <span class="n">Z</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">energies</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;$T_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">probabilities</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Energy&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcd8bbad640&gt;
+</pre></div>
+</div>
+<img alt="../../_images/86cc4a3d20b736e4817259bfd086e73a28c1ed71e6426c4f65a40c90f159ee6e.png" src="../../_images/86cc4a3d20b736e4817259bfd086e73a28c1ed71e6426c4f65a40c90f159ee6e.png" />
+</div>
+</div>
+<p>Here <span class="math notranslate nohighlight">\(T_1&lt;T_2&lt;T_3\)</span>. Notice that <span class="math notranslate nohighlight">\(T_1\)</span> is a low temperature, and therefore it is highly peaked at low energy levels. In contrast, <span class="math notranslate nohighlight">\(T_3\)</span> is a very high temperature and the probability distribution is almost completely flat.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_machine_learning/qml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html" class="btn btn-neutral float-left" title="30. Measurements revisited" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html" class="btn btn-neutral float-right" title="37. The Ising model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

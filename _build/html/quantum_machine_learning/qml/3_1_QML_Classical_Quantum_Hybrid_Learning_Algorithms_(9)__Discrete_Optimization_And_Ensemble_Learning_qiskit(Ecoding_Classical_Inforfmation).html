@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>52. Encoding Classical Information &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(9)__Discrete_Optimization_And_Ensemble_Learning_qiskit(Ecoding_Classical_Inforfmation).html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="59. Mapping clustering to discrete optimization" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html" />
+    <link rel="prev" title="50. Quantum approximate optimization algorithm" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">52. </span>Encoding Classical Information</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(9)__Discrete_Optimization_And_Ensemble_Learning_qiskit(Ecoding_Classical_Inforfmation).ipynb" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="encoding-classical-information">
+<h1><span class="section-number">52. </span>Encoding Classical Information<a class="headerlink" href="#encoding-classical-information" title="Permalink to this headline"></a></h1>
+<p>Irrespective of the choice of a quantum computing paradigm, you will always face the problem– how do I encode the classical information I have in the quantum system to perform some quantum protocol? So there are a couple of ways of doing it, and here’s an overview of all of them. The easiest thing to do is to do something called basis encoding.</p>
+<p>In this case, you don’t do anything different from what you do on a digital computer. So say you have the number three that you would like to encode. Then you would write it as binary. So this would be the representation of digital computing where this is bit zero and this is bit one. And then you just take this, and you write it as a quantum state.</p>
+<div class="math notranslate nohighlight">
+\[x=3\Rightarrow11\Rightarrow\mid11\rangle\]</div>
+<p>You will use two qubits, and you would flip both of them to one. And it would describe the number three. And if you have a vector, say, of these two elements, you can create a binary vector of that. And then you can concatenate the two strings into a single ket, into a four qubit state in this case.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x=\left[\begin{array}{c}
+3\\
+2
+\end{array}\right]\Rightarrow\mid1110\rangle\end{split}\]</div>
+<p>The greatest advantage of this encoding is that it’s very easy to prepare because you only have to flip certain qubits. Most random computers start from being initialized in the zero state. And then you just have to make these not operation, the x operations, to get to the state that you want to express. But the great disadvantage is that it’s very wasteful of your qubits. You need lots and lots of qubits to describe, say, floating point numbers. Another way of doing it is amplitude encoding.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x=\left[\begin{array}{c}
+x_{0}\\
+x_{1}
+\end{array}\right]\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\parallel x\parallel_{2}=1\]</div>
+<p>Imagine that you have a vector. And let’s have this assumption that your vector is already normalized. Its length is one. Then what you can do is just write down the same thing with the original coefficients, indexing the individual coefficients of probability amplitudes with the basis vector.</p>
+<div class="math notranslate nohighlight">
+\[\mid x\rangle=x_{0}\mid0\rangle+x_{1}\mid1\rangle\]</div>
+<p>The advantage of this is that it requires a lot fewer qubits. And in principle, at least in theory, this is of infinite precision. So if you have a real number here, you would have a real number here. But the disadvantage is that it’s unclear exactly how you would prepare this state and how you would read out the actual values here. So you would have to dream up some state preparation protocol, and then you would have to perform tomography to understand what these probability aptitudes are at the end of your calculation. Then they can also encode the problem in a Hamiltonian. So when you think about it, there are actually two ways of doing this. One is that we have seen over and over again this is the ising way.</p>
+<div class="math notranslate nohighlight">
+\[H=-\sum_{&lt;i,j&gt;}J_{ij}\sigma_{i}\sigma_{j}+\sum_{i}h_{i}\sigma_{i}\]</div>
+<p>You have a problem. You method to the ising model, or our quadratic unconstrained binary optimization problem is given in this form. And that’s what you saw, for instance, by quantum annealing. So the encoding comes in in these couplings, in these biased terms J_{ij}, h_{i}. These are the ones expressing your problem. Whereas here \mid1110\rangle, it was the state. And here <span class="math notranslate nohighlight">\(x_{0}\)</span>, <span class="math notranslate nohighlight">\(x_{1}\)</span>, it will have all the probability amplitudes. So the advantage of this is that it’s fairly easy to implant. We know we are up to thousands of qubits in a physical system implementing this model. But the disadvantage is that it has a very limited scope in what you can do. You can solve either optimization of sampling problems with this paradigm. Then the second way of doing Hamiltonian encoding is by doing Hamiltonian simulation.</p>
+<div class="math notranslate nohighlight">
+\[U=e^{-iHt}\]</div>
+<p>Now this simulation is a bit misleading because this is not a simulation on the classical digital computer. This is a quantum computer simulating a quantum system. So what you are doing is actually you’re trying to implement this unitary on a quantum computer. And an example of this is exactly what the QAOA optimization algorithm does when it approximates the adiabatic pathway. And a very, very important subroutine in many idealized quantum machine learning algorithms is quantum matrix inversion. And it does the exact same thing. It encodes the matrix to be encoded here in the Hamiltonian. So the advantage of this is exactly this. It’s very natural to encode the matrix in this formalism. The disadvantage is that there are countless terms and conditions that apply. So we only see quantum matrix inversion in the part that we talk about coherent quantum protocols and large scale quantum computers. And its very, very limited what we can do on actual quantum computers today when we want to use this representation.</p>
+<p>Check</p>
+<p>• Why can’t we encode everything in bit strings as in digital computing?</p>
+<p>– This would be inefficient.</p>
+<p>– Some optimization problems naturally map to the Ising model.</p>
+<p>– The probability amplitudes naturally encode real and complex numbers.</p>
+<p>• Mapping to the Ising model is both Hamiltonian and basis encoding, since the spin variables have to express a part of your problem.</p>
+<p>– True</p>
+<p>• Hamiltonian simulation is efficient for any Hamiltonian.</p>
+<p>– False</p>
+<p>#F</p>
+<p>Any learning algorithm will always have strengths and weaknesses: a single model is unlikely to fit every possible scenario. Ensembles combine multiple models to achieve higher generalization performance than any of the constituent models is capable of. How do we assemble the weak learners? We can use some sequential heuristics. For instance, given the current collection of models, we can add one more based on where that particular model performs well. Alternatively, we can look at all the correlations of the predictions between all models, and optimize for the most uncorrelated predictors. Since this latter is a global approach, it naturally maps to a quantum computer. But first, let’s take a look a closer look at loss functions and regularization, two key concepts in machine learning.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="loss-functions-and-regularization">
+<h1><span class="section-number">53. </span>Loss Functions and Regularization<a class="headerlink" href="#loss-functions-and-regularization" title="Permalink to this headline"></a></h1>
+<p>If you can solve a problem by a classical computer – let that be a laptop or a massive GPU cluster – there is little value in solving it by a quantum computer that costs ten million dollars. The interesting question in quantum machine learning is whether there are problems in machine learning and AI that fit quantum computers naturally, but are challenging on classical hardware. This, however, requires a good understanding of both machine learning and contemporary quantum computers.</p>
+<p>In this course, we primarily focus on the second aspect, since there is no shortage of educational material on classical machine learning. However, it is worth spending a few minutes on going through some basics.</p>
+<p>Let us take a look at the easiest possible problem: the data points split into two, easily distinguishable sets. We randomly generate this data set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">))</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">50</span><span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">50</span><span class="p">:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f9a8d4eca60&gt;
+</pre></div>
+</div>
+<img alt="../../_images/3dcc472051658b08d6773d336c2f612b6ec95a5f361b34d26f24db1f7a660538.png" src="../../_images/3dcc472051658b08d6773d336c2f612b6ec95a5f361b34d26f24db1f7a660538.png" />
+</div>
+</div>
+<p>Let’s shuffle the data set into a training set that we are going to optimize over (2/3 of the data), and a test set where we estimate our generalization performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+<span class="c1"># train on a random 2/3 and test on the remaining 1/3</span>
+<span class="n">idx_train</span> <span class="o">=</span> <span class="n">idx</span><span class="p">[:</span><span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">//</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">idx_test</span> <span class="o">=</span> <span class="n">idx</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">//</span><span class="mi">3</span><span class="p">:]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">idx_train</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">idx_test</span><span class="p">]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">idx_train</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">idx_test</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use the package <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> to train various machine learning models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">import</span> <span class="nn">sklearn.metrics</span>
+<span class="n">metric</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">sklearn.metrics</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">metric</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s train a perceptron, which has a linear loss function <span class="math notranslate nohighlight">\(\frac{1}{N}\sum_{i=1}^N |h(x_i)-y_i)|\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>
+<span class="n">model_1</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">model_1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (train): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (test): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy (train):  1.00
+accuracy (test):  1.00
+</pre></div>
+</div>
+</div>
+</div>
+<p>It does a great job. It is a linear model, meaning its decision surface is a plane. Our dataset is separable by a plane, so let’s try another linear model, but this time a support vector machine. If you eyeball our dataset, you will see that to define the separation between the two classes, actually only a few points close to the margin are relevant. These are called support vectors and support vector machines aim to find them. Its objective function measures the loss and it has a regularization term with a weight <span class="math notranslate nohighlight">\(C\)</span>. The <span class="math notranslate nohighlight">\(C\)</span> hyperparameter controls a regularization term that penalizes the objective for the number of support vectors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="n">model_2</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">model_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (train): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (test): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of support vectors:&#39;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">model_2</span><span class="o">.</span><span class="n">n_support_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy (train):  1.00
+accuracy (test):  1.00
+Number of support vectors: 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>It picks only two datapoints out of the hundred. Let’s change the hyperparameter to reduce the penalty:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_2</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">model_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (train): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (test): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of support vectors:&#39;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">model_2</span><span class="o">.</span><span class="n">n_support_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy (train):  0.52
+accuracy (test):  0.47
+Number of support vectors: 64
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see that the model gets confused by using too many datapoints in the final classifier. This is one example where regularization helps.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ensemble-learning">
+<h1><span class="section-number">54. </span>Ensemble Learning<a class="headerlink" href="#ensemble-learning" title="Permalink to this headline"></a></h1>
+<p>SPEAKER: So we talked about quantum computers. We talked about how to encode classical information in quantum computers. And we are getting ready to start talking about how you do learning on the encoded information in a quantum computer. But first, let’s talk about a couple of things in machine learning. So when we talk about optimization in machine learning, we typically don’t talk about the kind of optimization that you would perform on a quantum computer. So in a typical scenario, you’re given a sample.</p>
+<div class="math notranslate nohighlight">
+\[S=\{(x_{i},y_{i})\}_{i=1}^{N}\qquad x\in\mathbb{R}^{d}\]</div>
+<p>You’re given a couple of data points in some high dimensional space each coming with some label. Labels can be 0 or 1 or belonging to some finite many classes. So what you’re actually learning in the machine learning model that you’re trying to fit to the data is conditional probability distribution.</p>
+<div class="math notranslate nohighlight">
+\[\underbrace{h(\theta,x)}:\mathbb{R}^{d}\rightarrow\{0,1\}\]</div>
+<div class="math notranslate nohighlight">
+\[P(y\mid x):\mathbb{R}^{d}\rightarrow\{0,c-1\}\]</div>
+<p>So you’re trying to approximate that, you know, once you see a data instance of a certain form, what is the label that you should predict? So this type of learning is discriminative and supervised, and this is exactly where methods like deep learning excel.</p>
+<div class="math notranslate nohighlight">
+\[\underset{\theta}{min}L(g,S)\]</div>
+<p>And what you do is you define a loss function in the parameters that you’re trying to optimize for the particular machine learning model. And it’s also a function of the actual sample that you are given. And then you look at these parameters, these theta parameters. They’re sitting in some high dimensional space themselves.</p>
+<div class="math notranslate nohighlight">
+\[\theta\in\mathbb{R}^{d}\]</div>
+<p>And each one of the entries of these theta vector is actually a 32 or a 64-bit precision floating point number. That’s how it is represented on a computer, a digital computer. And when we talk about things like deep learning, then this perimeter space is extremely high dimensional. We are talking about millions of weights. So you use at least 32 bits per rate, and you have millions of them, whereas the largest quantum computer we have has 2,000 qubits. So there seems to be a misfit between this continuous type of optimization and what we can do on a quantum computer. So we have to think a little bit differently. There is hope you can use quantum computers for optimization but not for these kind of problems. So let’s take a look at ensembles.</p>
+<div class="math notranslate nohighlight">
+\[h_{1}(\theta_{1};x),\ldots,h_{k}(\theta_{k};x)\]</div>
+<div class="math notranslate nohighlight">
+\[F_{k}(w,x)=\sum_{k=1}^{K}w_{k}h_{k}(\theta_{k},x)\]</div>
+<p>So in ensembles, for instance, you can take a couple of large neural networks <span class="math notranslate nohighlight">\(h_{1}(\theta_{1};x),\ldots,h_{k}(\theta_{k};x)\)</span>. And what you want to do is you want to combine them into a single strong predictor <span class="math notranslate nohighlight">\(\sum_{k=1}^{K}w_{k}h_{k}(g_{k},x)\)</span>. So for instance, each of these neural networks gets a couple of instances wrong, and there will be other neural networks who would compensate for that mistake. And how you combine them is a big open question. So you want to weight each and every one of the neural networks so their overall prediction is actually stronger. And when you look at this, this starts to get a discrete flavor because now you have discrete many neural networks. And while this combination of weights is real valued or continuous valued, what actually matters is the relative importance of each of these neural networks so there is a way to discretize it better. So this idea of ensembles have been around for at least 20 years, slightly more, and they are still very important. Like, many of the Kaggle competitions are won by ensembles of neural networks. And one of the first algorithms that made this idea extremely useful was AdaBoost. So what it does, it keeps expanding this ensemble sequentially. So it adds a new learning model to the ensemble one by one.</p>
+<div class="math notranslate nohighlight">
+\[F_{m}(w,x)=F_{m-1}(w,x)+w_{m}h_{m}(g_{m},x)\]</div>
+<p>So if you have less than the available models, then what you do is you take the previous ensemble <span class="math notranslate nohighlight">\(F_{m-1}(w,x)\)</span> that you ensembled so far. And you add the new model <span class="math notranslate nohighlight">\(w_{m}h_{m}(g_{m},x)\)</span> with some corresponding weight. And the way you calculate the weight of this new model is by looking at the exponential loss, you factorize this exponential loss into two parts– the loss coming from the previous ensemble and the loss coming from the new addition.</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=i}^{N}e^{-y:F_{m}(x_{i})}\]</div>
+<p>And it’s a good model then if you have a higher weight. And if it’s not so good model if you receive a lower rate.</p>
+<p>Regularization is absent, which means that if you use up all of your K available models. So even, if something is very bad, it will still be in the ensemble. And if its predictor is strongly correlated with one of the other predictors, it’s still going to be there even though it doesn’t really contribute anything new. Nevertheless, there’s all sorts of modern variants which address, for instance, this problem. One is called xg boost, and the other is called gradient boosted trees. These are very important algorithms. Even in today’s machine learning, these are actively used. And it’s worth looking at boosting methods and ensemble learning and see how quantum computers can help.</p>
+<p>Check</p>
+<p>• A supervised discriminative learning algorithm…</p>
+<p>– Trains on a training set with labels: <span class="math notranslate nohighlight">\(\{(x_{i},y_{i})\}_{i=1}^{N}\)</span></p>
+<p>– Approximates a conditional probability distribution <span class="math notranslate nohighlight">\(P(y\mid x)\)</span>.</p>
+<p>• You are training a linear classifier $<span class="math notranslate nohighlight">\(h(\theta,x)=\theta_{0}+\theta_{1}x_{1}+\ldots\theta_{d}x_{d}\)</span><span class="math notranslate nohighlight">\( on a sample \)</span><span class="math notranslate nohighlight">\(S=\{(x_{i},y_{i})\}_{i=1}^{N}\)</span><span class="math notranslate nohighlight">\( where \)</span>\theta\in\mathbb{R}^{d+1}$ and . You threshold the model y to get a class for some input x . What’s the most straightforward way to train this model?</p>
+<p>– Define a differentiable loss function and do a gradient descent.</p>
+<p>• Why do we expect an ensemble to work better than a single predictor?</p>
+<p>– The ensemble is easier to train.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ensemble-methods">
+<h1><span class="section-number">55. </span>Ensemble methods<a class="headerlink" href="#ensemble-methods" title="Permalink to this headline"></a></h1>
+<p>Ensembles yield better results when there is considerable diversity among the base classifiers. If diversity is sufficient, base classifiers make different errors, and a strategic combination may reduce the total error, ideally improving generalization performance. A constituent model in an ensemble is also called a base classifier or weak learner, and the composite model a strong learner.</p>
+<p>The generic procedure of ensemble methods has two steps. First, develop a set of base classifiers from the training data. Second, combine them to form the ensemble. In the simplest combination, the base learners vote, and the label prediction is based on majority. More involved methods weigh the votes of the base learners.</p>
+<p>Let us import some packages and define our figure of merit as accuracy in a balanced dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">import</span> <span class="nn">sklearn.datasets</span>
+<span class="kn">import</span> <span class="nn">sklearn.metrics</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">metric</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We generate a random dataset of two classes that form concentric circles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">()</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+<span class="c1"># train on a random 2/3 and test on the remaining 1/3</span>
+<span class="n">idx_train</span> <span class="o">=</span> <span class="n">idx</span><span class="p">[:</span><span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">//</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">idx_test</span> <span class="o">=</span> <span class="n">idx</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">//</span><span class="mi">3</span><span class="p">:]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">idx_train</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">idx_test</span><span class="p">]</span>
+
+<span class="n">y_train</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">labels</span><span class="p">[</span><span class="n">idx_train</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># binary -&gt; spin</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">labels</span><span class="p">[</span><span class="n">idx_test</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">normalizer</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">Normalizer</span><span class="p">()</span>
+
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">normalizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">normalizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x2881c3dc0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/12316f499c674fc78484ddb8818f8c243267d4ec02c552fc497fbfbb9148ab61.png" src="../../_images/12316f499c674fc78484ddb8818f8c243267d4ec02c552fc497fbfbb9148ab61.png" />
+</div>
+</div>
+<p>Let’s train a perceptron:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>
+<span class="n">model_1</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">model_1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (train): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (test): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy (train):  0.44
+accuracy (test):  0.65
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since its decision surface is linear, we get a poor accuracy. Would a support vector machine with a nonlinear kernel fare better?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="n">model_2</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">model_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (train): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (test): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy (train):  0.64
+accuracy (test):  0.24
+</pre></div>
+</div>
+</div>
+</div>
+<p>It performs better on the training set, but at the cost of extremely poor generalization.</p>
+<p>Boosting is an ensemble method that explicitly seeks models that complement one another. The variation between boosting algorithms is how they combine weak learners. Adaptive boosting (AdaBoost) is a popular method that combines the weak learners in a sequential manner based on their individual accuracies. It has a convex objective function that does not penalize for complexity: it is likely to include all available weak learners in the final ensemble. Let’s train AdaBoost with a few weak learners:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">AdaBoostClassifier</span>
+<span class="n">model_3</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">model_3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (train): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">model_3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (test): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model_3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy (train):  0.65
+accuracy (test):  0.29
+</pre></div>
+</div>
+</div>
+</div>
+<p>Its performance is marginally better than that of the SVM.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="qboost">
+<h1><span class="section-number">56. </span>Qboost<a class="headerlink" href="#qboost" title="Permalink to this headline"></a></h1>
+<p>Let’s continue our exploration of ensemble methods. But this time around, let’s take a look at what we can do with a quantum computer. So when we talked about AdaBoost, we mentioned that we used an exponential loss, and there was no regularization term. So let’s take a look at how we can come up with a different objective function that would map better to a quantum computer and that would give some kind of an advantage over the classical method. So we are given a sample of data points.</p>
+<div class="math notranslate nohighlight">
+\[S=\{(x_{i},y_{i})\}_{i=1}^{N}\]</div>
+<p>And data points, the points themselves lie in some high dimensional space, and they come with binary labels in this case. And then we are also given a couple of models <span class="math notranslate nohighlight">\(\{h_{k}(x)\}_{k=1}^{K}\)</span> which were already learned. So you can think about it, for instance, as large neural networks. And we have capital <span class="math notranslate nohighlight">\(K\)</span> of them.</p>
+<div class="math notranslate nohighlight">
+\[\underset{w}{min}\left[\frac{1}{N}\sum_{i=1}^{N}\left(\sum_{k=1}^{K}\boldsymbol{w}_{z}h_{z}(x_{i})-y_{i}\right)^{z}+\lambda\parallel W\parallel_{0}\right]\]</div>
+<div class="math notranslate nohighlight">
+\[\parallel W\parallel\in\mathbb{R}^{K}\qquad\text{not discrete}\]</div>
+<div class="math notranslate nohighlight">
+\[\parallel W\parallel_{0}=\sqrt{\sum W_{i}^{0}}\]</div>
+<p>So now what we do is we measure the square loss between the prediction of the ensemble, which combines the individual models, and the actual label yi. So this contrasts with the exponential loss that we talked about in AdaBoost. So that’s the actual loss part. And we have a second part here which does a regularization <span class="math notranslate nohighlight">\(\lambda\parallel W\parallel_{0}\)</span>.</p>
+<p>So we take the zero norm of the W weight vector. So the zero norm just measures how many elements are non-zero. So what it does is if we increase the value of this hyperparameter <span class="math notranslate nohighlight">\(\lambda\)</span>, then it becomes extremely important. You had to have most of the W entries zero. On the other end, if you decrease lambda, then there’s a lower penalty for including more and more elements in this ensemble. So zero means that the model is not included and the non-zero value means that the particular model will be part of the ensemble. So this way, we can find a trade-off between having a simple model and having some additions to the ensemble that may or may not improve our overall prediction. So in principle, these W weights are not discrete. So we still talk about real values. But what really matters is the relative importance and whether they are included. So we can reduce the bit width. So we can use just, say, three widths to represent a weight. And now we have a discrete problem. Now we have to transform it a little bit and use our Hamiltonian encoding, namely that– and one of the two kinds of Hamiltonian encodings, the Ising encoding.</p>
+<div class="math notranslate nohighlight">
+\[\underset{w}{min}\left[\frac{1}{N}\sum_{i=1}^{N}\left(\sum_{k=1}^{K}\boldsymbol{w}_{z}h_{z}(x_{i})\right)^{z}-2\sum_{k=1}^{K}\boldsymbol{w}_{z}h_{z}(x_{i})y_{i}+y_{i}^{2}\boldsymbol{w}_{z}h_{z}(x_{i})+\lambda\parallel W\parallel_{0}\right]\]</div>
+<div class="math notranslate nohighlight">
+\[=\underset{w}{min}\left[\frac{1}{N}\sum_{i=1}^{N}\boldsymbol{w}_{k}\boldsymbol{w}_{l}\left(\sum_{i=1}^{N}h_{z}(x_{i})h_{l}(x_{i})\right)-\frac{2}{N}\sum_{k=1}^{K}\boldsymbol{w}_{k}\sum h_{k}(x_{i})y_{i}+\lambda\parallel W\parallel_{0}\right]\]</div>
+<p>And then we can solve it with a quantum annealer or by using QAOA. So here, I’m just rewriting this expression in a different way. So what I do is I expand this square loss $<span class="math notranslate nohighlight">\(\left(\sum_{k=1}^{K}\boldsymbol{w}_{z}h_{z}(x_{i})-y_{i}\right)^{z}\)</span><span class="math notranslate nohighlight">\(. 
+So now I have this quadratic term \)</span><span class="math notranslate nohighlight">\(\left(\sum_{k=1}^{K}\boldsymbol{w}_{z}h_{z}(x_{i})\right)^{z}\)</span><span class="math notranslate nohighlight">\( over the sum of the ensemble. Then I have this term \)</span><span class="math notranslate nohighlight">\(2\sum_{k=1}^{K}\boldsymbol{w}_{z}h_{z}(x_{i})y_{i}\)</span><span class="math notranslate nohighlight">\(, which measures the correlation between the output of a predictor and the actual label. We have this term \)</span>y_{i}^{2}<span class="math notranslate nohighlight">\(, which is just the label squared. We can get rid of it because there's no parameter in it. So it's not going to affect our minimization. And finally, we retain the regularization term as it was \)</span>\lambda\parallel W\parallel_{0}<span class="math notranslate nohighlight">\(. So we can continue working on this equation, and we can rearrange certain terms and move the sums around. So if I write it this way, the first term, then what I get is I end up with this term \)</span><span class="math notranslate nohighlight">\(\left(\sum_{i=1}^{N}h_{z}(x_{i})h_{l}(x_{i})\right)\)</span><span class="math notranslate nohighlight">\( which measures the correlation between the individual models. And here \)</span>\boldsymbol{w}<em>{l}<span class="math notranslate nohighlight">\( you have the corresponding weights between the different models. Then-- this should be wl here. So it's a multiplication of two weight vectors-- sorry, two entries in the weight vector. Then you have this term \)</span><span class="math notranslate nohighlight">\(\frac{2}{N}\sum_{k=1}^{K}\boldsymbol{w}_{k}\sum h_{k}(x_{i})y_{i}+\lambda\parallel W\parallel_{0}\)</span><span class="math notranslate nohighlight">\( where you measure the same thing as before \)</span>h</em>{k}(x_{i})y_{i}<span class="math notranslate nohighlight">\(. So this is the same kind of correlation between the label and the actual model weighted by the actual weight in the weight vector plus this regularization term \)</span>\lambda\parallel W\parallel_{0}<span class="math notranslate nohighlight">\(. So in the regularization term you can get rid of this square root 0 \)</span>\sqrt{\sum W_{i}^{0}}<span class="math notranslate nohighlight">\(. It doesn't make any difference. So now if you look at this part \)</span><span class="math notranslate nohighlight">\(\sum_{k=1}^{K}\boldsymbol{w}_{k}\sum h_{k}(x_{i})y_{i}+\lambda\parallel W\parallel_{0}\)</span><span class="math notranslate nohighlight">\(, what you see here is that you have elements of the W vector weighted by some numbers \)</span>h_{k}(x_{i})y_{i}<span class="math notranslate nohighlight">\(. So this is the bias term in the Hamiltonian encoding in the Ising model \)</span>\sum_{i}h_{i}\sigma_{i}<span class="math notranslate nohighlight">\(. So this would correspond to the external magnetic field in the Ising model. Well, the only difference is that the WK entries are described as bit strings whereas here, we have spins, which take values plus or minus. But that's just the shift. That's very easy to transform. And then this term here has this interaction, this quadratic interaction, between these discrete variables. So this maps to the \)</span>\sigma_I<span class="math notranslate nohighlight">\(, \)</span>\sigma_J$ interaction with certain couplings. So here you have your Ising model. That’s all you have to do. And now you can solve this ensemble problem on a quantum computer.</p>
+<p>Rewind this video!!!</p>
+<p>Check:</p>
+<p>• Why do we consider <span class="math notranslate nohighlight">\(l_{0}\)</span>-regularization?</p>
+<p>– It is a stronger constraint on sparsity than <span class="math notranslate nohighlight">\(l_{1}\)</span> or <span class="math notranslate nohighlight">\(l_{2}\)</span> normalization.</p>
+<p>• We use a low bit width representation of the weights because…</p>
+<p>– Current quantum computers have few qubits.</p>
+<section id="id1">
+<h2><span class="section-number">56.1. </span>QBoost<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<p>The idea of Qboost is that optimization on a quantum computer is not constrained to convex objective functions, therefore we can add arbitrary penalty terms and rephrase our objective [<span class="xref myst">1</span>]. Qboost solves the following problem:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{argmin}_{w} \left(\frac{1}{N}\sum_{i=1}^{N}\left(\sum_{k=1}^{K}w_kh_k(x_i)-
+y_i\right)^2+\lambda\|w\|_0\right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(h_k(x_i)\)</span> is the prediction of the weak learner <span class="math notranslate nohighlight">\(k\)</span> for a training instance <span class="math notranslate nohighlight">\(k\)</span>. The weights in this formulation are binary, so this objective function already maps to an Ising model. The regularization in the <span class="math notranslate nohighlight">\(l_0\)</span> norm ensures sparsity, and it is not the kind of regularization we would consider classically: it is hard to optimize with this term on a digital computer.</p>
+<p>Let us expand the quadratic part of the objective:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{argmin}_{w} \left(\frac{1}{N}\sum_{i=1}^{N}
+\left( \left(\sum_{k=1}^{K} w_k h_k(x_i)\right)^{2} -
+2\sum_{k=1}^{K} w_k h_k(\mathbf{x}_i)y_i + y_i^{2}\right) + \lambda \|w\|_{0}
+\right).
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(y_i^{2}\)</span> is just a constant offset, the optimization reduces to</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{argmin}_{w} \left(
+\frac{1}{N}\sum_{k=1}^{K}\sum_{l=1}^{K} w_k w_l
+\left(\sum_{i=1}^{N}h_k(x_i)h_l(x_i)\right) - 
+\frac{2}{N}\sum_{k=1}^{K}w_k\sum_{i=1}^{N} h_k(x_i)y_i +
+\lambda \|w\|_{0} \right).
+\]</div>
+<p>This form shows that we consider all correlations between the predictions of the weak learners: there is a summation of <span class="math notranslate nohighlight">\(h_k(x_i)h_l(x_i)\)</span>. Since this term has a positive sign, we penalize for correlations. On the other hand, the correlation with the true label, <span class="math notranslate nohighlight">\(h_k(x_i)y_i\)</span>, has a negative sign. The regularization term remains unchanged.</p>
+<p>To run this on an annealing machine we discretize this equation, reduce the weights to single bits, and normalize the estimator by K to scale with the feature data. As the weights are single bit, the regularization term becomes a summation that allows us to turn the expression into a QUBO.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{argmin}_{w} \sum_{k=1}^{K} \sum_{l=1}^{K}  w_kw_l \sum_{i=1}^{N}\frac{1}{K^2}h_k(x_i)h_l(x_i) + \sum_{k=1}^{K}w_k \left(\lambda-2\sum_{i=1}^{N} \frac{1}{K}h_k(x_i)y_i   \right), \mathrm{w}_k \in \{0,1\}
+\]</div>
+<p>We split off the diagonal coefficients (k=l) in the left term and since <span class="math notranslate nohighlight">\(\mathrm {w}\in \{0,1\}\)</span>, and predictions, <span class="math notranslate nohighlight">\(\mathrm h_k(x_i) \in\{-1,1\}\)</span> the following holds:</p>
+<div class="math notranslate nohighlight">
+\[
+w_kw_k = w_k,\;h_k(x_i)h_k(x_i) = 1
+\]</div>
+<p>Hence:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm \sum_{k=1}^{K}  w_kw_k \sum_{i=1}^{N}\frac{1}{K^2}h_k(x_i)h_k(x_i) = \sum_{k=1}^{K}  w_k \frac{N}{K^2}
+\]</div>
+<p>This last term is effectively a fixed offset to <span class="math notranslate nohighlight">\(\lambda \)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{argmin}_{w} \sum_{k\neq1}^{K}  w_kw_l \left(\sum_{i=1}^{N}\frac{1}{K^2}h_k(x_i)h_l(x_i)\right) + \sum_{k=1}^{K}w_k \left(\frac{N}{K^2} +\lambda-2\sum_{i=1}^{N} \frac{1}{K}h_k(x_i)y_i   \right), \mathrm{w}_k \in \{0,1\}
+\]</div>
+<p>The expressions between brackets are the coeficients of the QUBO</p>
+<p>Let us consider all three models from the previous section as weak learners.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="n">model_1</span><span class="p">,</span> <span class="n">model_2</span><span class="p">,</span> <span class="n">model_3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We calculate their predictions and set <span class="math notranslate nohighlight">\(\lambda\)</span> to 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_models</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">models</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">λ</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We create the quadratic binary optimization of the objective function as we expanded above.
+First the off-diagonal elements (see DWave’s documentation for the sample_qubo() method ):</p>
+<div class="math notranslate nohighlight">
+\[
+q_{ij} = \sum_{i=1}^{N}\frac{1}{K^2}h_k(x_i)h_l(x_i) 
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">predictions</span> <span class="o">@</span> <span class="n">predictions</span><span class="o">.</span><span class="n">T</span><span class="o">/</span><span class="p">(</span><span class="n">n_models</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then the diagonal elements:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm q_{ii} =\frac{N}{K^2}+ \lambda-2\sum_{i=1}^{N} \frac{1}{K}h_k(x_i)y_i
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qii</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_models</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">λ</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">predictions</span> <span class="o">@</span> <span class="n">y_train</span><span class="o">/</span><span class="p">(</span><span class="n">n_models</span><span class="p">)</span>
+
+<span class="n">q</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">diag_indices_from</span><span class="p">(</span><span class="n">q</span><span class="p">)]</span> <span class="o">=</span> <span class="n">qii</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_models</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n_models</span><span class="p">):</span>
+        <span class="n">Q</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)]</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We solve the quadratic binary optimization with simulated annealing and read out the optimal weights:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dimod</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">dimod</span><span class="o">.</span><span class="n">SimulatedAnnealingSampler</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample_qubo</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">num_reads</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We define a prediction function to help with measuring accuracy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+
+    <span class="n">n_data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_data</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">models</span><span class="p">):</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">h</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># prediction of weak classifier</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="n">y0</span>
+        <span class="n">T</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">T</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_data</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (train): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">predict</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">X_train</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (test): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predict</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">X_test</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy (train):  0.65
+accuracy (test):  0.29
+</pre></div>
+</div>
+</div>
+</div>
+<p>The accuracy co-incides with our strongest weak learner’s, the AdaBoost model. Looking at the optimal weights, this is apparent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 0, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Only AdaBoost made it to the final ensemble. The first two models perform poorly and their predictions are correlated. Yet, if you remove regularization by setting <span class="math notranslate nohighlight">\(\lambda=0\)</span> above, the second model also enters the ensemble, decreasing overall performance. This shows that the regularization is in fact important.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="solving-by-qaoa">
+<h1><span class="section-number">57. </span>Solving by QAOA<a class="headerlink" href="#solving-by-qaoa" title="Permalink to this headline"></a></h1>
+<p>Since eventually our problem is just an Ising model, we can also solve it on a gate-model quantum computer by QAOA. Let us explicitly map the binary optimization to the Ising model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">dimod</span><span class="o">.</span><span class="n">qubo_to_ising</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have to translate the Ising couplings to be suitable for solving by the QAOA routine:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from qiskit.quantum_info import Pauli</span>
+<span class="c1">#from qiskit.aqua import Operator</span>
+<span class="kn">from</span> <span class="nn">qiskit.quantum_info.operators</span> <span class="kn">import</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">Pauli</span>
+<span class="n">num_nodes</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">pauli_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">):</span>
+    <span class="n">wp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">)</span>
+    <span class="n">vp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">)</span>
+    <span class="n">vp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">pauli_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Pauli</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">wp</span><span class="p">)])</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">wp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">)</span>
+            <span class="n">vp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">)</span>
+            <span class="n">vp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">vp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">pauli_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">J</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">Pauli</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">wp</span><span class="p">)])</span>
+<span class="n">ising_model</span> <span class="o">=</span> <span class="n">Operator</span><span class="p">(</span><span class="n">paulis</span><span class="o">=</span><span class="n">pauli_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/93/6sy7vf8142969b_8w873sxcc0000gn/T/ipykernel_93780/2541997201.py:10: DeprecationWarning: Passing &#39;z&#39; and &#39;x&#39; arrays separately to &#39;Pauli&#39; is deprecated as of Qiskit Terra 0.17 and will be removed in version 0.23 or later. Use a tuple instead, such as &#39;Pauli((z, x[, phase]))&#39;.
+  pauli_list.append([h[i], Pauli(vp, wp)])
+/var/folders/93/6sy7vf8142969b_8w873sxcc0000gn/T/ipykernel_93780/2541997201.py:17: DeprecationWarning: Passing &#39;z&#39; and &#39;x&#39; arrays separately to &#39;Pauli&#39; is deprecated as of Qiskit Terra 0.17 and will be removed in version 0.23 or later. Use a tuple instead, such as &#39;Pauli((z, x[, phase]))&#39;.
+  pauli_list.append([J[i, j], Pauli(vp, wp)])
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [22],</span> in <span class="ni">&lt;cell line: 18&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>             <span class="n">vp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>             <span class="n">pauli_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">J</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">Pauli</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">wp</span><span class="p">)])</span>
+<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">ising_model</span> <span class="o">=</span> <span class="n">Operator</span><span class="p">(</span><span class="n">paulis</span><span class="o">=</span><span class="n">pauli_list</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: Operator.__init__() got an unexpected keyword argument &#39;paulis&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we run the optimization:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.aqua</span> <span class="kn">import</span> <span class="n">get_aer_backend</span><span class="p">,</span> <span class="n">QuantumInstance</span>
+<span class="kn">from</span> <span class="nn">qiskit.aqua.algorithms</span> <span class="kn">import</span> <span class="n">QAOA</span>
+<span class="kn">from</span> <span class="nn">qiskit.aqua.components.optimizers</span> <span class="kn">import</span> <span class="n">COBYLA</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">COBYLA</span><span class="p">()</span>
+<span class="n">qaoa</span> <span class="o">=</span> <span class="n">QAOA</span><span class="p">(</span><span class="n">ising_model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">operator_mode</span><span class="o">=</span><span class="s1">&#39;matrix&#39;</span><span class="p">)</span>
+<span class="n">backend</span> <span class="o">=</span> <span class="n">get_aer_backend</span><span class="p">(</span><span class="s1">&#39;statevector_simulator&#39;</span><span class="p">)</span>
+<span class="n">quantum_instance</span> <span class="o">=</span> <span class="n">QuantumInstance</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">qaoa</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">quantum_instance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we extract the most likely solution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;eigvecs&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">):</span>
+    <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">2</span>
+    <span class="n">k</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see the weights found by QAOA:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 1., 0.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the final accuracy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (train): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">predict</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">X_train</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;accuracy (test): </span><span class="si">%5.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">metric</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predict</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">X_test</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracy (train):  0.64
+accuracy (test):  0.24
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1><span class="section-number">58. </span>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h1>
+<p>[1] Neven, H., Denchev, V.S., Rose, G., Macready, W.G. (2008). <a class="reference external" href="https://arxiv.org/abs/0811.0416">Training a binary classifier with the quantum adiabatic algorithm</a>. <em>arXiv:0811.0416</em>.  <a id='1'></a></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_machine_learning/qml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html" class="btn btn-neutral float-left" title="50. Quantum approximate optimization algorithm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html" class="btn btn-neutral float-right" title="59. Mapping clustering to discrete optimization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

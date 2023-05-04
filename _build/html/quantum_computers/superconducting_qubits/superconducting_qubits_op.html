@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>15.4. How to do operations on superconducting qubits &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_computers/superconducting_qubits/superconducting_qubits_op.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="16. NV Center Qubits" href="../nv_center_qubits/nv_center_qubits.html" />
+    <link rel="prev" title="12. Superconducting qubits" href="superconducting_qubits.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">15.4. How to do operations on superconducting qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learn-more">15.5. Learn More</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="superconducting_qubits.html"><span class="section-number">12. </span>Superconducting qubits</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">15.4. </span>How to do operations on superconducting qubits</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_computers/superconducting_qubits/superconducting_qubits_op.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-do-operations-on-superconducting-qubits">
+<h1><span class="section-number">15.4. </span>How to do operations on superconducting qubits<a class="headerlink" href="#how-to-do-operations-on-superconducting-qubits" title="Permalink to this headline"></a></h1>
+<section id="measurement">
+<h2><span class="section-number">15.4.1. </span>Measurement<a class="headerlink" href="#measurement" title="Permalink to this headline"></a></h2>
+<p>In this lecture I will explain how we can perform measurement of superconducting qubits.
+At the end of every quantum algorithm, the computation result has to be obtained by performing measurement of the qubits. And, as dictated by the laws of quantum mechanics, any superposition states are projected into well-defined zeros and ones. A transmon qubit, as depicted here,
+can be measured via a readout resonator that is coupled to it. The resonance frequency of the resonator is quite far away from the qubit transition frequency, on the order of GHz.</p>
+<figure class="align-default" id="d1">
+<img alt="gfx/gfx4/m4d1.png" src="gfx/gfx4/m4d1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.12 </span><span class="caption-text">d1</span><a class="headerlink" href="#d1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>However, due to the coupling, there is a shift in the resonator’s frequency
+depending on the qubit state.
+This shift is evidenced here by the measured resonator transmission dips
+of the qubit in the ground state and the excited state.
+This shift is typically on the order of a few megahertz, three orders of magnitude smaller than the detuning.</p>
+<p>We can observe this shift and thereby the qubit state,
+by injecting the resonator with a pulse near the resonator frequency.
+The pulse, as shown here, is reflected by the resonator.
+Here, we show the output voltage as a function of time for the qubit in the ground state and the excited state,
+which clearly look different.</p>
+<p>Hence, we are able to distinguish and measure the two different qubit states. The traces I’ve just shown you, look very clean and distinguishable
+as they are averaged over thousands of measurements.</p>
+<figure class="align-default" id="d2">
+<img alt="gfx/gfx4/m4d2.png" src="gfx/gfx4/m4d2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.13 </span><span class="caption-text">d2</span><a class="headerlink" href="#d2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>However, for most real quantum protocols, we require to discern the qubit state in a just single run.
+But to avoid disturbing our precious quantum system,
+we can only use readout pulses that consist of a couple of photons.
+At these power levels, in the order of just a few femto Watts,
+we are struggling to distinguish the different quantum states
+as the signal is hampered by quantum noise, as depicted here.</p>
+<p>To quantify how well qubit measurement is performing in the presence of this noise,
+we record the integrated voltage of thousands of individual traces.
+By plotting these individual shots in the histograms, we extract the fidelity of the measurement.</p>
+<p>The fidelity expresses the probability that the measurement returns the right outcome averaged over the two possible qubit input states. Epsilon01 expresses the probability for erroneously getting outcome 1 for a ground state input and Epsilon10 vice versa. In this case, aided by the world’s lowest noise, superconducting amplifiers we can achieve a fidelity close to 98%. I’ve just shown you the readout of one qubit.
+Of course, a full quantum computer consists of many quantum bits
+and these quantum bits all have to be read out at the same time.
+To allow this simultaneous readout, we couple each qubit to its own readout resonator
+and choose the lengths of the resonators such that they resonate all at a distinct frequency. Just like the different strings in a piano.
+By next sending down a pulse that is the sum of multiple components,
+in this case two, each tuned to its own readout resonator,
+we can probe multiple readout resonators at the same time.</p>
+<p>Each component will only be picked up by the targeted resonator.
+In the analysis of the output signals, we again separate the two different frequency components.
+Here, we show the readout results for qubit 1 for each of the four possible two-qubit basis states,
+indicating that the signal practically only depends on the state of the targeted qubit,
+separating 00 and 10 from 00 and 11.</p>
+<figure class="align-default" id="d3">
+<img alt="gfx/gfx4/m4d3.png" src="gfx/gfx4/m4d3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.14 </span><span class="caption-text">d3</span><a class="headerlink" href="#d3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Dually, we here show the readout results for the other qubit,
+which separate 00 and 10 from 00 and 11.
+You might now be able to imagine how this readout scheme can be extended
+to measure ever increasing numbers of qubits.</p>
+<p>Here, we depicted a seventeen-qubit device where we play the simultaneous readout trick
+using seventeen readout resonators divided over three different input and output lines.</p>
+<figure class="align-default" id="d4">
+<img alt="gfx/gfx4/m4d4.png" src="gfx/gfx4/m4d4.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.15 </span><span class="caption-text">d4</span><a class="headerlink" href="#d4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This might sound to you like a finished story.
+However, there are many improvements to be made still to get to a fully scalable quantum computer.
+Exemplary topics that are currently being addressed in research,
+and which might also be attractive for additional reading are:
+Advanced readout pulse shaping to quickly populate and depopulate the readout resonators to speed up the readout. Second, superconducting amplifiers to suppress noise in the readout amplification chain
+and methods to quantify their performance. And lastly we work on advanced readout topologies. In this case, using multiple cascaded readout resonators per qubit, to increase the flux of photons and further speed up the readout.</p>
+<p>Main takeaways</p>
+<ul class="simple">
+<li><p>A transmon qubit can be measured via a readout resonator that is coupled to it. Depending on the qubit state, there will be an observable shift in the resonator frequency.</p></li>
+<li><p>To quantify how well qubit measurement is performing in the presence of this noise, we record the integrated voltage of thousands of individual traces. By plotting these individual shots in the histograms, we extract the fidelity of the measurement.</p></li>
+<li><p>The highest achievable fidelity aided by the world’s lowest noise, superconducting amplifiers is 99%.</p></li>
+<li><p>To allow simultaneous readout for multiple qubits, each qubit will be coupled to its own resonator with unique lengths and thus readout frequency.</p></li>
+</ul>
+</section>
+<section id="single-qubit-gates">
+<h2><span class="section-number">15.4.2. </span>Single qubit gates<a class="headerlink" href="#single-qubit-gates" title="Permalink to this headline"></a></h2>
+<p>In this lecture, I want to show you how we control the state of a single superconducting transmon qubits,
+that is, doing so-called single-qubit gates.
+The state of a single qubit can be visualized on the Bloch sphere,
+with the ground and excited state on the poles
+and the other points on the surface corresponding to quantum superpositions.</p>
+<figure class="align-default" id="e1">
+<img alt="gfx/gfx4/m4e1.png" src="gfx/gfx4/m4e1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.16 </span><span class="caption-text">e1</span><a class="headerlink" href="#e1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Single-qubit gates are then rotations of the Bloch sphere,
+for instance, here the X90 gate, which converts the ground and excited states into superpositions.
+We use the physical effect called Rabi oscillation:</p>
+<figure class="align-default" id="e2">
+<img alt="gfx/gfx4/m4e2.png" src="gfx/gfx4/m4e2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.17 </span><span class="caption-text">e2</span><a class="headerlink" href="#e2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>We change the qubit state by applying an external oscillating electric field at the qubit frequency,
+corresponding to the energy difference between the ground and excited state.</p>
+<p>That frequency is usually in the microwave range, between 3 and 10 GHz.
+To apply the electric field, we need a microwave line that ends next to the transmon.
+We can use the same line that is also used for measurements,
+about which you will hear more in the next videos.
+Or, on larger devices with many qubits, we often make a dedicated drive line for each qubit.
+With this, we can generate the electric field close to only one selected qubit.
+Let’s see how the oscillating field affects the qubit state.
+When we apply it, it drives the qubit from the ground to the first excited state and back.</p>
+<figure class="align-default" id="e3">
+<img alt="gfx/gfx4/m4e3.png" src="gfx/gfx4/m4e3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.18 </span><span class="caption-text">e3</span><a class="headerlink" href="#e3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>On the Bloch sphere, this looks like a rotation with constant speed.
+The axis of rotation always lies in the x-y plane.
+We can control where exactly it lies by changing the phase of the applied field: A sine wave leads to a rotation around the x-axis,
+while a cosine with 90 degrees phase offset will induce a rotation around the y-axis. On the other hand, the speed of the rotation is proportional to the amplitude of the electric field. In order to perform a desired gate, for instance a rotation by 90 degrees around the x-axis, we thus need to apply a short pulse with the correct phase, amplitude and length.</p>
+<figure class="align-default" id="e4">
+<img alt="gfx/gfx4/m4e4.png" src="gfx/gfx4/m4e4.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.19 </span><span class="caption-text">e4</span><a class="headerlink" href="#e4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The rotation angle is determined by the product of length and amplitude,
+that is, by the area under the pulse envelope.
+This way, we can perform any rotation with the axis in the x-y plane.
+If we want to rotate around another axis, which does not lie in the x-y plane,
+we have to decompose it.</p>
+<p>It turns out that any single-qubit gate can be performed
+using no more than three microwave pulses in sequence.
+Of course, we want to make the pulses as short and strong as possible,
+to be able to do quantum computations quickly.</p>
+<figure class="align-default" id="e5">
+<img alt="gfx/gfx4/m4e5.png" src="gfx/gfx4/m4e5.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.20 </span><span class="caption-text">e5</span><a class="headerlink" href="#e5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>However, the shorter the pulse,
+the more frequency components it has besides the transition frequency f01. We can see this by looking at the spectral decomposition of the pulse. Unfortunately, that means that if we make the pulses shorter and shorter, at some point, the spectrum is so broadthat the pulse drives oscillations not only between the states 0 and 1, but also 1 and 2! Then, the transmon does not work as a qubit anymore, since three transmon states are involved, and the nice Bloch sphere rotation picture breaks down. We must avoid this situation, and this limits us in making the pulses too short. To push the limit of how short we can make the pulse, instead of a square pulse, we need a pulse which is well localized in time and also frequency.</p>
+<figure class="align-default" id="e6">
+<img alt="gfx/gfx4/m4e6.png" src="gfx/gfx4/m4e6.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.21 </span><span class="caption-text">e6</span><a class="headerlink" href="#e6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A much better choice is a pulse with a Gaussian shaped envelope.
+It has the same area, but affects the 1-2 transition much, much less.
+Using a technique called derivative removal by adiabatic gate, or DRAG,
+we can push the limit further:</p>
+<figure class="align-default" id="e7">
+<img alt="gfx/gfx4/m4e7.png" src="gfx/gfx4/m4e7.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.22 </span><span class="caption-text">e7</span><a class="headerlink" href="#e7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>By superimposing a fine-tuned out-of-phase component with an envelope proportional to the derivative of the original pulse, the rotation angle is unchanged, but the transitions to the 2 state are actively suppressed. Using this technique, pulse lengths can be reduced to well below 5 ns without the second transmon state being a concern. This concludes our quick look at how we control the state of individual transmon qubits using microwave pulses. In the next videos, Niels and Adriaan will show you how we measure the transmon state, and how we change the state of a transmon depending on the state of another transmon, to perform larger calculations.</p>
+<p>Main takeaways</p>
+<ul class="simple">
+<li><p>Qubit operations are done using Rabi oscillation by applying an external oscillating electric field at the transmons qubit.
+Performing desired gates require a short pulse with the correct phase, amplitude and length. This way any rotation within the x-y plane can be performed.</p></li>
+<li><p>The minimum duration of a pulse is limited due to the broadening of the frequency spectrum as pulses get shorter.</p></li>
+<li><p>In case the frequency spectrum is to broad, not only oscillations between the 0 and 1 state occur, but also between 1 and 2.</p></li>
+<li><p>To push the limit of this short pulse duration, a Gaussian shaped envelope is used in combination with a technique called Derivative Removal by Adiabatic Gate (DRAG).</p></li>
+</ul>
+</section>
+<section id="two-qubit-gates">
+<h2><span class="section-number">15.4.3. </span>Two qubit gates<a class="headerlink" href="#two-qubit-gates" title="Permalink to this headline"></a></h2>
+<p>Interactions between qubits are controlled using two qubit gates.
+In transmen qubits the two qubit gate that is used to form a universal gate set. It’s the conditional phase gate also known as the C phase or C’s at gate.</p>
+<figure class="align-default" id="f1">
+<img alt="gfx/gfx4/m4f1.png" src="gfx/gfx4/m4f1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.23 </span><span class="caption-text">f1</span><a class="headerlink" href="#f1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Applying a conditional phase gate to two qubits causes the target qubit to acquir by a radiance of phase based on the state of the control qubit. As an example let us consider two qubits. A control qubit QC starting in either the ground or the excited state and a target qubit QT starting in the plus state. When the control qubit is in the ground state and we apply the C phase gate, there is no effect on the target qubit. However, when the control qubit is in the excited state,
+the target qubit will acquire by a radiance of phase. In transfer qubits the C phase gate is implemented by tuning in and out of resonance
+with an interaction in the two excitation manifolds.
+To understand how to perform such C phase gate we will look at what mediates the interaction,
+how qubits can be tuned in and out of resonance, wooden interaction,
+and why this causes the qubits to accumulate phase.</p>
+<figure class="align-default" id="f2">
+<img alt="gfx/gfx4/m4f2.png" src="gfx/gfx4/m4f2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.24 </span><span class="caption-text">f2</span><a class="headerlink" href="#f2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>How to use this interaction to perform a C phase gate
+while minimizing leakage out of computational subspace.
+And finally what the experimental challenges are when implementing high fidelity gates.
+In superconducting transmen qubits to qubit gates are based on a transversal cubed cubed coupling.</p>
+<figure class="align-default" id="f3">
+<img alt="gfx/gfx4/m4f3.png" src="gfx/gfx4/m4f3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.25 </span><span class="caption-text">f3</span><a class="headerlink" href="#f3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This coupling is mediated through a coupling resonator.
+Because the interaction is mediated by a coupling resonator,
+it is possible to couple physically separated qubits making a room for other components on the chip
+such as readout resonators.
+To be able to tune in and out of resonance with the interaction,
+the transition frequency of a transplant qubit must be controlled.</p>
+<figure class="align-default" id="f4">
+<img alt="gfx/gfx4/m4f4.png" src="gfx/gfx4/m4f4.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.26 </span><span class="caption-text">f4</span><a class="headerlink" href="#f4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>By applying a current to the flux bias line,
+the amount of flux through the squit loop of the transport changes,
+making it possible the control to cubits frequency.
+When a pulse is applied to the Flex bias line, the cubit is detuned from its operating frequency for the duration of the pulse.
+While the cubit is detuned face accumulates. To understand how this flux control can be used to perform a C phase case,
+let us take a look at the level diagram…</p>
+<figure class="align-default" id="f5">
+<img alt="gfx/gfx4/m4f5.png" src="gfx/gfx4/m4f5.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.27 </span><span class="caption-text">f5</span><a class="headerlink" href="#f5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>…of two transport cubit as a function of the flux through the target qubit.
+In this level diagram the subscripts denote the number of excitations
+in the control and target qubit respectively.
+The interaction that is used to perform a C phase gate isn’t avoided crossing between the 1-1 and 0-2 state.
+The amount of face that a target cute picks up is most evident when the 1-1 and all one level diagrams are overlaid. By expressing them in terms of the tuning with respect to their maximum energy. It can be seen that the detuning of the target qubit is different based on the state of its argument. This difference is marked in red over here.
+By detuning the qubits into the red region, it is possible to make the target qubit acquire a face conditional instead of control qubit.
+However, the interaction we are using, is an interaction between the 1-1 and the 0-2 state.</p>
+<figure class="align-default" id="f6">
+<img alt="gfx/gfx4/m4f6.png" src="gfx/gfx4/m4f6.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.28 </span><span class="caption-text">f6</span><a class="headerlink" href="#f6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>As the 0-2 state is not part of the computational subspace, we want to avoid any energy transfer to the state.
+This is typically done using a special pulse shape,
+known as a fast adiabatic pulse, that minimizes the leakage.
+This pulse shape can be expressed as a Fourier series in the frame of the interaction, which with knowledge of the system parameters can be converted first into a frequency and then into a voltage to be applied to the flux bias line. Because the conditional phase and the leakage depend on the exact trajectory of the qubit, flux pulsing base two qubit gates are highly sensitive to distortions of the pulse shapes.
+Distortions can be caused by electrical components in the signal path
+between the waveform generator and the qubit, such as filters and cables.</p>
+<figure class="align-default" id="f7">
+<img alt="gfx/gfx4/m4f7.png" src="gfx/gfx4/m4f7.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.29 </span><span class="caption-text">f7</span><a class="headerlink" href="#f7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>But even the own chip response causes distortions on the signal to qubit experiences.
+These effects are typically corrected by pre deserting, the waveform ex,
+with a filter designed to invert the assertions, turning into X-Tilted,
+so that the queuing experiences, not pulse Y, but Y-Tilted is equal to the intended waveform.
+The key challenge in flux pulsing based CZ gate is to correct for these distortions. This requires characterizing distortions that the qubit experiences when cooled down and correcting these with sufficiently high precision. At the same time, efforts are underway to become more resilient against these effects. Both by exploring new pulse shaping techniques and true innovations in a hardware. Thank you for your attention</p>
+<p>Main takeaways</p>
+<ul class="simple">
+<li><p>In transmon qubits, a the two qubit CPhase- or CZ-gate is used to form the universal gate set, which is implemented by tuning in and out of resonance with an interaction in the two-excitation manifold.</p></li>
+<li><p>The qubit-qubit coupling in transmons is mediated through a coupling resonator allowing convenient physical separation between qubits.</p></li>
+<li><p>Applying a current to the flux-bias line, the flux through the SQUID loop of the transmon changes allowing control of the qubit’s frequency.</p></li>
+<li><p>To avoid energy transfer to undesired states, a fast-adiabatic pulse that minimizes leakage is used.</p></li>
+<li><p>The key challenge in flux-pulsing based CZ-gates is correcting for distortions caused by electrical components in the signal path between the wave generator and the qubits.</p></li>
+</ul>
+</section>
+<section id="practice-quiz-9">
+<h2><span class="section-number">15.4.4. </span>Practice Quiz 9<a class="headerlink" href="#practice-quiz-9" title="Permalink to this headline"></a></h2>
+<section id="question-1">
+<h3><span class="section-number">15.4.4.1. </span>Question 1<a class="headerlink" href="#question-1" title="Permalink to this headline"></a></h3>
+<figure class="align-default" id="id1">
+<img alt="gfx/gfx4/general_bloch_sphere.jpg" src="gfx/gfx4/general_bloch_sphere.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.30 </span><span class="caption-text">f7</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The Bloch sphere is a useful tool to visualize the state of qubit and the effect of single-qubit operations. What state (|ket <span class="math notranslate nohighlight">\(\{\mid p s i\} \mid)\)</span> corresponds to the state shown on the Bloch sphere below?</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\cos \frac{\phi}{2}|0\rangle+e^{i \phi} \sin \frac{\theta}{2}|1\rangle .\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos \frac{\phi}{2}|0\rangle+e^{i \phi} \sin \frac{\phi}{2}|1\rangle .\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos \frac{\theta}{2}|0\rangle+e^{i \phi} \sin \frac{\theta}{2}|1\rangle .\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos \phi|0\rangle+e^{i \theta} \sin \phi|1\rangle .\)</span></p></li>
+</ul>
+<div class="admonition-correct-answer admonition">
+<p class="admonition-title">Correct answer</p>
+<p>Explanation
+<span class="math notranslate nohighlight">\(\cos \frac{\theta}{2}|0\rangle+e^{i \phi} \sin \frac{\theta}{2}|1\rangle .\)</span></p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="quiz-9-operations-on-superconducting-qubits">
+<h2><span class="section-number">15.4.5. </span>Quiz 9: Operations on superconducting qubits<a class="headerlink" href="#quiz-9-operations-on-superconducting-qubits" title="Permalink to this headline"></a></h2>
+<p><strong>Bell pairs</strong> <br>
+The Bell pairs are a certain set of entangled two qubit states. There are four of them, often denoted by <span class="math notranslate nohighlight">\(\left|\Phi_{+}\right\rangle,\left|\Phi_{-}\right\rangle,\left|\Psi_{+}\right\rangle \&amp;\left|\Psi_{-}\right\rangle\)</span>. All of these play a vital part in quantum information and networking, but <span class="math notranslate nohighlight">\(\left|\Phi_{+}\right\rangle\)</span>is used the most. It is the state <span class="math notranslate nohighlight">\(\frac{|00\rangle+|11\rangle}{\sqrt{2}}\)</span> and it is exactly this state that is often meant when scientist say ‘a Bell pair’.
+In this quiz, we will investigate how to create this Bell pair on a transmon qubit chip.</p>
+</section>
+<section id="question-1-bell-pair-creation">
+<h2><span class="section-number">15.4.6. </span>Question 1: Bell pair creation<a class="headerlink" href="#question-1-bell-pair-creation" title="Permalink to this headline"></a></h2>
+<p><span class="math notranslate nohighlight">\(0.0 / 1.0\)</span> point (graded)
+A vital part in the creation of any entanglement is the use of a two qubit gate. Without such operations, entanglement is not possible. The two qubit gate that we use for Bell pair creation is the familiar CNOT gate.</p>
+<p>In the video on two qubit gates, Adriaan explained that we can implement the CPHASE gate (also known as the CZ gate) on the transmon qubits. This is of course different than the CNOT, but we can get from the one to the other using only single qubit operations.
+You can refer back to the ket notation video from module 1 to review 2 qubit operations. Also be sure to check quiz, because one of those questions might look very familiar (it is not quite the same though, so watch out!).
+Which of the following operations implements a CNOT (with the first qubit as the control qubit), using only a CZ gate and single qubit operations?</p>
+<ul class="simple">
+<li><p>Hadamard on the first qubit both before and after the CZ</p></li>
+<li><p><strong>Hadamard on the second qubit both before and after the CZ</strong></p></li>
+<li><p>Pauli <span class="math notranslate nohighlight">\(X\)</span> on the second qubit both before and after the CZ</p></li>
+<li><p>Pauli <span class="math notranslate nohighlight">\(Y\)</span> on the second qubit before the CZ and Pauli <span class="math notranslate nohighlight">\(X\)</span> on the second qubit after the CZ</p></li>
+</ul>
+<p>Answer
+Correct: Exactly! This is a very often used identity in quantum circuitry.
+<strong>Hint (1 of 6):</strong> If you write out every step as a <span class="math notranslate nohighlight">\(4 \times 4\)</span> matrix, you can multiply those matrices and check if it equates to the CNOT operation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{llll}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<p><strong>Hint (3 of 6):</strong> An operation on the first qubit, while doing nothing on the second qubit, can be written down as the kronecker delta product. For instance, the Hadamard on the only the first qubit is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H \otimes I=\left[\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right] \otimes\left[\begin{array}{ll}
+1 &amp; 0 \\
+0 &amp; 1
+\end{array}\right]=\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; -1 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; -1
+\end{array}\right]
+\end{split}\]</div>
+<p><strong>Hint (4 of 6):</strong> Think about what the phase flip (Z gate) does on the <span class="math notranslate nohighlight">\(|+\rangle\)</span> and <span class="math notranslate nohighlight">\(|-\rangle\)</span> states. This is very much like the bit flip ( <span class="math notranslate nohighlight">\(X\)</span> gate) coming from the CNOT for another set of states. What set of states?
+<strong>Hint ( 5 of 6 ):</strong> So, you can perform the <span class="math notranslate nohighlight">\(X\)</span> gate using the <span class="math notranslate nohighlight">\(Z\)</span> gate, by first transforming your basis. From what to what basis?
+<strong>Hint ( 6 of 6 ):</strong> If the CNOT is a controlled bit flip ( <span class="math notranslate nohighlight">\(X\)</span> gate) operation, and the CZ is a controlled phase flip (Z gate) operation, you can perform the one by doing the other if you first transform your basis.</p>
+<p>Answer
+Correct: Exactly! This is a very often used identity in quantum circuitry.
+Explanation
+If we investigate what a phase flip (Z gate) does on the <span class="math notranslate nohighlight">\(|+\rangle=\frac{|0\rangle+|1\rangle}{\sqrt{2}}\)</span> and <span class="math notranslate nohighlight">\(|-\rangle=\frac{|0\rangle-|1\rangle}{\sqrt{2}}\)</span> states, we see that the two are flipped. So the phase flip is essentially a bit flip in the <span class="math notranslate nohighlight">\(\{|+\rangle,|-\rangle\}\)</span> (Hadamard) basis.
+Now, that means that a CZ is the same as a CNOT (controlled bit flip) for the second qubit in the Hadamard basis. So if we transform the second qubit to that basis, perform the CZ, and transform that qubit back to the computational <span class="math notranslate nohighlight">\((\{|0\rangle,|1\rangle\})\)</span> basis, we have performed the CNOT. Transforming between the computational and Hadamard basis (and vice versa!) is done with the Hadamard matrix.</p>
+<p>Only on the second qubit gives: <span class="math notranslate nohighlight">\(I \otimes H=\left[\begin{array}{cc}1 &amp; 0 \\ 0 &amp; 1\end{array}\right] \otimes\left[\begin{array}{cc}1 &amp; 1 \\ 1 &amp; -1\end{array}\right]=\left[\begin{array}{cccc}1 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; -1\end{array}\right]\)</span>.
+So the total expression becomes: <span class="math notranslate nohighlight">\(\left[\begin{array}{cccc}1 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; -1\end{array}\right]\left[\begin{array}{cccc}1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; -1\end{array}\right]\left[\begin{array}{cccc}1 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; -1\end{array}\right]\)</span>, which is exactly the desired CNOT!</p>
+<p>https://cdn.mathpix.com/snip/images/v3fxVJWrHKRKHn8oE3Ve7DZG5p9Cbv9EFxjQtgoaD14.original.fullsize.png</p>
+<div class="admonition-correct-answer-explanation admonition">
+<p class="admonition-title">Correct answer &amp; Explanation</p>
+<p>If we investigate what a phase flip (Z gate) does on the <span class="math notranslate nohighlight">\(|+\rangle=\frac{|0\rangle+|1\rangle}{\sqrt{2}}\)</span> and <span class="math notranslate nohighlight">\(|-\rangle=\frac{|0\rangle-|1\rangle}{\sqrt{2}}\)</span> states, we see that the two are flipped. So the phase flip is essentially a bit flip in the <span class="math notranslate nohighlight">\(\{|+\rangle,|-\rangle\}\)</span> (Hadamard) basis.
+Now, that means that a CZ is the same as a CNOT (controlled bit flip) for the second qubit in the Hadamard basis. So if we transform the second qubit to that basis, perform the CZ, and transform that qubit back to the computational <span class="math notranslate nohighlight">\((\{|0\rangle,|1\rangle\})\)</span> basis, we have performed the CNOT. Transforming between the computational and Hadamard basis (and vice versa!) is done with the Hadamard matrix.
+Only on the second qubit gives: <span class="math notranslate nohighlight">\(I \otimes H=\left[\begin{array}{cc}1 &amp; 0 \\ 0 &amp; 1\end{array}\right] \otimes\left[\begin{array}{cc}1 &amp; 1 \\ 1 &amp; -1\end{array}\right]=\left[\begin{array}{cccc}1 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; -1\end{array}\right]\)</span>.
+So the total expression becomes: <span class="math notranslate nohighlight">\(\left[\begin{array}{cccc}1 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; -1\end{array}\right]\left[\begin{array}{cccc}1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; -1\end{array}\right]\left[\begin{array}{cccc}1 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; -1\end{array}\right]\)</span>, which is exactly the desired CNOT!</p>
+</div>
+<hr class="docutils" />
+<p>In quantum computing, we always initialize qubits in the <span class="math notranslate nohighlight">\(|0\rangle\)</span> state. So when creating a Bell pair, we start with two qubits in that state: <span class="math notranslate nohighlight">\(\left|\psi_{i n i t}\right\rangle=|0\rangle \otimes|0\rangle=\left[\begin{array}{l}1 \\ 0 \\ 0 \\ 0\end{array}\right]\)</span>. If we perform a Hadamard transform on the first qubit, we get the In matrix form, this is <span class="math notranslate nohighlight">\(\left|\psi_{2}\right\rangle=\sqrt{\frac{1}{2}}\left[\begin{array}{l}1 \\ 0 \\ 1 \\ 0\end{array}\right]\)</span>.</p>
+<p>Now that we are able to do a CNOT, we can create a Bell pair by applying the CNOT to the state <span class="math notranslate nohighlight">\(\left|\psi_{2}\right\rangle\)</span>. The second qubit is bit flipped only if the first qubit is in the <span class="math notranslate nohighlight">\(|1\rangle\)</span> state, so we see that only the <span class="math notranslate nohighlight">\(|10\rangle\)</span> part is ‘touched’ by the CNOT. We get: <span class="math notranslate nohighlight">\(C N O T\left|\psi_{2}\right\rangle=C N O T \sqrt{\frac{1}{2}}(|00\rangle+|10\rangle)=\sqrt{\frac{1}{2}}(|00\rangle+|11\rangle)=\left|\Phi_{+}\right\rangle\)</span>.
+Or in matrix form: <span class="math notranslate nohighlight">\(C N O T\left|\psi_{2}\right\rangle=\sqrt{\frac{1}{2}}\left[\begin{array}{llll}1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 0\end{array}\right]\left[\begin{array}{l}1 \\ 0 \\ 1 \\ 0\end{array}\right]=\sqrt{\frac{1}{2}}\left[\begin{array}{l}1 \\ 0 \\ 0 \\ 1\end{array}\right]=\left|\Phi_{+}\right\rangle\)</span>
+Conclusion: to create a Bell pair on a set of transmon qubits, we need to perform one single-qubit operation (the Hadamard) and one multi-qubit operation (the CZ).</p>
+<section id="question-2-the-single-qubit-operation-the-hadamard">
+<h3><span class="section-number">15.4.6.1. </span>Question 2: The single qubit operation: the Hadamard<a class="headerlink" href="#question-2-the-single-qubit-operation-the-hadamard" title="Permalink to this headline"></a></h3>
+<p>0.0/1.0 point (graded)
+The Hadamard matrix maps the computational basis <span class="math notranslate nohighlight">\(\{|0\rangle,|1\rangle\}\)</span> (the eigenvectors of the Pauli Z) to the Hadamard or <span class="math notranslate nohighlight">\(X\)</span> basis <span class="math notranslate nohighlight">\(\{|+\rangle,|-\rangle\}\)</span> (the eigenvectors of the Pauli <span class="math notranslate nohighlight">\(X\)</span> ), and vice versa. If we transform the <span class="math notranslate nohighlight">\(|0\rangle\)</span> to the <span class="math notranslate nohighlight">\(|+\rangle\)</span>, when looking at the Bloch sphere, this means that we rotate from the <span class="math notranslate nohighlight">\(z\)</span>-axis to the <span class="math notranslate nohighlight">\(x\)</span>-axis. As we have seen in the video, this can be done on a transmon qubit by applying an alternating electric field to it, with a certain phase delay.
+Around what axis do we need to rotate to perform the Hadamard operation on the <span class="math notranslate nohighlight">\(|0\rangle\)</span> state?
+Look at the picture of the Bloch sphere and the rotational axis on the 3rd slide in the video to determine this axis.</p>
+<ul class="simple">
+<li><p>X-axis</p></li>
+<li><p>Y-axis</p></li>
+<li><p>Z-axis</p></li>
+</ul>
+<p><strong>Hint (1 of 2):</strong> The [mathjaxinline] \ket{0} [matjaxinline] state is the +1 eigenstate of the Z operator. On the Bloch sphere, this means that it lies in the positive direction of the Z axis.
+<strong>Hint (2 of 2):</strong> Likewise, the [mathjaxinline] \ket{+} [matjaxinline] state is the +1 eigenstate of the X operator. On the Bloch sphere, this means that it lies in the positive direction of the X axis.</p>
+<p><strong>Answer</strong> <br>
+Correct: <br>
+If we rotate around this axis we can get from the z-axis to the x-axis. There is, however, still the matter of rotating clockwise or anti-clockwise. See the explanation (click ‘see answer’ button) for elaboration.
+<strong>Explanation</strong> <br>
+If we look at the Bloch sphere, we see that going from the z-axis (where the state lies) to the x-axis (where the lies) means rotating around the y-axis. However, we do not yet have specified if we are rotating in the clockwise or anticlockwise direction.
+Also, if we look at 3rd slide from the video with the Bloch sphere, we see that we can use either a phase offset of (lets call this option A) or (this is option B). Choosing this offset is als precisely choosing the rotational direction, as you can see in the slide. (For clarification: if you can’t see the rotational direction clearly in the video, it goes in the clockwise direction from the viewers perspective. Looking from the origin, it goes anti-clockwise.)</p>
+</section>
+<section id="question-3-rotational-direction">
+<h3><span class="section-number">15.4.6.2. </span>Question 3: Rotational direction<a class="headerlink" href="#question-3-rotational-direction" title="Permalink to this headline"></a></h3>
+<p>0.0/1.0 point (graded)
+We want to minimize the amplitude and length of the electric field pulse that we apply to the transmon.</p>
+<p>Taking these things into consideration, what option for the phase offset is then the best option?
+These are the options as described in the explanation of the previous question. Press the ‘show answer’ button of the previous question if you have not already seen them.</p>
+<ul class="simple">
+<li><p><strong>Option A</strong></p></li>
+<li><p>Option B</p></li>
+</ul>
+<p><strong>Hint (1 of 3 ):</strong> We need to end up at the positive <span class="math notranslate nohighlight">\(x\)</span>-axis, coming from the positive <span class="math notranslate nohighlight">\(z\)</span>-axis.
+Next Hint
+<strong>Hint (2 of 3):</strong> Minimizing the amplitude and length of the electric field pulse means minimizing how far we
+rotate. Watch out, this is not the same as the phase <span class="math notranslate nohighlight">\(\theta\)</span> angle that defines the rotational axis as in the
+video!
+<strong>Hint (3 of 3):</strong> The two choices for the phase offset means two different distances that we need to rotate.
+One is 3 times the other!</p>
+<p>Answer
+Correct: You can specify optional feedback like this, which appears after this answer is submitted.
+Explanation
+We can either rotate directly to the plus <span class="math notranslate nohighlight">\(x\)</span>-axis from the plus <span class="math notranslate nohighlight">\(z\)</span>-axis, or first rotate to the minus <span class="math notranslate nohighlight">\(x\)</span>-axis, then to the minus z-axis, and only then to the plus <span class="math notranslate nohighlight">\(x\)</span>-axis. The first choice is obviously the fastest one. If we look at the 3rd slide again, we see that the desired rotational direction is at a phase offset of <span class="math notranslate nohighlight">\(\frac{1}{2} \pi\)</span>, or option <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="question-4-the-cz-gate">
+<h3><span class="section-number">15.4.6.3. </span>Question 4: The CZ gate<a class="headerlink" href="#question-4-the-cz-gate" title="Permalink to this headline"></a></h3>
+<p>The two-qubit operation that we can use for transmon qubits, is, as mentioned before, the CZ gate. In the video on two-qubit operations on superconducting qubits, Adriaan mentions a problem in the implementation that needs to be strictly avoided.
+Which of the following is that problem?
+Check the box that applies.</p>
+<ul class="simple">
+<li><p>Waiting too long, so that the target qubit gets flipped as well</p></li>
+<li><p><strong>Accidentally transferring the <span class="math notranslate nohighlight">\(|0\rangle\)</span> state to the <span class="math notranslate nohighlight">\(|2\rangle\)</span> state (so outside of the qubit space!).</strong></p></li>
+<li><p>Accidentally performing an CNOT instead of a CZ operation.</p></li>
+</ul>
+<p>Answer
+Correct: This needs to be avaoided so as to confine the system to a two-dimensional subspace (or a qubit subspace).</p>
+<hr class="docutils" />
+<p>Now that we have a method of preparing Bell pairs, we might want to analyse these Bell pairs by measuring some of them, and checking if we indeed have the desired correlations. If we want to measure the qubits we need to couple them to readout-resonators, as explained in the video.</p>
+<p>To measure the qubit, we pulse it with an alternating electric signal. This signal is reflected, but also influenced by the state that the qubit is in. Therefore, by measuring the reflected signal, we can know in what state the qubit is in.</p>
+</section>
+<section id="question-5-measuring-the-qubit">
+<h3><span class="section-number">15.4.6.4. </span>Question 5: Measuring the qubit<a class="headerlink" href="#question-5-measuring-the-qubit" title="Permalink to this headline"></a></h3>
+<p>0.0/1.0 point (graded)
+Single qubit operations are also done using electric pulses.</p>
+<p>How are measurements and operations distinguished?</p>
+<ul class="simple">
+<li><p>The pulse for an operation has a positive phase, whereas the pulse for a measurement has a negative phase.</p></li>
+<li><p>The pulse for an operation is a Gaussian, whereas the pulse for a measurement is a block wave.</p></li>
+<li><p>The pulses for operations and measurements have different frequencies.</p></li>
+<li><p>The pulse for a measurement is a much stronger signal when compared to the pulse for an operation.</p></li>
+</ul>
+<p><strong>Hint (1 of 1):</strong> What parameters of the pulse can you change freely?</p>
+<p>Answer
+Correct: The resonators are designed with different lengths, so that couple to different frequencies.
+Explanation
+The design of the resonator influences to what frequencies it couples the best (e.g. what frequencies resonate in the cavity). This means that you can design your qubit in such a way that operations and measurements need pulses with different frequencies.</p>
+</section>
+<hr class="docutils" />
+<section id="question-6-measurements-on-multiple-qubits-at-once">
+<h3><span class="section-number">15.4.6.5. </span>Question 6: Measurements on multiple qubits at once<a class="headerlink" href="#question-6-measurements-on-multiple-qubits-at-once" title="Permalink to this headline"></a></h3>
+<p>0.0/1.0 point (graded)
+How can we perform measurements on multiple qubits at the same time?</p>
+<ul class="simple">
+<li><p>By coupling the qubits to resonators of different length, thereby altering the readout qubits’ frequencies seperately.</p></li>
+<li><p>By aiming very carefully we can ensure that the sent pulse only reflects from the desired qubit.</p></li>
+<li><p>By rotating the qubits over the Bloch sphere using single qubit operations so that only the qubit that we want to measure is outside the eigenspace of the desired measurement operator.</p></li>
+<li><p>Since the qubit measurement resonators are located at different physical locations, the phase of the reflected pulse will be different depending on what resonator it reflected from. From this, we can infer what qubit we have measured.
+unanswered</p></li>
+</ul>
+<p><strong>Hint (1 of 1):</strong> Think back to the previous question.
+Answer
+Correct: This is essentially the same as you’re doing in the previous question, when comparing to single-qubit operations.
+Explanation
+Just as we could couple the readout cavities to different frequencies than the ones we use for operations, we can also couple the different qubits readout cavities to different frequencies from each other. Problem solved!</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="learn-more">
+<h1><span class="section-number">15.5. </span>Learn More<a class="headerlink" href="#learn-more" title="Permalink to this headline"></a></h1>
+<p>To go more in depth into the working principles of transmon qubits, we invite you to read the following references:</p>
+<p><strong>The standard theory reference</strong> <br>
+J. Koch, et al., Charge-insensitive qubit design derived from the Cooper pair box, Physical Review A 76, 042319 (2007). https://journals.aps.org/pra/abstract/10.1103/PhysRevA.76.042319</p>
+<p><strong>The standard experimental reference</strong> <br>
+J. A. Schreier, et al., Suppressing charge noise decoherence in superconducting charge qubits, Physical Review B 77, 180502 (2008). https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.180502</p>
+<p><strong>Two very accessible blog articles by C. Dickel</strong> <br>
+How to make artificial atoms out of electrical circuits - part 1
+https://blog.qutech.nl/index.php/2017/03/14/how-to-make-artificial-atoms-out-of-electrical-circuits/</p>
+<p>How to make artificial atoms out of electrical circuits - part 2
+https://blog.qutech.nl/index.php/2017/08/13/how-to-make-artificial-atoms-out-of-electrical-circuits-part-ii-circuit-quantum-electrodynamics-and-the-transmon/</p>
+<p><strong>Individually gating same-frequency qubits</strong> <br>
+S. Asaad, C. Dickel, N. K. Langford, S. Poletto, A. Bruno, M. A. Rol, D. Deurloo, and L. DiCarlo, Independent, extensible control of same-frequency superconducting qubits by selective broadcasting, NPJ Quantum Information 2, 16029 (2016). https://www.nature.com/articles/npjqi201629</p>
+<p><strong>Circuit QED architecture</strong> <br>
+A. Blais, R. S. Huang, A. Wallraff, S. M. Girvin, and R. J. Schoelkopf, Cavity quantum electrodynamics for superconducting electrical circuits: An architecture for quantum computation, Physical Review A 69, 062320 (2004). https://journals.aps.org/pra/abstract/10.1103/PhysRevA.69.062320</p>
+<p><strong>Surface coding</strong> <br>
+A. G. Fowler, M. Mariantoni, J. M. Martinis, and A. N. Cleland, Surface codes: Towards practical large-scale quantum computation, Physical Review A 86, 032324 (2012).https://journals.aps.org/pra/abstract/10.1103/PhysRevA.86.032324</p>
+<p>For further details into the approach used in Professor Dicarlo’s lab for building surface-code quantum harware using an 8-qubit unit cell
+R. Versluis, S. Poletto, N. Khammassi, B. Tarasinski, N. Haider, D. J. Michalak, A. Bruno, K. Bertels, and L. DiCarlo, Scalable quantum circuit and control for a superconducting surface code, Physical Review Applied 8, 034021 (2017). https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.8.034021</p>
+<hr class="docutils" />
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_computers/superconducting_qubits"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="superconducting_qubits.html" class="btn btn-neutral float-left" title="12. Superconducting qubits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../nv_center_qubits/nv_center_qubits.html" class="btn btn-neutral float-right" title="16. NV Center Qubits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -38,9 +38,67 @@ parts:
       sections:
       - file: data_science/stats/statML
 
-  - caption: Quantum Information
+  - caption: Quantum Mechanics
+    numbered: true
     #numbered: True  # Only applies to chapters in Part 1.
     chapters:  
-    - file: quantum_information/quantum_mechanics/quantum_mechanics
-    - file: quantum_information/quantum_computers/quantum_computers
-    - file: quantum_information/quantum_machine_learning/quantum_machine_learning
+    - file: quantum_mechanics/quantum_mechanics
+      sections:
+      - file: quantum_mechanics/qm/qm_0
+  - caption: Quantum Computation 
+    numbered: true
+    #numbered: True  # Only applies to chapters in Part 1.
+    chapters:  
+    - file: quantum_computation/quantum_computation
+      sections:
+      - file: quantum_computation/qc/qc_0
+  - caption: Quantum Computer Hardware
+    numbered: true
+    #numbered: True  # Only applies to chapters in Part 1.
+    chapters:  
+    - file: quantum_computers/quantum_computers
+      sections:
+      - file: quantum_computers/qubits/spin
+      - file: quantum_computers/qubits/nvcenter
+      - file: quantum_computers/qubits/superconducting
+      - file: quantum_computers/qubits/topological
+      - file: quantum_computers/qubits/photonic
+      - file: quantum_computers/qubits/annealing
+    - file: quantum_computers/spin_qubits/spin_qubits
+      sections:
+      - file: quantum_computers/spin_qubits/spin_qubits_op
+    - file: quantum_computers/superconducting_qubits/superconducting_qubits
+      sections:
+      - file: quantum_computers/superconducting_qubits/superconducting_qubits_op
+    - file: quantum_computers/nv_center_qubits/nv_center_qubits
+      sections:
+      - file: quantum_computers/nv_center_qubits/nv_center_qubits_op
+    - file: quantum_computers/quantum_annealing/quantum_annealing
+      sections:
+      - file: quantum_computers/quantum_annealing/quantum_annealing_op
+    - file: quantum_computers/topological_qubits/topological_qubits
+      sections:
+      - file: quantum_computers/topological_qubits/topological_qubits_op
+    - file: quantum_computers/sum
+  - caption: Quantum Machine Learning
+    numbered: true
+    #numbered: True  # Only applies to chapters in Part 1.
+    chapters:  
+    - file: quantum_machine_learning/quantum_machine_learning
+      sections:
+      - file: quantum_machine_learning/qml/qml_0
+    - file: quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit
+    - file: quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria
+    - file: quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria
+    - file: quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria
+    - file: quantum_machine_learning/qml/2_1_QML_Quantum_Computations_(05)__Gate_Model_Quantum_Computing_qiskitQDaria
+    - file: quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation(06)__Adiabatic_Quantum_Computing_qiskit
+    - file: quantum_machine_learning/qml/2_3_QML_Quantum_Computation(07)__Variational_Circuits_qiskit
+    - file: quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(9)__Discrete_Optimization_And_Ensemble_Learning_qiskit(Ecoding_Classical_Inforfmation)
+    - file: quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(10)__Discrete_Optimization_and_Unsupervised_Learning_qiskit
+    - file: quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(11)__Kernel_Methods_qiskit
+    - file: quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(12)__Training_Probabilistic_Graphical_Models
+    - file: quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_(13)__Quantum_Phase_Estimation_qiskit
+    - file: quantum_machine_learning/qml/4_2_QML_Coherent_Learning_(14)__Quantum_Matrix_Inversion_qiskit
+    - file: quantum_machine_learning/qml/5_1_QML_Lecture_(15)__quantumkernels_svm
+    - file: quantum_machine_learning/qml/5_2_QML_Lecture_(16)__quantumkernels_variational

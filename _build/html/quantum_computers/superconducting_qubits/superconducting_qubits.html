@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12. Superconducting qubits &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_computers/superconducting_qubits/superconducting_qubits.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="15.4. How to do operations on superconducting qubits" href="superconducting_qubits_op.html" />
+    <link rel="prev" title="11.4. Operations on spin qubits" href="../spin_qubits/spin_qubits_op.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#assembling-a-quantum-processor">15. Assembling a quantum processor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="superconducting_qubits_op.html">15.4. How to do operations on superconducting qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="superconducting_qubits_op.html#learn-more">15.5. Learn More</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">12. </span>Superconducting qubits</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_computers/superconducting_qubits/superconducting_qubits.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="superconducting-qubits">
+<h1><span class="section-number">12. </span>Superconducting qubits<a class="headerlink" href="#superconducting-qubits" title="Permalink to this headline"></a></h1>
+<p>In module 2 and 3, we discussed spin qubits in semiconductor quantum dots and nitrogen-vacancy centers. Despite the differences, in both cases qubits were realized with the spin degree of freedom of the electron. It is now time to discover a totally new platform: superconducting qubits.</p>
+<p>If a quantum computer is able to perform complex quantum algoithms it might need millions or even billions of qubits. Superconducting qubits are nowdays one of the most advanced platforms in the quantum community regarding the number of qubits, and many large companies, such as Google, Intel and IBM, are now investing in them. IBM Quantum experience is an online platform where users from the3 general public can already access a five-qubit processor and run small algorithms.</p>
+<p>In the first three videos, Leonardo DiCarlo, Professor in applied physics, will describe a transmon, one of the basic building blocks of superconducting qubits. Later, Niels Bultink, Brian Tarasinski and Adriaan Rol will explain how to perform the operations required by universal quantum computation: qubit measurements, single-qubit gate and two-qubit gates.</p>
+<p>Click Next to get started.</p>
+<section id="the-transmon-qubit">
+<h2><span class="section-number">12.1. </span>The transmon qubit<a class="headerlink" href="#the-transmon-qubit" title="Permalink to this headline"></a></h2>
+<p>In this three-part series on the introduction to superconducting qubits, we start by introducing the basic concepts of one kind of superconducting qubit, and then gradually proceed to materials about a full-fledged quantum processor comprising of many qubits.</p>
+<p>In this first video, Professor Leo DiCarlo talks about the entailing physics behind a transmon qubit, which is an example of a superconducting qubit. Remember that the elaborate expressions and notations in this video are not meant to intimidate the avid learners. It will suffice to grasp the core concepts from these videos. If however, all those notations have got you enthused, then we recommend you to go through all the different nuances and enhance your learning; because courses like these are not just meant to be passed and forgotten, are they?</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="v">
+<h1><span class="section-number">13. </span>V<a class="headerlink" href="#v" title="Permalink to this headline"></a></h1>
+<p>Today I will give you an introduction to quantum computing with superconducting quantum circuits;
+more specifically, quantum computing with transmon quantum bits or qubits
+in the circuit quantum electrodynamics architecture.e
+Superconducting qubits differ in two important ways from truly quantum two-level systems
+provided to us by nature, such as the spin of an electron or the spin of certain nuclei,
+like Carbon 13 or Silicon 29.</p>
+<p>B0</p>
+<p>First, they are multi-level systems, not unlike the electronic levels in atoms.
+Multi-level quantum systems can be used effectively as qubits
+by confining all dynamics to two quantum levels,
+usually the ground state and the first excited state of the system.
+Second, these qubits are circuits that we fabricate ourselves!</p>
+<figure class="align-default" id="tr1">
+<img alt="gfx/gfx4/m41.png" src="gfx/gfx4/m41.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13.1 </span><span class="caption-text">tr1</span><a class="headerlink" href="#tr1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This has advantages and disadvantages.On the bright side, we have freedom to design! In a sense, we can play god designing artificial atoms. However, fabrication uncertainty keeps us from making any two qubits the same! For this reason, we like to say that qubits have individual personality! While the form of the Hamiltonian describing them quantum mechanically is well known, the parameters of this Hamiltonian cannot be perfectly targeted in fabrication. This has interesting implications for scaling up our quantum processors, which I will discuss in a later video. But back to design. Superconducting qubits generally consist of superconducting electrodes, or islands, that are interconnected by Josephson junctions. The Hamiltonian typically consists of two non-commuting contributions, one capacitive and one inductive. The first tends to localize Cooper pairs.
+The second favors their tunnelling from one island to another, in other words, their hopping. There exist numerous varieties of superconducting qubits: the charge qubit, the flux qubit, the phase qubit, the fluxonium, and many more. These qubit types differ in terms of the number of superconducting islands, the number of junctions, and, also importantly, the relative energy scales of the capacitive and inductive terms. Typically, superconducting qubits work in the frequency range between 4 and 8 GHz, approximately. This frequency, let’s call it f*{01}, is related via Planck’s constant to the energy difference E*{01}
+between the quantum levels that we assign as states 0 and 1.f_{01} is also the frequency of the microwave pulses that we need
+to induce coherent transitions between these levels.
+In this course, we will focus on the transmon, a derivative of the charge qubit.</p>
+<figure class="align-default" id="tr2">
+<img alt="gfx/gfx4/m42.png" src="gfx/gfx4/m42.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13.2 </span><span class="caption-text">tr2</span><a class="headerlink" href="#tr2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The transmon is the superconducting qubit that we specialize on in QuTech.
+In its simplest form, the transmon consists of two islands interconnected by one junction.</p>
+<figure class="align-default" id="tr3">
+<img alt="gfx/gfx4/m43.png" src="gfx/gfx4/m43.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13.3 </span><span class="caption-text">tr3</span><a class="headerlink" href="#tr3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Those of you familiar with circuits, particularly the electrical engineers,will recognize that the transmon looks,
+well, just like a parallel combination of one capacitor and one inductor.In other words, an LC oscillator!
+This gets us most of the way there, so let’s take a look.
+The Hamiltonian for the LC oscillator consists of two terms
+that are each quadratic with respect to one variable:</p>
+<figure class="align-default" id="tr4">
+<img alt="gfx/gfx4/m44.png" src="gfx/gfx4/m44.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13.4 </span><span class="caption-text">tr4</span><a class="headerlink" href="#tr4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The capacitive term is quadratic on the charge accumulated on one island, the opposite charge is accumulated in the other. The inductive term is quadratic on the flux through the inductor. This charge and this flux do not commute. In fact, they are canonically conjugate variables. A direct correspondence between this Hamiltonian can be made to that of the simple harmonic oscillator by mapping flux to the position of the mass and charge to the mass’ momentum.</p>
+<figure class="align-default" id="tr5">
+<img alt="gfx/gfx4/m45.png" src="gfx/gfx4/m45.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13.5 </span><span class="caption-text">tr5</span><a class="headerlink" href="#tr5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Physics students will thus not be surprised to learn that the spectrum of the quantized LC oscillator is perfectly harmonic: levels are equally spaced in energy! This equal spacing is given by a familiar formula: one over root LC. But unfortunately, a harmonic spectrum does not a good qubit make! It is very difficult to confine the dynamics to just two levels, so ‘leakage’ out of the qubit subspace is a permanent threat.That is why the transmon differs from the LC oscillator in a fundamental way.</p>
+<figure class="align-default" id="tr6">
+<img alt="gfx/gfx4/m46.png" src="gfx/gfx4/m46.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13.6 </span><span class="caption-text">tr6</span><a class="headerlink" href="#tr6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the transmon, the inductance is provided by a Josephson junction and not by a typical coil inductor. The inductive energy for the junction is not quadratic, but a cosine function of the generalized flux through it. This difference has important consequences for the spectrum: crucially, it disrupts the harmonic spectrum in ways that are very practical. At typical parameter values deep in the so-called transmon regime, where the energy scale of the inductive term is much larger than that of the charging termand let’s say, for the frequency f_{01} of about 6 GHz, the transition from the first to the second-excited state is lower by approximately 300 MHz.</p>
+<figure class="align-default" id="tr7">
+<img alt="gfx/gfx4/m47.png" src="gfx/gfx4/m47.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13.7 </span><span class="caption-text">tr7</span><a class="headerlink" href="#tr7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This difference is sufficient in practice to confine the dynamics to the lowest two levels, our qubit subspace, when performing single-qubit gates with pulses of duration about 20 ns. Brian will discuss the implementation of single-qubit gates in detail. As a final note, we build our transmon not from one but two Josephson junctions in parallel.</p>
+<figure class="align-default" id="tr8">
+<img alt="gfx/gfx4/m48.png" src="gfx/gfx4/m48.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13.8 </span><span class="caption-text">tr8</span><a class="headerlink" href="#tr8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This gives us the possibility to tune the inductive element and thereby the qubit transition frequency, by threading a magnetic flux through the loop defined by the two junctions. We can do this independently for each qubit and on nanosecond timescales.</p>
+<figure class="align-default" id="tr9">
+<img alt="gfx/gfx4/m49.png" src="gfx/gfx4/m49.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13.9 </span><span class="caption-text">tr9</span><a class="headerlink" href="#tr9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This capability is the workhorse enabling two-qubit gates.
+Adriaan will present these in a later video.</p>
+<hr class="docutils" />
+<section id="main-takeaways">
+<h2><span class="section-number">13.1. </span>Main takeaways<a class="headerlink" href="#main-takeaways" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>It is possible to create superconducting qubits by restricting all dynamics to (generally, the lowest) two levels of the multiple levels of the system.</p></li>
+<li><p>Transmon qubits are an example of one of the many different kinds of superconducting qubits.</p></li>
+<li><p>In a transmon, the inductance is provided by a Josephson junction and not by a typical coil inductor. This disrupts the harmonic energy spectrum and helps confine the system to two levels.</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="circuit-qed">
+<h1><span class="section-number">14. </span>Circuit QED<a class="headerlink" href="#circuit-qed" title="Permalink to this headline"></a></h1>
+<p>Having learnt about the transmon qubit, let us now learn about how to combine a qubit with resonators that help perform operations on the qubits. During the video, Leo poses a question. If you think you have an answer to his question then participate in the discussion forum titled ‘Forum on circuit QED video’ that you can find below the video!</p>
+<section id="circuit-quantum-electrodynamics">
+<h2><span class="section-number">14.1. </span>Circuit Quantum Electrodynamics<a class="headerlink" href="#circuit-quantum-electrodynamics" title="Permalink to this headline"></a></h2>
+<p>Hi!
+Last time, we introduced our superconducting qubit of choice in QuTech,
+the transmon.We focused on a transmon in isolation, studying its weakly anharmonic spectrum. Today, we will add the remaining ingredients
+that we need to perform qubit readout and two-qubit gates.
+These ingredients are transmission-line resonators.</p>
+<figure class="align-default" id="tr1b">
+<img alt="gfx/gfx4/m4b1.png" src="gfx/gfx4/m4b1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text">tr1b</span><a class="headerlink" href="#tr1b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The resulting architecture for quantum hardware, combining qubits and resonators, goes by the name of circuit quantum electrodynamics, or circuit QED.As this name suggests, circuit QED is a solid-state version of cavity QED, an older field of physics that studies the interaction
+between light and matter at its most fundamental,
+with flying atoms and single photons trapped inside three dimensional cavities. In circuit QED, qubits play the role of atoms
+and transmission-line resonators play the role of cavities.</p>
+<figure class="align-default" id="tr2b">
+<img alt="gfx/gfx4/m4b2.png" src="gfx/gfx4/m4b2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.2 </span><span class="caption-text">tr2b</span><a class="headerlink" href="#tr2b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>We build these resonators from coplanar waveguide transmission lines
+that are terminated with either open- or short circuits. For example, the resonator I show you here has a short at the far end, and an open termination at the close end. Well, it’s not exactly open. The resonator at this end couples capacitively to a feedline that will be used later to interrogate the scattering properties of the resonator near its fundamental frequency. This fundamental mode corresponds to the length matching approximately one quarter of the wavelength.
+For this reason, we call it a quarter-wave or lambda over four resonator. Resonators have higher modes of resonance as well,
+but most of the time, we focus exclusively on the fundamental.
+The capacitive coupling between the qubit and the resonator is most clearly visualized by performing spectroscopy of the combined system.</p>
+<figure class="align-default" id="tr3b">
+<img alt="gfx/gfx4/m4b3.png" src="gfx/gfx4/m4b3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.3 </span><span class="caption-text">tr3b</span><a class="headerlink" href="#tr3b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>As this typical image shows, as we tune the qubit through resonance with the resonator, we observe the emergence of an avoided crossing.
+This avoided crossing is known as the vacuum Rabi splitting. The minimum splitting is equal to twice the coupling constant, g, in the celebrated Jaynes-Cummings Hamiltonian describing the system quantum mechanically. Most of the time, however, we avoid this resonant regime.
+We tend to focus on the so-called dispersive regime in which the detuning Delta of the qubitwith respect to the resonator is several times larger than g in magnitude. In this dispersive regime,
+there is a small but finite remnant of the avoided crossing.</p>
+<figure class="align-default" id="tr4b">
+<img alt="gfx/gfx4/m4b4.png" src="gfx/gfx4/m4b4.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.4 </span><span class="caption-text">tr4b</span><a class="headerlink" href="#tr4b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>If we consider the avoided crossings arising between qubit-resonator levels with equal total number of excitations, we learn something very useful: the ladder of photon excitations remains harmonic, but the resonance frequency depends on the state, |0&gt; or |1&gt; of the qubit.
+This dependence of the resonator frequency on qubit state is the key ingredient allowing qubit readout. We can interrogate the resonator, and thereby also the qubit, by measuring the transmission properties of a microwave pulse applied to the feedline with a frequency close the bare fundamental. Niels will cover this in greater detail in his video.
+Moving on, when two qubits couple to a common resonator, an avoided crossing is also observed when one qubit is tuned through resonance
+with the other qubit.</p>
+<figure class="align-default" id="tr5b">
+<img alt="gfx/gfx4/m4b5.png" src="gfx/gfx4/m4b5.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.5 </span><span class="caption-text">tr5b</span><a class="headerlink" href="#tr5b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Compared to the vacuum Rabi splitting, which you can see here,
+the qubit-qubit avoided crossing is smaller, by a factor (g/Delta).
+These qubit-qubit interactions mediated by a dispersively coupled common ‘bus’ resonator are the key to doing two-qubit gates.</p>
+<figure class="align-default" id="tr6b">
+<img alt="gfx/gfx4/m4b6.png" src="gfx/gfx4/m4b6.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.6 </span><span class="caption-text">tr6c</span><a class="headerlink" href="#tr6b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Adriaan will discuss the specific avoided crossing that we use to implement two-qubit conditional-phase gates. Hint: it is not this one!
+So, let’s now see examples of how transmons and resonators can be combined to build simple quantum processors. This is the first one I built, back in 2008, together with collaborators at Yale.
+It has two transmon qubits and only one resonator. This resonator is used for both qubit-qubit coupling and readout functions. The resonator has capacitive terminations at both ends, so it’s a half-wave or lambda over two resonator.</p>
+<figure class="align-default" id="tr7b">
+<img alt="gfx/gfx4/m4b7.png" src="gfx/gfx4/m4b7.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.7 </span><span class="caption-text">tr7b</span><a class="headerlink" href="#tr7b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The optimal parameters of a resonator for readout and for coupling are often in conflict with one another. For this reason, the next generation of processors that we built in Delft uses different resonators for these functions. Here’s an example two-qubit processor from 2013.</p>
+<figure class="align-default" id="tr8b">
+<img alt="gfx/gfx4/m4b8.png" src="gfx/gfx4/m4b8.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.8 </span><span class="caption-text">tr8b</span><a class="headerlink" href="#tr8b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Note the common lambda over two bus resonator in the middle, and the lambda over four readout resonators, one per qubit, coupled to the common feedline. Here we see the same concept in a four-qubit processor.
+The planar constraints required us to have two feedlines.</p>
+<figure class="align-default" id="tr9b">
+<img alt="gfx/gfx4/m4b9.png" src="gfx/gfx4/m4b9.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.9 </span><span class="caption-text">tr9b</span><a class="headerlink" href="#tr9b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Hopefully, you can easily recognize the bus resonator common to all 4 qubits, and the dedicated readout resonators, one for each qubit.
+So, as a simple exercise, I challenge you to identify the bus resonators and readout resonators in this five-qubit processor from 2015.</p>
+<figure class="align-default" id="tr10b">
+<img alt="gfx/gfx4/m4b10.png" src="gfx/gfx4/m4b10.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.10 </span><span class="caption-text">tr10c</span><a class="headerlink" href="#tr10b" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>How many of each are there? In this more complex processor, we could get away with one feedline for all readout resonators! You will see the trick or the astuce in the next video! To motivate this next video on scalable circuit QED, note that all of these processors have a common form factor (roughly 2 mm by 7 mm) and a common location of the up to eight ports connecting them to the external world.
+This reflects the use of a common printed circuit board throughout all these years! Surely a new approach must be taken to increase the qubit count! And indeed, the third generation of quantum processors
+completely rethinks the approach, with extensibility to hundred qubits as the top priority! I can’t wait to show you!</p>
+<section id="id1">
+<h3><span class="section-number">14.1.1. </span>Main takeaways<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Circuit quantum electrodynamics (QED) involves the combining of quantum hardware with resonators.</p></li>
+<li><p>In the second-generation processors for superconducting qubits, there are dedicated resonators for readout of each qubit and a commmon ‘bus’ resonator connecting to all the qubits.</p></li>
+<li><p>The frequency of a readout resonator depends on the qubit state; and this dependence is the key ingredient that facilitiates the measurement of qubits.</p></li>
+<li><p>By mediating the inter-qubit interaction on the common ‘bus’ resonator, it is possible to perform two-qubit operations.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="assembling-a-quantum-processor">
+<h1><span class="section-number">15. </span>Assembling a quantum processor<a class="headerlink" href="#assembling-a-quantum-processor" title="Permalink to this headline"></a></h1>
+<section id="assembling-a-quantum-computer">
+<h2><span class="section-number">15.1. </span>Assembling a quantum computer<a class="headerlink" href="#assembling-a-quantum-computer" title="Permalink to this headline"></a></h2>
+<p>In this build-up from a single to few and from few to many qubits on a quantum processor, we explore the conclusion to this three-part lecture series.</p>
+<p>Please note: mentions to videos by Brian, Adriaan, and Niels are made. These videos will be presented in the next part of the module.</p>
+<p>V</p>
+<p>Hi!
+Today I will show you how we can assemble a quantum processor
+from circuit QED quantum hardware. I will focus on the approach to fault-tolerant quantum computing named Surface Code, which we pursue within QuTech. Surface code calls for a 2-dimensional square lattice of qubits with only nearest-neighbor interactions.</p>
+<figure class="align-default" id="id2">
+<img alt="gfx/gfx4/m4c1.png" src="gfx/gfx4/m4c1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.1 </span><span class="caption-text">tr2</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In addition, these qubits must be individually addressable both for single-qubit gating and for measurement. Currently, we are testing surface-code chips with 7, 17 and 49 qubits. We call these Surface-7, Surface-17, and Surface-49.</p>
+<figure class="align-default" id="id3">
+<img alt="gfx/gfx4/m4c2.png" src="gfx/gfx4/m4c2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.2 </span><span class="caption-text">tr2</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>We assemble all of these using a common approach that we believe scales to larger surfaces.I will now describe this approach using the specific example of Surface-17. First we layout the square lattice of qubits. Let me symbolize the qubits by circles.</p>
+<figure class="align-default" id="id4">
+<img alt="gfx/gfx4/m4c3.png" src="gfx/gfx4/m4c3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.3 </span><span class="caption-text">tr3</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Please disregard their assigned color, for now. To perform two-qubit conditional-phase gates between nearest neighbors,
+as presented by Adriaan, we add first,
+a coupling bus resonator to interconnect them;
+and second, a dedicated flux-bias control line to each qubit.
+To perform single-qubit gates, we follow the approach introduced by Brian,
+adding a dedicated microwave drive line to each qubit.
+Finally, in order to measure each qubit individually,
+we add dedicated readout resonators.
+These readout resonators are coupled to diagonally running feedlines
+and probed independently using frequency division multiplexing
+as described by Niels.
+You may have already noticed the crossing of transmission lines on the chip, which is not possible in a truly planar structure.</p>
+<figure class="align-default" id="id5">
+<img alt="gfx/gfx4/m4c4.png" src="gfx/gfx4/m4c4.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.4 </span><span class="caption-text">tr4</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>For this, we make use of the third dimension,
+in the form of air-bridge crossovers.
+Cool stuff, isn’t it?
+Beautiful. So let’s look at the totals for Surface-17:
+17 qubits, 24 buses, 17 readout resonators,
+17 flux lines, 17 microwave drive lines, and 3 feedlines.</p>
+<figure class="align-default" id="id6">
+<img alt="gfx/gfx4/m4c5.png" src="gfx/gfx4/m4c5.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.5 </span><span class="caption-text">tr5</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The grand total of ports connecting the quantum chip to the outside world is 40.
+We call these ports vertical I/O ports because they connect to the outside world
+not via the edges of the planar chip, as traditionally done, but vertically.</p>
+<figure class="align-default" id="id7">
+<img alt="gfx/gfx4/m4c6.png" src="gfx/gfx4/m4c6.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.6 </span><span class="caption-text">tr6</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In one approach, which we purse together with Intel,
+the quantum chip is flipped
+and the ports connect directly to a multi- layer printed circuit board using a ball-grid array.
+Achieving reliable vertical interconnect
+has been a key pursuit in our field over the last few years!
+Now, let’s go back to the colored circles representing our transmon qubits.</p>
+<figure class="align-default" id="id8">
+<img alt="gfx/gfx4/m4c7.png" src="gfx/gfx4/m4c7.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.7 </span><span class="caption-text">tr7</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Except on the edges, qubits couple to 7 objects:
+4 buses, 1 readout resonator, 1 flux line, and 1 microwave line.
+These interconnectivity requirements give our transmons a characteristic shape
+and nickmane, Starmon.
+The colors we assign to the circles denote the qubit operating frequency,
+at which single-qubit gates are performed.</p>
+<figure class="align-default" id="id9">
+<img alt="gfx/gfx4/m4c8.png" src="gfx/gfx4/m4c8.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.8 </span><span class="caption-text">tr8</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In total, four frequencies suffice to control a surface-code of any size!</p>
+<p>This affords us significant savings in the microwave-frequency control electronics
+(which unfortunately, I don’t have time to discuss here).
+But with regards to the quantum hardware, this repetition of qubit frequencies
+allows us critically to define an 8-qubit unit cell.
+By exactly replicating this 8-qubit unit cell and performing the necessary truncation at the boundaries, we can build a surface code of arbitrary size!</p>
+<figure class="align-default" id="id10">
+<img alt="gfx/gfx4/m4c9.png" src="gfx/gfx4/m4c9.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.9 </span><span class="caption-text">tr9</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In fact, we put together Surface-49 test chips in this very way,
+literally copy-pasting and truncating.</p>
+<figure class="align-default" id="tr10">
+<img alt="gfx/gfx4/m4c10.png" src="gfx/gfx4/m4c10.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.10 </span><span class="caption-text">tr10</span><a class="headerlink" href="#tr10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>We believe this approach will scale to even larger surface codes,
+such as Surface-97.
+I leave you with the CAD drawing of such a future chip!</p>
+<figure class="align-default" id="tr11">
+<img alt="gfx/gfx4/m4c11.png" src="gfx/gfx4/m4c11.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.11 </span><span class="caption-text">tr11</span><a class="headerlink" href="#tr11" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>###* Main takeaways</p>
+<ul class="simple">
+<li><p>Surface Code is a fault-tolerant approach of assembling a quantum processor from the hardware of circuit quantum electrodynamics.</p></li>
+<li><p>Surface Code is a 2-dimensional square layout of qubits facilitating nearest-neighbour interactions and individual qubit address-ability.</p></li>
+<li><p>Four frequencies are sufficient to control a Surface Code of any size. This leads to an arbitrary-sized Surface Code being composed of repetitive 8-qubit unit cells.</p></li>
+</ul>
+</section>
+<section id="practice-quiz-8">
+<h2><span class="section-number">15.2. </span>3Practice Quiz 8<a class="headerlink" href="#practice-quiz-8" title="Permalink to this headline"></a></h2>
+<p>In this quiz we will be assembling a quantum processor.</p>
+<section id="question-1-assembling-a-surface-code-chip">
+<h3><span class="section-number">15.2.1. </span>Question 1: Assembling a Surface Code chip<a class="headerlink" href="#question-1-assembling-a-surface-code-chip" title="Permalink to this headline"></a></h3>
+<p>PROBLEM</p>
+<p>In the video you must have come across the purposes of various components used while assembling a Surface Code chip. In this problem, each of the four blue boxes have a component name on them. Below these boxes, there is a white rectangle with four square shaped zones placed in a horizontal manner. Each of these four zones denotes a purpose of the components in the blue boxes. Your job is to drag and drop each of the four blue boxes to the corresponding zone below. This means that you are expected to map a component on the chip to its correct purpose. Note that there is a strict one-to-one correspondence between the components and the purposes, meaning that there is a purpose (i.e. zone) for every component (i.e. blue box); and each zone can have one and only one blue box.</p>
+<p>FEEDBACK
+i Drag the items (blue boxes) onto the image above.</p>
+<ul class="simple">
+<li><p><strong>Microwave drivelines -&gt; To perform single qubit gate</strong></p></li>
+<li><p><strong>Coupling bus resonator -&gt; To perform two-qubit gates</strong></p></li>
+<li><p><strong>Readout resonators -&gt; To perform measurement operations</strong></p></li>
+<li><p><strong>Air-bridge crossovers -&gt; to avoid crossing of transmision lines</strong></p></li>
+</ul>
+</section>
+<section id="question-2-i-o-ports-on-surface-17-chip">
+<h3><span class="section-number">15.2.2. </span>Question 2: I/O ports on Surface-17 chip<a class="headerlink" href="#question-2-i-o-ports-on-surface-17-chip" title="Permalink to this headline"></a></h3>
+<p>How do the Input-Output (I/O) ports on the Surface-17 chip differ from the I/O ports on conventional chips?
+Check the box that applies.</p>
+<ul class="simple">
+<li><p>The I/O ports on the Surface-17 chip are much thicker than conventional I/O ports.</p></li>
+<li><p>The Surface-17 chip is wireless.</p></li>
+<li><p>There is no need for input or output.</p></li>
+<li><p>There are much less wires needed due to multiplexing all the signals input signals.</p></li>
+<li><p>We can create a superposition of input and output signals on these wires. This is due to the fact that 17 is a prime number.</p></li>
+<li><p>The I/O ports on Surface-17 chip connect vertically to the outside world; whereas the I/O ports on conventional chips connect horizontally to the outside world.</p></li>
+<li><p>The I/O ports on Surface-17 chip are just like the ones on conventional chips.</p></li>
+</ul>
+<p>Explanation
+While connecting to the outside world, the I/O ports on Surface-17 chip do not connect through the edges (i.e. they do not connect horizontally); instead they connect in the direction perpendicular to the surface of the chip (i.e. they connect vertically).</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="quiz-8-superconducting-qubit">
+<h2><span class="section-number">15.3. </span>Quiz 8: Superconducting qubit<a class="headerlink" href="#quiz-8-superconducting-qubit" title="Permalink to this headline"></a></h2>
+<p>In this quiz, you will be tested on the content from the three videos on the Introduction to Superconducting Qubits series. Questions 1 to 7 are based on the video on the transmon qubit; question 8 briefly delves into concepts introduced in the video on circuit QED.</p>
+<p>Question 1: The transmon qubit</p>
+<p>1/1 point (graded)
+A transmon qubit is an example of which of the following?</p>
+<ul class="simple">
+<li><p>Flux qubit</p></li>
+<li><p>Fluxonium centers</p></li>
+<li><p><strong>Charge qubit</strong></p></li>
+<li><p>Phase qubit</p></li>
+</ul>
+<section id="question-2-a-quantised-lc-circuit">
+<h3><span class="section-number">15.3.1. </span>Question 2: A quantised LC circuit<a class="headerlink" href="#question-2-a-quantised-lc-circuit" title="Permalink to this headline"></a></h3>
+<p><strong>The transmon qubit and LC oscillator</strong> <br></p>
+<p>Having started on a lighter (and perhaps, an easier) note, let us now inspect how similar or different a transmon qubit is compared to an LC oscillator. For this purpose, we will first focus on a quantised LC circuit.
+In the video, it has been mentioned that the angular frequency <span class="math notranslate nohighlight">\((\omega)\)</span> to transition from one level to the next in a quantised LC circuit is related to the inductance <span class="math notranslate nohighlight">\((L)\)</span> and capacitance <span class="math notranslate nohighlight">\((C)\)</span> values as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega=\frac{1}{\sqrt{L C}}
+\]</div>
+<p>Now, the transition frequency <span class="math notranslate nohighlight">\((f)\)</span> of that circuit is related to the angular frequency <span class="math notranslate nohighlight">\((\omega)\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega=2 \pi \cdot f
+\]</div>
+<p>Use this information to answer the following question.
+<span class="math notranslate nohighlight">\(0.0 / 1.0\)</span> point (graded)
+In a quantised LC circuit, what is the transition frequency <span class="math notranslate nohighlight">\((f)\)</span> for going from one level to the next if the inductance offered by the coil is <span class="math notranslate nohighlight">\(1.6\)</span> Henry and the capacitance is <span class="math notranslate nohighlight">\(0.1 \mu\)</span> Farad? (Note that <span class="math notranslate nohighlight">\(1 \mu \operatorname{Farad}=10^{-6} \mathrm{Farad}\)</span>.)</p>
+<p><span class="math notranslate nohighlight">\(\frac{5000}{2 \pi}\)</span> Hertz
+<span class="math notranslate nohighlight">\(\frac{2500}{2 \pi}\)</span> Hertz
+<span class="math notranslate nohighlight">\(\frac{1250}{2 \pi}\)</span> Hertz
+<span class="math notranslate nohighlight">\(\frac{625}{2 \pi}\)</span> Hertz</p>
+<p>Explanation
+It is intuitive that <span class="math notranslate nohighlight">\(f=\frac{1}{2 \pi \cdot \sqrt{L C}}\)</span>. Now simply plugging in <span class="math notranslate nohighlight">\(L=1.6\)</span> and <span class="math notranslate nohighlight">\(C=10^{-7}\)</span> into the aforementioned formula gives the answer.</p>
+</section>
+<section id="question-3-transition-frequency-in-lc-oscillator">
+<h3><span class="section-number">15.3.2. </span>Question 3: Transition frequency in LC oscillator<a class="headerlink" href="#question-3-transition-frequency-in-lc-oscillator" title="Permalink to this headline"></a></h3>
+<p>0.0/1.0 point (graded)
+Does this transition frequency remain the same for transition among any two consecutive levels in a quantised LC circuit?</p>
+<ul class="simple">
+<li><p><strong>Yes</strong></p></li>
+<li><p>No</p></li>
+</ul>
+</section>
+<section id="question-4-transition-frequency-in-transmon-qubit">
+<h3><span class="section-number">15.3.3. </span>Question 4: Transition frequency in transmon qubit<a class="headerlink" href="#question-4-transition-frequency-in-transmon-qubit" title="Permalink to this headline"></a></h3>
+<p><span class="math notranslate nohighlight">\(0.0 / 1.0\)</span> point (graded)
+If the transition frequency of going from level 0 to level 1 in the circuit for a transmon qubit is <span class="math notranslate nohighlight">\(f_{0,1}\)</span>, then is the transition frequency of going from level 1 to level 2 (i.e. <span class="math notranslate nohighlight">\(f_{1,2}\)</span> ) in the same circuit also equal to <span class="math notranslate nohighlight">\(f_{0,1}\)</span> ?</p>
+<ul class="simple">
+<li><p>yes</p></li>
+<li><p><strong>No</strong></p></li>
+</ul>
+<p>Explanation
+The spacing between the levels in a circuit for a transmon qubit is not harmonic. This is why we can use it as a qubit!</p>
+</section>
+<section id="question-5-josephson-junction">
+<h3><span class="section-number">15.3.4. </span>Question 5: Josephson junction<a class="headerlink" href="#question-5-josephson-junction" title="Permalink to this headline"></a></h3>
+<p><span class="math notranslate nohighlight">\(0.0 / 1.0\)</span> point (graded)
+What is the implication of the use of a Josephson junction in a transmon instead of simply using an inductor (as in case of an LC oscillator) ?</p>
+<ul class="simple">
+<li><p><strong>It is possible to confine the system of qubit(s) to the lowest two levels.</strong></p></li>
+<li><p>It is possible to go from a two-dimensional system of qubit(s) to a three-dimensional system of qutrit(s).</p></li>
+<li><p>It is possible to achieve transition between any two consecutive levels of the system by always applying the same frequency.
+Submit
+You have used 0 of 2 attempts
+Save</p></li>
+</ul>
+<p>Explanation
+Qubits are two-dimensional systems. Hence, to create a qubit, it is necessary to confine the system to just two levels. The use of an inductor leads to uniformly spaced energy levels. In such a case, it is difficult to confine the system to just two levels (since the application of same frequency causes transition between any two consecutive levels). However, using a Josephson junction helps ensure that the spacing between the energy levels of the system is non-uniform; and therefore, application of a particular frequency corresponds to only one particular kind of level transition.</p>
+<p>Question 6: Elements of a transmon qubit
+0.0/1.0 point (graded)
+Having learnt the similarity/difference between a transmon qubit and an LC oscillator, let us now streamline our focus completely towards the transmon qubit with a couple questions!
+What are the three essential parts of a transmon qubit? (Mark all that apply)</p>
+<ul class="simple">
+<li><p><strong>Capacitor</strong></p></li>
+<li><p><strong>Islands</strong></p></li>
+<li><p>Inductor</p></li>
+<li><p><strong>Josephson junction</strong></p></li>
+<li><p>Resistor</p></li>
+</ul>
+<p>Explanation
+In terms of the components, the circuit for a transmon qubit is quite similar to (but not excatly the same as) the circuit for an LC oscillator. An inductor is used in a quantised LC circuit (which has harmonic energy levels). Since we want the energy-level spacing to be anharmonic, a Josephson junction is used instead.</p>
+</section>
+<section id="question-7-adding-additional-josephson-junction">
+<h3><span class="section-number">15.3.5. </span>Question 7: Adding additional Josephson junction?<a class="headerlink" href="#question-7-adding-additional-josephson-junction" title="Permalink to this headline"></a></h3>
+<p><span class="math notranslate nohighlight">\(0.0 / 1.0\)</span> point (graded)
+Why would you add an additional Josephson junction?</p>
+<ul class="simple">
+<li><p>To add an extra qubit on the chip.</p></li>
+<li><p>To lower the resistance and consequently the amount of heat dissipated.</p></li>
+<li><p><strong>To tune the inductive element and consequently the qubit transition frequency.</strong></p></li>
+<li><p>It is not possible to add an additional Josephson junction without adding an extra level to the system (i.e. transitioning from a two level system to a three level system).</p></li>
+</ul>
+<p>Explanation
+As seen in Question 2 of this quiz, the transition frequency is a function of inductance. By adding an additional Josephson junction, it is possible to regulate the inductance, and in turn, the frequency <span class="math notranslate nohighlight">\(f_{i, i+1}\)</span> (where <span class="math notranslate nohighlight">\(i\)</span> denotes the lower level of the two-level system).</p>
+</section>
+<section id="question-8">
+<h3><span class="section-number">15.3.6. </span>Question 8<a class="headerlink" href="#question-8" title="Permalink to this headline"></a></h3>
+<p>0.0/1.0 point (graded)
+Why are the resonators for readout and coupling separate on the second generation processors for superconducting qubits?</p>
+<p>To be able to scale up from a two-level system to a four-level system without making any other modifications to the hardware.</p>
+<p>To resolve the conflict existing among the optimal parameters for readout and the optimal parameters for coupling.</p>
+<p>To facilitate two-qubit gating operations using readout resonators and measurement operations using coupling resonators, almost simultaneously.</p>
+<p>The readout and coupling resonators are common; in fact, they are mutliplexed so as to perform only one kind of operation at an instance.</p>
+</section>
+</section>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_computers/superconducting_qubits"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../spin_qubits/spin_qubits_op.html" class="btn btn-neutral float-left" title="11.4. Operations on spin qubits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="superconducting_qubits_op.html" class="btn btn-neutral float-right" title="15.4. How to do operations on superconducting qubits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

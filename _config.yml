@@ -1,7 +1,7 @@
 # Book settings
 title: Mo Houshmand
 author: Daniel Mo Houshmand
-logo: img/mologo/mo2.png
+logo: img/mologo/mo0.png
 
 only_build_toc_files: true
 
@@ -11,7 +11,7 @@ execute:
   exclude_patterns:
     - '_build'
     - 'Thumbs.db'
-    - '.DS_Store' 
+    - '.DS_Store'
     - '*pattern3withwildcard'
     - 'dsData.zip'
     - 'notes'
@@ -19,23 +19,24 @@ execute:
 # Parse and render settings
 parse:
   myst_enable_extensions:
-    - amsmath
-    - colon_fence
-    - deflist
+#    - amsmath
+#    - colon_fence
+#    - deflist
     - dollarmath
-    - html_admonition
-    - html_image
-    - linkify
-    - replacements
-    - smartquotes
-    - substitution
+#    - html_admonition
+#    - html_image
+#    - linkify
+#    - replacements
+#    - smartquotes
+#    - substitution
     - tasklist
+
   myst_url_schemes: [mailto, http, https]
   myst_dmath_double_inline: true
 
-extensions: 
-    - myst_parser 
-    - sphinx_design
+extensions:
+    - myst_parser
+    
 
 # HTML-specific settings
 html:
@@ -48,11 +49,11 @@ html:
   extra_navbar: Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
   home_page_in_navbar: True
   extra_footer: ''
-  collapse_navigation: False
+  collapse_navigation: True
   sticky_navigation: True
-  navigation_depth: 4
-  includehidden: False
-  titles_only: False
+  navigation_depth: 5
+  includehidden: True
+  titles_only: True
   baseurl: "https://mohoushmand.com"
 
 # Define the name of the latex output file for PDF builds
@@ -83,6 +84,7 @@ sphinx:
   - myst_nb
   - sphinx_copybutton
   - sphinx_design
+
   config:
     html_theme: sphinx_rtd_theme
     pygments_style: material
@@ -100,4 +102,6 @@ sphinx:
       sticky_navigation: True
       navigation_depth: 5
       includehidden: True
-      titles_only: False
+      titles_only: True
+
+#add-a-link-to-your-repository

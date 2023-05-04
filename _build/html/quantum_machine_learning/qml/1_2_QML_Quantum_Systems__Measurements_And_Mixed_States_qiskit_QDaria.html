@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>30. Measurements revisited &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="35. Unitary evolution" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html" />
+    <link rel="prev" title="24. Classical and Quantum Probability Theory" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">30. </span>Measurements revisited</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.ipynb" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="measurements-revisited">
+<h1><span class="section-number">30. </span>Measurements revisited<a class="headerlink" href="#measurements-revisited" title="Permalink to this headline"></a></h1>
+<p>In the previous we introduced quantum states as a generalization of classical probabilities. But we left it open how to exactly extract a certain event with a certain probability. To formalize this, we have to introduce measurements. Prior to introducing measurements, we neet to introduce a bit more of the notation. Remembering that we introduced a quantum state as a column vector, which we write as a ket.</p>
+<section id="bra-ket-notation">
+<h2><span class="section-number">30.1. </span>Bra-Ket Notation<a class="headerlink" href="#bra-ket-notation" title="Permalink to this headline"></a></h2>
+<p>So we have a vertical bar, and an angle sign, an in-between we write the name of the vector or the variable. And in the simplest case, this is a two-level system, it’s a qubit, so it can take– it’s a vector of two elements, and both elements are complex. Now, a complex number, in general, is written in this form.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{Ket:}\mid\psi\rangle=\left[\begin{array}{c}
+a_{0}\\
+a_{1}
+\end{array}\right]\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(a_{0}	=x_{0}+iy_{0}\)</span></p>
+<p>So for instance, <span class="math notranslate nohighlight">\(a_{0}\)</span> is equal to <span class="math notranslate nohighlight">\(x_{0}\)</span>, which is a real number, plus the imaginary number times <span class="math notranslate nohighlight">\(y_0\)</span>. Now, there is something that we can do with complex numbers that we cannot do with real numbers– we can take their conjugate. Which means that we flip the sign of the imaginary component. So with this conjugate we can introduce the complement of a ket.</p>
+<p><span class="math notranslate nohighlight">\(\bar{a_{0}}=x_{0}-iy_{0}\)</span> Which is its conjugate transpose. So it’s called a bra. And it’s written as the mirror of the ket. So we start in an angle side from the other side, and then we write a name of the bra, and then a vertical sign. So this is equal to the complex conjugate transpose of the ket. This sign is called a dagger.</p>
+<p><span class="math notranslate nohighlight">\(\text{Bra:}\langle\psi\mid=\mid\psi\rangle^{\dagger}=\left[\bar{a_{0}}\bar{a_{1}}\right]\)</span></p>
+<p>And since this is a transpose, it’s going to be a row vector. And each of the complex components is going to take its complex conjugate. So that’s it.</p>
+</section>
+<section id="dot-product">
+<h2><span class="section-number">30.2. </span>Dot product<a class="headerlink" href="#dot-product" title="Permalink to this headline"></a></h2>
+<p>So you can think of it as when we talk about stochastic vectors, we can also transpose them. But since we talk about real numbers, in the case of stochastic vectors, this complex component doesn’t make any sense. Whereas here, we have to take care that we deal with complex numbers and there’s something to get out of this. So for instance, with this notation it’s very easy to write dot productions. So for instance, if we take the bra of some arbitrary state side, and we follow it up by a ket, that’s going to be the product of a row vector with a column vector. In other words, it’s going to be a dot product.</p>
+<p>It expands as the absolute value of <span class="math notranslate nohighlight">\(a_{0}\)</span> squared plus the absolute value of <span class="math notranslate nohighlight">\(a_{1}\)</span> squared. And we know that since the vector is normalized this is just 1. So there’s just one particular way of writing the two norm– by the square of the 2 norm of the quantum state.</p>
+<div class="math notranslate nohighlight">
+\[\langle\psi\mid\psi\rangle=\mid a_{0}\mid^{2}+\mid a_{1}\mid^{2}=1=\mid\mid\psi\mid\mid_{2}^{2}\]</div>
+<p>And for instance, if you look at the 0 ket and it’s dot product with the 1 ket, then what we’re going to do is we take this row vector multiply it by this column vector, and that’s going to be 0. And it’s not surprising, because the dot product of orthogonal vectors is always zero. So what if we take the other order. So we take the ket and the bra. So you see this is a bra and this is a ket, which gives you a scalar.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\langle0\mid1\rangle=\left[\begin{array}{cc}
+1 &amp; 0\end{array}\right]\left[\begin{array}{c}
+0\\
+1
+\end{array}\right]=0\end{split}\]</div>
+</section>
+<section id="ket-bra">
+<h2><span class="section-number">30.3. </span>Ket-Bra<a class="headerlink" href="#ket-bra" title="Permalink to this headline"></a></h2>
+<p>If we take a ket and a bra, which we also write in this form– it’s just easier to write– there’s not going to be a scalar, this is going to be a matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mid0\rangle\langle0\mid=\mid0\times0\mid=\left[\begin{array}{c}
+1\\
+0
+\end{array}\right]\underbrace{\left[\begin{array}{cc}
+1 &amp; 0\end{array}\right]}_{\text{Projection}}=\left[\begin{array}{cc}
+1 &amp; 0\\
+0 &amp; 0
+\end{array}\right]\end{split}\]</div>
+<p>In this case, we are multiplying this column vector with this vector, which is going to give you this matrix. So the order makes a big difference. If you take a ket and a bra, that gives you a matrix. But if you take a bra and a ket, that gives you a scalar value. And as a matter of fact, if you look at this carefully, this is nothing else but the projection to this particular basis vector. So armed with this knowledge, we can, start talking about measurements. So the intuition is that the measurement is very, very similar to a random variable in classical probability theory. So in classical probability theory random variables take values. And here measurements, take measurement outcomes. And you always get a random outcome, just the same way random variables is intrinsically random. <br></p>
+<p>A measurement is a central concept in quantum mechanics. An easy way to think about it as a sample from a probability distribution: it is a random variable with a number of outcomes, each outcome is produced with a certain probability. <br></p>
+<p>Measurement connect the quantum world to our classical one: we cannot directly observe the quantum state in nature, we can only gather statistics about it with measurements. It sounds like a harsh boundary between a quantum and a classical system that can only be bridged by measurement. The reality is more subtle: unless a quantum system is perfectly isolated, it interacts with its surrounding environment. This leads to introduction of mixed states, which in one limit recover classical probabilities.</p>
+</section>
+<section id="more-on-the-bra-ket-notation">
+<h2><span class="section-number">30.4. </span>More on the bra-ket notation<a class="headerlink" href="#more-on-the-bra-ket-notation" title="Permalink to this headline"></a></h2>
+<p>Before we deep dive into what measurements are, we need to introduce one more notation to complement the ket: it called a bra and it is denoted by
+$<span class="math notranslate nohighlight">\(\langle\psi|\)</span><span class="math notranslate nohighlight">\( 
+for some quantum state 
+\)</span><span class="math notranslate nohighlight">\(\mid\psi\rangle\)</span><span class="math notranslate nohighlight">\( 
+Together they form the bra-ket or Dirac notation. A bra is the conjugate transpose of a ket, and the other way around. This also means that a bra is a row vector. For instance, this is the bra for 
+\)</span><span class="math notranslate nohighlight">\(\mid0\rangle\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">zero_ket</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|0&gt; ket:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">zero_ket</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;0| bra:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">zero_ket</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|0&gt; ket:
+ [[1]
+ [0]]
+&lt;0| bra:
+ [[1 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This makes it very easy to write dot products: if we write a bra followed by a ket, that is exactly what the dot product is. This is so common that we often drop one of the vertical bars, and just write <span class="math notranslate nohighlight">\(\langle 0|0\rangle\)</span>, for instance. Since quantum states are normalized, the inner product of any quantum state with itself is always one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zero_ket</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">@</span> <span class="n">zero_ket</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly, orthogonal vectors always give 0. E.g. <span class="math notranslate nohighlight">\(\langle 0|1\rangle\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_ket</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">zero_ket</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">@</span> <span class="n">one_ket</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>What about a ket and a bra? That is going to be a matrix: essentially the outer product of the two vectors. Here’s <span class="math notranslate nohighlight">\(|0\rangle\langle 0|\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zero_ket</span> <span class="o">@</span> <span class="n">zero_ket</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 0],
+       [0, 0]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>This should look familiar: it is a projection to the first element of the canonical basis. It is true in general that <span class="math notranslate nohighlight">\(|\psi\rangle\langle\psi|\)</span> is going to be a projector to <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>. It is very intuitive: take some other quantum state <span class="math notranslate nohighlight">\(|\phi\rangle\)</span> and apply the matrix <span class="math notranslate nohighlight">\(|\psi\rangle\langle\psi|\)</span> on it: <span class="math notranslate nohighlight">\(|\psi\rangle\langle\psi|\phi\rangle\)</span>. Now the right-most two terms are a bra and a ket, so it is a dot product: the overlap between <span class="math notranslate nohighlight">\(|\phi\rangle\)</span> and <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>. Since this is a scalar, it just scales the left-most term, which is the ket <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>, so in effect, we projected <span class="math notranslate nohighlight">\(|\phi \rangle\)</span> on this vector.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="more-on-measurements">
+<h1><span class="section-number">31. </span>More on Measurements<a class="headerlink" href="#more-on-measurements" title="Permalink to this headline"></a></h1>
+<p>A measurement in quantum mechanics is an operator-valued random variable. The theory of measurements is rich and countless questions about them are still waiting to be answered. Most quantum computers that we have today, however, only implement one very specific measurement, which makes our discussion a lot simpler. This measurement is in the canonical basis. In other words, the measurement contains two projections,
+$<span class="math notranslate nohighlight">\(\mid0\rangle\langle 0\mid\)</span><span class="math notranslate nohighlight">\( 
+and 
+\)</span><span class="math notranslate nohighlight">\(\mid1\rangle\langle 1\mid\)</span>$
+and this measurement can be applied to any of the qubits of the quantum computer.</p>
+<p>We already saw how applying a projection on a vector works. If we want to make a scalar value of that, we need to add a bra to the left. For instance, for some state
+$<span class="math notranslate nohighlight">\(\mid\psi\rangle\)</span><span class="math notranslate nohighlight">\(
+we get a scalar for 
+\)</span><span class="math notranslate nohighlight">\(\langle\psi|0\rangle\langle 0|\psi\rangle\)</span><span class="math notranslate nohighlight">\(
+This is called the expectation value of the operator 
+\)</span><span class="math notranslate nohighlight">\(\mid0\rangle\langle 0\mid\)</span><span class="math notranslate nohighlight">\(
+To put this in context, let us apply the projection 
+\)</span><span class="math notranslate nohighlight">\(\mid0\rangle\langle 0\mid\)</span><span class="math notranslate nohighlight">\( 
+on the superposition 
+\)</span><span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|0\rangle + \mid1\rangle)\)</span><span class="math notranslate nohighlight">\(
+which is the column vector 
+\)</span><span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\begin{bmatrix} 1\\ 0\end{bmatrix}\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ψ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Π_0</span> <span class="o">=</span> <span class="n">zero_ket</span> <span class="o">@</span> <span class="n">zero_ket</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
+<span class="n">ψ</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">@</span> <span class="n">Π_0</span> <span class="o">@</span> <span class="n">ψ</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.5]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install qiskit==0.16.1</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>qiskit
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (0.42.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit-terra==0.23.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit) (0.23.3)
+Requirement already satisfied: qiskit-aer==0.12.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit) (0.12.0)
+Requirement already satisfied: qiskit-ibmq-provider==0.20.2 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit) (0.20.2)
+Requirement already satisfied: scipy&gt;=1.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-aer==0.12.0-&gt;qiskit) (1.10.1)
+Requirement already satisfied: numpy&gt;=1.16.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-aer==0.12.0-&gt;qiskit) (1.23.5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: websockets&gt;=10.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (11.0.2)
+Requirement already satisfied: requests&gt;=2.19 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2.28.2)
+Requirement already satisfied: urllib3&gt;=1.21.1 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.26.15)
+Requirement already satisfied: websocket-client&gt;=1.5.1 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.5.1)
+Requirement already satisfied: requests-ntlm&lt;=1.1.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.1.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2.8.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy&gt;=1.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (1.11.1)
+Requirement already satisfied: symengine&gt;=0.9 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (0.10.0)
+Requirement already satisfied: ply&gt;=3.10 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (3.11)
+Requirement already satisfied: psutil&gt;=5 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (5.9.0)
+Requirement already satisfied: dill&gt;=0.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (0.3.6)
+Requirement already satisfied: rustworkx&gt;=0.12.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (0.12.1)
+Requirement already satisfied: stevedore&gt;=3.0.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from qiskit-terra==0.23.3-&gt;qiskit) (5.0.0)
+Requirement already satisfied: six&gt;=1.5 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests&gt;=2.19-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2022.12.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests&gt;=2.19-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (3.4)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests&gt;=2.19-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (3.1.0)
+Requirement already satisfied: cryptography&gt;=1.3 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (39.0.1)
+Requirement already satisfied: ntlm-auth&gt;=1.0.2 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.5.0)
+Requirement already satisfied: pbr!=2.1.0,&gt;=2.0.0 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from stevedore&gt;=3.0.0-&gt;qiskit-terra==0.23.3-&gt;qiskit) (5.11.1)
+Requirement already satisfied: mpmath&gt;=0.19 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from sympy&gt;=1.3-&gt;qiskit-terra==0.23.3-&gt;qiskit) (1.2.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cffi&gt;=1.12 in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from cryptography&gt;=1.3-&gt;requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (1.15.1)
+Requirement already satisfied: pycparser in /Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=1.3-&gt;requests-ntlm&lt;=1.1.0-&gt;qiskit-ibmq-provider==0.20.2-&gt;qiskit) (2.21)
+</pre></div>
+</div>
+</div>
+</div>
+<p>That is exactly one half, the square of the absolute value of the probability amplitude corresponding to <span class="math notranslate nohighlight">\(|0\rangle\)</span> in the superposition! This is the mathematical formalism of what we had said earlier: given a state <span class="math notranslate nohighlight">\(|\psi\rangle = a_0|0\rangle + a_1|1\rangle\)</span>, we get an output <span class="math notranslate nohighlight">\(i\)</span> with probability <span class="math notranslate nohighlight">\(|a_i|^2\)</span>. This is known as the <em>Born rule</em>. Now we have a recipe to extract probabilities with projections. This is exactly what is implemented in the quantum simulator. The measurement in the simulator is what we described here. Let’s create an equal superposition with the Hadamard gate (see a later notebook for quantum circuits), apply the measurement, and observe the statistics:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span> <span class="n">QuantumRegister</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">execute</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">BasicAer</span> <span class="k">as</span> <span class="n">Aer</span>
+<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">plot_histogram</span>
+
+<span class="n">backend</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;qasm_simulator&#39;</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(</span><span class="n">circuit</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cec57b89bbe328a0689dfb89e33cbed63d02618e394f7791e8a5341b88e4c82e.png" src="../../_images/cec57b89bbe328a0689dfb89e33cbed63d02618e394f7791e8a5341b88e4c82e.png" />
+</div>
+</div>
+<p>You see that the outcome is random, with roughly half of the outcomes being 0.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="collapse-of-the-wave-function">
+<h1><span class="section-number">32. </span>Collapse of the Wave Function<a class="headerlink" href="#collapse-of-the-wave-function" title="Permalink to this headline"></a></h1>
+<p>To make it more formal, if we remember the mentioned the <em>Born Rule</em>, which tells you that you get some outcomes 0 of the qubit state with probability the absolute value of
+$<span class="math notranslate nohighlight">\(\mid a_{0}\mid^{2}\)</span>$</p>
+<p>And the state afterwards becomes the 0 ket \mid0\rangle collapse of the wave function . So the superposition is destroyed and you only get one part of the superposition. This is random which part you get with a certain probability, but this is what we call the collapse of the wave function. And the way we write it down is actually with this formalism. So the measurement outcome is actually a projection.</p>
+<p>So for instance, if you want to model that we get the outcome 0, then we take the corresponding projection and we apply it on the quantum state.</p>
+<div class="math notranslate nohighlight">
+\[\mid\overbrace{0}^{\text{ket}}\times\underbrace{\overbrace{0}^{\text{bra}}\mid\overbrace{\underbrace{\psi}_{\text{projection}}}^{\text{ket}}\rangle}_{\text{scalar}}=\mid0\rangle a_{0}\]</div>
+<div class="math notranslate nohighlight">
+\[\mid\mid a_{0}\mid0\rangle\mid\mid_{2}^{2}=\mid a_{0}\mid^{2}\]</div>
+<p>Now, if we look at this carefully, this is a ket and a bra. It’s just the bra and the ket, which means that this is going to be a scalar in fact this is just the projection to this particular basis vector. So this is going to be the 0 ket times A0.</p>
+<div class="math notranslate nohighlight">
+\[\mid0\rangle\langle0\mid\]</div>
+<p>And if you take the absolute value, we take the length of this vector that’s going to be exactly this vector. So if we take the length of A0 time the 0 ket squared, that’s going to give you exactly what the Born Rule tells you. And now if you look at this expression
+$<span class="math notranslate nohighlight">\(\mid\mid a_{0}\mid0\rangle\mid\mid_{2}^{2}\)</span><span class="math notranslate nohighlight">\(
+and you look at this expression 
+\)</span><span class="math notranslate nohighlight">\(\mid0\times0\mid\)</span>$
+you know that you can write the square of the two norm in this form. So we can actually write this as say, this.</p>
+<div class="math notranslate nohighlight">
+\[ \langle\psi\mid0\rangle\langle0\mid\psi\rangle = \mid\mid a_{0}\mid0\rangle\mid\mid_{2}^{2} = \mid a_{0}\mid^{2}\]</div>
+<p>Or in other words, we can also look at it as an expectation of value of this outcome. And the state afterwards is basically this state just renormalized. Which means that if we look at what we get, this is going to be this projection in the nominator, and in the denominator we have to renormalize this state, which is going to be the square root of exactly this expression.</p>
+<div class="math notranslate nohighlight">
+\[\text{state afterwards:}\frac\mid0\rangle\langle0\mid\psi\rangle{\langle\psi\mid0\rangle\langle0\mid\psi\rangle}\]</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-born-rule">
+<h1><span class="section-number">33. </span>The Born Rule<a class="headerlink" href="#the-born-rule" title="Permalink to this headline"></a></h1>
+<p>This is the mathematical way of describing how you pull out samples from a quantum state, and otherwise how we apply measurements to this particular probability distribution.</p>
+<p>https://en.wikipedia.org/wiki/Born_rule:</p>
+<p>The Born rule (also called the Born law, Born’s rule, or Born’s law), formulated by German physicist Max Born in 1926, is a physical law[citation needed] of quantum mechanics giving the probability that a measurement on a quantum system will yield a given result.[1] In its simplest form it states that the probability density of finding the particle at a given point is proportional to the square of the magnitude of the particle’s wavefunction at that point.</p>
+<section id="measurements-quiz">
+<h2><span class="section-number">33.1. </span>Measurements Quiz<a class="headerlink" href="#measurements-quiz" title="Permalink to this headline"></a></h2>
+<p>Checkboxes:</p>
+<ul class="simple">
+<li><p>A bra <span class="math notranslate nohighlight">\(\langle\psi\mid\)</span> is</p></li>
+</ul>
+<p><strong>a row vector</strong></p>
+<p>– The conjugate transpose of the ket
+$<span class="math notranslate nohighlight">\(\mid\psi\rangle\)</span>$</p>
+<ul class="simple">
+<li><p>The Born rule tells us</p></li>
+</ul>
+<p><strong>what is the probability of getting an output and</strong> <br></p>
+<p><strong>what the state is after the measurement.</strong></p>
+<ul class="simple">
+<li><p>By applying the projection
+$<span class="math notranslate nohighlight">\(\mid0\rangle\langle0\mid\)</span><span class="math notranslate nohighlight">\( 
+on the state 
+\)</span><span class="math notranslate nohighlight">\(\frac{\left(\mid0\rangle+\mid1\rangle\right)}{\sqrt{2}}\)</span>$
+we get</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mid0\rangle=\left[\begin{array}{c}1\\0\end{array}\right]\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\langle0\mid=\left[\begin{array}{cc}1 &amp; 0\end{array}\right]\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mid1\rangle=\left[\begin{array}{c}0\\1\end{array}\right]\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\langle1\mid=\left[\begin{array}{cc}0 &amp; 1\end{array}\right]\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mid0\rangle\langle0\mid=\left[\begin{array}{c}1\\0\end{array}\right]\left[\begin{array}{cc}1 &amp; 0\end{array}\right]=\left[\begin{array}{cc}1 &amp; 0\\0 &amp; 0\end{array}\right]\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\left(\mid0\rangle+\mid1\rangle\right)}{\sqrt{2}}=\frac{1}{\sqrt{2}}\left(\left[\begin{array}{c}1\\0
+\end{array}\right]+\left[\begin{array}{c}
+0\\
+1
+\end{array}\right]\right)=\frac{1}{\sqrt{2}}\left[\begin{array}{c}
+1\\
+1
+\end{array}\right]=\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mid0\rangle\langle0\mid\frac{\left(\mid0\rangle+\mid1\rangle\right)}{\sqrt{2}}=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 &amp; 0\\
+0 &amp; 0
+\end{array}\right]\left[\begin{array}{c}
+1\\
+1
+\end{array}\right]=\frac{1}{\sqrt{2}}\left[\begin{array}{c}
+1\\
+0
+\end{array}\right]=\frac{\mid0\rangle}{\sqrt{2}}\end{split}\]</div>
+<p>There is something additional happening. The measurement has a random outcome, but once it is performed, the quantum state is in the corresponding basis vector. That is, the superposition is destroyed. This is referred to as the collapse of the wavefunction. It is the subject of many ongoing debates and research results how and why it happens, but what matters to us is that we can easily calculate the quantum state after the measurement. Just projecting it to the basis vector is insufficient, since that would not be normalized, so we have to renormalize it. Mathematically it is expressed by the somewhat convoluted expression
+$<span class="math notranslate nohighlight">\(\frac{|i\rangle\langle i|\psi\rangle}{\sqrt{\langle\psi|i\rangle\langle i|\psi\rangle}}\)</span><span class="math notranslate nohighlight">\( 
+if we observe the output \)</span>i<span class="math notranslate nohighlight">\(. For instance, if we observe zero after measuring the superposition 
+\)</span><span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\)</span>$
+the state after the measurement will be</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ψ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">Π_0</span> <span class="o">=</span> <span class="n">zero_ket</span> <span class="o">@</span> <span class="n">zero_ket</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
+<span class="n">probability_0</span> <span class="o">=</span> <span class="n">ψ</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">@</span> <span class="n">Π_0</span> <span class="o">@</span> <span class="n">ψ</span>
+<span class="n">Π_0</span> <span class="o">@</span> <span class="n">ψ</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">probability_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.],
+       [0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>which is just a very long way of saying we get <span class="math notranslate nohighlight">\(|0\rangle\)</span>.</p>
+<p>You can easily see this by putting two measurements in a sequence on the same qubit. The second one will always give the same outcome as the first. The first one is random, but the second one will be determined, since there will be no superposition in the computational basis after the first measurement. Let’s simulate this by writing out the results of the two measurements into two different classical registers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;qasm_simulator&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;11&#39;: 55, &#39;00&#39;: 45}
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is no output like 01 or 10.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="measuring-multiqubit-systems">
+<h1><span class="section-number">34. </span>Measuring multiqubit systems<a class="headerlink" href="#measuring-multiqubit-systems" title="Permalink to this headline"></a></h1>
+<p>Most quantum computers implement local measurements, which means that each qubit is measured separately. So if we have a two qubit system where the first qubit is in the equal superposition and the second one is in <span class="math notranslate nohighlight">\(|0\rangle\)</span>, that is, we have the state <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|00\rangle + |01\rangle)\)</span>, we will observe 0 and 0 as outcomes of the measurements on the two qubits, or 0 and 1.</p>
+<p>#W
+2.3 Mixed States</p>
+<p>Quantum computers we have today are not idealized. To better understand noises and how it affects quantum states, a bit more notation needs to be introduced. This section will address mixed states and which elements in noise affecting quantum computers.</p>
+<p>Kets that represent a quantum state are technically speaking also called a pure quantum state. An entirely equivalent notation to pure quantum states is called a Bezoutian matrix, which is a ket and the bra of this quantum state.</p>
+<div class="math notranslate nohighlight">
+\[\mid\psi\rangle\text{is a pure quantum state }\]</div>
+<p>We can rewrite every single operation that we would otherwise do in a ket in this formalism. For instance, to get the probability of the outcome 0 can be written as$<span class="math notranslate nohighlight">\(\text{Tr}\left[\mid0\rangle\langle0\mid\rho\right]\)</span>$</p>
+<section id="density-matrix">
+<h2><span class="section-number">34.1. </span>Density Matrix<a class="headerlink" href="#density-matrix" title="Permalink to this headline"></a></h2>
+<p>We apply the same projection as we applied in our ket, but this time we apply it on this row density matrix. And instead of the length, the normal of this vector, we take the trace of this matrix. So we apply this matrix on this matrix, the outcome is a matrix, and we calculate a trace of it which is the sum of its diagonal elements. So why do we need these density matrices? Why do we need this alternative formalism? Well, the reason is, because we can also create probabilistic mixtures over pure states.</p>
+<div class="math notranslate nohighlight">
+\[\rho=\sum_{i}p_{i}\mid\psi_{i}\times\psi_{i}\mid\]</div>
+<p>So now you can have the same ket and bra description of a pure quantum state but. You cannot create a classical probability distribution over them. So this p_{i} is classical ignorance. This is something that we don’t know about the underlying quantum system. And if you use this formalism, now we can introduce noise and start making these noisy, imperfect quantum states. And to illustrate the difference, think about this ket</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mid\psi\rangle=\frac{1}{\sqrt{2}}\left(\mid0\rangle\mid1\rangle\right)=\left[\begin{array}{c}\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}\end{array}\right]\rightarrow\rho=\left[\begin{array}{cc}0.5 &amp; 0.5\\0.5 &amp; 0.5 \end{array}\right]\end{split}\]</div>
+<p>, which is the equal superposition of zero and 1. If we write out the vector form, this is just 1 or squared root 2 in both elements. And if we write the corresponding row, then if you have 1/2 for every element in the matrix. On the other hand, if you create the uniform distribution over the density matrix corresponding to the 0 ket and the density matrix corresponding to the 1 ket, this density matrix will be different.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\rho'=\frac{1}{2}\left(\mid0\rangle\langle0\mid+\mid1\rangle\langle1\mid\right)=\left[\begin{array}{cc}0.5 &amp; 0\\0 &amp; 0.5\end{array}\right]\end{split}\]</div>
+<p>It will not have off-diagonal elements.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[\begin{array}{cc}0.5 &amp; \underbrace{0.5}_{\text{off diagonal element}}\\\underbrace{0.5}_{\text{off diagonal element}} &amp; 0.5\end{array}\right]\end{split}\]</div>
+<p>So these off-diagonal elements are critical for many quantum operations. These are sometimes also called coherences. And as you can see, this density matrix does not have any of these and that the diagonal elements are also equal. So this is not just the mixed state, this is called a maximally mixed it. And a maximally mixed state is the equivalent of a uniform distribution in classical probability theory. This means that we have absolutely no predictive power of what’s going to happen next. So in that sense, the entropy of the state is maximal. So ideally, we want quantum states with a high coherence. But in reality, noise effects and these coherences disappear. So let’s take a detour and let’s take a look at what happens when we measure individual qubits in a multi-qubit system.</p>
+<p>So imagine that we have the maximally entangled state over 2 qubits, which is written in this form.</p>
+<div class="math notranslate nohighlight">
+\[\mid\phi^{\dagger}\rangle=\frac{1}{\sqrt{2}}\left(\mid00\rangle+\mid11\rangle\right)\]</div>
+<p>And we measure the <span class="math notranslate nohighlight">\(0\)</span> qubit,</p>
+<p>which is, according to our notation or convention, is the rightmost qubit. So if we measure this and we get the outcome 0, we moderate it in this form. So this is the measurement operator– just the projection to the first basis vector. And we are not doing anything on this qubit. And we model it by applying the identity matrix on it.</p>
+<div class="math notranslate nohighlight">
+\[\left(1\mid\otimes\mid0\rangle\langle0\mid\right)\mid\phi^{\dagger}=\frac{1}{\sqrt{2}}\mid00\rangle\]</div>
+<p>So in this case, this is just 2 by 2 in this form. This means that we are not doing anything on the qubit. And we apply this on this state. So the state collapses from the superposition, and then you get this outcome. So now, if you measure the state again but now the other qubit, you would get 0 deterministically. So this is an entangled state. It exhibits this very strong form of correlation. So even though it just measure 1/2 half, better to get 0 or 1. If you measure the other one, it will be already determined. So let’s take a look at what happens if we are interested in the marginal probability. So this state is like a probability distribution of two random variables. And if you know that we have a multivariate probability distribution, we can marginalize out one of our random variables. We can do the exact same thing in a quantum system by using something called the partial trace.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\rho=\mid\phi^{\dagger}\rangle\langle\phi^{\dagger}\mid=\left[\begin{array}{cccc}
+0.5 &amp; 0 &amp; 0 &amp; 0.5\\
+0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0\\
+0.5 &amp; 0 &amp; 0 &amp; 0.5
+\end{array}\right]\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{Tr}_{1}\left[\begin{array}{cccc}
+a &amp; b &amp; c &amp; d\\
+e &amp; f &amp; g &amp; h\\
+i &amp; j &amp; k &amp; l\\
+m &amp; n &amp; o &amp; p
+\end{array}\right]=\left[\begin{array}{cc}
+a+f &amp; c+h\\
+i+n &amp; k+p
+\end{array}\right]\end{split}\]</div>
+<p>So imagine that we write our maximally entangled state as a density matrix. You see that it has strong coherences here, although it’s full of 0s– that doesn’t matter. And the way we define partial trace is, imagine if you have any matrix. Here I have a four by four matrix, and you trace out some subpart of it. That operation is defined here as this. So there are elements that you completely get rid of. This corresponds to the random variable that you marginalize out. And then you sum these corresponding diagonal elements to get the final output. So this is the equivalent of marginalizing of the probability distribution. And if you apply this partial trace, say, in the first qubit on our maximally entangled state, what you actually get is the maximally mixed state. This means that if we marginalize out on one of the qubits in this system, then we end up with a uniform distribution. We have absolutely no predictive power over what is going to happen in that remaining quantum system.</p>
+<p>• A pure state is one that is described by some ket \mid\psi\rangle , or equivalently, by a density matrix $<span class="math notranslate nohighlight">\(\rho=\mid\psi\rangle\langle\psi\mid\)</span>$ . This means that..</p>
+<p>– there is no classical uncertainty about the underlying state.</p>
+<p>• The $<span class="math notranslate nohighlight">\(\frac{\boldsymbol{I}}{2}\left[\begin{array}{cc}
+0.5 &amp; 0\\
+0 &amp; 0.5
+\end{array}\right]\)</span>$ describes a mixed-state qubit..</p>
+<p>– True</p>
+<p>• By tracing out a subsystem of a pure state, you…</p>
+<p>– might end up with a mixed state.</p>
+<p>– you take the marginal probability distribution over one variable.
+#F</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(</span><span class="n">circuit</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d755b11da9e2ac306f27cd283969c8fad5d4645675b2c9ab44082037f5627e72.png" src="../../_images/d755b11da9e2ac306f27cd283969c8fad5d4645675b2c9ab44082037f5627e72.png" />
+</div>
+</div>
+<p>What happens if we make measurements on an entangled state? Let’s look at the statistics again on the <span class="math notranslate nohighlight">\(|\phi^+\rangle\)</span> state:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span> <span class="n">shots</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">(</span><span class="n">circuit</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9c14b09bf504d28b97d4ed407b7f37bd5a3628aba5314e0b6d23f7c69be5fe69.png" src="../../_images/9c14b09bf504d28b97d4ed407b7f37bd5a3628aba5314e0b6d23f7c69be5fe69.png" />
+</div>
+</div>
+<p>We only observe 00 and 11. Since the state is <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|00\rangle+|11\rangle)\)</span>, this should not come as a shock. Yet, there is something remarkable going on here. At the end of the last section, we saw the same statistics, but from measurements on the same qubit. Now we have two, spatially separate qubits exhibiting the same behaviour: this is a very strong form of correlations. This means that if we measure just one qubit, and get, say, 0 as the outcome, we <em>know</em> with certainty that if we measured the other qubit, we would also get 0, even though the second measurement is also a random variable.</p>
+<p>To appreciate this better, imagine that your are tossing two unbiased coins. If you observe heads on one, there is absolutely nothing that you can say about what the other one might be other than a wild guess that holds with probability 0.5. If you play foul and you biased the coins, you might improve your guessing accuracy. Yet you can never say with certainty what the other coin will be based on the outcome you observed on one coin, except for the trivial case when the other coin deterministically gives the same face always.</p>
+<p>Remarkable as it is, there is no activation or instantaneous (faster than the speed of light) signalling happening between the qubits, though. Your measurement was local to the qubit and so is your information. If there is somebody else doing the measurement on the other qubit, you would have to inform the person through classical communication channels that you happen to know what the outcome will be. So while we certainly cannot violate the theory of relativity with entanglement, this strong form of correlation is still central to many quantum algorithms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ψ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ρ</span> <span class="o">=</span> <span class="n">ψ</span> <span class="o">@</span> <span class="n">ψ</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
+<span class="n">Π_0</span> <span class="o">=</span> <span class="n">zero_ket</span> <span class="o">@</span> <span class="n">zero_ket</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
+<span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">Π_0</span> <span class="o">@</span> <span class="n">ρ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4999999999999999
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get one half again. The renormalization after a measurement happens in a similar way: <span class="math notranslate nohighlight">\(\frac{|0\rangle\langle 0|\rho|0\rangle\langle 0|}{\mathrm{Tr}[|0\rangle\langle 0|\rho]}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probability_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">Π_0</span> <span class="o">@</span> <span class="n">ρ</span><span class="p">)</span>
+<span class="n">Π_0</span> <span class="o">@</span> <span class="n">ρ</span> <span class="o">@</span> <span class="n">Π_0</span><span class="o">/</span><span class="n">probability_0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0.],
+       [0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>So why do we need this at all? Every state we have mentioned so far is called a <em>pure state</em>: these are kets or a density matrix created as a ket and a bra. There are other states called <em>mixed states</em>: these are <em>classical</em> probability distributions over pure states. Formally, a mixed state is written as <span class="math notranslate nohighlight">\(\sum_i p_i |\psi_i\rangle\langle\psi_i|\)</span>, where <span class="math notranslate nohighlight">\(\sum_i p_i=1\)</span>, <span class="math notranslate nohighlight">\(p_i\geq 0\)</span>. This reflects our classical ignorance over the underlying quantum states. Compare the density matrix of the equal superposition <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|0\rangle+|1\rangle)\)</span> and the mixed state <span class="math notranslate nohighlight">\(0.5(|0\rangle\langle 0|+|1\rangle\langle 1|)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zero_ket</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">one_ket</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">ψ</span> <span class="o">=</span> <span class="p">(</span><span class="n">zero_ket</span> <span class="o">+</span> <span class="n">one_ket</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Density matrix of the equal superposition&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ψ</span> <span class="o">@</span> <span class="n">ψ</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Density matrix of the equally mixed state of |0&gt;&lt;0| and |1&gt;&lt;1|&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">zero_ket</span> <span class="o">@</span> <span class="n">zero_ket</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">+</span><span class="n">one_ket</span> <span class="o">@</span> <span class="n">one_ket</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">())</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Density matrix of the equal superposition
+[[0.5 0.5]
+ [0.5 0.5]]
+Density matrix of the equally mixed state of |0&gt;&lt;0| and |1&gt;&lt;1|
+[[0.5 0. ]
+ [0.  0.5]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The off-diagonal elements are gone in the second case. The off-diagonal elements are also called coherences: their presence indicates that the state is quantum. The smaller these values are, the closer the quantum state is to a classical probability distribution.</p>
+<p>The second density matrix above has only diagonal elements and they are equal: this is the equivalent way of writing a uniform distribution. We know that the uniform distribution has maximum entropy, and for this reason, a density matrix with this structure is called a maximally mixed state. In other words, we are perfectly ignorant of which elements of the canonical basis constitute the state.</p>
+<p>We would like a quantum state to be perfectly isolated from the environment, but in reality, the quantum computers we have today and for the next couple of years cannot achieve a high degree of isolation. So coherences are slowly lost to the environment – this is a process called decoherence. The speed at which this happens determines the length of the quantum algorithms we can run on the quantum computer: if it happens fast, we have time to apply a handful gates or do any other form calculation, and then we quickly have to pull out (measure) the results.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_machine_learning/qml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html" class="btn btn-neutral float-left" title="24. Classical and Quantum Probability Theory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html" class="btn btn-neutral float-right" title="35. Unitary evolution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>18. Topological Qubits &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_computers/topological_qubits/topological_qubits.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="22.4. Operations on Topological Quantum Qubits" href="topological_qubits_op.html" />
+    <link rel="prev" title="17.1. Quantum Annealing 0" href="../quantum_annealing/quantum_annealing_op.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#majorana-experiments">22. Majorana experiments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="topological_qubits_op.html">22.4. Operations on Topological Quantum Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topological_qubits_op.html#what-are-anyons">22.5. What are anyons?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topological_qubits_op.html#quantum-computation-on-anyons">22.6. Quantum computation on anyons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topological_qubits_op.html#qubit-implementation-in-nanowire-networks">22.7. Qubit implementation in nanowire networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topological_qubits_op.html#learn-more">22.8. Learn More</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">18. </span>Topological Qubits</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_computers/topological_qubits/topological_qubits.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="topological-qubits">
+<h1><span class="section-number">18. </span>Topological Qubits<a class="headerlink" href="#topological-qubits" title="Permalink to this headline"></a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-module-5">
+<h1><span class="section-number">19. </span>Introduction to Module 5<a class="headerlink" href="#introduction-to-module-5" title="Permalink to this headline"></a></h1>
+<p>In the previous modules we have discussed qubits realized with electron spins and superconducting circuits. Despite the differences in their hardware implementation, these platforms have something very important in common. The qubits are imperfect and subjected to noise. For example, fluctuations in magnetic fields can perturb an electron spin such that its phase is lost. This is why we need quantum error correction.</p>
+<p>This week we will introduce you a completely new kind of qubit, which can potentially alleviate the need of quantum error correction in a future quantum computer. This qubit is based on a quasi-particle called Majorana fermion, which is halfway between being an electron and not being an electron. When you fuse two Majoranas together you end up having one or no electrons. The fact the that the information (having or not having an electron) is delocalized in two Majoranas far from each other, makes harder for the environment to perturb its state.</p>
+<p>The promise of a qubit much less sensitive to noise than other implementations was elusive until just a few years ago, when this particle was made a reality by physicist and engineers in the Netherlands, get to know a bit more here about what they are.</p>
+<p>In the first three videos, Michael Wimmer will introduce the concept of topology and Majorana bound states. Attila Geresdi will then explain, in an other three videos, how we can realize quantum gates and in which kind of physical system we can find this new type of quasi-particles.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="majorana-fermions-and-where-to-find-them">
+<h1><span class="section-number">20. </span>Majorana fermions and where to find them<a class="headerlink" href="#majorana-fermions-and-where-to-find-them" title="Permalink to this headline"></a></h1>
+<p>In the next three videos Michael Wimmer will introduce you to topological qubits. To understand what a topological qubit is and how it works, he will start by explaining the concept of the so called Majorana fermions or Majorana bound states.
+Please note the following error at <span class="math notranslate nohighlight">\(t=3: 00\)</span>, the correct operators should read:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+&amp;\gamma_{1}=\frac{1}{2}\left(c+c^{\dagger}\right) \\
+&amp;\gamma_{2}=-\frac{i}{2}\left(c-c^{\dagger}\right)
+\end{aligned}
+\end{split}\]</div>
+<p>V</p>
+<p>In the next few videos we want to introduce you to topological quantum computing.
+To understand what topological quantum computing is,
+we first need to introduce you to the basic building blocks
+which are the so called Majorana fermions or Majorana bound states.
+To understand Majorana fermions it is useful to first have a quick glimpse at high energy physics.</p>
+<p>In high energy physics we know that for every particle there is always an antiparticle.
+For example, there is an electron and positron, a proton and antiproton and so forth.
+These are examples of what we call Dirac fermions.
+However, there is also a separate kind of fermion in high energy physics
+which is called a Majorana fermion.</p>
+<figure class="align-default" id="id1">
+<img alt="gfx/gfx5/m5asc0.png" src="gfx/gfx5/m5asc0.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20.1 </span><span class="caption-text">0</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>It is special because it is a fermion which is its own antiparticle.
+The concept was actually first introduced by Ettore Majorana whose picture you can see here.
+Interestingly, to this date there are no Majorana fermions known in nature as elementary particles.
+This is actually very similar to Majorana’s life story itself.
+He himself vanished during traveling on a ship, nobody knows for sure what happened to him.
+Majorana fermions also could exist in principle, but nobody knows for sure if they do.
+The definition of a Majorana fermion is that it is a particle that is its own antiparticle.
+In physical terms this means that the creation operator equals the annihilation operator.
+There are some candidates for these Majorana fermions.
+For example, in high energy physics neutrinos are generally described as Dirac fermions,
+but there is an extension in which they could be Majorana fermions.</p>
+<p>But people have also thought about how one could effectively realize Majorana fermions
+as quasi-particles in condensed matter systems.
+This will be the topic of this lecture.
+There is a little caveat here; what we will find in condensed matter are not quite the Majorana Fermions that high energy physicists are looking for. What we find are states, and it’s actually more appropriate to call them Majorana bound states, which is the term I will be using from now on, or I will simply refer to them as Majoranas.
+To introduce Majorana bound states, we can first do a simple mathematical trick. In condensed matter physics, a state can be filled, this is an electron,
+or it can be empty, in which case we have a hole.</p>
+<figure class="align-default" id="id2">
+<img alt="gfx/gfx5/m5asc1.png" src="gfx/gfx5/m5asc1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20.2 </span><span class="caption-text">1</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>These are the equivalent of particle and antiparticle, respectively. They are described by fermionic operators: creation operator c dagger for the electron
+and annihilation operator c for the hole.
+Now, I can do a simple linear superposition of operators:
+an equal superposition of a creation and annihilation operator. It is very easy to see, I urge you to do the mathematics yourself,
+that those operators are Majorana operators:
+Gamma 1 equals gamma 1 dagger, and gamma 2 equals gamma 2 dagger.</p>
+<figure class="align-default" id="id3">
+<img alt="gfx/gfx5/m5asc2.png" src="gfx/gfx5/m5asc2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20.3 </span><span class="caption-text">2</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Graphically, you can see that these states are at the same time occupied and unoccupied.
+Of course, this was just a mathematical trick: a transformation to go from one basis to another one.
+What you see here is that still, one ordinary Fermionic operator
+can always be described by two Majorana operators.
+However, once you can separate the two Majorana bound states, and they become distinguishable from each other, then things become interesting.</p>
+<figure class="align-default" id="id4">
+<img alt="gfx/gfx5/m5asc3.png" src="gfx/gfx5/m5asc3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20.4 </span><span class="caption-text">3</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>We can summarize at this point: First, two Majoranas form one fermionic state.
+Second, as quasiparticles in condensed matter systems, they always come in pairs,
+in condensed matter the building blocks are always ordinary fermions.
+Now, what is the connection to qubits?
+With fermionic states, we can encode qubits.</p>
+<figure class="align-default" id="id5">
+<img alt="gfx/gfx5/m5asc4.png" src="gfx/gfx5/m5asc4.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20.5 </span><span class="caption-text">4</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>If the state is empty this will be the state 0 of the qubit, and if it is filled it is the state 1.
+An example for this is charge qubits.
+The problem is that these are usually very sensitive to local perturbations.
+But now Majoranas come to the rescue!</p>
+<p>As I just told you, 2 Majorana’s correspond to 1 fermion.
+But if I have 2 spatially separated Majoranas I can encode one fermionic degree of freedom
+in a very nonlocal way, protected from any local perturbation.</p>
+<figure class="align-default" id="id6">
+<img alt="gfx/gfx5/m5asc5.png" src="gfx/gfx5/m5asc5.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20.6 </span><span class="caption-text">5</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>This is our topological qubit: two Majorana bound states form one topoloigical qubits,
+which is protected against almost all sorts of perturbations
+and is expected to have a very long coherence time.
+For that reasons it is very interesting to look for Majorana Bound states in condensed matter.
+Where should we look for Majoranas in condensed matter?
+We can again start from the concept of particle and antiparticle.</p>
+<p>As I told you before, the equivalent of particles and antiparticles in condensed matter are
+electrons and holes.</p>
+<figure class="align-default" id="id7">
+<img alt="gfx/gfx5/m5asc6.png" src="gfx/gfx5/m5asc6.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20.7 </span><span class="caption-text">6</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A Majorana is a superposition of those two things.
+The problem is however that electron and hole have opposite charge.
+It is usually impossible to form a superposition of them.
+It however turns out that a good system for Majoranas are superconductors.</p>
+<figure class="align-default" id="id8">
+<img alt="gfx/gfx5/m5asc6.png" src="gfx/gfx5/m5asc6.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20.8 </span><span class="caption-text">7</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In superconductors we have a sea of Cooper pairs.
+Cooper pairs are states consisting of 2 electrons.
+Suppose now we have a single hole in our system.
+If I take just one Cooper pair out of the vast sea of Cooper pairs, then this Cooper pair together with the hole just looks like a single electron.
+The distinction between electron and a hole are thus effectively blurred in a superconductor.
+Hence, we can form a linear superposition of electrons and holes there!
+It is thus very natural to look for Majorana states in superconductors.</p>
+<p>Main takeaways</p>
+<ul class="simple">
+<li><p>A Majorana fermion is a fermion which is its own antiparticle. In principle they could exist, but nobody knows for sure if they do.</p></li>
+<li><p>In condensed matter, Majoranas regard Majorana bound states, rather than actual Majorana fermions.</p></li>
+<li><p>Two Majoranas together form one fermionic state and they always come in pairs.</p></li>
+<li><p>The possibility of spatially separating Majoranas protect against local perturbations, laying the basis of topological qubits.</p></li>
+<li><p>Superconductors are a good system for Majoranas, as linear superpositions of electrons and holes can be formed.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="majorana-bound-states-in-superconductors">
+<h1><span class="section-number">21. </span>Majorana bound states in superconductors<a class="headerlink" href="#majorana-bound-states-in-superconductors" title="Permalink to this headline"></a></h1>
+<p>Majorana bound states can appear quite naturally in superconductors. But, how can we find the Marjoranas? Michael will explain more about that in this video.</p>
+<p>V</p>
+<p>Let us now look a little bit more in detail,
+how we can find Majorana bound states in superconductors.
+I showed you in the last video
+that Majorana bound states can appear quite naturally there.
+The blurring of electron and hole can be described mathematically as a so-called particle-hole symmetry.
+For a particle at energy E you must have an antiparticle at energy minus E.</p>
+<figure class="align-default" id="b1">
+<img alt="gfx/gfx5/m5b1" src="gfx/gfx5/m5b1" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.1 </span><span class="caption-text">b1</span><a class="headerlink" href="#b1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>That is given by this formula here,
+with the annihilation operator gamma at energy E equals
+the creation operator at energy minus E.
+For zero energy we then immediately get Majorana bound states!
+In this case the Majorana creation operator,
+gamma dagger, equals the annihilation operator gamma.
+So, all we need to do is look for states in superconductors with zero energy! Interestingly, the particle hole symmetry also helps to protect these Majorana bound states.
+We say that they are topologically protected.
+Let me show you now in a simple picture what this actually means.</p>
+<figure class="align-default" id="b2">
+<img alt="gfx/gfx5/m5b2" src="gfx/gfx5/m5b2" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.2 </span><span class="caption-text">b2</span><a class="headerlink" href="#b2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Particle-hole symmetry means that the energy spectrum must be symmetric around zero energy.
+This spectrum has a superconducting gap, this is shown as a white region in the slides. If you have one state at zero energy, one Majorana bound state, then this state is protected
+and has to remain at zero energy, regardless of what kind of perturbations you do to your systems.
+If the Majorana state were to move away from 0 energy,
+the system would not have particle hole symmetry anymore.
+That symmetry is fundamental, so this is not allowed.
+This way the particle hole symmetry protects the Majorana bound states.
+We call these states symmetry protected topological states.
+Now I told you before,
+that in real condensed matter systems Majorana bound states always come in pairs.
+Any normal fermionic state can be described with two Majorana states.
+In this case a perturbation can actually move them symmetrically in the spectrum.
+So that of course is not protected.
+However, true Majorana bound states are spatially separated,
+far apart and cannot talk to each other.
+Each of those is then again protected by the particle hole symmetry.
+We can thus distinguish two kinds of superconductors:
+either there are Majorana bound states,
+and then they are protected.
+Or there are no Majoranas at all.
+A superconductor that has Majoranas we call a topological superconductor.
+A superconductor without Majorana fermions we call trivial superconductor.
+Now, there is actually an interesting aspect about Majorana bound states being at 0 energy.</p>
+<figure class="align-default" id="b3">
+<img alt="gfx/gfx5/m5b3" src="gfx/gfx5/m5b3" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.3 </span><span class="caption-text">b3</span><a class="headerlink" href="#b3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>You can have multiple Majorana pairs
+and the states that you can make out of these Majorana pairs all have zero energy, too.
+So, with N Majorana bound state pairs, you actually have a 2^N fold degenerate ground state,
+because each pair can be occupied or not occupied.
+In a topological superconductors we thus generally have a gap,
+and at 0 energy a 2^N fold degenerate ground state.
+This will be important in a later stage, as this allows for topologically protected operations
+on Majorana bound states.</p>
+<p>This will be covered in a separate lecture.
+In reality, we cannot separate the Majorana bound states infinitely far from each other.
+Hence there is a small overlap left over.
+But this overlap is then exponentially small,
+so the states will be exponentially close to zero energy,
+which is good enough.
+At this point it might seem easy to find Majoranas: we just have to find states in superconductors
+with zero energy.</p>
+<figure class="align-default" id="b4">
+<img alt="gfx/gfx5/m5b4" src="gfx/gfx5/m5b4" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.4 </span><span class="caption-text">b4</span><a class="headerlink" href="#b4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>But this is actually not as easy as it seems.
+Because, how could one get states at small energies in a superconductor?
+After all, there is the superconducting gap.
+We could consider though the situation where there is a vortex in the superconductor.
+In a vortex, magnetic flux penetrates the superconductor
+and locally suppresses the superconducting gap Delta.
+The suppressed gap is shown here by a black line.
+Still, if you calculate the bound states of this system,
+you find that there is only a state at a finite energy.
+The reason for this, is the quantum mechanical zero-point motion.
+To get rid of the zero-point motion one needs to consider unconventional superconductor,
+such as so called P-wave superconductors.
+In that case, there is an additional Berry phase of Pi that can cancel the zero-point motion.
+We get exactly then one state at zero energy, which is a Majorana bound state.
+It turns out that instead of going to vortices, which are actually hard to control,
+we can go to one dimensional systems: nanowires.
+If we make a nanowire out of P-wave superconductor,
+you will also get Majorana states at the ends of the wire.
+So, a P-wave superconductor would be nice to have, but it turns out that all the superconductors in nature
+that we know of are just trivial superconductors.</p>
+<figure class="align-default" id="b5">
+<img alt="gfx/gfx5/m5b5" src="gfx/gfx5/m5b5" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.5 </span><span class="caption-text">b5</span><a class="headerlink" href="#b5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>There are some candidates that might be P-wave superconductors, but nobody knows for sure.
+The most promising approach is thus to engineer the P-wave superconductor out of normal,
+ordinary trivial materials.
+I want to focus here on one particular example.
+It was shown that a semiconducting nanowire
+with spin-orbit interaction in proximity to a s-wave superconductor
+in a finite magnetic field can support Majoranas.
+Now one has to put all of these ingredients together, but this is not enough,
+one also has to tune some parameters to get to the topological phase.
+In particular, in this case we need to tune the magnetic field
+so that the Zeeman splitting exceeds the superconducting gap.
+Additionally, we also have to tune the chemical potential into the Zeeman gap.
+If we can do this, for example, with a gate, then Majorana bound states will appear
+at the right gate settings and magnetic field.
+This is now a system you can make in the lab.
+All the ingredients are in principle known experimentally.
+This was done for the first time in 2012 in Delft,
+and this is what in practice the experimental system looks like.</p>
+<p>Main takeaways</p>
+<ul class="simple">
+<li><p>Particle-hole symmetry is fundamental to Majoranas. For a particle at energy E must have an antiparticle(hole) at energy –E.</p></li>
+<li><p>At zero energy, we then get immediately Majorana Bounds states. We thus have to look for superconductors with zero energy.</p></li>
+<li><p>Quantum mechanical zero-point motion makes it difficult to find states with zero energy in conventional superconductors.</p></li>
+<li><p>Experimentalists attempt to engineer a nontrivial superconductor out of ordinary materials to find Majoranas.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="majorana-experiments">
+<h1><span class="section-number">22. </span>Majorana experiments<a class="headerlink" href="#majorana-experiments" title="Permalink to this headline"></a></h1>
+<p>In this third video, Michael talks about the current status of the experiments on Majorana bound states, and explain how the Majoranas can be measured.</p>
+<p>Now that we know how to make Majorana systems in principle,
+lets look at the current experimental status.
+We ended the previous video with the picture of the Delft experiment
+where Majorana bound states were observed for the first time.
+Remember that Majoranas only appeared by tuning the system into a topological phase.</p>
+<figure class="align-default" id="c1">
+<img alt="gfx/gfx5/m5c1" src="gfx/gfx5/m5c1" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.1 </span><span class="caption-text">c1</span><a class="headerlink" href="#c1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In particular, they only appear at a finite magnetic field.
+In order to observe Majorana bound states, one needs to measure them.
+How do you actually measure Majoranas?
+It turns out that a standard current-voltage measurement is enough.
+Apply a voltage between a normal contact and the superconducting part
+– where the Majoranas are located -
+and measure the current that flows across a tunnel barrier.
+This so-called conductance spectroscopy is one of the standard techniques
+to actually find Majorana bound states.
+I want to spend a little bit of time to explain how this works.
+Let us first understand how current flows in normal-superconducting junctions in general.
+We have a normal metal in contact with a superconductor.
+We want current to flow from the normal metal to the superconductor.
+This should be possible, as the superconductor has no resistance.
+However, the transport processes turn out to be a little bit more involved.
+Let us first consider the case of a normal superconductor
+and forget about Majoranas for a while.</p>
+<figure class="align-default" id="c2">
+<img alt="gfx/gfx5/m5c2" src="gfx/gfx5/m5c2" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.2 </span><span class="caption-text">c2</span><a class="headerlink" href="#c2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>We are interested in current flowing from the normal metal to the superconductor.
+Current in the normal metal is carried by electrons.
+However, when an electron comes to the superconductor something funny happens.
+The superconductor has a quasiparticle gap, which doesn’t allow single electrons in the system.
+If an electron comes there, naïvely one would say the electron is just reflected,
+but this would result in no current through the superconductor.
+We now have to remember that current in a superconductor is carried by Cooper pairs,
+which are pairs of 2 electrons.</p>
+<p>So, when a single electron arrives at the superconductor
+it can actually go into the superconductor as a Cooper pair, but it needs a second electron.
+The second electron comes from the Fermi sea, leaving a hole in the normal metal.
+This hole then travels backwards in the metal.
+This process carries then a current,
+because the electron is negatively charged and travels to the right,
+the hole is positively charged and travels to the left.
+It is called Andreev reflection,
+and is the fundamental process of current flowing in a normal-superconducting junction.
+Conductance spectroscopy is usually done in the presence of a tunnel barrier in the junction.</p>
+<figure class="align-default" id="c3">
+<img alt="gfx/gfx5/m5c3" src="gfx/gfx5/m5c3" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.3 </span><span class="caption-text">c3</span><a class="headerlink" href="#c3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>If the bias voltage is small, then current is carried by Andreev reflection.
+In this case the electron has to go through the barrier and the hole has to come back,
+so there are two tunnelling events.
+Each process has a small tunnel probability T.
+The total probability of this process is thus proportional to T^2.
+For a bias voltage larger than the superconducting gap,
+the electron can just enter the superconductor as an electron.
+It thus has to go only once through the barrier,
+so the conductance is then just proportional to the tunnelling probability T.
+Since T is smaller than 1, this probability is higher than the previous case.
+Inside the gap the conductance is thus lower than outside the gap.
+Right at the gap there is a resonant behaviour,
+so that in total the conductance has this particular shape as shown on the slide.
+Note that one can directly read off the superconducting gap Delta from such a measurement.
+What happens if you have a Majorana bound state there?</p>
+<figure class="align-default" id="c4">
+<img alt="gfx/gfx5/m5c4" src="gfx/gfx5/m5c4" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.4 </span><span class="caption-text">c4</span><a class="headerlink" href="#c4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A Majorana bound state always sits at zero energy,
+and gives rise to a resonant process at zero bias voltage.
+In the conductance, we thus observe a peak at zero bias voltage.
+Since this is a resonant process, the conductance is actually quantized at the value of 2E^2/h
+– at least for zero temperature.
+At finite temperature, this peak can actually be lower, if thermal broadening exceeds the tunnel coupling.
+Common to both scenarios is that we expect to see a peak at zero bias voltage
+inside a superconducting gap, as a signature of Majorana bound states.
+This particular measurement was done 2012 in Delft.</p>
+<figure class="align-default" id="c5">
+<img alt="gfx/gfx5/m5c5" src="gfx/gfx5/m5c5" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.5 </span><span class="caption-text">c5</span><a class="headerlink" href="#c5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>I show here the conductance at zero magnetic field.
+We see the gap structure that I explained to you before, a supressed conductance inside the gap,
+and conductance peaks at the value of the induced superconducting gap.
+This was first a zero magnetic field, so no Majoranas.
+The measurements for finite magnetic field are all the additional curves that are shown here in this plot.
+The magnetic field increases as you go further to the top.
+We observe that as a magnetic field is increased, suddenly a peak at zero bias voltage is emerging.
+This is the signature of a Majorana bound state.
+Now, this was already six years ago.
+The signatures then were non-ideal: the peak is not quantized as we might have hoped for.
+Also, there are other effects that might induce a peak at zero bias, besides Majoranas.
+However, since 2012 experimentalists have worked very hard on establishing Majoranas more in system.</p>
+<figure class="align-default" id="c6">
+<img alt="gfx/gfx5/m5c6" src="gfx/gfx5/m5c6" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.6 </span><span class="caption-text">c6</span><a class="headerlink" href="#c6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>I want to highlight 2 milestones in this field.
+The first one was the experiment in 2016 in the group of Charlie Marcus in Copenhagen.
+They showed that the states in these nanowires have an energy that is exponentially close to zero
+as a function of the length of the nanowire.
+This shows the exponential protection of Majoranas experimentally.
+Another important milestone was again in Delft in the group of Leo Kouwenhoven.
+After optimizing the nanowires, they found a quantized conductance peak of the Majorana bound states.
+If you take all of these experiments together, there is actually very strong evidence
+that we have Majorana bound states in these nanowire systems.
+I told you in detail about the nanowire platform for Majorana bound states.</p>
+<figure class="align-default" id="c7">
+<img alt="gfx/gfx5/m5c7" src="gfx/gfx5/m5c7" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.7 </span><span class="caption-text">c7</span><a class="headerlink" href="#c7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Before I end, let me emphasize that there are more possible systems hosting them.
+I show one other particular example here.
+It was predicted that a chain of magnetic atoms on top of a superconductor would also host Majoranas.
+The group of Ali Yazdani built this system using a STM,
+and indeed found states localized at the ends of these magnetics chains.
+I also want to mention that actually Majorana particles do not only exist in superconducting systems
+as I showed you, but they can also appear in interacting systems,
+for example superfluid Helium or fraction quantum Hall effect.
+So far, nanowire-based systems remain the most technologically advanced.
+Experimentalists are working now hard on realizing the first topological qubit there.
+How such a qubit would work is the topic of the next MOOC videos.</p>
+<p>Main takeaways</p>
+<ul class="simple">
+<li><p>Majoranas only appear at a finite magnetic field.</p></li>
+<li><p>Measurement of Majoranas is done with a standard current-voltage measurement called conductance spectroscopy.</p></li>
+<li><p>The fundamental process of current flowing in a junction between a normal conductor and a superconductor is called Andreev reflection.</p></li>
+<li><p>Majorana Bound states always sit at zero energy and give rise to a resonant process at zero bias voltage.</p></li>
+</ul>
+<section id="practice-quiz-10">
+<h2><span class="section-number">22.1. </span>Practice Quiz 10<a class="headerlink" href="#practice-quiz-10" title="Permalink to this headline"></a></h2>
+<section id="question-1">
+<h3><span class="section-number">22.1.1. </span>Question 1<a class="headerlink" href="#question-1" title="Permalink to this headline"></a></h3>
+<p>0 points possible (ungraded)
+What is the antiparticle of each of the following particles? (Capitalize the first letter of each word in your answer)
+Electron
+unanswered<br />
+Majorana Fermion
+unanswered<br />
+Submit
+Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.</p>
+</section>
+<section id="question-2">
+<h3><span class="section-number">22.1.2. </span>Question 2<a class="headerlink" href="#question-2" title="Permalink to this headline"></a></h3>
+<p>0 points possible (ungraded)
+A Majorana bound state in a superconductor has …</p>
+<ul class="simple">
+<li><p>positive energy.</p></li>
+<li><p>zero energy.</p></li>
+<li><p>negative energy.</p></li>
+</ul>
+</section>
+<section id="question-3-condensed-matter-systems">
+<h3><span class="section-number">22.1.3. </span>Question 3: Condensed matter systems<a class="headerlink" href="#question-3-condensed-matter-systems" title="Permalink to this headline"></a></h3>
+<p>0 points possible (ungraded)
+There are a lot of people working on realizing Majorana’s in condensed matter systems.</p>
+<p>What do we refer to when we are talking about Majorana’s in condensed matter systems?</p>
+<ul class="simple">
+<li><p>Dirac fermions which, with an extra extension, are described as Majorana’s</p></li>
+<li><p>Majorana bound states</p></li>
+<li><p>Majorana fermions</p></li>
+</ul>
+</section>
+</section>
+<section id="quiz-10-topological-qubits">
+<h2><span class="section-number">22.2. </span>Quiz 10: Topological qubits<a class="headerlink" href="#quiz-10-topological-qubits" title="Permalink to this headline"></a></h2>
+<p>This quiz is closely related to the videos introducing topological qubits. We recommend you to watch this videos carefully because the questions are intended to check that you understood (parts of) the videos.</p>
+<section id="question-1-majorana-fermion">
+<h3><span class="section-number">22.2.1. </span>Question 1: Majorana fermion<a class="headerlink" href="#question-1-majorana-fermion" title="Permalink to this headline"></a></h3>
+<p>The Majorana fermion is special because:</p>
+<ul class="simple">
+<li><p><strong>It is a fermion which is its own antiparticle.</strong></p></li>
+<li><p>There are no errors on the fermion.</p></li>
+<li><p>The creation and annihilation operator sum to identity.</p></li>
+<li><p>It has spin 1.</p></li>
+</ul>
+<p>Explanation
+In contrast to Dirac fermions, which are particles who aren’t their own antiparticle, Majorana fermions are their own antiparticle.</p>
+</section>
+<section id="question-2-a-proof">
+<h3><span class="section-number">22.2.2. </span>Question 2: A proof<a class="headerlink" href="#question-2-a-proof" title="Permalink to this headline"></a></h3>
+<p>0 points possible (ungraded)
+In the video by Michael Wimmer it is told, that you can create the Majorana operators from a superposition of creation and annihilation operators. Do this for yourself and show yourself that indeed the corresponding operators are Majorana operators. Furthermore, show that the creation and annihilation operators for normal fermions are not Majorana operators.</p>
+<p>Did you do the proof for yourself?</p>
+<ul class="simple">
+<li><p><strong>Yes</strong></p></li>
+<li><p>No</p></li>
+</ul>
+<p>Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.</p>
+</section>
+<section id="question-3-a-superposition">
+<h3><span class="section-number">22.2.3. </span>Question 3: A superposition<a class="headerlink" href="#question-3-a-superposition" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>a spin up electron and a spin down electron.</p></li>
+<li><p><strong>an electron and a hole.</strong></p></li>
+<li><p>one hole and two holes.</p></li>
+<li><p>two electrons and two holes.</p></li>
+</ul>
+<p>Explanation
+A Majorana bound state should be its own antiparticle, which is only the case when its an equal superposition of electrons and holes. Also, it should act as a fermion, so it is an equal superposition of one electron and one hole.</p>
+</section>
+<section id="question-4-a-qubit">
+<h3><span class="section-number">22.2.4. </span>Question 4: A qubit<a class="headerlink" href="#question-4-a-qubit" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>a superposition of an electron and a hole.</p></li>
+<li><p><strong>two superpositions of an electron and a hole.</strong></p></li>
+<li><p>the charge of the electron.</p></li>
+</ul>
+<p>Explanation
+The buidling blocks in condensed matter are always fermions. Since a fermionic can be described by 2 Majorana bound states, we thus need two majorana bound states for 1 qubit.</p>
+</section>
+<section id="question-5-protected-from-the-environment">
+<h3><span class="section-number">22.2.5. </span>Question 5: Protected from the environment<a class="headerlink" href="#question-5-protected-from-the-environment" title="Permalink to this headline"></a></h3>
+<p>The Majorana bound states promise to be protected from any environmental perturbations and are therefore excellent candidates for qubits.
+How is a single Majorana bound state protected from the environment?</p>
+<ul class="simple">
+<li><p>A Majorana bound state has 0 energy which makes all its interactions with the environment equal to 0 as well.</p></li>
+<li><p><strong>The symmetry of the superconductor prohibits the Majorana bound state from moving.</strong></p></li>
+<li><p>Majorana bound states reside in the superconducting gap where no electrons are allowed. It therefore has nothing to interact with.</p></li>
+<li><p>If a Majorana bound state moves, a second bound state arises with the opposite energy. These are exactly the two states we can use as a qubit.
+unanswered</p></li>
+</ul>
+<p>Explanation
+If there is no state to fill the spot at the negative energy corresponding to the perturbation, the Majorana is not allowed to move due to the inherent symmetry of the superconductor.</p>
+</section>
+<section id="question-6-spatially-separating-a-pair">
+<h3><span class="section-number">22.2.6. </span>Question 6: Spatially separating a pair<a class="headerlink" href="#question-6-spatially-separating-a-pair" title="Permalink to this headline"></a></h3>
+<p>As we have seen, Majorana’s always come in pairs. This brings slight inconveniences regarding the topological protection discussed in the previous question. It turns out spatially separating the states solves these inconveniences.</p>
+<p>Why do we need to separate a Majorana pair spatially to achieve protection from the environment?</p>
+<ul class="simple">
+<li><p>They are now the only particles allowed in the band gap, so if they can’t interact with eachother, they will be protected.</p></li>
+<li><p><strong>If they can’t communicate to eachother, we can treat them as two single Majorana bound states, which are topologically protected by symmetry.</strong></p></li>
+<li><p>If they are too close, they will collapse into an electron.</p></li>
+<li><p>Spatially separating them will cause an electromagnetic field which counteracts any small environmental perturbations.</p></li>
+</ul>
+<p>Explanation
+If there is communication between Majorana’s, a perturbation will move them symmetrically in the superconductor away from 0. Then it is thus not a Majorana bound state anymore. If they are far away, they can communicate, and thus also not move symmetrically away from zero. They are thus again topologically protected.</p>
+</section>
+<section id="question-7-conventional-superconducters">
+<h3><span class="section-number">22.2.7. </span>Question 7: Conventional superconducters<a class="headerlink" href="#question-7-conventional-superconducters" title="Permalink to this headline"></a></h3>
+<p>It might look simple to find Majorana’s. We just need to find states at exactly 0 energy. However, it turns out to be quite nontrivial.</p>
+<p>Why can’t we find topological superconductors in conventional superconductors?</p>
+<ul class="simple">
+<li><p><strong>There are no states at 0 energy because of quantum mechanical zero point motion.</strong></p></li>
+<li><p>The magnetic flux supresses the superconducting gap, which causes an always present finite energy for any state.</p></li>
+<li><p>The Berry phase of pi shifts the states away from 0 energy.</p></li>
+<li><p>We never encounter the vortices needed to form states at 0 energy.</p></li>
+</ul>
+<p>Explanation
+The quantum mechanical zero point motion always moves the sates away from 0.</p>
+</section>
+<section id="question-8-p-wave-superconductor">
+<h3><span class="section-number">22.2.8. </span>Question 8: P-wave superconductor<a class="headerlink" href="#question-8-p-wave-superconductor" title="Permalink to this headline"></a></h3>
+<p>The solution is using a different type of superconductor, a P-wave superconductor. Unfortunately, these haven’t been found in nature, so we need to create them ourselves.</p>
+<p>What do we need to engineer a P-wave superconductor?
+Mark the four that correctly apply.</p>
+<ul class="simple">
+<li><p><strong>S-wave superconductor</strong></p></li>
+<li><p><strong>Finite magnetic field</strong></p></li>
+<li><p><strong>Semiconducting nanowires with spin-orbit interaction</strong></p></li>
+<li><p>Quantum mechanical zero point motion</p></li>
+<li><p><strong>2^N degenerate ground states</strong></p></li>
+<li><p>Appropriately tune the chemical potential</p></li>
+</ul>
+<p>Explanation
+We at first need a trivial superconductor under a finite magnetic field. Then, we also require semiconducting nanowires in the presence of spin-orbit coupling. Finally we need to tune the chemical potential such that it is within the Zeeman gap caused by the magnetic field.</p>
+</section>
+</section>
+<section id="question-9-entering-the-metal">
+<h2><span class="section-number">22.3. </span>Question 9: Entering the metal<a class="headerlink" href="#question-9-entering-the-metal" title="Permalink to this headline"></a></h2>
+<p>This question is about current flowing from a metal to a normal superconductor. Remember that in a metal we have electrons which are the charge carriers, where in superconductors we have Cooper pairs.</p>
+<p>Fill in the blanks: To enter the superconductor the electron needs . <span class="math notranslate nohighlight">\(1.\)</span> <span class="math notranslate nohighlight">\(2.\)</span> then travels ‘backwards’ in the metal. This is called <span class="math notranslate nohighlight">\(3.\)</span></p>
+<ul class="simple">
+<li><p><strong>1 = another electron, 2= A newly created hole, 3= Andreev reflection</strong></p></li>
+<li><p>1 = a Cooper pair, = Another electron, = a Dirac fermion</p></li>
+<li><p>1 = another electron, = Andreev reflection, = a Dirac fermion</p></li>
+<li><p>1= a hole, = Another electron, = superconductor current</p></li>
+</ul>
+<p>Explanation
+The electron can only enter the superconductor accompanied by another electron as a “Cooper pair”. This leaves a hole travelling backwards in the metal. The process is called Andreev refelection.</p>
+<section id="question-10-measurements">
+<h3><span class="section-number">22.3.1. </span>Question 10: Measurements<a class="headerlink" href="#question-10-measurements" title="Permalink to this headline"></a></h3>
+<p>A Majorana bound state always sits at zero energy and gives rise to a resonant process at zero bias voltage. What do you expect to see in measurements which could hint towards Majorana particles?</p>
+<ul class="simple">
+<li><p>If we measure the conductance at finite magnetic field, we see a small peak around zero bias voltage. This hints towards Majorana particles, as single electrons won’t have the energy to enter the superconductor.</p></li>
+<li><p>At finite magnetic field, the superposition of a hole and an electron has a peak in energy. We measure this by the conductance and we will see a peak when the bias voltage is approximately equal to the superconducting gap.
+correct</p></li>
+</ul>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_computers/topological_qubits"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../quantum_annealing/quantum_annealing_op.html" class="btn btn-neutral float-left" title="17.1. Quantum Annealing 0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="topological_qubits_op.html" class="btn btn-neutral float-right" title="22.4. Operations on Topological Quantum Qubits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

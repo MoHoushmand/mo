@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>66. GFX!!! &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(12)__Training_Probabilistic_Graphical_Models.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="72. Introduction" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html" />
+    <link rel="prev" title="63. Thinking backward: learning methods based on what the hardware can do" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#wittek">27. Wittek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">28. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">29. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">30. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">31. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">32. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">33. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">34. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">35. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">36. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">37. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">38. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">39. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">40. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">41. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">42. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">43. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#f">44. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">45. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">46. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">47. !!! Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">48. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">49. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">50. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">51. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">52. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">53. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">54. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">55. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">56. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">57. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">58. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">59. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">60. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">61. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">62. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">63. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">64. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">65. References</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">66. GFX!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#probabilistic-graphical-models">67. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#se-bildet-grafen-pa-lyx">68. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#boltzmann-machines">69. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#references">70. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#se-eksamen">71. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">72. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-fourier-transform">73. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#w">74. W</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#f">75. F</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">76. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">77. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">78. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">79. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">80. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">81. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">82. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">83. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">84. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">85. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">86. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#training">87. Training</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">66. </span>GFX!!!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(12)__Training_Probabilistic_Graphical_Models.ipynb" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>#W Tror ikke skal være her men i (11)</p>
+<p>1.6 An Inference Circuit ??</p>
+<p>SPEAKER: So normally, we would take a look at some learning algorithm, dissect it, and analyze the parts of it to see whether we can find a quantum algorithm that could accelerate that part of the learning protocol. But we can start thinking about learning problems the other way around. We can start from the hardware, looking at the particular quantum computer and what are the kind of things it can naturally do. So we are in this era where quantum computers are imperfect. So we have to factor in these imperfections. And if you look at the actual capabilities, we can develop completely new learning algorithms. So one of the first examples of this kind of thinking was a particular type of kernel for learning that can be executed on a shallow circuit gate model quantum computer. So in this case, we start with a very simple state preparation. And then the only thing we are going to do on this circuit is a Hadamard operation, which will allow us to do interference. So in the first two learning protocols that we looked at, we talked about how you can map a problem to an Ising model. In other words, we used a kind of a Hamiltonian encoding. In this case, we are going to use the amplitude encoding. So if we are given some vector in our data set, which we normalized to one, then we can encode it in the probability amplitudes in a superposition. And so then we have to be careful of how we actually prepare it. But for some data sets, this can be approximated well with shallow circuits. So given this encoding, we can start thinking about new kernels. So the kernel that we are going to calculate is exactly this one. It does not really have a classical analog. It’s easy to calculate classically as well, but it’s very natural to do on a gate model quantum computer. The shape of the kernel function is going to be something like this. So it’s not like the exponential decay of the kernel that you saw in the previous video. It’s slightly different, and it might be useful for certain kind of data sets. So the circuit that are going to need, assuming that our data set is only two dimensional, is the following. We have a data qubit. Every single data point is actually going to be included in this single qubit. So this superposition is going to be interesting. Then we have an ancilla qubit, which will be entangled with the test instance that we are trying to calculate the kernel and the data instances that we are given in a training set. Then we have an index qubit, which just keeps track of this index here. And then we have a class qubit, which will contain the label corresponding to a particular data instance. And the protocol is very, very simple. First, you have to prepare a state. The state looks a bit strange. So this is our amplitude encoded test instance, the one for which we’re going to calculate the kernel. And here, we have our amplitude encoding data instances. Here’s our index register. For bookkeeping, it’s also here. Note that these are tensor product states. So these things are not really entangled here. And then we have the ancilla qubit. So the zero state of the ancilla qubit is entangled with the test instance, and the excited state, the one state of the ancilla, is entangled with our data instances. And then to finish it off, we also have the class qubit corresponding to the data instances. So we can think of it as a big black box that does all this preparation. Plus, we have some normalization constant to take care at, you know, this superposition is actually a quantum state. And what we are doing next is nothing but this Hadamard operation here. So since the zero state of the ancilla is entangled with the test state and the excited state is entangled with the data instances, by applying the Hadamard gate again on ancilla, you interfere the data instances with your test instance. So the state that you are going to get will have this form. It will have the test instance plus the data instance. And the test instance minus the data instance is encoded in these vectors. So that’s the interference part. And now what we do is we do a measurement on the ancilla if you have a certain probability of success. So by success, I mean that the superposition collapses to this particular part. And based on this, if I forget the output one, then we just discard the result and run the circuit again. And if we get this result so we collapse it to this particular outcome, then we do a measurement in the class qubit as well. And the probability of getting certain results here, we create you exactly this kernel. So the point is that you repeatedly run this algorithm. Sometimes you succeed here. Then you measure here, and based on that, you can calculate this kernel, which could be interesting for a number of applications.</p>
+<p>• This protocol is attractive because the state preparation step does not include any entangling gates, and therefore it is easy to execute on contemporary quantum computers.</p>
+<p>– False</p>
+<p>• We are using amplitude encoding in this protocol. How many qubits would we need to encode four-dimensional vectors?</p>
+<p>– 2</p>
+<p>• If we had three data points, would a single-qubit index register still be sufficient?</p>
+<p>#F</p>
+<p>#W</p>
+<p>Chapter 7 Probalistic Graphical Model</p>
+<p>SPEAKER: Deep learning excels at supervised learning, and it has also been making rapid advances in other programs of machine learning where there are tasks that remain intrinsically difficult to tackle by this paradigm. So there are a couple of problems which are more natural fit to other models– for instance, probabilistic graphical models. So let’s talk about these because as you will see, these can be trained and used efficiently by using quantum resources. So our primary interest is Markov networks. But to get there, let’s go through a couple of things. So when we talk about machine learning, we can talk about discriminative problems where the task is this estimation of this conditional probability distribution. So for instance, given an image, tell me what’s in the image. So this is where deep learning is excellent. A different task is to learn the actual probability distribution of your data instances, the underlying manifold, or the joint probability distribution with some label. These are hard problems. And there are a couple of instances where you can do this by deep learning, but there are others where you cannot. And probabilistic graphical models are very good at capturing the sparsity structure between random variables. And that way, they model these probability distributions. There are two main types of probabilistic graphical models– one that the underlying graph is directed. These are called Bayesian networks. So for instance, if you have an observation that your grass is wet, and you have two other random variables which one says that sprinkler was on or off and the other one whether it was raining, then you can make backward inference and ask, hey, given that the grass is wet, what’s the probability that it was raining? These are the kind of queries that would be difficult to solve by a neural network. The other large class is called Markov networks, which are undirected. So there’s no implication for any kind of causation or direction of causation. So in this case, for instance, we can have three patients who have a certain kind of disease. And we don’t know how they infected each other, but we knew that there was some infection pattern going on. So again, we can analyze the network and make statements. So let’s take a look how this sparse modeling happens. So what we are after is conditional independence. So we call two random variables conditional independent given a third random variable if you can factorize this joint probability distribution of x and y given z into individual parts, so it could be just px given z and py given z. It doesn’t mean that they are independent, but conditioned on this third random variable, they are independent. So for instance, given four random variables, x1 is conditionally independent from x3 and x4 given x2. So this graph, this undirected graph, captures this independent structure or the remaining dependencies. And it turns out that what you can do is define energy functions on the clicks of this graph. So for instance, this is a K1, which means a complete graph on a single node, which is just the node itself, and say that if it takes the value 1, it has some certain energy. And if it takes the value 0, then it has a different energy. Then you can assign some energy value also to configurations over K2’s or two nodes that contain an edge or that are connected by an edge. And you see that there’s also a K2 here and another one here and another one here. So here, you have a total of four K2’s. And finally, you also have this triangle, which is a complete graph on three nodes. It’s a click of size 3. And your probability distribution factorizes over these clicks. So as long as you can define an energy function that could model your probability distribution over these clicks, you can describe the full joint probability distribution. And this should look familiar because this has a very similar structure to the thermal state, the state that we get after equilibration in an open quantum system or what we can approximate by the quantum approximate thermalization protocol. In fact, under very mild assumptions, there’s a correspondence between Markov networks and the probability distributions they can describe and Boltzmann distributions. And there are a couple of special cases. So when you think about it, the Ising model is a special case. So in this case, our binary– our random variables are all binary. And we only have K2’s. We don’t have K3’s. And a special case of Ising models and hence Markov networks are Boltzmann machines. Here, you partition your Ising spins into two categories– one I call the visible ones, and others I called hidden ones. And what you do is you define the same energy function as you would do for an ordinary Markov network. But you’re only interested in reproducing some probability distribution here on the visible nodes. So the hidden nodes that only there to help you mitigate correlations between these random variables. So you marginalize out over the hidden nodes to get a probability distribution that you are interested in. These are very powerful methods, and they’re expensive to train on classical computers. So this is one area where quantum computers can help.</p>
+<p>• A discriminative learning model essentially estimates a conditional probability distribution 𝑝(𝑦|𝑥) , whereas a generative model approximates the joint probability distribution 𝑝(𝑥,𝑦) . Why is it harder to learn a generative model?</p>
+<p>– The output of the learner has the same dimension as the input space, making it harder to create a concise representation.</p>
+<p>• What’s the largest clique size in the following Markov network?</p>
+<section class="tex2jax_ignore mathjax_ignore" id="gfx">
+<h1><span class="section-number">66. </span>GFX!!!<a class="headerlink" href="#gfx" title="Permalink to this headline"></a></h1>
+<p>– 3</p>
+<p>• What’s the maximum clique size in a restricted Boltzmann machine? The restricted Boltzmann machine is the one you see in the video, with no edges within the visible set or the hidden set of nodes.</p>
+<p>– 2
+#F</p>
+<p>The roots of probabilistic graphical models go back to the 1980s, with a strong connection to Bayesian statistics. The story resembles that of neural networks: they have been around for over three decades and they need massive computational power. However, unlike in the case of deep learning, the requirements for computational resources remain out of reach. These models require sampling a distribution, and very often it is the Boltzmann distribution. Since quantum computers can give samples from this distribution, we can hope that quantum hardware can enable these models the same way graphics processing units enabled deep learning.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="probabilistic-graphical-models">
+<h1><span class="section-number">67. </span>Probabilistic graphical models<a class="headerlink" href="#probabilistic-graphical-models" title="Permalink to this headline"></a></h1>
+<p>Probabilistic graphical models capture a compact representation of a joint probability distribution. For <span class="math notranslate nohighlight">\(\{X_1,\ldots,X_N\}\)</span> binary random variables, there are <span class="math notranslate nohighlight">\(2^N\)</span> assignments. In a graphical model, complexity is dealt with through graph theory. We get both an efficient treatment of uncertainty (probabilities) and of logical structure (independence constraints). The factorization of the probabilities happens along conditional independences among random variables. The definition is that <span class="math notranslate nohighlight">\(X\)</span> is conditionally independent of <span class="math notranslate nohighlight">\(Y\)</span> given <span class="math notranslate nohighlight">\(Z\)</span> <span class="math notranslate nohighlight">\((X\perp Y|Z)\)</span>, if <span class="math notranslate nohighlight">\(P(X=x, Y=y|Z=z) = P(X=x|Z=z)P(Y=y|Z=z)\)</span> for all <span class="math notranslate nohighlight">\(x\in X,y\in Y,z\in Z\)</span>.</p>
+<p>The graph can be directed – these are called Bayesian networks in general – or undirected, in the case of Markov networks (also known as Markov random fields) [<span class="xref myst">1</span>]. Graphical models are quintessentially generative: we explicitly model a probability distribution. Thus generating new samples is trivial and we can always introduce extra random variables to ensure certain properties. These models also take us a step closer to explainability, either by the use of the random variables directly for explanations (if your model is such) or by introducing explanatory random variables that correlate with the others.</p>
+<p>In a Markov random field, we can allow cycles in the graph and switch from local normalization (conditional probability distribution at each node) to global normalization of probabilities (i.e. a partition function). Examples include countless applications in computer vision, pattern recognition, artificial intelligence, but also Ising models that we have seen before: the factors are defined as degree-1 and degree-2 monomials of the random variables connected in the graph.</p>
+<p>The factorization is given as a sum <span class="math notranslate nohighlight">\(P(X_1, \ldots, X_N) = \frac{1}{Z}\exp(-\sum_k E[C_k])\)</span>, where <span class="math notranslate nohighlight">\(C_k\)</span> are are cliques of the graph, and <span class="math notranslate nohighlight">\(E[.]\)</span> is an energy defined over the cliques. If <span class="math notranslate nohighlight">\(P\)</span> is a Boltzmann distribution over <span class="math notranslate nohighlight">\(G\)</span>, all local Markov properties will hold. The other way also holds if <span class="math notranslate nohighlight">\(P\)</span> is a positive distribution.</p>
+<p>Let us define a Markov field of binary variables. This will be an Ising model over three nodes. This will contain three cliques of a single node (the on-site fields) and two cliques of two nodes: the edges that connect the nodes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">dimod</span>
+
+<span class="n">n_spins</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_spins</span><span class="p">)}</span>
+<span class="n">J</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span>
+     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">dimod</span><span class="o">.</span><span class="n">BinaryQuadraticModel</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">dimod</span><span class="o">.</span><span class="n">SPIN</span><span class="p">)</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">dimod</span><span class="o">.</span><span class="n">SimulatedAnnealingSampler</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">dimod</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">n_spins</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_spins</span><span class="p">)}</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;dimod&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The probability distribution of a configuration <span class="math notranslate nohighlight">\(P(X_1, \ldots, X_N) = \frac{1}{Z}\exp(-\sum_k E[C_k])\)</span> does not explicitly define the temperature, but it is implicitly there in the constants defining the Hamiltonian. So, for instance, we can scale it by a temperature <span class="math notranslate nohighlight">\(T=1\)</span>.</p>
+<p>Let’s now find out the probability <span class="math notranslate nohighlight">\(P(E)\)</span> of each energy level <span class="math notranslate nohighlight">\(E\)</span>. It can be expressed as a sum over all the states with energy <span class="math notranslate nohighlight">\(E\)</span>: <span class="math notranslate nohighlight">\(P(E)=\sum_{E(X_1,...,X_n)=E} P(X_1,...,X_N)=\sum_{E(X_1,...,X_n)=E} \frac{1}{Z}e^{-E/T}\)</span>. The term in the sum is constant (it doesn’t depend on <span class="math notranslate nohighlight">\(X_1,...,X_N\)</span> anymore). Therefore, we just need to count the number of states such that <span class="math notranslate nohighlight">\(E(X_1,...,X_n)=E\)</span>. This number is called the <em>degeneracy</em> of the energy level <span class="math notranslate nohighlight">\(E\)</span>, and often noted <span class="math notranslate nohighlight">\(g(E)\)</span>. Hence, we have <span class="math notranslate nohighlight">\(P(E)=\frac{1}{Z} g(E) e^{-E/T}\)</span>.</p>
+<p>Let’s extract this probability for the particular case of our model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">beta_range</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="n">temperature</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">temperature</span><span class="p">],</span> <span class="n">num_reads</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># dictionary that associate to each energy E the degeneracy g[E]</span>
+<span class="k">for</span> <span class="n">solution</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">aggregate</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">solution</span><span class="o">.</span><span class="n">energy</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">g</span><span class="p">[</span><span class="n">solution</span><span class="o">.</span><span class="n">energy</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">g</span><span class="p">[</span><span class="n">solution</span><span class="o">.</span><span class="n">energy</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Degeneracy&quot;</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+<span class="n">probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g</span><span class="p">[</span><span class="n">E</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">E</span><span class="o">/</span><span class="n">temperature</span><span class="p">)</span> <span class="k">for</span> <span class="n">E</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">probabilities</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">probabilities</span> <span class="o">/=</span> <span class="n">Z</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">E</span> <span class="k">for</span> <span class="n">E</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">keys</span><span class="p">()],</span> <span class="n">probabilities</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="nb">max</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Energy&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Degeneracy {-4.0: 1, -2.0: 3, 0.0: 1}
+</pre></div>
+</div>
+<img alt="../../_images/f746174a66251ec01ce7a9697c8f294e9d88a5f488c884ce455bf0e7f2cd3062.png" src="../../_images/f746174a66251ec01ce7a9697c8f294e9d88a5f488c884ce455bf0e7f2cd3062.png" />
+</div>
+</div>
+<p>Chapter 8 Optimization and Sampling PGMs</p>
+<p>SPEAKER: We introduced probabilistic graphical models and Markov networks in particular. And now let’s take a look at what other kind of queries that you can ask from these networks. The easiest query that you can run is called the most probable explanation. In this case, you have some evidence you observe some of your random variables. For instance, these two random variables would consist the set which belong to the evidence. For instance, this random variable takes the value one, and this takes the value zero. And then the question you are asking is that given this evidence, what’s the most likely configuration for the rest of the network? So you are looking for the arg max of the remaining variables in the graph. Then the second one, and somewhat more complicated one, is when you are, again, given the evidence– so you clamp some of these random variables. But you’re not interested in the configuration of all of the remaining random variables. So for instance, you are not interested in what this one is doing. So you’re are only interested in just some subset. So you marginalize over those variables that you’re not interested in, and you’re only looking for an optimal configuration over a subset that you are interested in. So think about things like having a probability distribution describing different symptoms and their correlations. And you have a patient, then you observe a couple of those symptoms but not others. Then you can run a query to find out all the other symptoms that you shouldn’t be looking for assuming that the person has a certain kind of disease. And the main thing here is that even if you train the network and it reproduces the probability distribution that you’re interested in, running these queries is still computationally very difficult. In fact, most of these problems are at least np hard. When you think about deep learning, once you train the network, running an inference step is relatively inexpensive. You can run it on a cell phone in many cases. Whereas here, even inference, using the model, remains hard. So if you can give some advantage by using quantum resources, that’s extremely valuable. So given that the problem is hard, there are a couple of ways of dealing with it. One of the ways of dealing with it is using approximate inference. So instead of solving it accurately, you run some sampling over possible outcomes. And then you have a digital computer, that’s deterministic. You actually fake randomness. And you fake sampling from a probability distribution by methods which are typically Markov chain Monte Carlo methods which have their own problems. They take time to burn in, and samples can be correlated. And first and foremost, they take a lot of computational time. But then remember that the probability distribution is just this. It factorizes a Boltzmann distribution. So if you can set an Ising model, then we can just use a quantum computer to do approximate inference for us. And you have options. So if you have a quantum annealer and you have a fair number of qubits and your task is to estimate the effective temperature of the system, so you can rescale these energy values according to what the hardware is actually executing. So there is this extra step that you have to do. Or you can run the gate model quantum approximate thermalization protocol, which needs an ancilla system, which means that you have to use a lot more qubits than what you are just actually interested in. And then on a smaller scale, well, that’s an option too. Whichever method you choose, you can accelerate some of these Markov networks at training and also during inference.</p>
+<p>• Markov chain Monte Carlo methods give you a way to sample a probability distribution. What are some of their common drawbacks?</p>
+<p>– (Answer Incorrect: True randomness requires purpose-built hardware in classical computers. There is vast literature on how to sample arbitrary distributions with these methods. If you pull out samples from the same chain one after the othr, there will be correlations between them. Submit)</p>
+<p>– (Answer Incorrect:True randomness requires purpose-built hardware in classical computers. Markov chains have a burn-in time before you can sample them.</p>
+<p>– They use pseudo random number generators on classical computers.</p>
+<p>– They can be computationally demanding.</p>
+<p>– Samples can be correlated.</p>
+<p>• If you have a problem that have two solutions with equal energy (implying equal probability), are they in general equally likely to reach with Monte Carlo methods? Remember that the configuration of random variables for the same energy level can be very different.</p>
+<p>– False</p>
+<p>• Are the samples going to be correlated if they come from a quantum device?</p>
+<p>– No</p>
+<p>In this case, the conditional independences are already encapsulated by the model: for instances, spins 0 and 2 do not interact. In general, it is hard to learn the structure of a probabilistic graphical given a set of observed correlations in the sample <span class="math notranslate nohighlight">\(S\)</span>. We can only rely on heuristics. The typical way of doing it is to define a scoring function and do some heuristic global optimization.</p>
+<p>Once we identified or defined the graph structure <span class="math notranslate nohighlight">\(G\)</span>, we have to learn the probabilities in the graph. We again rely on our sample and its correlations, and use a maximum likelihood or a maximum a posteriori estimate of the corresponding parameters <span class="math notranslate nohighlight">\(\theta_G\)</span> with the likelihood <span class="math notranslate nohighlight">\(P(S|\theta_G)\)</span>. This is again a hard problem.</p>
+<p>Applying the learned model means probabilistic inference to answer queries of the following types:</p>
+<ul class="simple">
+<li><p>Conditional probability: <span class="math notranslate nohighlight">\(P(Y|E=e)=\frac{P(Y,e)}{P(e)}\)</span>.</p></li>
+<li><p>Maximum a posteriori:
+<span class="math notranslate nohighlight">\(\mathrm{argmax}_y P(y|e)=\mathrm{argmax}_y \sum_Z P(y, Z|e)\)</span>.</p></li>
+</ul>
+<p>This problem is in #P. Contrast this to deep learning: once the neural network is trained, running a prediction on it is relatively cheap. In the case of probabilistic graphical models, inference remains computationally demanding even after training the model. Instead of solving the inference problem directly, we use approximate inference with sampling, which is primarily done with Monte Carlo methods on a classical computer. These have their own problems of slow burn-in time and correlated samples, and this is exactly the step we can replace by sampling on a quantum computer.</p>
+<p>For instance, let us do a maximum a posteriori inference on our Ising model. We clamp the first spin to -1 and run simulated annealing for the rest of them to find the optimal configuration. We modify the simulated annealing routine in <code class="docutils literal notranslate"><span class="pre">dimod</span></code> to account for the clamping.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dimod.reference.samplers.simulated_annealing</span> <span class="kn">import</span> <span class="n">greedy_coloring</span>
+
+<span class="n">clamped_spins</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">num_sweeps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">βs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span> <span class="o">-</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">i</span> <span class="o">/</span> <span class="p">(</span><span class="n">num_sweeps</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sweeps</span><span class="p">)]</span>
+
+<span class="c1"># Set up the adjacency matrix.</span>
+<span class="n">adj</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="nb">set</span><span class="p">()</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">h</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">n0</span><span class="p">,</span> <span class="n">n1</span> <span class="ow">in</span> <span class="n">J</span><span class="p">:</span>
+    <span class="n">adj</span><span class="p">[</span><span class="n">n0</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+    <span class="n">adj</span><span class="p">[</span><span class="n">n1</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n0</span><span class="p">)</span>
+<span class="c1"># Use a vertex coloring for the graph and update the nodes by color</span>
+<span class="n">__</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">greedy_coloring</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+
+<span class="n">spins</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">clamped_spins</span> <span class="k">else</span> <span class="n">clamped_spins</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+         <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">h</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">β</span> <span class="ow">in</span> <span class="n">βs</span><span class="p">:</span>
+    <span class="n">energy_diff_h</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">spins</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="n">h</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">h</span><span class="p">}</span>
+
+    <span class="c1"># for each color, do updates</span>
+    <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">color</span><span class="p">]</span>
+        <span class="n">energy_diff_J</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">v0</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+            <span class="n">ediff</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">v1</span> <span class="ow">in</span> <span class="n">adj</span><span class="p">[</span><span class="n">v0</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">J</span><span class="p">:</span>
+                    <span class="n">ediff</span> <span class="o">+=</span> <span class="n">spins</span><span class="p">[</span><span class="n">v0</span><span class="p">]</span> <span class="o">*</span> <span class="n">spins</span><span class="p">[</span><span class="n">v1</span><span class="p">]</span> <span class="o">*</span> <span class="n">J</span><span class="p">[(</span><span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">)]</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v0</span><span class="p">)</span> <span class="ow">in</span> <span class="n">J</span><span class="p">:</span>
+                    <span class="n">ediff</span> <span class="o">+=</span> <span class="n">spins</span><span class="p">[</span><span class="n">v0</span><span class="p">]</span> <span class="o">*</span> <span class="n">spins</span><span class="p">[</span><span class="n">v1</span><span class="p">]</span> <span class="o">*</span> <span class="n">J</span><span class="p">[(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v0</span><span class="p">)]</span>
+
+            <span class="n">energy_diff_J</span><span class="p">[</span><span class="n">v0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">ediff</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">clamped_spins</span><span class="p">,</span> <span class="n">nodes</span><span class="p">):</span>
+            <span class="n">logp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">logp</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">*</span> <span class="n">β</span> <span class="o">*</span> <span class="p">(</span><span class="n">energy_diff_h</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+</span> <span class="n">energy_diff_J</span><span class="p">[</span><span class="n">v</span><span class="p">]):</span>
+                <span class="n">spins</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Running this algorithm, we can obtain the most likely configuration:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spins</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: -1, 1: 1, 2: -1}
+</pre></div>
+</div>
+</div>
+</div>
+<p>#W
+???? Se igjen i lyx
+SPEAKER: Deep learning excels at supervised learning, and it has also been making rapid advances in other programs of machine learning where there are tasks that remain intrinsically difficult to tackle by this paradigm. So there are a couple of problems which are more natural fit to other models– for instance, probabilistic graphical models. So let’s talk about these because as you will see, these can be trained and used efficiently by using quantum resources. So our primary interest is Markov networks. But to get there, let’s go through a couple of things. So when we talk about machine learning, we can talk about discriminative problems where the task is this estimation of this conditional probability distribution. So for instance, given an image, tell me what’s in the image. So this is where deep learning is excellent. A different task is to learn the actual probability distribution of your data instances, the underlying manifold, or the joint probability distribution with some label. These are hard problems. And there are a couple of instances where you can do this by deep learning, but there are others where you cannot. And probabilistic graphical models are very good at capturing the sparsity structure between random variables. And that way, they model these probability distributions. There are two main types of probabilistic graphical models– one that the underlying graph is directed. These are called Bayesian networks. So for instance, if you have an observation that your grass is wet, and you have two other random variables which one says that sprinkler was on or off and the other one whether it was raining, then you can make backward inference and ask, hey, given that the grass is wet, what’s the probability that it was raining? These are the kind of queries that would be difficult to solve by a neural network. The other large class is called Markov networks, which are undirected. So there’s no implication for any kind of causation or direction of causation. So in this case, for instance, we can have three patients who have a certain kind of disease. And we don’t know how they infected each other, but we knew that there was some infection pattern going on. So again, we can analyze the network and make statements. So let’s take a look how this sparse modeling happens. So what we are after is conditional independence. So we call two random variables conditional independent given a third random variable if you can factorize this joint probability distribution of x and y given z into individual parts, so it could be just px given z and py given z. It doesn’t mean that they are independent, but conditioned on this third random variable, they are independent. So for instance, given four random variables, x1 is conditionally independent from x3 and x4 given x2. So this graph, this undirected graph, captures this independent structure or the remaining dependencies. And it turns out that what you can do is define energy functions on the clicks of this graph. So for instance, this is a K1, which means a complete graph on a single node, which is just the node itself, and say that if it takes the value 1, it has some certain energy. And if it takes the value 0, then it has a different energy. Then you can assign some energy value also to configurations over K2’s or two nodes that contain an edge or that are connected by an edge. And you see that there’s also a K2 here and another one here and another one here. So here, you have a total of four K2’s. And finally, you also have this triangle, which is a complete graph on three nodes. It’s a click of size 3. And your probability distribution factorizes over these clicks. So as long as you can define an energy function that could model your probability distribution over these clicks, you can describe the full joint probability distribution. And this should look familiar because this has a very similar structure to the thermal state, the state that we get after equilibration in an open quantum system or what we can approximate by the quantum approximate thermalization protocol. In fact, under very mild assumptions, there’s a correspondence between Markov networks and the probability distributions they can describe and Boltzmann distributions. And there are a couple of special cases. So when you think about it, the Ising model is a special case. So in this case, our binary– our random variables are all binary. And we only have K2’s. We don’t have K3’s. And a special case of Ising models and hence Markov networks are Boltzmann machines. Here, you partition your Ising spins into two categories– one I call the visible ones, and others I called hidden ones. And what you do is you define the same energy function as you would do for an ordinary Markov network. But you’re only interested in reproducing some probability distribution here on the visible nodes. So the hidden nodes that only there to help you mitigate correlations between these random variables. So you marginalize out over the hidden nodes to get a probability distribution that you are interested in. These are very powerful methods, and they’re expensive to train on classical computers. So this is one area where quantum computers can help.</p>
+<p>• A discriminative learning model essentially estimates a conditional probability distribution 𝑝(𝑦|𝑥) , whereas a generative model approximates the joint probability distribution 𝑝(𝑥,𝑦) . Why is it harder to learn a generative model?</p>
+<p>– The output of the learner has the same dimension as the input space, making it harder to create a concise representation.</p>
+<p>• What’s the largest clique size in the following Markov network?</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="se-bildet-grafen-pa-lyx">
+<h1><span class="section-number">68. </span>Se bildet grafen på lyx<a class="headerlink" href="#se-bildet-grafen-pa-lyx" title="Permalink to this headline"></a></h1>
+<p>– 3</p>
+<p>• What’s the maximum clique size in a restricted Boltzmann machine? The restricted Boltzmann machine is the one you see in the video, with no edges within the visible set or the hidden set of nodes.</p>
+<p>– 2</p>
+<p>#F</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="boltzmann-machines">
+<h1><span class="section-number">69. </span>Boltzmann machines<a class="headerlink" href="#boltzmann-machines" title="Permalink to this headline"></a></h1>
+<p>A Boltzmann machine generates samples from a probability distributition <span class="math notranslate nohighlight">\(P(\textbf{v})\)</span> inferred from the data, where <span class="math notranslate nohighlight">\(\textbf{v} \in \{0,1\}^n\)</span>. The assumption is that this distribution lies on a latent space that can be paramerized by a set of hidden variables <span class="math notranslate nohighlight">\(\textbf{h} \in \{0,1\}^n\)</span>, such that <span class="math notranslate nohighlight">\(P(\textbf{v})=\sum_h P(\textbf{v}|\textbf{h})P(\textbf{h})\)</span>. The joint probability distribution is modeled as a Gibbs distribution with the energy defined by an Ising Model: <span class="math notranslate nohighlight">\(P(\textbf{v}, \textbf{h})=\frac{1}{Z} e^{-\beta E(\textbf{h},\textbf{v})}\)</span> and <span class="math notranslate nohighlight">\(E(\textbf{h},\textbf{v})=-\sum_{i,j} W_{ij} h_i v_j\)</span>. It can then be shown that <span class="math notranslate nohighlight">\(p(\textbf{h}|\textbf{v})=\sigma(W \cdot \textbf{v})\)</span> and <span class="math notranslate nohighlight">\(p(\textbf{v}|\textbf{h})=\sigma(W \cdot \textbf{h})\)</span>, where <span class="math notranslate nohighlight">\(\sigma\)</span> is the sigmoid function defined by <span class="math notranslate nohighlight">\(\sigma(x)=\frac{1}{1+e^{-x}}\)</span>.</p>
+<p>To train a Boltzmann machine, we look for the weights <span class="math notranslate nohighlight">\(W\)</span> that maximizes the log-likelihood <span class="math notranslate nohighlight">\(L=\sum_{\textbf{v} \in S} \log(p(\textbf{v}|W))\)</span>, where <span class="math notranslate nohighlight">\(S\)</span> is the training set. This function can be optimized using regular gradient ascent: <span class="math notranslate nohighlight">\(W_{ij}^{(t+1)}=W_{ij}^{(t)} + \eta \frac{\partial L}{\partial W_{ij}}\)</span>. Computing the gradient <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial W_{ij}}\)</span> is the hard part. Indeed, we can show that</p>
+<p>$<span class="math notranslate nohighlight">\(\frac{\partial L}{\partial W_{ij}}=\frac{1}{|S|} \sum_{\textbf{v} \in S} \mathbb{E}_{\textbf{h} \sim P(\textbf{h}|\textbf{v})}[h_i v_j] - \mathbb{E}_{(\textbf{h},\textbf{v}) \sim P(\textbf{h},\textbf{v})}[h_i v_j]\)</span>$.</p>
+<p>The first expectation value is easy to compute: it is equal to <span class="math notranslate nohighlight">\(\sigma \left( \sum_j W_{ij} v_j \right) v_j\)</span>. We only need to sum those expectation values over the dataset. This is called the positive phase, after its positive sign in the gradient.</p>
+<p>The second expectation value cannot be simplified as easily, since it is taken over all possible configuration <span class="math notranslate nohighlight">\(\textbf{v}\)</span> and <span class="math notranslate nohighlight">\(\textbf{h}\)</span>. It would take an exponential amount of time to compute it exactly. We can use the exact same quantum sampling method as above to outsource this part of the calculation to a quantum processing unit and train Boltzmann machines.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1><span class="section-number">70. </span>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h1>
+<p>[1] Koller, D., Friedman, N., Getoor, L., Taskar, B. (2007). <a class="reference external" href="https://ai.stanford.edu/~koller/Papers/Koller+al:SRL07.pdf">Graphical Models in a Nutshell</a>. In <em>Introduction to Statistical Relational Learning</em>, MIT Press. <a id='1'></a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="se-eksamen">
+<h1><span class="section-number">71. </span>SE EKSAMEN!!!<a class="headerlink" href="#se-eksamen" title="Permalink to this headline"></a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_machine_learning/qml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html" class="btn btn-neutral float-left" title="63. Thinking backward: learning methods based on what the hardware can do" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html" class="btn btn-neutral float-right" title="72. Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

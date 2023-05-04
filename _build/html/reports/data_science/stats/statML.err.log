@@ -1,44 +1,68 @@
 Traceback (most recent call last):
-  File "/Users/mo/micromamba/envs/moenv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/mo/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/mo/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/mo/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/Users/mo/micromamba/envs/moenv/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/Users/mo/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/mo/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/mo/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# import libraries
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+from statsmodels import robust
 import scipy.stats as stats
+## create some data
+
+N = 40
+data = np.random.randn(N)
+data[data<-1] = data[data<-1]+2
+data[data>2] = data[data>2]**2; # try to force a few outliers
+data = data*200 + 50  # change the scale for comparison with z
+
+# convert to z
+dataZ = (data-np.mean(data)) / np.std(data)
+
+
+#### specify the z-score threshold
+zscorethresh = 3
+
+
+
+# plot the data
+fig,ax = plt.subplots(2,1,figsize=(8,6))
+
+ax[0].plot(data,'k^',markerfacecolor='w',markersize=12)
+ax[0].set_xticks([])
+ax[0].set_xlabel('Data index')
+ax[0].set_ylabel('Orig. scale')
+
+# then plot the zscores
+ax[1].plot(dataZ,'k^',markerfacecolor='w',markersize=12)
+ax[1].plot([0,N],[zscorethresh,zscorethresh],'r--')
+ax[1].set_xlabel('Data index')
+ax[1].set_ylabel('Z distance')
+plt.show()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 2[0m
-[1;32m      1[0m [38;5;66;03m# import libraries[39;00m
-[0;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+Cell [0;32mIn[67], line 3[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[0;32m----> 3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mstatsmodels[39;00m [38;5;28;01mimport[39;00m robust
 [1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstats[39;00m [38;5;28;01mas[39;00m [38;5;21;01mstats[39;00m
+[1;32m      5[0m [38;5;66;03m## create some data[39;00m
 
-File [0;32m~/micromamba/envs/moenv/lib/python3.9/site-packages/matplotlib/__init__.py:126[0m
-[1;32m    123[0m [38;5;28;01mimport[39;00m [38;5;21;01mtempfile[39;00m
-[1;32m    124[0m [38;5;28;01mimport[39;00m [38;5;21;01mwarnings[39;00m
-[0;32m--> 126[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m
-[1;32m    127[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpackaging[39;00m[38;5;21;01m.[39;00m[38;5;21;01mversion[39;00m [38;5;28;01mimport[39;00m parse [38;5;28;01mas[39;00m parse_version
-[1;32m    129[0m [38;5;66;03m# cbook must import matplotlib only within function[39;00m
-[1;32m    130[0m [38;5;66;03m# definitions, so it is safe to import from it here.[39;00m
-
-[0;31mModuleNotFoundError[0m: No module named 'numpy'
-ModuleNotFoundError: No module named 'numpy'
+[0;31mModuleNotFoundError[0m: No module named 'statsmodels'
+ModuleNotFoundError: No module named 'statsmodels'
 
