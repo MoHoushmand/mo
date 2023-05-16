@@ -12,7 +12,6 @@ next to a missing carbon atom, a vacancy. At this vacancy, some electrons are tr
 ![Quantum Ne](../qc_img/gfx3/m3p2.png)
 ```
 
-
 These NV centers have several unique features that make them promising for quantum information systems. First, the electron spin has a very long coherence time, even up to seconds; which means that we can control it as a good qubit. Quite remarkably, this qubit can even work in a large range of temperatures, all the way up to room temperature.
 Second, this electron spin is not the only qubit we have in the system. It couples to nuclear spins in the environment, which gives us extra qubits to store and process quantum information. Additionally, the electron spin also interacts with photons, elementary particles of light. This makes it possible to send quantum states far away and to connect and entangle NV centers over a distance. With such a hybrid system of photons and spins we can create quantum networks. In a quantum network we have nodes consisting of multiple spins or qubits that can store and process quantum states and we can then link these together using optics into a network.
 
@@ -21,7 +20,6 @@ Second, this electron spin is not the only qubit we have in the system. It coupl
 
 ![Quantum Ne](../qc_img/gfx3/m3p3.png)
 ```
-
 
 
 This is a very exciting approach. In this way we can make a large quantum computer by just connecting many copies of small and simple quantum processors together. This avoids the challenges of making a single chip of ever-increasing complexity. Because these optical connections can also go over long distances, we can use these networks for quantum cryptography as well which will enable fundamentally secure communication.
@@ -123,8 +121,7 @@ And you can also see a lot of optics and lasers to measure the spin and microwav
 ![Quantum Ne](../qc_img/gfx3/m3p12.png)
 ```
 
-That is because we have to detect single photons coming from the NV centers. We will leave this running for now and in the next lecture, we will learn how we can control multiple qubits by using the NV center to control nuclear spins in the environment
-and also how we can use photons to link up NV centers into a quantum network. Thank you for joining us and have a great day!
+That is because we have to detect single photons coming from the NV centers. In the following we will learn how we can control multiple qubits by using the NV center to control nuclear spins in the environment and also how we can use photons to link up NV centers into a quantum network. 
 
 <p> Main takeways </p>
 
@@ -144,7 +141,6 @@ and also how we can use photons to link up NV centers into a quantum network. Th
 
 ### Question 1
 
-0 points possible (ungraded)
 Shown in the picture above is a Nitrogen-vacancy center diamond that contains a qubit. Why is the diamond made in the shape of the half-sphere?
 
 - **So that it acts as a lens: its purpose is to counter the effect of total internal reflection and allow more photons to escape the qubit during readout.**
@@ -187,6 +183,7 @@ Which of the following is not true regarding NV centers?
 - The electron "up" and "down" state have different excitation wavelengths, which is used for readout.
 
 <p> Explanation </p>
+
 Interaction of electron (rather than nuclear) spins with photons allows realization of quantum networks. As pointed out in the lecture, NV center qubits are even able to function at room temperature. Also, the solid immersion lenses (with highly refractive material) improve photon collection by focusing the photons on detectors with high magnification. The readout laser only excites the spin-up state
 
 ### Question 2: Qubits in NV centers
@@ -201,10 +198,11 @@ Which particles can be used as qubits in NV centers, in practice?
 
 - **The electron, the carbon-13 nuclei and the nitrogen atom.**
 
-<p> Hint (1 of 2):</p> Look carefully at Tim's first slide for the particles which possess spin.
+<p> Hint (1 of 2):</p> Look carefully at the first slide for the particles which possess spin.
 <p> Hint (2 of 2):</p> Each particle with spin can be used as a qubit!
 
 <p> Explanation </p>
+
 Although the main focus is currently on using the electron spin and nuclear spins of the carbon-13 atoms, also the nitrogen atoms possess a nuclear spin that can be used as qubit in practice.
 
 ### Question 3: Electron as data qubit
@@ -220,6 +218,7 @@ We typically use the electron qubit as a bus to control and read out the nuclear
 - The electron can easily tunnel inside the diamond when a small current would be present. It would be replaced with a new electron which doesn't carry the same information.
 
 <p> Explanation </p>
+
 The readout of the nuclear spins has to go through the electron since its impractical to readout nuclei directly. During such a readout the electron can't preserve a superposition, and is therefore not suited to store data. Also, the absence of data allows for signifcant simplifications in the algorithm.
 
 ---

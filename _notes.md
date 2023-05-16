@@ -220,3 +220,34 @@ Get started
 <img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl">
 
 ---
+
+s a firm believer in social responsibility, a portion of this website will dedicate to my charity work and ongoing commitment to helping those in need. Join me in my efforts to create positive change and empower others to reach their full potential.
+
+I am also a strong believer in the power of interdisciplinary collaboration and the potential of emerging technologies to create positive changes. Here, you will find a showcase of some of my Artwork, highlighting my love for `Art & Science`. How I approach, start and finnish off a creative processes end-to-end, and discover how I made some of the pieces that have been a significant part of my personal and professional growth, and that I personally have found captivating. <br>
+
+Especially I will emphesise my passion for Quantum Computing, Quantum Machine Learning and the Hardware of Quantum Computers.
+
+Fascinated by the intersection between science and art, turbulence flow and quantum mechanics, led me into deep trouble by digging into both. In the following I will share how I got drawn into the world of Quantum Computers, from fascination of High Performance materials and High Performance Computation, that eventually led me into the quantum world and ambitiously hairy obsessed to build a quantum cmputers. With like any other subjects, building a Quantum Computer requires solid knowledge and extreme efforts which eventually led me into the Hardware of Quantum Computers and Quantum Machine Learning. But first how I was mesmerized by the beauty of the Navier-Stokes equations and the art of turbulence flow that later on led me into the quantum world.
+
+1. The artistic part of it in how to prepare acrylic colours with certain viscosities preparing them ready to blend into unique pieces of art.
+2. Secondly the mathematics behind, and the accociated numerical techniques - *Computational Fluid Dynamics* (`CFD`) and *Direct Numerical Simulation* (`DNS`),
+
+Both computational techniques in numerical physics exclusively dedicated to soutions of the Navier-Stokes equations, either solving them approximately with CFD or directly with DNS - the holy grail of the governing equations of motions explicitly dedicated to turbulens flows and an extremely reserved and even more expensive technique that only a few in the world have had the resources to simulate).
+
+Feel free to browse, learn, and connect with me as you explore the various facets of my life and work. Whether you are drawn to my artistic creations or intrigued by my technical expertise, I invite you to share in my journey and passion for learning, innovation, and positive impact.
+As an ardent believer in social responsibility, a significant portion of this website is dedicated to my charitable work and ongoing commitment to assist those in need. I invite you to join me in my efforts to effect positive change and empower others to reach their full potential.
+
+I hold a strong conviction in the power of interdisciplinary collaboration and the potential of emerging technologies to instigate positive transformations. Here, you will find a showcase of my artwork, emphasizing my passion for the intersection of Art & Science. I invite you to explore my creative process from inception to completion, and discover how I created pieces that have been instrumental in my personal and professional growth, and which I find especially captivating. Particularly, I will emphasize my enthusiasm for Art (FLuid Art), Fluid Mechanics (Turbulence flow), Data Science, Quantum Computing, Quantum Machine Learning, and the Hardware of Quantum Computers.
+
+I am deeply fascinated by the intersection of science and art, turbulence flow and quantum mechanics, a curiosity that has led me on a journey of extensive exploration. I will share how I was drawn into the realm of Quantum Computers, starting with my fascination for High-Performance materials and High-Performance Computation with Computational Fluid Dynamics (CFD) Simulations of Turbulence Flows from macroscopic certainty to where classical physics breaks with continuum hypothesis to microscopic uncertainty and the quantum world. Like any ambitious endeavor, building a Quantum Computer requires solid knowledge and extreme effort, which eventually led me into the hardware of Quantum Computers and Quantum Machine Learning. But first, let me share how I was captivated by the beauty of the Navier-Stokes equations and the art of turbulence flow, which later guided me into the quantum domain.
+
+1. I will delve into the artistic aspects of preparing acrylic colors with specific viscosities, ready to blend into unique pieces of art.
+2. I will also discuss the underlying mathematics and associated numerical techniques - Computational Fluid Dynamics (CFD) and Direct Numerical Simulation (DNS). Both these computational techniques in numerical physics are exclusively dedicated to the solutions of the Navier-Stokes equations. They either solve them approximately with CFD or directly with DNS - the holy grail of the governing equations of motion explicitly dedicated to turbulent flows. DNS is an exceptionally intricate and expensive technique, with only a handful of people worldwide having the priviliged resources to simulate it.
+3. Quantum Computers are the next generation of computers that will revolutionize the world as we know it. I will share my journey into the quantum realm, starting with the basics of quantum mechanics and quantum information, and eventually leading to the hardware of quantum computers and quantum machine learning.
+
+Feel free to browse, learn, and connect with me as you explore the various facets of my life and work. Whether you're captivated by my artistic creations or intrigued by my technical expertise, I warmly invite you to embark on this journey with me
+
+---
+
+A
+---

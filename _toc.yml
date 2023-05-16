@@ -14,7 +14,7 @@ parts:
   - caption: About
     #numbered: True  # Only applies to chapters in Part 1.
     chapters:  
-    - file: intro
+    #- file: intro
     - file: about/about
       sections:
       - file: about/CV/CV

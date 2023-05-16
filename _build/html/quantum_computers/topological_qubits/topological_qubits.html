@@ -14,10 +14,6 @@
       <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
     <link rel="canonical" href="https://mohoushmand.com/quantum_computers/topological_qubits/topological_qubits.html" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
@@ -74,7 +70,6 @@ const thebe_selector_output = ".output, .cell_output"
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Art</span></p>
@@ -114,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">18. Topological Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#introduction-to-topological-qubits">19. Introduction to Topological Qubits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#majorana-experiments">22. Majorana experiments</a><ul>
@@ -278,16 +273,16 @@ const thebe_selector_output = ".output, .cell_output"
   <section class="tex2jax_ignore mathjax_ignore" id="topological-qubits">
 <h1><span class="section-number">18. </span>Topological Qubits<a class="headerlink" href="#topological-qubits" title="Permalink to this headline"></a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-module-5">
-<h1><span class="section-number">19. </span>Introduction to Module 5<a class="headerlink" href="#introduction-to-module-5" title="Permalink to this headline"></a></h1>
-<p>In the previous modules we have discussed qubits realized with electron spins and superconducting circuits. Despite the differences in their hardware implementation, these platforms have something very important in common. The qubits are imperfect and subjected to noise. For example, fluctuations in magnetic fields can perturb an electron spin such that its phase is lost. This is why we need quantum error correction.</p>
-<p>This week we will introduce you a completely new kind of qubit, which can potentially alleviate the need of quantum error correction in a future quantum computer. This qubit is based on a quasi-particle called Majorana fermion, which is halfway between being an electron and not being an electron. When you fuse two Majoranas together you end up having one or no electrons. The fact the that the information (having or not having an electron) is delocalized in two Majoranas far from each other, makes harder for the environment to perturb its state.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-topological-qubits">
+<h1><span class="section-number">19. </span>Introduction to Topological Qubits<a class="headerlink" href="#introduction-to-topological-qubits" title="Permalink to this headline"></a></h1>
+<p>Previously we have discussed qubits realized with electron spins and superconducting circuits. Despite the differences in their hardware implementation, these platforms have something very important in common. The qubits are imperfect and subjected to noise. For example, fluctuations in magnetic fields can perturb an electron spin such that its phase is lost. This is why we need quantum error correction.</p>
+<p>Now we will introduce you a completely new kind of qubit, which can potentially alleviate the need of quantum error correction in a future quantum computer. This qubit is based on a quasi-particle called Majorana fermion, which is halfway between being an electron and not being an electron. When you fuse two Majoranas together you end up having one or no electrons. The fact the that the information (having or not having an electron) is delocalized in two Majoranas far from each other, makes harder for the environment to perturb its state.</p>
 <p>The promise of a qubit much less sensitive to noise than other implementations was elusive until just a few years ago, when this particle was made a reality by physicist and engineers in the Netherlands, get to know a bit more here about what they are.</p>
 <p>In the first three videos, Michael Wimmer will introduce the concept of topology and Majorana bound states. Attila Geresdi will then explain, in an other three videos, how we can realize quantum gates and in which kind of physical system we can find this new type of quasi-particles.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="majorana-fermions-and-where-to-find-them">
 <h1><span class="section-number">20. </span>Majorana fermions and where to find them<a class="headerlink" href="#majorana-fermions-and-where-to-find-them" title="Permalink to this headline"></a></h1>
-<p>In the next three videos Michael Wimmer will introduce you to topological qubits. To understand what a topological qubit is and how it works, he will start by explaining the concept of the so called Majorana fermions or Majorana bound states.
+<p>Now we will introduce you to topological qubits. To understand what a topological qubit is and how it works, we will start by explaining the concept of the so called Majorana fermions or Majorana bound states.
 Please note the following error at <span class="math notranslate nohighlight">\(t=3: 00\)</span>, the correct operators should read:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -297,7 +292,7 @@ Please note the following error at <span class="math notranslate nohighlight">\(
 \end{aligned}
 \end{split}\]</div>
 <p>V</p>
-<p>In the next few videos we want to introduce you to topological quantum computing.
+<p>In the next we want to introduce topological quantum computing.
 To understand what topological quantum computing is,
 we first need to introduce you to the basic building blocks
 which are the so called Majorana fermions or Majorana bound states.
@@ -426,12 +421,11 @@ It is thus very natural to look for Majorana states in superconductors.</p>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="majorana-bound-states-in-superconductors">
 <h1><span class="section-number">21. </span>Majorana bound states in superconductors<a class="headerlink" href="#majorana-bound-states-in-superconductors" title="Permalink to this headline"></a></h1>
-<p>Majorana bound states can appear quite naturally in superconductors. But, how can we find the Marjoranas? Michael will explain more about that in this video.</p>
+<p>Majorana bound states can appear quite naturally in superconductors. But, how can we find the Marjoranas? We will explain more about that</p>
 <p>V</p>
 <p>Let us now look a little bit more in detail,
 how we can find Majorana bound states in superconductors.
-I showed you in the last video
-that Majorana bound states can appear quite naturally there.
+We showed that Majorana bound states can appear quite naturally there.
 The blurring of electron and hole can be described mathematically as a so-called particle-hole symmetry.
 For a particle at energy E you must have an antiparticle at energy minus E.</p>
 <figure class="align-default" id="b1">
@@ -492,7 +486,7 @@ In a topological superconductors we thus generally have a gap,
 and at 0 energy a 2^N fold degenerate ground state.
 This will be important in a later stage, as this allows for topologically protected operations
 on Majorana bound states.</p>
-<p>This will be covered in a separate lecture.
+<p>This will be covered in a separate section.
 In reality, we cannot separate the Majorana bound states infinitely far from each other.
 Hence there is a small overlap left over.
 But this overlap is then exponentially small,
@@ -560,10 +554,10 @@ and this is what in practice the experimental system looks like.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="majorana-experiments">
 <h1><span class="section-number">22. </span>Majorana experiments<a class="headerlink" href="#majorana-experiments" title="Permalink to this headline"></a></h1>
-<p>In this third video, Michael talks about the current status of the experiments on Majorana bound states, and explain how the Majoranas can be measured.</p>
+<p>Now let’s talk about the current status of the experiments on Majorana bound states, and explain how the Majoranas can be measured.</p>
 <p>Now that we know how to make Majorana systems in principle,
 lets look at the current experimental status.
-We ended the previous video with the picture of the Delft experiment
+We ended the previously with the picture of the Delft experiment
 where Majorana bound states were observed for the first time.
 Remember that Majoranas only appeared by tuning the system into a topological phase.</p>
 <figure class="align-default" id="c1">
@@ -655,8 +649,8 @@ This particular measurement was done 2012 in Delft.</p>
 <p><span class="caption-number">Fig. 22.5 </span><span class="caption-text">c5</span><a class="headerlink" href="#c5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>I show here the conductance at zero magnetic field.
-We see the gap structure that I explained to you before, a supressed conductance inside the gap,
+<p>We show here the conductance at zero magnetic field.
+Notice the gap structure that I explained to you before, a supressed conductance inside the gap,
 and conductance peaks at the value of the induced superconducting gap.
 This was first a zero magnetic field, so no Majoranas.
 The measurements for finite magnetic field are all the additional curves that are shown here in this plot.
@@ -673,7 +667,7 @@ However, since 2012 experimentalists have worked very hard on establishing Major
 <p><span class="caption-number">Fig. 22.6 </span><span class="caption-text">c6</span><a class="headerlink" href="#c6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>I want to highlight 2 milestones in this field.
+<p>Let us highlight 2 milestones in this field.
 The first one was the experiment in 2016 in the group of Charlie Marcus in Copenhagen.
 They showed that the states in these nanowires have an energy that is exponentially close to zero
 as a function of the length of the nanowire.
@@ -682,20 +676,19 @@ Another important milestone was again in Delft in the group of Leo Kouwenhoven.
 After optimizing the nanowires, they found a quantized conductance peak of the Majorana bound states.
 If you take all of these experiments together, there is actually very strong evidence
 that we have Majorana bound states in these nanowire systems.
-I told you in detail about the nanowire platform for Majorana bound states.</p>
+We covered in detail about the nanowire platform for Majorana bound states.</p>
 <figure class="align-default" id="c7">
 <img alt="gfx/gfx5/m5c7" src="gfx/gfx5/m5c7" />
 <figcaption>
 <p><span class="caption-number">Fig. 22.7 </span><span class="caption-text">c7</span><a class="headerlink" href="#c7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>Before I end, let me emphasize that there are more possible systems hosting them.
-I show one other particular example here.
+<p>To wrap it up let’s emphasize that there are more possible systems hosting them and show one other particular example here.
 It was predicted that a chain of magnetic atoms on top of a superconductor would also host Majoranas.
 The group of Ali Yazdani built this system using a STM,
 and indeed found states localized at the ends of these magnetics chains.
-I also want to mention that actually Majorana particles do not only exist in superconducting systems
-as I showed you, but they can also appear in interacting systems,
+We also want to mention that actually Majorana particles do not only exist in superconducting systems
+but they can also appear in interacting systems,
 for example superfluid Helium or fraction quantum Hall effect.
 So far, nanowire-based systems remain the most technologically advanced.
 Experimentalists are working now hard on realizing the first topological qubit there.
@@ -711,19 +704,14 @@ How such a qubit would work is the topic of the next MOOC videos.</p>
 <h2><span class="section-number">22.1. </span>Practice Quiz 10<a class="headerlink" href="#practice-quiz-10" title="Permalink to this headline"></a></h2>
 <section id="question-1">
 <h3><span class="section-number">22.1.1. </span>Question 1<a class="headerlink" href="#question-1" title="Permalink to this headline"></a></h3>
-<p>0 points possible (ungraded)
-What is the antiparticle of each of the following particles? (Capitalize the first letter of each word in your answer)
+<p>What is the antiparticle of each of the following particles? (Capitalize the first letter of each word in your answer)
 Electron
 unanswered<br />
-Majorana Fermion
-unanswered<br />
-Submit
-Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.</p>
+Majorana Fermion</p>
 </section>
 <section id="question-2">
 <h3><span class="section-number">22.1.2. </span>Question 2<a class="headerlink" href="#question-2" title="Permalink to this headline"></a></h3>
-<p>0 points possible (ungraded)
-A Majorana bound state in a superconductor has …</p>
+<p>A Majorana bound state in a superconductor has …</p>
 <ul class="simple">
 <li><p>positive energy.</p></li>
 <li><p>zero energy.</p></li>
@@ -732,8 +720,7 @@ A Majorana bound state in a superconductor has …</p>
 </section>
 <section id="question-3-condensed-matter-systems">
 <h3><span class="section-number">22.1.3. </span>Question 3: Condensed matter systems<a class="headerlink" href="#question-3-condensed-matter-systems" title="Permalink to this headline"></a></h3>
-<p>0 points possible (ungraded)
-There are a lot of people working on realizing Majorana’s in condensed matter systems.</p>
+<p>There are a lot of people working on realizing Majorana’s in condensed matter systems.</p>
 <p>What do we refer to when we are talking about Majorana’s in condensed matter systems?</p>
 <ul class="simple">
 <li><p>Dirac fermions which, with an extra extension, are described as Majorana’s</p></li>
@@ -744,7 +731,7 @@ There are a lot of people working on realizing Majorana’s in condensed matter 
 </section>
 <section id="quiz-10-topological-qubits">
 <h2><span class="section-number">22.2. </span>Quiz 10: Topological qubits<a class="headerlink" href="#quiz-10-topological-qubits" title="Permalink to this headline"></a></h2>
-<p>This quiz is closely related to the videos introducing topological qubits. We recommend you to watch this videos carefully because the questions are intended to check that you understood (parts of) the videos.</p>
+<p>This quiz is closely related to the <em>introducing topological qubits</em>. We recommend to review this section carefully because the questions are intended to check that you understood (parts of) it.</p>
 <section id="question-1-majorana-fermion">
 <h3><span class="section-number">22.2.1. </span>Question 1: Majorana fermion<a class="headerlink" href="#question-1-majorana-fermion" title="Permalink to this headline"></a></h3>
 <p>The Majorana fermion is special because:</p>
@@ -759,14 +746,12 @@ In contrast to Dirac fermions, which are particles who aren’t their own antipa
 </section>
 <section id="question-2-a-proof">
 <h3><span class="section-number">22.2.2. </span>Question 2: A proof<a class="headerlink" href="#question-2-a-proof" title="Permalink to this headline"></a></h3>
-<p>0 points possible (ungraded)
-In the video by Michael Wimmer it is told, that you can create the Majorana operators from a superposition of creation and annihilation operators. Do this for yourself and show yourself that indeed the corresponding operators are Majorana operators. Furthermore, show that the creation and annihilation operators for normal fermions are not Majorana operators.</p>
+<p>We can create the Majorana operators from a superposition of creation and annihilation operators. Show that indeed the corresponding operators are Majorana operators. Furthermore, show that the creation and annihilation operators for normal fermions are not Majorana operators.</p>
 <p>Did you do the proof for yourself?</p>
 <ul class="simple">
 <li><p><strong>Yes</strong></p></li>
 <li><p>No</p></li>
 </ul>
-<p>Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.</p>
 </section>
 <section id="question-3-a-superposition">
 <h3><span class="section-number">22.2.3. </span>Question 3: A superposition<a class="headerlink" href="#question-3-a-superposition" title="Permalink to this headline"></a></h3>

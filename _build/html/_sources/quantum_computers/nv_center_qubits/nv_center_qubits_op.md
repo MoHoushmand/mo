@@ -1,10 +1,12 @@
 # Operations on NV center qubits
 
-In this second video, Tim will continue his lecture on NV center qubits. He will elaborate on the control of multiple nuclear spin qubits, and show how these NV centers can create a quantum network.
+In this upcoming segment, we will further delve into the intriguing world of NV Center qubits, expanding our discussion to incorporate the management of multiple nuclear spin qubits, and demonstrating the process of crafting a quantum network with these NV centers.
 
-Previously, we have seen how we can control the electron spin of the NV center in diamond as a qubit.
-In this lecture, we will learn how we can use the NV center to also control multiple nuclear spin qubits,
-and how we can link NV centres together using photons to create a quantum network.
+We've previously explored the fascinating ability to manipulate the electron spin of the NV center in diamond, utilizing it as a qubit. As we progress, we'll uncover how we can extend the use of the NV center to also control multiple nuclear spin qubits, adding another dimension to our understanding.
+
+But that's not all - we'll also explore how we can interconnect NV centers using photons, creating a comprehensive quantum network. This step brings us closer to the realization of a quantum internet, where multiple quantum systems interact in a coherent and controlled manner.
+
+Hold on to your seats as we dive deeper into the enigmatic world of NV Center qubits and their potential applications in quantum computing and beyond.
 
 
 ```{grid-item-card}
@@ -125,7 +127,7 @@ to use it as a resource to perform quantum computation in our network.
 So we can just keep trying and trying until we get the right measurement outcome,
 which then heralds the generation of entangled state, and then we can use it in the network.
 This works.
-Here you see a state-of-the-art experiment in Delft, where we created entanglement
+Here you see a state-of-the-art experiment in Delft, where they created entanglement
 between one NV center in the physics building, all the way on the left and another NV center,
 About 1,3 kilometres away, at the other side of the Delft campus.
 This experiment was done to provide a more stringent test if quantum entanglement really exists.
@@ -133,9 +135,7 @@ The outcome was yes, quantum mechanics is still correct.
 So, we can now go and use this entanglement to build quantum networks for quantum technology.
 The next big step will be to combine the control of multiple qubits in each node
 with optical links to generate entanglement, in order to build increasingly larger quantum networks.
-all the way on the right.
-
-
+all the way on the right. This experiment was done to provide a more stringent test if quantum entanglement really exists.
 
 ```{grid-item-card}
 :shadow: md

@@ -198,7 +198,6 @@ Main takeaways
 
 ### Question 1
 
-0 points possible (ungraded)
 Why is a Majorana bound state immune against thermal fluctuations in its environment?
 
 - Because the ground state is degenerate.
@@ -218,7 +217,7 @@ Consider two Majorana bound states in a nanowire. Due to the 1D nature of the na
 ### Question 1: Bosons
 
 0.0/1.0 point (graded)
-In the first video 'What are anyons' Atilla talks about how exchanging two particles in a three dimensional world leads to the classification in fermions or bosons.
+How exchanging two particles in a three dimensional world leads to the classification in fermions or bosons.
 
 Which of the following is a boson?
 
@@ -228,11 +227,11 @@ Which of the following is a boson?
 - neutrino
 
 Explanation
-Photons and Higgs bosons are bosons. In the lecture it was explained that the wavefunction of two bosons doesnt change if you exchange the two. Electrons are fermions, if you exchange two electrons (fermions) the total wavefunction will pick up a minus sign.
+Photons and Higgs bosons are bosons. It was explained that the wavefunction of two bosons doesnt change if you exchange the two. Electrons are fermions, if you exchange two electrons (fermions) the total wavefunction will pick up a minus sign.
 
 ### Question 2: Fermions
 
-Phonons and Higgs bosons are bosons. In the lecture Attila explained that the wavefunction of two bosons doesn't change if you exchange the two. Electrons are fermions, if you exchange two electrons (fermions) the total wavefunction will pick up a minus sign.
+Phonons and Higgs bosons are bosons. The wavefunction of two bosons doesn't change if you exchange the two. Electrons are fermions, if you exchange two electrons (fermions) the total wavefunction will pick up a minus sign.
 
 - phonon
 - electron
@@ -241,8 +240,7 @@ Phonons and Higgs bosons are bosons. In the lecture Attila explained that the wa
 
 ### Question 3: Anyons
 
-$0.0 / 1.0$ point (graded)
-In this first video Atilla explains how the wavefunction changes when we exchange two particles. Here he introduced two wavefunctions, $\Psi(1,2)$ and $\Psi(2,1)$. The two are related as follows. When we exchange particle 1 and 2 , we pick up a phase $\alpha$ for the wavefunction. We write this as $\Psi(2,1)=e^{i \alpha} \Psi(1,2)$.
+The wavefunction changes when we exchange two particles. Here he introduced two wavefunctions, $\Psi(1,2)$ and $\Psi(2,1)$. The two are related as follows. When we exchange particle 1 and 2 , we pick up a phase $\alpha$ for the wavefunction. We write this as $\Psi(2,1)=e^{i \alpha} \Psi(1,2)$.
 What value can $\alpha$ be for anyons?
 
 - 0 or $\pi$
@@ -306,7 +304,6 @@ $\left[\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right]$
 
 ### Question 6: Braiding 23
 
-0.0/1.0 point (graded)
 Calculate $\mathcal{B}_{23} \mathcal{B}_{23}^{\dagger}$. What is the result?
 
 - $\left[\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right]$
@@ -322,7 +319,6 @@ $\left[\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right]$
 
 ### Question 7: Braiding and unitaries
 
-0.0/1.0 point (graded)
 What can we conclude from the previous two questions?
 
 - **Both braiding operations, $\mathcal{B}_{12}$ and $\mathcal{B}_{23}$ act as unitaries on the qubit state.**
@@ -333,7 +329,6 @@ What can we conclude from the previous two questions?
 
 ### Question 8: Abelian and non-Abelian operations
 
-$0.0 / 1.0$ point (graded)
 We call a braiding group Abelian if for every combination of elements from the group it holds that $\mathcal{B}_{1} \mathcal{B}_{2}=\mathcal{B}_{2} \mathcal{B}_{1}$. In other words, the order in which we apply the operations doesn't matter. Lets have a look at the two braiding operators introduced before: $\mathcal{B}_{12}, \mathcal{B}_{23}$.
 What do you get if you do the following multiplication (up to a phase!!): $\mathcal{B}_{12} \mathcal{B}_{23}=$
 
@@ -348,7 +343,6 @@ $\left[\begin{array}{cc}1 & -i \\ 1 & i\end{array}\right]$
 
 ### Question 9: More braiding
 
-0.0/1.0 point (graded)
 What do you get if you do the following multiplication (up to a phase!!): $\mathcal{B}_{12} \mathcal{B}_{12}=$
 
 - $\left[\begin{array}{ll}0 & 1 \\ 1 & 0\end{array}\right]$
@@ -362,7 +356,6 @@ $\left[\begin{array}{cc}1 & 0 \\ 0 & -1\end{array}\right]$
 
 ### Question 10: Braiding 2 and 3
 
-0.0/1.0 point (graded)
 What do you get if you do the following multiplication (up to a phase!!): $\mathcal{B}_{23} \mathcal{B}_{23}=$
 
 - $\left[\begin{array}{ll}0 & 1 \\ 1 & 0\end{array}\right]$
@@ -379,7 +372,6 @@ This is actually an X gate! So by braiding we can do bit flips!
 
 ### Question 11: Multiple braidings
 
-0.0/1.0 point (graded)
 What do you get if you do the following multiplication (up to a phase!!): $\mathcal{B}_{12} \mathcal{B}_{23} \mathcal{B}_{12}=$
 
 - $\left[\begin{array}{ll}0 & 1 \\ 1 & 0\end{array}\right]$
@@ -396,7 +388,7 @@ This is actually a Hadamard gate!
 
 ### Question 12: Anyons in nanowires
 
-In the third video we saw how we implement these anyons in nanowires.
+We have seen how to implement these anyons in nanowires.
 What is a problem if we want to exchange two particles in a nanowire?
 
 - We cannot target them individually.
@@ -410,7 +402,7 @@ Because a nanowire can be treated as a 1D system, the anyons cannot move around 
 
 https://www.youtube.com/watch?v=igPXzKjqrNg
 
-This video (a segment of a lecture given by Professor John Preskill of Caltech) grants more insight in what topological quantum computation is.
+Here we will grant more insight in what topological quantum computation is.
 
 Advanced introduction of topological quantum computing
 This paper gives an elaborate introduction to topological quantum computing where also the underlying mathematics are explained. This material is mainly suited for participants with a background in quantum mechanics, do not be discouraged if it is hard to follow.
@@ -418,7 +410,7 @@ https://arxiv.org/pdf/1705.04103.pdf
 
 ## Topological Quantum Computer - Professor John Preskill, Caltech
 
-you can use topology to make a quantum computer work now topology is the word that mathematicians use when they want to describe the properties of objects which remain unchanged if we smoothly deform the object without tearing it topology is irrelevant to quantum computation because we would like the way a quantum computer processes its protected information to remain invariant if we deform the quantum computer by introducing some noise or
+You can use topology to make a quantum computer work now topology is the word that mathematicians use when they want to describe the properties of objects which remain unchanged if we smoothly deform the object without tearing it topology is irrelevant to quantum computation because we would like the way a quantum computer processes its protected information to remain invariant if we deform the quantum computer by introducing some noise or
 error now physicists have known for a long time for decades that there are physical interactions that have a topological character for example I can transport an electron around a tube of magnetic flux and that will modify the quantum state of that electron even though the electron never enters the tube in a way that depends on the enclosed magnetic flux and that
 modification of the electron state is unchanged if I deform the trajectory that the electron followed all that really matters is a topological property that the electron wrapped once around the flux tube now we know more exotic types of such topological interactions that can potentially occur for particles in two-dimensional systems which we call we call these particles non abelian anions so it turns out if you have many non-abelian anyons there is a very large number of possible quantum states for those particles and all of those states
 locally look the same they differ only in the collective properties of many any ions and that's just the type of encoding of physical information that we would like to hide the physical state from the environment so quantum computation can work and not only that

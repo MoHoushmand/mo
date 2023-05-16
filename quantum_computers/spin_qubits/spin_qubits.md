@@ -1,16 +1,10 @@
 # Spin Qubits
 
-In the first module we discussed all the basic building blocks of a quantum computer. It is now time to dive deeper into the block at the bottom of the stack: the quantum chip! Qubits can be realized in many different physical platforms, and in the next week's we will introduce you to some of these realizations.
+Now that we have coverded all the basic building blocks of a quantum computer. It is now time to dive deeper into the block at the bottom of the stack: the quantum chip! Qubits can be realized in many different physical platforms, and in the next week's we will introduce you to some of these realizations.
 
-In this module, we will start with an introduction about electron spin qubits realized in semiconductor quantum dots. These qubits highly resemble the classical semiconductor transistors that we use everyday in almost every electronic equipment. This unique characteristic has attracted a lot of attention from the most important semiconductor companies. Check out this article about Intel's vision about spin qubits.
+We will start with an introduction about electron spin qubits realized in semiconductor quantum dots. These qubits highly resemble the classical semiconductor transistors that we use everyday in almost every electronic equipment. This unique characteristic has attracted a lot of attention from the most important semiconductor companies. Check out this article about Intel's vision about spin qubits.
 
-Lieven Vandersypen, Professor in applied physics, will explain how we can control single electrons and isolate them in semiconducting islands called quantum dots. Once we have isolated single electrons, we need to be able to manipulate their spins and make those spins interact with each other in a controllable manner. This will be the topic of the second lecture, given by Menno Veldhorst.
-
-This module contains 2 lectures and 2 quizzes. Good luck and have fun!
-
-Click Next to get started.
-
-
+Than explain how we can control single electrons and isolate them in semiconducting islands called quantum dots. Once we have isolated single electrons, we need to be able to manipulate their spins and make those spins interact with each other in a controllable manner. This will be the topic of the next section
 
 When we look back at the development of semi-conducting technology, a great moment was in 1947 - the demonstration of the first transistor. Shortly after that, people began to put several transistors together on a circuit with capacitors and resistors; and developed the first transistor radio. Even though this technology was quite remarkable, it clearly had its limits; how many components could you really solder together by hand on a board?
 
@@ -132,7 +126,7 @@ Where a limited number of wires, that are running horizontally and vertically, c
 
 ## Practice Quiz 4
 
-In one of the videos, Lieven used a “ladder” diagram to describe situations in which electrons from the reservoir can and cannot jump on the quantum dot. This ladder picture is often handy when thinking about how to induce and stop current from going through the quantum dot. Below are a few exercises to help you make sure you are comfortable with this picture.
+A “ladder” diagram describes situations in which electrons from the reservoir can and cannot jump on the quantum dot. This ladder picture is often handy when thinking about how to induce and stop current from going through the quantum dot. Below are a few exercises to help you make sure you are comfortable with this picture.
 
 ::::{grid}
 :gutter: 3
@@ -256,7 +250,7 @@ Quantum dots and transistors are similar, in that they are both involved in cont
 ```{exercise}
 :label: Quiz 4 Q2
 
-As Lieven explained in the lecture, electrons can be trapped in a quantum dot, such that the total number of electrons in the central island remains fixed. When a tunneling event occurs a single electron suddenly jumps onto the island, changing its energy by an amount equal to $Ec = e2/C$. If we approximate the quantum dot as a sphere, where the capacitance is given by $C = 4πεrε0R$, we can make an estimation for the temperature needed to see single tunneling events.
+Electrons can be trapped in a quantum dot, such that the total number of electrons in the central island remains fixed. When a tunneling event occurs a single electron suddenly jumps onto the island, changing its energy by an amount equal to $Ec = e2/C$. If we approximate the quantum dot as a sphere, where the capacitance is given by $C = 4πεrε0R$, we can make an estimation for the temperature needed to see single tunneling events.
 For a dot of 100 nm, what kind of temperatures do we need to be able to confine single electrons? Assume that the thermal energy should be one order of magnitude smaller than the charging energy, such that $10kBT = Ec$.
 $e = 1.602 × 10−19C$, $εr = 3.9$, $ε0 = 8.854 × 10−12 F/m$, $kB = 1.38064852 × 10−23 J/K$
 
@@ -306,7 +300,7 @@ Here's the second card.
 ```{exercise}
 :label: Quiz 4 Q3
 
-Charge stability diagrams In the video, Lieven explained how the slope of charge transitions in a charge stability diagram depends on the coupling with nearby gates. In the figures below we see a schematic of two charge stability diagrams where we sense transitions originating from a single quantum dot coupled to three nearby gates $B1$, $B2$ and $B3$. The quantum dot is located under the gate with the strongest capacitive coupling.
+Charge stability diagrams explained how the slope of charge transitions in a charge stability diagram depends on the coupling with nearby gates. In the figures below we see a schematic of two charge stability diagrams where we sense transitions originating from a single quantum dot coupled to three nearby gates $B1$, $B2$ and $B3$. The quantum dot is located under the gate with the strongest capacitive coupling.
 (a(b))
 B2 # B3
 
@@ -344,7 +338,7 @@ Here's the first card.
 ```{exercise}
 :label: Quiz 4 Q4
 
-Charge sensing A quantum dot is also a very sensitive electrometer. Since elec- trons carry a negative charge, any movement will change the electrical potential of the environment near the quantum dot and they can therefore be sensed.
+Charge sensing A quantum dot is also a very sensitive electrometer. Since electrons carry a negative charge, any movement will change the electrical potential of the environment near the quantum dot and they can therefore be sensed.
 Let’s suppose that we have two weakly coupled quantum dots close to each other and we want to use the first to sense the charge transitions happening in the second quantum dot. In order to do that, we tune the first quantum dot in a regime of high sensitivity (see red circle in the figure below).
 
 - [ ] $B1$
