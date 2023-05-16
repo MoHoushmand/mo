@@ -6,18 +6,12 @@ We will begin to give an overview of the whole system, a brief journey through a
 
 Each qubit needs its own specific material. These materials need to contain one of the particles that we need to create the qubits and not be contaminated with other particles. Therefore we need to 'grow' materials.
 
-To fully understand the topics of this course, you will need some mathematical tools. In the chapters on Ket notation the mathematical basic principles  explained.
+To fully understand the topics of this, we will need some mathematical tools. In the chapters on Ket notation the mathematical basic principles  explained.
 
 
-Briefly speaking the quantum computer contains the following 'building blocks':
-- memory,
-- bus interconnect,
-- processor chips but also the
-- peripheral devices such as a
-- keyboard or a even
-- screen to be able to interact with the machine.
+Briefly speaking the 'building blocks' of a quantum computer contains of *memory*, *bus interconnect* and *processor chips* but also the peripheral devices such as a keyboard or a even screen to be able to interact with the machine.
 
-In the following we will discusses the bigger picture of a quantum computer: namely from how to program it, to reading out the result. Now the first word we want to emphasize is the word "compute". We are actually not really building a quantum computer, but we are building a quantum accelerator. Namely, a computational devise that can be connected to a classical processor that will provide the performance for a series of applications that we can never reach classically. Here you see the global view of what we currently understand as a heterogeneous multicore architecture.
+In the following we will discusses the bigger picture of a quantum computer: namely from how to program it, to reading out the result. Now the first word we want to emphasize is the word *compute*. We are actually not really building a quantum computer, but we are building a quantum accelerator. Namely, a computational devise that can be connected to a classical processor that will provide the performance for a series of applications that we can never reach classically. Here you see the global view of what we currently understand as a heterogeneous multicore architecture.
 
 ```{grid-item-card}
 :shadow: md
@@ -27,8 +21,8 @@ In the following we will discusses the bigger picture of a quantum computer: nam
 
 Heterogeneous because we have different kind of accelerator technologies. We have an
 
-- FPGA which stands for the field programmable gate array. We have
-- GPU's, for Graphic Programming Unit. These are the vector processors we are using to produce graphics computation.
+- Field Programmable Gate Array (FPGA). We have
+- Graphic Programming Unit GPU's. These are the vector processors we are using to produce graphics computation.
 - The third alternative accelerator technology will be a quantum co-processor which has the quantum properties that will provide a substantial increase in the compute power. This is basically what we see.
 
 That also means that when you write any application, you will most likely end up using different kinds of accelerators including the FPGA, the GPU and also the quantum accelerator and therefore your application has to be compiled for four different instruction sets; namely, your
@@ -112,9 +106,9 @@ In the previous we described the current design of a quantum computer. It is not
 
 ```{admonition} Why is it a good idea to use this design?
 - [x] By using this, there is no need to reinvent the 'wheel' of computers.
-- [] There is a clear classical/quantum boundary. Classical computers can do certain computations that quantum computers cannot.
+- [ ] There is a clear classical/quantum boundary. Classical computers can do certain computations that quantum computers cannot.
 - [x] Typical classical parts of a computation can be performed on the classical part of the computer.
-- [] Since classical computers are many years ahead in development, this will be a lot faster.
+- [ ] Since classical computers are many years ahead in development, this will be a lot faster.
 ```
 
 **Correct:** A quantum algorithm typically has classical parts as well. A good example of this is Shor's algorithm for semiprime factorization.
@@ -132,7 +126,7 @@ Quantum computers are supposed to be a lot faster than classical computers for c
 It is also good to think about whether quantum algorithms can do other things better.
 
 ```{admonition} Is there a computation that is, in principle, only possible on a quantum computer?
-- [] Yes
+- [ ] Yes
 - [x] No
 ```
 
@@ -144,9 +138,9 @@ Although it is highly inefficient (e.g. it would take decades), a classical comp
 ### Question 3: A programming language for a computer
 
 ```{admonition} What does a programming language do?
-- [] A programming language is used to automatically schedule events (also called a program) of what the computer does.
+- [ ] A programming language is used to automatically schedule events (also called a program) of what the computer does.
 - [x] It provides an extra layer between the computer and the user, so that the user can instruct the computer in an human-readable and understandable format.
-- [] It is an essential layer of a computer, without a programming language we cannot make a computer function.
+- [ ] It is an essential layer of a computer, without a programming language we cannot make a computer function.
 ```
 
 ```{admonition} Explanation
@@ -156,9 +150,9 @@ Without a programming language, every input into the computer would need to be a
 ### Question 4: The compilery
 
 ```{admonition} What does a compiler do?
-- [] It translates the instructions written in the programming language into something that the computer can actually use.
+- [ ] It translates the instructions written in the programming language into something that the computer can actually use.
 - [x] It does the same as a programming language, but only in an automated way.
-- [] It provides an extra layer, to ease the transition of user input to instructions that the computer can work with
+- [ ] It provides an extra layer, to ease the transition of user input to instructions that the computer can work with
 ```
 
 ```{admonition} Explanation
@@ -170,12 +164,12 @@ Without the compiler, the computer doesn't understand the instructions. So, a co
 To design a complete quantum computer is no easy feat. There are still many problems and hurdles to overcome before a quantum computer becomes something that is widely available. There are problems across all layers of the design, but there is one layer that has the bulk of all the problems. It forms the current bottleneck of the technology.
 
 ```{admonition} What layer is that?
-- [] Quantum algorithms
-- [] Programming paradigm and languages and the Arithmetic, Runtime and Compiler
-- [] Quantum instruction set architecture
+- [ ] Quantum algorithms
+- [ ] Programming paradigm and languages and the Arithmetic, Runtime and Compiler
+- [ ] Quantum instruction set architecture
 - [x] Quantum Chip
-- [] Microarchitecture
-- [] Quantum to Classical
+- [ ] Microarchitecture
+- [ ] Quantum to Classical
 ```
 
 ```{admonition} Explanation
@@ -238,12 +232,12 @@ A quantum computer should have some necessary properties to be called a quantum 
 We have to keep those criteria in mind when we choose the material for our qubits. For example, having homogeneous materials makes it possible to scale the system easily.
 
 ```{admonition} What property should the material have to ensure long decoherence times?
-- [] Use materials with low density where qubits can easily be accessed for error correction.
-- [] Use materials with high density to reduce the interaction of qubits with neighbouring qubits.
-- [] Use materials that can be cooled down quickly.
+- [ ] Use materials with low density where qubits can easily be accessed for error correction.
+- [ ] Use materials with high density to reduce the interaction of qubits with neighbouring qubits.
+- [ ] Use materials that can be cooled down quickly.
 - [x] Avoid materials with a complex structure, as it is more likely to interact with the qubits.
-- [] Microarchitecture
-- [] Quantum to Classical
+- [ ] Microarchitecture
+- [ ] Quantum to Classical
 ```
 
 ```{admonition} Explanation
@@ -262,10 +256,10 @@ Cooper pairs can, unlike single electrons or other fermions, be in the same quan
 The invididual particles in the pair are fermions (both spin-1/2 particles), but the pair together is a boson (The total spin of the pair is 0 or 1).
 
 ```{admonition} How are cooper pairs created in superconducting materials?
-- [] The crystal lattice doesn't allow single electrons to pass through the lattice, only pairs. So all electrons passing through the lattice are parts of Cooper pairs.
+- [ ] The crystal lattice doesn't allow single electrons to pass through the lattice, only pairs. So all electrons passing through the lattice are parts of Cooper pairs.
 - [x] Moving electrons cause vibrations in the crystal lattice, which exert forces on other electrons, creating Cooper pairs.
-- [] The gravitational force between two electrons trap them in their gravitational wells, creating a pair.
-- [] Since Cooper pairs are bosons, bringing any two photons (or other bosons) together also is a boson, which is a Cooper pair. 
+- [ ] The gravitational force between two electrons trap them in their gravitational wells, creating a pair.
+- [ ] Since Cooper pairs are bosons, bringing any two photons (or other bosons) together also is a boson, which is a Cooper pair. 
 ```
 
 ### Question 2
@@ -281,10 +275,10 @@ Where
 
 ```{admonition} What is the minimum electron velocity that enables to image the material?
 
-- [] 10^{4}\mathrm{~m}/\mathrm{s} 
+- [ ] 10^{4}\mathrm{~m}/\mathrm{s} 
 - [x] \sim10^{7}\mathrm{~m}/\mathrm{s} 
-- [] \sim10^{10}\mathrm{~m}/\mathrm{s} 
-- [] \sim10^{13}\mathrm{~m}/\mathrm{s}
+- [ ] \sim10^{10}\mathrm{~m}/\mathrm{s} 
+- [ ] \sim10^{13}\mathrm{~m}/\mathrm{s}
 ```
 
 ```{admonition} Explanation
@@ -301,8 +295,8 @@ The higher the mobility in a semiconductor, the smaller the disorder.
 
 ```{admonition} Which of the following can be done to best increase the mobility?
 - [x] Decrease the temperature from room temperature down to 4 Kelvin. 
-- [] Increase the number of impurities in the material. 
-- [] Increase the electric field. correct
+- [ ] Increase the number of impurities in the material. 
+- [ ] Increase the electric field. correct
 ```
 
 

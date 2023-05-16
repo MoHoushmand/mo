@@ -14,10 +14,6 @@
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mo_addmination.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mo_addmination.css" type="text/css" />
     <link rel="canonical" href="https://mohoushmand.com/quantum_computers/quantum_computers.html" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -74,7 +70,6 @@ const thebe_selector_output = ".output, .cell_output"
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about/about.html">About</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Art</span></p>
@@ -283,17 +278,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Building Quantum Computers is an extremely challenging task. In the following chapters, we will learn about the different building blocks of a quantum computer and how we build one by integrating different kinds of technologies interacting with the machine.</p>
 <p>We will begin to give an overview of the whole system, a brief journey through all layers. In the next 4-6 chapters we will dive deeper in the layer of the quantum chip (qubits).</p>
 <p>Each qubit needs its own specific material. These materials need to contain one of the particles that we need to create the qubits and not be contaminated with other particles. Therefore we need to ‘grow’ materials.</p>
-<p>To fully understand the topics of this course, you will need some mathematical tools. In the chapters on Ket notation the mathematical basic principles  explained.</p>
-<p>Briefly speaking the quantum computer contains the following ‘building blocks’:</p>
-<ul class="simple">
-<li><p>memory,</p></li>
-<li><p>bus interconnect,</p></li>
-<li><p>processor chips but also the</p></li>
-<li><p>peripheral devices such as a</p></li>
-<li><p>keyboard or a even</p></li>
-<li><p>screen to be able to interact with the machine.</p></li>
-</ul>
-<p>In the following we will discusses the bigger picture of a quantum computer: namely from how to program it, to reading out the result. Now the first word we want to emphasize is the word “compute”. We are actually not really building a quantum computer, but we are building a quantum accelerator. Namely, a computational devise that can be connected to a classical processor that will provide the performance for a series of applications that we can never reach classically. Here you see the global view of what we currently understand as a heterogeneous multicore architecture.</p>
+<p>To fully understand the topics of this, we will need some mathematical tools. In the chapters on Ket notation the mathematical basic principles  explained.</p>
+<p>Briefly speaking the ‘building blocks’ of a quantum computer contains of <em>memory</em>, <em>bus interconnect</em> and <em>processor chips</em> but also the peripheral devices such as a keyboard or a even screen to be able to interact with the machine.</p>
+<p>In the following we will discusses the bigger picture of a quantum computer: namely from how to program it, to reading out the result. Now the first word we want to emphasize is the word <em>compute</em>. We are actually not really building a quantum computer, but we are building a quantum accelerator. Namely, a computational devise that can be connected to a classical processor that will provide the performance for a series of applications that we can never reach classically. Here you see the global view of what we currently understand as a heterogeneous multicore architecture.</p>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
 <div class="sd-card-body docutils">
@@ -303,8 +290,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Heterogeneous because we have different kind of accelerator technologies. We have an</p>
 <ul class="simple">
-<li><p>FPGA which stands for the field programmable gate array. We have</p></li>
-<li><p>GPU’s, for Graphic Programming Unit. These are the vector processors we are using to produce graphics computation.</p></li>
+<li><p>Field Programmable Gate Array (FPGA). We have</p></li>
+<li><p>Graphic Programming Unit GPU’s. These are the vector processors we are using to produce graphics computation.</p></li>
 <li><p>The third alternative accelerator technology will be a quantum co-processor which has the quantum properties that will provide a substantial increase in the compute power. This is basically what we see.</p></li>
 </ul>
 <p>That also means that when you write any application, you will most likely end up using different kinds of accelerators including the FPGA, the GPU and also the quantum accelerator and therefore your application has to be compiled for four different instruction sets; namely, your</p>
@@ -373,9 +360,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Why is it a good idea to use this design?</p>
 <ul class="contains-task-list simple">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> By using this, there is no need to reinvent the ‘wheel’ of computers.</p></li>
-<li><p>[] There is a clear classical/quantum boundary. Classical computers can do certain computations that quantum computers cannot.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> There is a clear classical/quantum boundary. Classical computers can do certain computations that quantum computers cannot.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Typical classical parts of a computation can be performed on the classical part of the computer.</p></li>
-<li><p>[] Since classical computers are many years ahead in development, this will be a lot faster.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Since classical computers are many years ahead in development, this will be a lot faster.</p></li>
 </ul>
 </div>
 <p><strong>Correct:</strong> A quantum algorithm typically has classical parts as well. A good example of this is Shor’s algorithm for semiprime factorization.</p>
@@ -391,7 +378,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-is-there-a-computation-that-is-in-principle-only-possible-on-a-quantum-computer admonition">
 <p class="admonition-title">Is there a computation that is, in principle, only possible on a quantum computer?</p>
 <ul class="contains-task-list simple">
-<li><p>[] Yes</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Yes</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> No</p></li>
 </ul>
 </div>
@@ -405,9 +392,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-what-does-a-programming-language-do admonition">
 <p class="admonition-title">What does a programming language do?</p>
 <ul class="contains-task-list simple">
-<li><p>[] A programming language is used to automatically schedule events (also called a program) of what the computer does.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> A programming language is used to automatically schedule events (also called a program) of what the computer does.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> It provides an extra layer between the computer and the user, so that the user can instruct the computer in an human-readable and understandable format.</p></li>
-<li><p>[] It is an essential layer of a computer, without a programming language we cannot make a computer function.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> It is an essential layer of a computer, without a programming language we cannot make a computer function.</p></li>
 </ul>
 </div>
 <div class="admonition-explanation admonition">
@@ -420,9 +407,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-what-does-a-compiler-do admonition">
 <p class="admonition-title">What does a compiler do?</p>
 <ul class="contains-task-list simple">
-<li><p>[] It translates the instructions written in the programming language into something that the computer can actually use.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> It translates the instructions written in the programming language into something that the computer can actually use.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> It does the same as a programming language, but only in an automated way.</p></li>
-<li><p>[] It provides an extra layer, to ease the transition of user input to instructions that the computer can work with</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> It provides an extra layer, to ease the transition of user input to instructions that the computer can work with</p></li>
 </ul>
 </div>
 <div class="admonition-explanation admonition">
@@ -436,12 +423,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-what-layer-is-that admonition">
 <p class="admonition-title">What layer is that?</p>
 <ul class="contains-task-list simple">
-<li><p>[] Quantum algorithms</p></li>
-<li><p>[] Programming paradigm and languages and the Arithmetic, Runtime and Compiler</p></li>
-<li><p>[] Quantum instruction set architecture</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Quantum algorithms</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Programming paradigm and languages and the Arithmetic, Runtime and Compiler</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Quantum instruction set architecture</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Quantum Chip</p></li>
-<li><p>[] Microarchitecture</p></li>
-<li><p>[] Quantum to Classical</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Microarchitecture</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Quantum to Classical</p></li>
 </ul>
 </div>
 <div class="admonition-explanation admonition">
@@ -492,12 +479,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-what-property-should-the-material-have-to-ensure-long-decoherence-times admonition">
 <p class="admonition-title">What property should the material have to ensure long decoherence times?</p>
 <ul class="contains-task-list simple">
-<li><p>[] Use materials with low density where qubits can easily be accessed for error correction.</p></li>
-<li><p>[] Use materials with high density to reduce the interaction of qubits with neighbouring qubits.</p></li>
-<li><p>[] Use materials that can be cooled down quickly.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Use materials with low density where qubits can easily be accessed for error correction.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Use materials with high density to reduce the interaction of qubits with neighbouring qubits.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Use materials that can be cooled down quickly.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Avoid materials with a complex structure, as it is more likely to interact with the qubits.</p></li>
-<li><p>[] Microarchitecture</p></li>
-<li><p>[] Quantum to Classical</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Microarchitecture</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Quantum to Classical</p></li>
 </ul>
 </div>
 <div class="admonition-explanation admonition">
@@ -516,10 +503,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-how-are-cooper-pairs-created-in-superconducting-materials admonition">
 <p class="admonition-title">How are cooper pairs created in superconducting materials?</p>
 <ul class="contains-task-list simple">
-<li><p>[] The crystal lattice doesn’t allow single electrons to pass through the lattice, only pairs. So all electrons passing through the lattice are parts of Cooper pairs.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The crystal lattice doesn’t allow single electrons to pass through the lattice, only pairs. So all electrons passing through the lattice are parts of Cooper pairs.</p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Moving electrons cause vibrations in the crystal lattice, which exert forces on other electrons, creating Cooper pairs.</p></li>
-<li><p>[] The gravitational force between two electrons trap them in their gravitational wells, creating a pair.</p></li>
-<li><p>[] Since Cooper pairs are bosons, bringing any two photons (or other bosons) together also is a boson, which is a Cooper pair.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The gravitational force between two electrons trap them in their gravitational wells, creating a pair.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Since Cooper pairs are bosons, bringing any two photons (or other bosons) together also is a boson, which is a Cooper pair.</p></li>
 </ul>
 </div>
 </section>
@@ -537,11 +524,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="admonition-what-is-the-minimum-electron-velocity-that-enables-to-image-the-material admonition">
 <p class="admonition-title">What is the minimum electron velocity that enables to image the material?</p>
-<ul class="simple">
-<li><p>[] 10^{4}\mathrm{~m}/\mathrm{s}
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 10^{4}\mathrm{~m}/\mathrm{s}
 - [x] \sim10^{7}\mathrm{~m}/\mathrm{s}</p></li>
-<li><p>[] \sim10^{10}\mathrm{~m}/\mathrm{s}</p></li>
-<li><p>[] \sim10^{13}\mathrm{~m}/\mathrm{s}</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> \sim10^{10}\mathrm{~m}/\mathrm{s}</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> \sim10^{13}\mathrm{~m}/\mathrm{s}</p></li>
 </ul>
 </div>
 <div class="admonition-explanation admonition">
@@ -560,8 +547,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Which of the following can be done to best increase the mobility?</p>
 <ul class="contains-task-list simple">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Decrease the temperature from room temperature down to 4 Kelvin.</p></li>
-<li><p>[] Increase the number of impurities in the material.
-- [] Increase the electric field. correct</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Increase the number of impurities in the material.
+- [ ] Increase the electric field. correct</p></li>
 </ul>
 </div>
 <div class="admonition-which-of-the-following-can-be-done-to-best-increase-the-mobility admonition">

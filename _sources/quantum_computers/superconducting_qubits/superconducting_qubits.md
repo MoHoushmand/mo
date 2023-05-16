@@ -1,22 +1,21 @@
 # Superconducting qubits
 
-In module 2 and 3, we discussed spin qubits in semiconductor quantum dots and nitrogen-vacancy centers. Despite the differences, in both cases qubits were realized with the spin degree of freedom of the electron. It is now time to discover a totally new platform: superconducting qubits.
+In ? and ??, we discussed spin qubits in semiconductor quantum dots and nitrogen-vacancy centers. Despite the differences, in both cases qubits were realized with the spin degree of freedom of the electron. It is now time to discover a totally new platform: superconducting qubits.
 
 If a quantum computer is able to perform complex quantum algoithms it might need millions or even billions of qubits. Superconducting qubits are nowdays one of the most advanced platforms in the quantum community regarding the number of qubits, and many large companies, such as Google, Intel and IBM, are now investing in them. IBM Quantum experience is an online platform where users from the3 general public can already access a five-qubit processor and run small algorithms.
 
-In the first three videos, Leonardo DiCarlo, Professor in applied physics, will describe a transmon, one of the basic building blocks of superconducting qubits. Later, Niels Bultink, Brian Tarasinski and Adriaan Rol will explain how to perform the operations required by universal quantum computation: qubit measurements, single-qubit gate and two-qubit gates.
+Now we will describe a transmon, one of the basic building blocks of superconducting qubits. Later explain how to perform the operations required by universal quantum computation: qubit measurements, single-qubit gate and two-qubit gates.
 
-Click Next to get started.
 
 ## The transmon qubit
 
 In this three-part series on the introduction to superconducting qubits, we start by introducing the basic concepts of one kind of superconducting qubit, and then gradually proceed to materials about a full-fledged quantum processor comprising of many qubits.
 
-In this first video, Professor Leo DiCarlo talks about the entailing physics behind a transmon qubit, which is an example of a superconducting qubit. Remember that the elaborate expressions and notations in this video are not meant to intimidate the avid learners. It will suffice to grasp the core concepts from these videos. If however, all those notations have got you enthused, then we recommend you to go through all the different nuances and enhance your learning; because courses like these are not just meant to be passed and forgotten, are they?
+We will entail the physics behind a transmon qubit, which is an example of a superconducting qubit. Remember that the elaborate expressions and notations are not meant to intimidate the avid learners. It will suffice to grasp the core concepts. If however, all those notations have got you enthused, then we recommend you to go through all the different nuances and enhance your learning; because courses like these are not just meant to be passed and forgotten, are they?
 
 # V
 
-Today I will give you an introduction to quantum computing with superconducting quantum circuits;
+Now an introduction to quantum computing with superconducting quantum circuits;
 more specifically, quantum computing with transmon quantum bits or qubits
 in the circuit quantum electrodynamics architecture.e
 Superconducting qubits differ in two important ways from truly quantum two-level systems
@@ -55,7 +54,7 @@ In its simplest form, the transmon consists of two islands interconnected by one
 tr3
 ```
 
-Those of you familiar with circuits, particularly the electrical engineers,will recognize that the transmon looks,
+Those of you familiar with circuits, particularly the electrical engineers, will recognize that the transmon looks,
 well, just like a parallel combination of one capacitor and one inductor.In other words, an LC oscillator!
 This gets us most of the way there, so let’s take a look.
 The Hamiltonian for the LC oscillator consists of two terms
@@ -118,9 +117,8 @@ Having learnt about the transmon qubit, let us now learn about how to combine a 
 
 ## Circuit Quantum Electrodynamics
 
-Hi!
-Last time, we introduced our superconducting qubit of choice in QuTech,
-the transmon.We focused on a transmon in isolation, studying its weakly anharmonic spectrum. Today, we will add the remaining ingredients
+Last we introduced our superconducting qubit of choice in QuTech,
+the transmon. We focused on a transmon in isolation, studying its weakly anharmonic spectrum. Now, we will add the remaining ingredients
 that we need to perform qubit readout and two-qubit gates.
 These ingredients are transmission-line resonators.
 
@@ -179,7 +177,7 @@ These qubit-qubit interactions mediated by a dispersively coupled common ‘bus�
 tr6c
 ```
 
-Adriaan will discuss the specific avoided crossing that we use to implement two-qubit conditional-phase gates. Hint: it is not this one!
+We will discuss the specific avoided crossing that we use to implement two-qubit conditional-phase gates. Hint: it is not this one!
 So, let’s now see examples of how transmons and resonators can be combined to build simple quantum processors. This is the first one I built, back in 2008, together with collaborators at Yale.
 It has two transmon qubits and only one resonator. This resonator is used for both qubit-qubit coupling and readout functions. The resonator has capacitive terminations at both ends, so it’s a half-wave or lambda over two resonator.
 
@@ -227,14 +225,8 @@ completely rethinks the approach, with extensibility to hundred qubits as the to
 ## Assembling a quantum computer
 
 In this build-up from a single to few and from few to many qubits on a quantum processor, we explore the conclusion to this three-part lecture series.
-
-Please note: mentions to videos by Brian, Adriaan, and Niels are made. These videos will be presented in the next part of the module.
-
-V
-
-Hi!
-Today I will show you how we can assemble a quantum processor
-from circuit QED quantum hardware. I will focus on the approach to fault-tolerant quantum computing named Surface Code, which we pursue within QuTech. Surface code calls for a 2-dimensional square lattice of qubits with only nearest-neighbor interactions.
+Here we will show how we can assemble a quantum processor
+from circuit QED quantum hardware. I will focus on the approach to fault-tolerant quantum computing named Surface Code. Surface code calls for a 2-dimensional square lattice of qubits with only nearest-neighbor interactions.
 
 ```{figure} /gfx/gfx4/m4c1.png
 :name: tr2
@@ -365,7 +357,7 @@ PROBLEM
 In the video you must have come across the purposes of various components used while assembling a Surface Code chip. In this problem, each of the four blue boxes have a component name on them. Below these boxes, there is a white rectangle with four square shaped zones placed in a horizontal manner. Each of these four zones denotes a purpose of the components in the blue boxes. Your job is to drag and drop each of the four blue boxes to the corresponding zone below. This means that you are expected to map a component on the chip to its correct purpose. Note that there is a strict one-to-one correspondence between the components and the purposes, meaning that there is a purpose (i.e. zone) for every component (i.e. blue box); and each zone can have one and only one blue box.
 
 FEEDBACK
-i Drag the items (blue boxes) onto the image above.
+Drag the items (blue boxes) onto the image above.
 
 - **Microwave drivelines -> To perform single qubit gate**
 
@@ -401,11 +393,10 @@ While connecting to the outside world, the I/O ports on Surface-17 chip do not c
 
 ## Quiz 8: Superconducting qubit
 
-In this quiz, you will be tested on the content from the three videos on the Introduction to Superconducting Qubits series. Questions 1 to 7 are based on the video on the transmon qubit; question 8 briefly delves into concepts introduced in the video on circuit QED.
+In this quiz, you will be tested on the content from the Introduction to Superconducting Qubits series. Questions 1 to 7 are based on the transmon qubit; question 8 briefly delves into concepts introduced in circuit QED.
 
 Question 1: The transmon qubit
 
-1/1 point (graded)
 A transmon qubit is an example of which of the following?
 
 - Flux qubit
@@ -434,7 +425,6 @@ $$
 $$
 
 Use this information to answer the following question.
-$0.0 / 1.0$ point (graded)
 In a quantised LC circuit, what is the transition frequency $(f)$ for going from one level to the next if the inductance offered by the coil is $1.6$ Henry and the capacitance is $0.1 \mu$ Farad? (Note that $1 \mu \operatorname{Farad}=10^{-6} \mathrm{Farad}$.)
 
 $\frac{5000}{2 \pi}$ Hertz
@@ -447,7 +437,6 @@ It is intuitive that $f=\frac{1}{2 \pi \cdot \sqrt{L C}}$. Now simply plugging i
 
 ### Question 3: Transition frequency in LC oscillator
 
-0.0/1.0 point (graded)
 Does this transition frequency remain the same for transition among any two consecutive levels in a quantised LC circuit?
 
 - **Yes**
@@ -455,7 +444,6 @@ Does this transition frequency remain the same for transition among any two cons
 
 ### Question 4: Transition frequency in transmon qubit
 
-$0.0 / 1.0$ point (graded)
 If the transition frequency of going from level 0 to level 1 in the circuit for a transmon qubit is $f_{0,1}$, then is the transition frequency of going from level 1 to level 2 (i.e. $f_{1,2}$ ) in the same circuit also equal to $f_{0,1}$ ?
 
 - yes
@@ -466,7 +454,6 @@ The spacing between the levels in a circuit for a transmon qubit is not harmonic
 
 ### Question 5: Josephson junction
 
-$0.0 / 1.0$ point (graded)
 What is the implication of the use of a Josephson junction in a transmon instead of simply using an inductor (as in case of an LC oscillator) ?
 
 - **It is possible to confine the system of qubit(s) to the lowest two levels.**
@@ -481,8 +468,6 @@ What is the implication of the use of a Josephson junction in a transmon instead
 Explanation
 Qubits are two-dimensional systems. Hence, to create a qubit, it is necessary to confine the system to just two levels. The use of an inductor leads to uniformly spaced energy levels. In such a case, it is difficult to confine the system to just two levels (since the application of same frequency causes transition between any two consecutive levels). However, using a Josephson junction helps ensure that the spacing between the energy levels of the system is non-uniform; and therefore, application of a particular frequency corresponds to only one particular kind of level transition.
 
-Question 6: Elements of a transmon qubit
-0.0/1.0 point (graded)
 Having learnt the similarity/difference between a transmon qubit and an LC oscillator, let us now streamline our focus completely towards the transmon qubit with a couple questions!
 What are the three essential parts of a transmon qubit? (Mark all that apply)
 
@@ -492,12 +477,10 @@ What are the three essential parts of a transmon qubit? (Mark all that apply)
 - **Josephson junction**
 - Resistor
 
-Explanation
 In terms of the components, the circuit for a transmon qubit is quite similar to (but not excatly the same as) the circuit for an LC oscillator. An inductor is used in a quantised LC circuit (which has harmonic energy levels). Since we want the energy-level spacing to be anharmonic, a Josephson junction is used instead.
 
 ### Question 7: Adding additional Josephson junction?
 
-$0.0 / 1.0$ point (graded)
 Why would you add an additional Josephson junction?
 
 - To add an extra qubit on the chip.
@@ -510,7 +493,6 @@ As seen in Question 2 of this quiz, the transition frequency is a function of in
 
 ### Question 8
 
-0.0/1.0 point (graded)
 Why are the resonators for readout and coupling separate on the second generation processors for superconducting qubits?
 
 To be able to scale up from a two-level system to a four-level system without making any other modifications to the hardware.

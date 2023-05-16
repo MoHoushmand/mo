@@ -1,6 +1,6 @@
 # Operations on spin qubits
 
-With standard semiconductor technology, billions of transistors can be inte- grated on a single chip. This forms one of the key motivations for quantum dot qubits, as these qubit types are fabricated using the same technology, such that one can envision billions of quantum bits on a chip. In this lecture we focus on the operation of these quantum dot qubits. We will discuss how qubits are de- fined, how they can be initialized and readout, how the qubits can be controlled and how these qubits can be coupled to one another to execute two-qubit logic gates.
+With standard semiconductor technology, billions of transistors can be integrated on a single chip. This forms one of the key motivations for quantum dot qubits, as these qubit types are fabricated using the same technology, such that one can envision billions of quantum bits on a chip. In this lecture we focus on the operation of these quantum dot qubits. We will discuss how qubits are defined, how they can be initialized and readout, how the qubits can be controlled and how these qubits can be coupled to one another to execute two-qubit logic gates.
 Figure 17
 We start with an empty quantum dot connected to an electron reservoir. The quantum dot energy levels are above the Fermi energy of the reservoir and so no electrons can tunnel from the reservoir to the dot. We define our qubit states on the spin states of the quantum dot. To do so, we apply a magnetic field on the order of a Tesla. Due to the Zeeman energy, the spin states are then split by about hundred micro electron volt, assuming a g-factor around
 
@@ -125,7 +125,7 @@ This indirect technique may seem complicated, but it is suc- cessful, because it
 :class: orange
 
 
-As discussed in the lecture, in order to read out the state of a spin qubit in a quantum dot, we move the Fermi level of the reservoir in between the two spin states. Then, only a spin-up electron can tunnel out of the dot to one of the available states in the reservoir. A spin-down electron will remain trapped inside the quantum dot.
+As discussed in order to read out the state of a spin qubit in a quantum dot, we move the Fermi level of the reservoir in between the two spin states. Then, only a spin-up electron can tunnel out of the dot to one of the available states in the reservoir. A spin-down electron will remain trapped inside the quantum dot.
 Which could be a limiting factor of this readout protocol?
 
 ```
@@ -151,7 +151,7 @@ The energy gap between the spin-up and spin-down states is quite small, much sma
 :label: q5q3
 :class: orange
 
-Early works on spin qubits focused on heterostructures built out of III-V ma- terials, such as gallium arsenide (GaAs). However, in recent years, silicon is attracting a lot of attention as a potential platform for spin qubits. Which are the relevant reasons?
+Early works on spin qubits focused on heterostructures built out of III-V materials, such as gallium arsenide (GaAs). However, in recent years, silicon is attracting a lot of attention as a potential platform for spin qubits. Which are the relevant reasons?
 Mark the 2 answers that apply.
 
 ```
@@ -179,26 +179,40 @@ Silicon-28 has zero nuclear spin. This reduces the magnetic noise in the substra
 :class: orange
 
 
-As discussed in the lecture, one way to perform single-qubit gates with electron spins is by applying time-dependent magnetic fields. In this question we will look closer into the mathematical model.
+One way to perform single-qubit gates with electron spins is by applying time-dependent magnetic fields. In this question we will look closer into the mathematical model.
 Let’s suppose we have an electron spin immersed in a magnetic field pointing in the Z direction. An on-chip microwave antenna can deliver to the spin a time dependent magnetic field, perpendicular to the static field. Under the assumptions that the time-dependent field is much smaller in amplitude than the static field, and the frequency matches the qubit resonance frequency, we can describe the system with a very simple Hamiltonian:
 
 $$
 H=\frac{\hbar \gamma}{2} B_1 \sigma_x=\frac{\hbar \gamma}{2} B_1(|1\rangle\langle 0|+| 0\rangle\langle 1|)
 $$
 
-where $\hbar$ is the reduced planck constant, $\gamma$ the gyromagnetic ratio, and $B_1$ the amplitude of the longitudinal field. Let's suppose that at the time $t=0$, the electron spin is in the state $|\psi(t=0)\rangle=|0\rangle$. We wish to calculate the time evolution of this state. In case of a time independent hamiltonian, the time evolution of a state can be written as:)
+where $\hbar$ is the reduced planck constant, $\gamma$ the gyromagnetic ratio, and $B_1$ the amplitude of the longitudinal field. Let's suppose that at the time $t=0$, the electron spin is in the state $\mid\psi(t=0)\rangle=\mid0\rangle$. We wish to calculate the time evolution of this state. In case of a time independent hamiltonian, the time evolution of a state can be written as:
 
 $$
-|\psi(t)\rangle=\exp \left(-\frac{i H t}{\hbar}\right)|\psi(0)\rangle
+\mid\psi(t)\rangle=\exp \left(-\frac{i H t}{\hbar}\right)|\psi(0)\rangle
 $$
 
-The exponential of a hamiltonian is easy to calculate when applied to eigenstates of the hamiltonian. So we will rewrite the state as a linear combination of $|+\rangle=\frac{|0\rangle+|1\rangle}{\sqrt{2}}$ and $|-\rangle=\frac{|0\rangle-|1\rangle}{\sqrt{2}}$
+The exponential of a hamiltonian is easy to calculate when applied to eigenstates of the hamiltonian. So we will rewrite the state as a linear combination of 
 
 $$
-|\psi(t)\rangle=\exp \left(-\frac{i H t}{\hbar}\right) \cdot \frac{|+\rangle+|-\rangle}{\sqrt{2}}=\frac{1}{\sqrt{2}}\left(\exp \left(-\frac{i \gamma B_1 t}{2}\right)|+\rangle+\exp \left(\frac{i \gamma B_1 t}{2}\right)|-\rangle\right)
+\mid+\rangle=\frac{\mid0\rangle+\mid1\rangle}{\sqrt{2}}
+$$ 
+
+and 
+
+$$
+\mid-\rangle=\frac{\mid0\rangle-\mid1\rangle}{\sqrt{2}}
 $$
 
-Which will be the state of the qubit, after we have applied a microwave pulse of duration $t=\frac{\pi}{\gamma B_1}$ ?
+$$
+\mid\psi(t)\rangle=\exp \left(-\frac{i H t}{\hbar}\right) \cdot \frac{\mid+\rangle+\mid-\rangle}{\sqrt{2}}=\frac{1}{\sqrt{2}}\left(\exp \left(-\frac{i \gamma B_1 t}{2}\right)|+\rangle+\exp \left(\frac{i \gamma B_1 t}{2}\right)\mid-\rangle\right)
+$$
+
+Which will be the state of the qubit, after we have applied a microwave pulse of duration? 
+
+$$
+t=\frac{\pi}{\gamma B_1}
+$$ 
 
 ```
 
@@ -206,11 +220,10 @@ Which will be the state of the qubit, after we have applied a microwave pulse of
 :label: sq5q4
 :class: orange
 :class: dropdown
-- [ ] $|0\rangle$
-- [x] $|1\rangle$
-- [ ] $|+\rangle$
-- [ ] $|-\rangle$
-
+- [ ] $\mid 0\rangle$
+- [x] $\mid 1\rangle$
+- [ ] $\mid +\rangle$
+- [ ] $\mid -\rangle$
 ```
 
 ```{admonition} Explanation
@@ -224,9 +237,7 @@ We can think of the action of this pulse as a rotation in the Bloch sphere. The 
 :class: orange
 
 
-Electron spins can interact with each other when they are sufficiently close together.
-
-Which of the following methods can be used to push electrons close together and to control their interaction? Mark the 2 answers that apply.
+Electron spins can interact with each other when they are sufficiently close together. Which of the following methods can be used to push electrons close together and to control their interaction? Mark the 2 answers that apply.
 
 ```
 

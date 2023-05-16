@@ -1,10 +1,10 @@
 # Topological Qubits
 
-# Introduction to Module 5
+# Introduction to Topological Qubits
 
-In the previous modules we have discussed qubits realized with electron spins and superconducting circuits. Despite the differences in their hardware implementation, these platforms have something very important in common. The qubits are imperfect and subjected to noise. For example, fluctuations in magnetic fields can perturb an electron spin such that its phase is lost. This is why we need quantum error correction.
+Previously we have discussed qubits realized with electron spins and superconducting circuits. Despite the differences in their hardware implementation, these platforms have something very important in common. The qubits are imperfect and subjected to noise. For example, fluctuations in magnetic fields can perturb an electron spin such that its phase is lost. This is why we need quantum error correction.
 
-This week we will introduce you a completely new kind of qubit, which can potentially alleviate the need of quantum error correction in a future quantum computer. This qubit is based on a quasi-particle called Majorana fermion, which is halfway between being an electron and not being an electron. When you fuse two Majoranas together you end up having one or no electrons. The fact the that the information (having or not having an electron) is delocalized in two Majoranas far from each other, makes harder for the environment to perturb its state.
+Now we will introduce you a completely new kind of qubit, which can potentially alleviate the need of quantum error correction in a future quantum computer. This qubit is based on a quasi-particle called Majorana fermion, which is halfway between being an electron and not being an electron. When you fuse two Majoranas together you end up having one or no electrons. The fact the that the information (having or not having an electron) is delocalized in two Majoranas far from each other, makes harder for the environment to perturb its state.
 
 The promise of a qubit much less sensitive to noise than other implementations was elusive until just a few years ago, when this particle was made a reality by physicist and engineers in the Netherlands, get to know a bit more here about what they are.
 
@@ -12,7 +12,7 @@ In the first three videos, Michael Wimmer will introduce the concept of topology
 
 # Majorana fermions and where to find them
 
-In the next three videos Michael Wimmer will introduce you to topological qubits. To understand what a topological qubit is and how it works, he will start by explaining the concept of the so called Majorana fermions or Majorana bound states.
+Now we will introduce you to topological qubits. To understand what a topological qubit is and how it works, we will start by explaining the concept of the so called Majorana fermions or Majorana bound states.
 Please note the following error at $t=3: 00$, the correct operators should read:
 
 $$
@@ -24,7 +24,7 @@ $$
 
 V
 
-In the next few videos we want to introduce you to topological quantum computing.
+In the next we want to introduce topological quantum computing.
 To understand what topological quantum computing is,
 we first need to introduce you to the basic building blocks
 which are the so called Majorana fermions or Majorana bound states.
@@ -158,14 +158,13 @@ Main takeaways
 
 # Majorana bound states in superconductors
 
-Majorana bound states can appear quite naturally in superconductors. But, how can we find the Marjoranas? Michael will explain more about that in this video.
+Majorana bound states can appear quite naturally in superconductors. But, how can we find the Marjoranas? We will explain more about that 
 
 V
 
 Let us now look a little bit more in detail,
 how we can find Majorana bound states in superconductors.
-I showed you in the last video
-that Majorana bound states can appear quite naturally there.
+We showed that Majorana bound states can appear quite naturally there.
 The blurring of electron and hole can be described mathematically as a so-called particle-hole symmetry.
 For a particle at energy E you must have an antiparticle at energy minus E.
 
@@ -227,7 +226,7 @@ and at 0 energy a 2^N fold degenerate ground state.
 This will be important in a later stage, as this allows for topologically protected operations
 on Majorana bound states.
 
-This will be covered in a separate lecture.
+This will be covered in a separate section.
 In reality, we cannot separate the Majorana bound states infinitely far from each other.
 Hence there is a small overlap left over.
 But this overlap is then exponentially small,
@@ -295,11 +294,11 @@ Main takeaways
 
 # Majorana experiments
 
-In this third video, Michael talks about the current status of the experiments on Majorana bound states, and explain how the Majoranas can be measured.
+Now let's talk about the current status of the experiments on Majorana bound states, and explain how the Majoranas can be measured.
 
 Now that we know how to make Majorana systems in principle,
 lets look at the current experimental status.
-We ended the previous video with the picture of the Delft experiment
+We ended the previously with the picture of the Delft experiment
 where Majorana bound states were observed for the first time.
 Remember that Majoranas only appeared by tuning the system into a topological phase.
 
@@ -392,8 +391,8 @@ This particular measurement was done 2012 in Delft.
 c5
 ```
 
-I show here the conductance at zero magnetic field.
-We see the gap structure that I explained to you before, a supressed conductance inside the gap,
+We show here the conductance at zero magnetic field.
+Notice the gap structure that I explained to you before, a supressed conductance inside the gap,
 and conductance peaks at the value of the induced superconducting gap.
 This was first a zero magnetic field, so no Majoranas.
 The measurements for finite magnetic field are all the additional curves that are shown here in this plot.
@@ -410,7 +409,7 @@ However, since 2012 experimentalists have worked very hard on establishing Major
 c6
 ```
 
-I want to highlight 2 milestones in this field.
+Let us highlight 2 milestones in this field.
 The first one was the experiment in 2016 in the group of Charlie Marcus in Copenhagen.
 They showed that the states in these nanowires have an energy that is exponentially close to zero
 as a function of the length of the nanowire.
@@ -419,20 +418,20 @@ Another important milestone was again in Delft in the group of Leo Kouwenhoven.
 After optimizing the nanowires, they found a quantized conductance peak of the Majorana bound states.
 If you take all of these experiments together, there is actually very strong evidence
 that we have Majorana bound states in these nanowire systems.
-I told you in detail about the nanowire platform for Majorana bound states.
+We covered in detail about the nanowire platform for Majorana bound states.
 
 ```{figure} /gfx/gfx5/m5c7
 :name: c7
 c7
 ```
 
-Before I end, let me emphasize that there are more possible systems hosting them.
-I show one other particular example here.
+
+To wrap it up let's emphasize that there are more possible systems hosting them and show one other particular example here.
 It was predicted that a chain of magnetic atoms on top of a superconductor would also host Majoranas.
 The group of Ali Yazdani built this system using a STM,
 and indeed found states localized at the ends of these magnetics chains.
-I also want to mention that actually Majorana particles do not only exist in superconducting systems
-as I showed you, but they can also appear in interacting systems,
+We also want to mention that actually Majorana particles do not only exist in superconducting systems
+but they can also appear in interacting systems,
 for example superfluid Helium or fraction quantum Hall effect.
 So far, nanowire-based systems remain the most technologically advanced.
 Experimentalists are working now hard on realizing the first topological qubit there.
@@ -449,18 +448,14 @@ Main takeaways
 
 ### Question 1
 
-0 points possible (ungraded)
 What is the antiparticle of each of the following particles? (Capitalize the first letter of each word in your answer)
 Electron
 unanswered  
 Majorana Fermion
-unanswered  
-Submit
-Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.
+
 
 ### Question 2
 
-0 points possible (ungraded)
 A Majorana bound state in a superconductor has ...
 
 - positive energy.
@@ -471,7 +466,6 @@ A Majorana bound state in a superconductor has ...
 
 ### Question 3: Condensed matter systems
 
-0 points possible (ungraded)
 There are a lot of people working on realizing Majorana's in condensed matter systems.
 
 What do we refer to when we are talking about Majorana's in condensed matter systems?
@@ -484,7 +478,7 @@ What do we refer to when we are talking about Majorana's in condensed matter sys
 
 ## Quiz 10: Topological qubits
 
-This quiz is closely related to the videos introducing topological qubits. We recommend you to watch this videos carefully because the questions are intended to check that you understood (parts of) the videos.
+This quiz is closely related to the *introducing topological qubits*. We recommend to review this section carefully because the questions are intended to check that you understood (parts of) it.
 
 ### Question 1: Majorana fermion
 
@@ -500,15 +494,13 @@ In contrast to Dirac fermions, which are particles who aren't their own antipart
 
 ### Question 2: A proof
 
-0 points possible (ungraded)
-In the video by Michael Wimmer it is told, that you can create the Majorana operators from a superposition of creation and annihilation operators. Do this for yourself and show yourself that indeed the corresponding operators are Majorana operators. Furthermore, show that the creation and annihilation operators for normal fermions are not Majorana operators.
+We can create the Majorana operators from a superposition of creation and annihilation operators. Show that indeed the corresponding operators are Majorana operators. Furthermore, show that the creation and annihilation operators for normal fermions are not Majorana operators.
 
 Did you do the proof for yourself?
 
 - **Yes**
 - No
 
-Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.
 
 ### Question 3: A superposition
 

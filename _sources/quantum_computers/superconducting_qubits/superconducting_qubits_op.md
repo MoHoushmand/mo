@@ -75,7 +75,7 @@ using seventeen readout resonators divided over three different input and output
 d4
 ```
 
-This might sound to you like a finished story.
+This might sound to like a finished story.
 However, there are many improvements to be made still to get to a fully scalable quantum computer.
 Exemplary topics that are currently being addressed in research,
 and which might also be attractive for additional reading are:
@@ -91,7 +91,7 @@ Main takeaways
 
 ## Single qubit gates
 
-In this lecture, I want to show you how we control the state of a single superconducting transmon qubits,
+Here we will show how we control the state of a single superconducting transmon qubits,
 that is, doing so-called single-qubit gates.
 The state of a single qubit can be visualized on the Bloch sphere,
 with the ground and excited state on the poles
@@ -290,7 +290,7 @@ Main takeaways
 f7
 ```
 
-The Bloch sphere is a useful tool to visualize the state of qubit and the effect of single-qubit operations. What state (|ket $\{\mid p s i\} \mid)$ corresponds to the state shown on the Bloch sphere below?
+The Bloch sphere is a useful tool to visualize the state of qubit and the effect of single-qubit operations. What state ket $\{\mid psi\} \mid$ corresponds to the state shown on the Bloch sphere below?
 
 - $\cos \frac{\phi}{2}|0\rangle+e^{i \phi} \sin \frac{\theta}{2}|1\rangle .$
 - $\cos \frac{\phi}{2}|0\rangle+e^{i \phi} \sin \frac{\phi}{2}|1\rangle .$
@@ -312,10 +312,9 @@ In this quiz, we will investigate how to create this Bell pair on a transmon qub
 
 ## Question 1: Bell pair creation
 
-$0.0 / 1.0$ point (graded)
 A vital part in the creation of any entanglement is the use of a two qubit gate. Without such operations, entanglement is not possible. The two qubit gate that we use for Bell pair creation is the familiar CNOT gate.
 
-In the video on two qubit gates, Adriaan explained that we can implement the CPHASE gate (also known as the CZ gate) on the transmon qubits. This is of course different than the CNOT, but we can get from the one to the other using only single qubit operations.
+We can implement the CPHASE gate (also known as the CZ gate) on the transmon qubits. This is of course different than the CNOT, but we can get from the one to the other using only single qubit operations.
 You can refer back to the ket notation video from module 1 to review 2 qubit operations. Also be sure to check quiz, because one of those questions might look very familiar (it is not quite the same though, so watch out!).
 Which of the following operations implements a CNOT (with the first qubit as the control qubit), using only a CZ gate and single qubit operations?
 
@@ -370,25 +369,61 @@ So the total expression becomes: $\left[\begin{array}{cccc}1 & 1 & 0 & 0 \\ 1 & 
 https://cdn.mathpix.com/snip/images/v3fxVJWrHKRKHn8oE3Ve7DZG5p9Cbv9EFxjQtgoaD14.original.fullsize.png
 
 ```{admonition} Correct answer & Explanation
-If we investigate what a phase flip (Z gate) does on the $|+\rangle=\frac{|0\rangle+|1\rangle}{\sqrt{2}}$ and $|-\rangle=\frac{|0\rangle-|1\rangle}{\sqrt{2}}$ states, we see that the two are flipped. So the phase flip is essentially a bit flip in the $\{|+\rangle,|-\rangle\}$ (Hadamard) basis.
-Now, that means that a CZ is the same as a CNOT (controlled bit flip) for the second qubit in the Hadamard basis. So if we transform the second qubit to that basis, perform the CZ, and transform that qubit back to the computational $(\{|0\rangle,|1\rangle\})$ basis, we have performed the CNOT. Transforming between the computational and Hadamard basis (and vice versa!) is done with the Hadamard matrix.
-Only on the second qubit gives: $I \otimes H=\left[\begin{array}{cc}1 & 0 \\ 0 & 1\end{array}\right] \otimes\left[\begin{array}{cc}1 & 1 \\ 1 & -1\end{array}\right]=\left[\begin{array}{cccc}1 & 1 & 0 & 0 \\ 1 & -1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & -1\end{array}\right]$.
-So the total expression becomes: $\left[\begin{array}{cccc}1 & 1 & 0 & 0 \\ 1 & -1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & -1\end{array}\right]\left[\begin{array}{cccc}1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1\end{array}\right]\left[\begin{array}{cccc}1 & 1 & 0 & 0 \\ 1 & -1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & -1\end{array}\right]$, which is exactly the desired CNOT!
+If we investigate what a phase flip (Z gate) does on the 
+
+$$
+\mid +\rangle=\frac{|0\rangle+|1\rangle}{\sqrt{2}}
+$$ 
+and 
+$$
+\mid-\rangle=\frac{|0\rangle-|1\rangle}{\sqrt{2}}
+$$ 
+states, we see that the two are flipped. So the phase flip is essentially a bit flip in the 
+$$
+\mid{|+\rangle,|-\rangle\}
+$$ 
+(Hadamard) basis.
+Now, that means that a CZ is the same as a CNOT (controlled bit flip) for the second qubit in the Hadamard basis. So if we transform the second qubit to that basis, perform the CZ, and transform that qubit back to the computational 
+$$
+(\{|0\rangle,|1\rangle\})
+$$ 
+
+basis, we have performed the CNOT. Transforming between the computational and Hadamard basis (and vice versa!) is done with the Hadamard matrix.
+Only on the second qubit gives: 
+$$
+I\otimes H = \left[\begin{array}{cc}1 & 0 \\ 0 & 1\end{array}\right] \otimes\left[\begin{array}{cc}1 & 1 \\ 1 & -1\end{array}\right]=\left[\begin{array}{cccc}1 & 1 & 0 & 0 \\ 1 & -1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & -1\end{array}\right]
+$$
+So the total expression becomes: 
+$$
+\left[\begin{array}{cccc}1 & 1 & 0 & 0 \\ 1 & -1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & -1\end{array}\right]\left[\begin{array}{cccc}1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1\end{array}\right]\left[\begin{array}{cccc}1 & 1 & 0 & 0 \\ 1 & -1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & -1\end{array}\right]$$ 
+which is exactly the desired CNOT!
 
 ```
 
 ---
 
-In quantum computing, we always initialize qubits in the $|0\rangle$ state. So when creating a Bell pair, we start with two qubits in that state: $\left|\psi_{i n i t}\right\rangle=|0\rangle \otimes|0\rangle=\left[\begin{array}{l}1 \\ 0 \\ 0 \\ 0\end{array}\right]$. If we perform a Hadamard transform on the first qubit, we get the In matrix form, this is $\left|\psi_{2}\right\rangle=\sqrt{\frac{1}{2}}\left[\begin{array}{l}1 \\ 0 \\ 1 \\ 0\end{array}\right]$.
+In quantum computing, we always initialize qubits in the $\mid 0\rangle$ state. So when creating a Bell pair, we start with two qubits in that state: 
+$$
+\left\mid\psi_{i n i t}\right\rangle=|0\rangle \otimes|0\rangle=\left[\begin{array}{l}1 \\ 0 \\ 0 \\ 0\end{array}\right]
+$$
+If we perform a Hadamard transform on the first qubit, we get the In matrix form, this is 
+$$
+\lef\mid\psi_{2}\right\rangle=\sqrt{\frac{1}{2}}\left[\begin{array}{l}1 \\ 0 \\ 1 \\ 0\end{array}\right]
+$$
 
-Now that we are able to do a CNOT, we can create a Bell pair by applying the CNOT to the state $\left|\psi_{2}\right\rangle$. The second qubit is bit flipped only if the first qubit is in the $|1\rangle$ state, so we see that only the $|10\rangle$ part is 'touched' by the CNOT. We get: $C N O T\left|\psi_{2}\right\rangle=C N O T \sqrt{\frac{1}{2}}(|00\rangle+|10\rangle)=\sqrt{\frac{1}{2}}(|00\rangle+|11\rangle)=\left|\Phi_{+}\right\rangle$.
-Or in matrix form: $C N O T\left|\psi_{2}\right\rangle=\sqrt{\frac{1}{2}}\left[\begin{array}{llll}1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0\end{array}\right]\left[\begin{array}{l}1 \\ 0 \\ 1 \\ 0\end{array}\right]=\sqrt{\frac{1}{2}}\left[\begin{array}{l}1 \\ 0 \\ 0 \\ 1\end{array}\right]=\left|\Phi_{+}\right\rangle$
+Now that we are able to do a CNOT, we can create a Bell pair by applying the CNOT to the state $\left|\psi_{2}\right\rangle$. The second qubit is bit flipped only if the first qubit is in the $\mid1\rangle$ state, so we see that only the $\mid 10\rangle$ part is 'touched' by the CNOT. We get: 
+$$ 
+CNOT \left\mid\psi_{2}\right\rangle=CNOT \sqrt{\frac{1}{2}}(\mid 00\rangle+\mid 10\rangle)=\sqrt{\frac{1}{2}}(\mid00\rangle+\mid11\rangle)=\left\mid\Phi_{+}\right\rangle
+$$
+Or in matrix form: 
+$$
+CNOT\left|\psi_{2}\right\rangle=\sqrt{\frac{1}{2}}\left[\begin{array}{llll}1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0\end{array}\right]\left[\begin{array}{l}1 \\ 0 \\ 1 \\ 0\end{array}\right]=\sqrt{\frac{1}{2}}\left[\begin{array}{l}1 \\ 0 \\ 0 \\ 1\end{array}\right]=\left|\Phi_{+}\right\rangle
+$$
 Conclusion: to create a Bell pair on a set of transmon qubits, we need to perform one single-qubit operation (the Hadamard) and one multi-qubit operation (the CZ).
 
 ### Question 2: The single qubit operation: the Hadamard
 
-0.0/1.0 point (graded)
-The Hadamard matrix maps the computational basis $\{|0\rangle,|1\rangle\}$ (the eigenvectors of the Pauli Z) to the Hadamard or $X$ basis $\{|+\rangle,|-\rangle\}$ (the eigenvectors of the Pauli $X$ ), and vice versa. If we transform the $|0\rangle$ to the $|+\rangle$, when looking at the Bloch sphere, this means that we rotate from the $z$-axis to the $x$-axis. As we have seen in the video, this can be done on a transmon qubit by applying an alternating electric field to it, with a certain phase delay.
+The Hadamard matrix maps the computational basis $\{\mid0\rangle,\mid1\rangle\}$ (the eigenvectors of the Pauli Z) to the Hadamard or $X$ basis $$\{\mid+\rangle,\mid-\rangle\}$$ (the eigenvectors of the Pauli $X$ ), and vice versa. If we transform the $$0\rangle$$ to the $\mid+\rangle$, when looking at the Bloch sphere, this means that we rotate from the $z$-axis to the $x$-axis. This can be done on a transmon qubit by applying an alternating electric field to it, with a certain phase delay.
 Around what axis do we need to rotate to perform the Hadamard operation on the $|0\rangle$ state?
 Look at the picture of the Bloch sphere and the rotational axis on the 3rd slide in the video to determine this axis.
 
@@ -410,7 +445,6 @@ Also, if we look at 3rd slide from the video with the Bloch sphere, we see that 
 
 ### Question 3: Rotational direction
 
-0.0/1.0 point (graded)
 We want to minimize the amplitude and length of the electric field pulse that we apply to the transmon.
 
 Taking these things into consideration, what option for the phase offset is then the best option?
@@ -456,7 +490,6 @@ To measure the qubit, we pulse it with an alternating electric signal. This sign
 
 ### Question 5: Measuring the qubit
 
-0.0/1.0 point (graded)
 Single qubit operations are also done using electric pulses.
 
 How are measurements and operations distinguished?
@@ -480,7 +513,7 @@ The design of the resonator influences to what frequencies it couples the best (
 
 ### Question 6: Measurements on multiple qubits at once
 
-0.0/1.0 point (graded)
+
 How can we perform measurements on multiple qubits at the same time?
 
 - By coupling the qubits to resonators of different length, thereby altering the readout qubits' frequencies seperately.
