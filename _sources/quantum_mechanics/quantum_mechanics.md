@@ -1,10 +1,8 @@
 # Quantum Mechanics
 
-I'm excited to guide you through the fascinating world of quantum computation. While many resources focus mainly on the allure and almost futuristic nature of qubits, we need to understand that a working quantum computer is not made up of qubits alone. Qubits, indeed, are the showstopper, but a myriad of other layers are necessary to exploit the quantum phenomena that provide a quantum computer its extraordinary capabilities.
+While many resources focus mainly on the allure and almost futuristic nature of qubits, we need to understand that a working quantum computer is not made up of qubits alone. Qubits, indeed, are the showstopper, but a myriad of other layers are necessary to exploit the quantum phenomena that provide a quantum computer its extraordinary capabilities. In the following sections, we will navigate these layers, from the devices that bridge the chasm between the quantum chip and the classical control hardware, to the mathematical complexity of specific quantum algorithms. This interactive Jupyter book is divided into four parts, each delving into distinct aspects of qubits and their operations, the architecture, algorithms, and protocols of a quantum computer, and the quantum internet.
 
-In the following sections, we will navigate these layers, from the devices that bridge the chasm between the quantum chip and the classical control hardware, to the mathematical complexity of specific quantum algorithms. This interactive Jupyter book is divided into four parts, each delving into distinct aspects of qubits and their operations, the architecture, algorithms, and protocols of a quantum computer, and the quantum internet.
-
-We will examine the building blocks of a quantum computer, and explore profound information about the qubits that form the core of a quantum computer and internet. We will learn about the effective usage and control of qubits, and delve into the functioning of the most promising types of qubits currently under exploration:
+We will examine the building blocks of a quantum computer, and explore profound information about the qubits that form the core of a quantum computer and internet. Learn about the effective usage and control of qubits, and delve into the functioning of the most promising types of qubits currently under exploration:
 
 1. **Silicon Spin Qubits:** Leveraging the spin of an electron in a silicon environment.
 2. **Diamond NV Center Qubits:** Utilizing the unique properties of defects in diamond crystals.
@@ -29,9 +27,9 @@ I'd like to once again take a moment to express my gratitude and acknowledge the
 
 Explanation We can think of the repeater protocol as being divided into two smaller protocols. First, Alice and the repeater generate shared entanglement. Then, Bob and the repeater generate shared entanglement, which they use to teleport half of the Alice/repeater entangled state to Bob
 
-- [] It is not possible to read out a superposition of spin states.
-- [] Three quantum dots are required to perform this readout protocol.
-- [] Magnetic noise can prevent the spin-up electron to tunnel out, since the Lorentz force accelerates the electron perpendicular to the direction of motion.
+- [ ] It is not possible to read out a superposition of spin states.
+- [ ] Three quantum dots are required to perform this readout protocol.
+- [ ] Magnetic noise can prevent the spin-up electron to tunnel out, since the Lorentz force accelerates the electron perpendicular to the direction of motion.
 - [x] A spin-down electron can acquire the energy necessary to tunnel out of the dot from thermal fluctuations.
 ```
 
