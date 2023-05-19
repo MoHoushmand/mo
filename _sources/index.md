@@ -50,13 +50,11 @@ Best regards,
 
 ---
 
+
 ```{grid-item-card}
 :shadow: lg
 ![FEM Art](img/FEM_art_0.JPG)
 ```
-
-<br>
-
 > Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
 
 ---
@@ -65,8 +63,6 @@ Best regards,
 :shadow: lg
 ![swipe0](art/fluidart/bloom0.JPG)
 ```
-
-<br>
 
 > Fluid Art (Bloom) - *Bad Bloom series #0* <br> - **D. Mo Houshmand** (2021)
 
@@ -144,7 +140,7 @@ I hope you enjoy exploring this website and feel free to reach out to me if you 
 ```{grid-item-card}
 :shadow: lg
 ![swipe0](art/fluidart/Northern-Light.JPG)
-```
+`
 
 > Fluid Art (Flip Cup) - *Rajee's Canvas Burning* <br> - **D. Mo Houshmand** (2019)
 
