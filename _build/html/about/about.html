@@ -110,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-module-5">19. Introduction to Module 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-topological-qubits">19. Introduction to Topological Qubits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
@@ -397,6 +397,175 @@ This is a test.
 </div>
 </div>
 </div>
+<html>
+  <head>
+    <title>Ice Cream Picker</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;py-config&gt;
+  packages = [&quot;matplotlib&quot;, &quot;pandas&quot;]
+&lt;/py-config&gt;
+
+&lt;py-script&gt;
+  import js
+  import pandas as pd
+  import matplotlib.pyplot as plt
+
+  from pyodide.http import open_url
+  from pyodide.ffi import create_proxy
+
+  url = (
+      &quot;https://raw.githubusercontent.com/Cheukting/pyscript-ice-cream/main/bj-products.csv&quot;
+  )
+  ice_data = pd.read_csv(open_url(url))
+
+  current_selected = []
+  flavour_elements = js.document.getElementsByName(&quot;flavour&quot;)
+
+  def plot(data):
+      plt.rcParams[&quot;figure.figsize&quot;] = (22,20)
+      fig, ax = plt.subplots()
+      bars = ax.barh(data[&quot;name&quot;], data[&quot;rating&quot;], height=0.7)
+      ax.bar_label(bars)
+      plt.title(&quot;Rating of ice cream flavours of your choice&quot;)
+      display(fig, target=&quot;graph-area&quot;, append=False)
+
+  def select_flavour(event):
+      for ele in flavour_elements:
+          if ele.checked:
+              current_selected = ele.value
+              break
+      if current_selected == &quot;ALL&quot;:
+          plot(ice_data)
+      else:
+          filter = ice_data.apply(lambda x: ele.value in x[&quot;ingredients&quot;], axis=1)
+          plot(ice_data[filter])
+
+  ele_proxy = create_proxy(select_flavour)
+
+  for ele in flavour_elements:
+      if ele.value == &quot;ALL&quot;:
+        ele.checked = True
+        current_selected = ele.value
+      ele.addEventListener(&quot;change&quot;, ele_proxy)
+
+  plot(ice_data)
+
+&lt;/py-script&gt;
+
+&lt;div id=&quot;input&quot; style=&quot;margin: 20px;&quot;&gt;
+  Select your 🍨 flavour: &lt;br/&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;all&quot; name=&quot;flavour&quot; value=&quot;ALL&quot;&gt;
+  &lt;label for=&quot;all&quot;&gt; All 🍧&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;chocolate&quot; name=&quot;flavour&quot; value=&quot;COCOA&quot;&gt;
+  &lt;label for=&quot;chocolate&quot;&gt; Chocolate 🍫&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;cherrie&quot; name=&quot;flavour&quot; value=&quot;CHERRIES&quot;&gt;
+  &lt;label for=&quot;cherrie&quot;&gt; Cherries 🍒&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;berries&quot; name=&quot;flavour&quot; value=&quot;BERRY&quot;&gt;
+  &lt;label for=&quot;berries&quot;&gt; Berries 🍓&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;cheese&quot; name=&quot;flavour&quot; value=&quot;CHEESE&quot;&gt;
+  &lt;label for=&quot;cheese&quot;&gt; Cheese 🧀&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;peanut&quot; name=&quot;flavour&quot; value=&quot;PEANUT&quot;&gt;
+  &lt;label for=&quot;peanut&quot;&gt; Peanut 🥜&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;py-repl&gt;
+  ice_data
+&lt;/py-repl&gt;
+
+&lt;div id=&quot;graph-area&quot;&gt;&lt;/div&gt;
+</pre></div>
+</div>
+  </body>
+</html>
+<iframe src="https://pyscript.net/latest/pyscript.html" width="100%" height="600px"></iframe>
+<html>
+  <head>
+    <title>Ice Cream Picker</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;py-config&gt;
+  packages = [&quot;matplotlib&quot;, &quot;pandas&quot;]
+&lt;/py-config&gt;
+
+&lt;py-script&gt;
+  import js
+  import pandas as pd
+  import matplotlib.pyplot as plt
+
+  from pyodide.http import open_url
+  from pyodide.ffi import create_proxy
+
+  url = (
+      &quot;https://raw.githubusercontent.com/Cheukting/pyscript-ice-cream/main/bj-products.csv&quot;
+  )
+  ice_data = pd.read_csv(open_url(url))
+
+  current_selected = []
+  flavour_elements = js.document.getElementsByName(&quot;flavour&quot;)
+
+  def plot(data):
+      plt.rcParams[&quot;figure.figsize&quot;] = (22,20)
+      fig, ax = plt.subplots()
+      bars = ax.barh(data[&quot;name&quot;], data[&quot;rating&quot;], height=0.7)
+      ax.bar_label(bars)
+      plt.title(&quot;Rating of ice cream flavours of your choice&quot;)
+      display(fig, target=&quot;graph-area&quot;, append=False)
+
+  def select_flavour(event):
+      for ele in flavour_elements:
+          if ele.checked:
+              current_selected = ele.value
+              break
+      if current_selected == &quot;ALL&quot;:
+          plot(ice_data)
+      else:
+          filter = ice_data.apply(lambda x: ele.value in x[&quot;ingredients&quot;], axis=1)
+          plot(ice_data[filter])
+
+  ele_proxy = create_proxy(select_flavour)
+
+  for ele in flavour_elements:
+      if ele.value == &quot;ALL&quot;:
+        ele.checked = True
+        current_selected = ele.value
+      ele.addEventListener(&quot;change&quot;, ele_proxy)
+
+  plot(ice_data)
+
+&lt;/py-script&gt;
+
+&lt;div id=&quot;input&quot; style=&quot;margin: 20px;&quot;&gt;
+  Select your 🍨 flavour: &lt;br/&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;all&quot; name=&quot;flavour&quot; value=&quot;ALL&quot;&gt;
+  &lt;label for=&quot;all&quot;&gt; All 🍧&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;chocolate&quot; name=&quot;flavour&quot; value=&quot;COCOA&quot;&gt;
+  &lt;label for=&quot;chocolate&quot;&gt; Chocolate 🍫&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;cherrie&quot; name=&quot;flavour&quot; value=&quot;CHERRIES&quot;&gt;
+  &lt;label for=&quot;cherrie&quot;&gt; Cherries 🍒&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;berries&quot; name=&quot;flavour&quot; value=&quot;BERRY&quot;&gt;
+  &lt;label for=&quot;berries&quot;&gt; Berries 🍓&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;cheese&quot; name=&quot;flavour&quot; value=&quot;CHEESE&quot;&gt;
+  &lt;label for=&quot;cheese&quot;&gt; Cheese 🧀&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;peanut&quot; name=&quot;flavour&quot; value=&quot;PEANUT&quot;&gt;
+  &lt;label for=&quot;peanut&quot;&gt; Peanut 🥜&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;py-repl&gt;
+  ice_data
+&lt;/py-repl&gt;
+
+&lt;div id=&quot;graph-area&quot;&gt;&lt;/div&gt;
+</pre></div>
+</div>
+  </body>
+</html>
 </section>
 </section>
 </section>

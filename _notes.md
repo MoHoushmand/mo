@@ -249,5 +249,526 @@ Feel free to browse, learn, and connect with me as you explore the various facet
 
 ---
 
-A
+| Platform | Account | Badge |
+|:--------:|:-------:|:-----:|
+| GitHub | MoHoushmand | [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand) |
+| GitHub | QDaria | [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)|
+| Binder | - | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD) |
+| Colab | - | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb) |
+| LinkedIn | MoHoushmand | [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/) |
+| Facebook | DMoHoushmand | [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand) |
+| Instagram | MoHoushmand | [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/) |
+| Instagram | MoHoushmand Art | [![Instagram](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/) |
+| Twitter | DanielHoushmand | [![Twitter](https://badgen.net/badge/icon/Twitter?icon=twitter&label)](https://twitter.com/DanielHoushmand) |
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style-plastic-greene&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+[![GitHub](https://badgen.net/badge/:subject/:status/:color?icon=github)](https://github.com/MoHoushmand/)
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+[![GitHub-MoHoushmand](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/MoHoushmand)
+[![GitHub-QDaria](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/QDaria)
+
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+<https://github.com/MoHoushmand>
 ---
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style-social-greene&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style-plastic-greene&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style-plastic-brown&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=social&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+
+(<https://www.instagram.com/mo_houshmand/>)
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+<https://shields.io/badge/style-plastic-green?logo=appveyor&style=plastic>
+---
+
+<table>
+    <tr>
+        <td>
+            <a href="https://github.com/QDaria">
+                <img src="https://badgen.net/badge/icon/QDaria?icon=github&label">
+            </a><br>
+            <a href="https://github.com/MoHoushmand">
+                <img src="https://badgen.net/badge/icon/MoHoushmand?icon=github&label">
+            </a><br>
+            <a href="https://www.linkedin.com/in/mohoushmand/">
+                <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white">
+            </a><br>
+            <a href="https://www.facebook.com/DMoHoushmand">
+                <img src="https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white">
+            </a><br>
+            <a href="https://www.instagram.com/mo_houshmand/">
+                <img src="https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white">
+            </a><br>
+            <a href="https://www.instagram.com/mo_houshmand_art/">
+                <img src="https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white">
+            </a><br>
+            <a href="https://mybinder.org/v2/gh/QDaria/jbmo/HEAD">
+                <img src="https://mybinder.org/badge_logo.svg">
+            </a><br>
+            <a href="https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb">
+                <img src="https://colab.research.google.com/assets/colab-badge.svg">
+            <!-- Continue for all other badges -->  
+
+        </td>
+        <td>
+            <img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+        </td>
+    </tr>
+</table>
+
+<img src="img/prof.jpg" alt="Avatar" class="sd-avatar-xl" />
+---
+
+:::{div} row
+:::{div} col-sm-6 card
+
+### Connection
+
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+:::
+:::{div} col-sm-6 card
+
+### D. Mo Houshmand
+
+![Avatar](img/prof.jpg){: .sd-avatar-xl .sd-border-1 }
+
+:::
+::::
+
+---
+
+.. raw:: html
+
+    <div style="display: flex; justify-content: space-between;">
+    <div style="flex: 50%;">
+
+.. rst-class:: card
+
+    Connection
+    ----------
+
+    - `GitHub-QDaria <https://github.com/QDaria>`_ |badge-github-QDaria|
+    - `GitHub-MoHoushmand <https://github.com/MoHoushmand>`_ |badge-github-MoHoushmand|
+    - `LinkedIn <https://www.linkedin.com/in/mohoushmand/>`_ |badge-linkedin|
+    - `Facebook <https://www.facebook.com/DMoHoushmand>`_ |badge-facebook|
+    - `Instagram <https://www.instagram.com/mo_houshmand/>`_ |badge-instagram|
+    - `Instagram-Art <https://www.instagram.com/mo_houshmand_art/>`_ |badge-instagram-art|
+    - `Binder <https://mybinder.org/v2/gh/QDaria/jbmo/HEAD>`_ |badge-binder|
+    - `Colab <https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb>`_ |badge-colab|
+
+.. raw:: html
+
+    </div>
+    <div style="flex: 50%;">
+
+.. rst-class:: card
+
+    D. Mo Houshmand
+    ----------------
+
+    .. image:: img/prof.jpg
+       :alt: Avatar
+       :class: sd-avatar-xl sd-border-1
+
+.. raw:: html
+
+    </div>
+    </div>
+
+.. |badge-github-QDaria| image:: <https://badgen.net/badge/icon/QDaria?icon=github&label>
+.. |badge-github-MoHoushmand| image:: <https://badgen.net/badge/icon/MoHoushmand?icon=github&label>
+.. |badge-linkedin| image:: <https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white>
+.. |badge-facebook| image:: <https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white>
+.. |badge-instagram| image:: <https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white>
+.. |badge-instagram-art| image:: <https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white>
+.. |badge-binder| image:: <https://mybinder.org/badge_logo.svg>
+.. |badge-colab| image:: <https://colab.research.google.com/assets/colab-badge.svg>
+
+---
+
+::::{grid} 2
+:::{grid-item-card}  Connection
+
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+:::
+:::{grid-item-card} D. Mo Houshmand
+<img src="img/prof.jpg" alt="Avatar" class="sd-avatar-xl" />
+:::
+
+```{grid-item-card} sd-avatar-xl
+<img src="img/prof.jpg" class="sd-avatar-xl sd-border-1">
+```
+
+::::
+
+---
+
+````{grid} 1 2 3 3
+:gutter: 1
+
+
+```{grid-item-card} sd-avatar-xl
+<img src="img/prof.jpg" alt="Avatar" class="sd-avatar-xl" />
+```
+````
+
+```{grid-item-card}
+
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+```
+
+````
+
+---
+
+::::{grid} 1 1 2 2
+:reverse:
+
+:::{grid-item}
+
+```{image} ./img/prof.jpg
+
+<img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl" />
+:width: 200px
+:class: sd-m-auto
+```
+
+:::
+
+:::{grid-item-card}
+
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+:::
+
+---
+
+
+::::{grid} 1 1 2 2
+:reverse:
+
+:::{grid-item}
+
+```{image} /img/prof.jpg
+:width: 200px
+:class: sd-m-auto
+```
+
+:::
+
+:::{grid-item-card}
+
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+:::
+---
+
+title: Mo
+---
+
+::::{grid} 2
+:reverse:
+
+:::{grid-item}
+:columns: 4
+:class: sd-m-auto
+
+<mg src="img/prof.jpg" />
+
+:::
+
+:::{grid-item}
+:columns: 8
+:class: sd-fs-3
+Welcome to my personal homepage.
+
+```{button-ref} about/about
+:ref-type: doc
+:color: primary
+:class: sd-rounded-pill float-left
+
+About
+```
+
+% The SVG rendering breaks latex builds for the GitHub badge, so only include in HTML
+
+```{only} html
+[![](https://img.shields.io/github/stars/executablebooks/jupyter-book?style=social)](https://github.com/executablebooks/jupyter-book)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2561065.svg)](https://doi.org/10.5281/zenodo.2561065)
+[![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+[![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+[![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+[![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+```
+
+:::
+
+
+---
+
+::::{grid} 2
+:reverse:
+
+:::{grid-item}
+:columns: 8
+:class: sd-fs-3
+Welcome to my personal homepage.
+
+```{button-ref} about/about
+:ref-type: doc
+:color: primary
+:class: sd-rounded-pill float-left
+
+
+About 
+
+
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+:::
+
+:::{grid-item}
+:columns: 4
+:class: sd-m-auto
+
+<img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl" />
+:::
+
+::::
+
+
+---
+````
+
+::::{grid} 2
+
+```{admonition} Connect with me
+class: tip
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+
+```
+
+<img src="img/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+```
+````
+---
+---
+```{admonition} D. Mo Houshmand
+:class: tip
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+- [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://mohoushmand.com)
+
+<img src="img/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+```
+
+<div class="row">
+    <div class="col-md-6">
+        ```{admonition} Connection
+        :class: tip
+        - [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+        - [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+        - [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+        - [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+        - [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+        - [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+        - [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+        - [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+        - [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://mohoushmand.com)
+        ```
+    </div>
+    <div class="col-md-6">
+        ```{admonition} Avatar
+        :class: tip
+        ![Avatar](img/prof.jpg){: .sd-avatar-xl }
+        ```
+    </div>
+</div>
+
+:::{admonition} Connection
+:class: tip
+
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+- [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://mohoushmand.com)
+:::
+
+:::{admonition} D. Mo Houshmand
+:class: tip
+![Avatar](img/prof.jpg){: .sd-avatar-xl }
+:::
+
+
+```{grid-item-card}
+<img src="img/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+```
+
+<div style="display: flex; justify-content: center;">
+    <img src="img/prof.jpg" alt="Avatar" style="border-radius: 50%; border: 2px solid #000; width: 200px; height: 200px;">
+</div>
+
+<div style="width: fit-content; padding: 5px; border: 1px solid black;">
+    <img src="img/prof.jpg" style="border-radius: 50%; width: 100px; height: 100px;" alt="Avatar" />
+</div>
+
+
+---
+
+```{figure} /img/prof.jpg
+---
+scale: 50%
+align: left
+---
+Mo
+```
+
+---
+
+```{figure} ./img/prof.jpg
+---
+scale: 50%
+align: left
+---
+Mo
+```
+
+---
+
+```{grid-item-card}
+:shadow: lg
+
+<img src="./img/prof.jpg" alt="Mo" style="width:50%;"/>
+```
+
+---
+
+```{grid-item-card} sd-avatar-xl
+<img src="./img/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+```
+
+---
+
+```{grid-item-card} sd-avatar-xl
+<img src="./img/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+```
+
+---
+
+```{grid-item-card}
+:shadow: lg
+
+![Mo](./img/prof.jpg)
+```
+
+---
+
+```{note} Work in progress
+**Work in progress!** <br>
+- Welcome to my personal site which is in its infancy and under development. This space serves as a reflection of my interdisciplinary background, diverse skillset, and the projects that have shaped me.
+- The vast majority of this site is in English but some minor parts of it is in Norwegian only at the moment for courses I'm tutoring in *Fluid Art* at [tegenskole.no](http://www.tegneskole.no/) <br> 
+- The rest is a combination of my experience, educations and project in the realm of *Art*, *Applied Behavioral Analysis*, *Quantum Information*, *Data Science* and *Computational Science* with *Applied Mathematics, Mechanics and mostly Numerical Physics* plus some emerging and or established sub fields of *Artificial Intelligence*, better known as *Machine Learning* and *Deep Learning*.
+- In my attempt to grasp the fundamentals of *Quantum Computing*, *Quantum Computers* and *Quantum Machine Learning* I have literally been taken thousand of pages of notes, codes and other recourses wher I have worked through tons of exercises. All that will be the heart of what I want to share with the readers in this jupyterbook format that enables flexibility to build a more instructively, interactive and visually appealing book at a later stage to make it easier to grasp for others who want to learn more about these subjects so you don't suffer as much as I did due to the complexity and hardness of it. 
+- However, I have to painfully admit that this is not an easy to read or grasp subject, and you will no matter patiently work hard to fascilitate the subjects to be sufficiently matured. To cliche; The more regularly you work through exercises and read other resources the faster and heavier you will comprehend. 
+- Any errors, typos or any shape of improvements are more than highly appreciated! <br>
+
+Kind regards 
+
+- [D. Mo Houshmand](https://mohoushmand.com)
+- **mo@daria.com**
+- **mob: $+47 98079896$**
+
+```
+
+```{admonition} In Progress..
+**Site under development** <br> 
+
+Welcome to my personal digital space, reflecting my unique blend of experiences, disciplines, skills, and transformational projects that have shaped my journey.
+
+- The majority of the content here is in English, although you may encounter some sections in Norwegian, predominantly catering to the courses I conduct in Fluid Art at tegenskole.no
+This platform amalgamates my experiences, education, and projects in a wide range of fields like Art, Applied Behavioral Analysis, Quantum Information, Data Science, and Computational Science, with a concentration on Applied Mathematics, Mechanics, and Numerical Physics. Additionally, you will discover material on emerging and well-established subdomains of Artificial Intelligence, including Machine Learning (ML), Natural Language Processing (NLP), encompassing ..Generation (NLG), ..Understanding (NLU), Deep Learning, Deep Reinforcement Learning (DRL), and Quantum Machine Learning (QML).
+Throughout my quest to understand Quantum Computing, Quantum Computers, and Quantum Machine Learning, I've created thousands of pages of notes, codes, and a myriad of resources, diligently working through countless exercises. This constitutes the core of what I desire to share with readers via this interactive JupyterBook format. My aim is to present these mentally invigorating yet challenging topics in a visually engaging and simplified manner to facilitate your learning journey.
+I understand and acknowledge the complexity and demands of these subjects. I've strived to deconstruct every intricate topic into more digestible components for better understanding. However, these fields require perseverance and patience to fully grasp. I assure you, with regular practice and exploration of resources, your comprehension will deepen and speed up.
+Feedback is crucial for continuous improvement, so if you detect any errors, typos, or identify opportunities for enhancement, please feel free to share!"

@@ -1,30 +1,51 @@
 # Daniel Mo Houshmand
 
+---
 
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
-[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+```{figure} ./img/prof.jpg
+---
+scale: 20%
+figclass: margin
+---
+```
 
 ---
 
-<img src="_static/prof.jpg" alt="Avatar" class="sd-avatar-xl">
+```{admonition} Connect with me
+:class: tip
+**Click on badges to connect or explore!:**
+
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+```
 
 ---
 
-```{note} Work in progress
-**Work in progress!** <br>
-- Welcome to my personal site which is in its infancy and under development. This space serves as a reflection of my interdisciplinary background, diverse skillset, and the projects that have shaped me.
-- The vast majority of this site is in English but some minor parts of it is in Norwegian only at the moment for courses I'm tutoring in *Fluid Art* at [tegenskole.no](http://www.tegneskole.no/) <br> 
-- The rest is a combination of my experience, educations and project in the realm of *Art*, *Applied Behavioral Analysis*, *Quantum Information*, *Data Science* and *Computational Science* with *Applied Mathematics, Mechanics and mostly Numerical Physics* plus some emerging and or established sub fields of *Artificial Intelligence*, better known as *Machine Learning* and *Deep Learning*.
-- In my attempt to grasp the fundamentals of *Quantum Computing*, *Quantum Computers* and *Quantum Machine Learning* I have literally been taken thousand of pages of notes, codes and other recourses wher I have worked through tons of exercises. All that will be the heart of what I want to share with the readers in this jupyterbook format that enables flexibility to build a more instructively, interactive and visually appealing book at a later stage to make it easier to grasp for others who want to learn more about these subjects so you don't suffer as much as I did due to the complexity and hardness of it. 
-- However, I have to painfully admit that this is not an easy to read or grasp subject, and you will no matter patiently work hard to fascilitate the subjects to be sufficiently matured. To cliche; The more regularly you work through exercises and read other resources the faster and heavier you will comprehend. 
-- Any errors, typos or any shape of improvements are more than highly appreciated! <br>
 
-Kind regards 
+```{admonition} Work in progress
+class: tip
+
+**This site is currently under development.** <br> 
+Welcome to my personal space, reflecting my interdisciplinary background, diverse skillset, and some of the transformative projects that have shaped me.
+
+- Most of the site is in English, though you will find minor sections in Norwegian, primarily catering to the courses I tutor in *Fluid Art* at [tegenskole.no](http://www.tegneskole.no/).
+- This space synthesizes my experiences, education, and projects across fields as diverse as *Art*, *Applied Behavioral Analysis*, *Quantum Information*, *Data Science*, and *Computational Science*, with a focus on *Applied Mathematics, Mechanics, and Numerical Physics*. You'll also find content touching on emerging and established subfields of *Artificial Intelligence*, particularly *Machine Learning* (`ML`), *Natural Language Processing* (`NLP`) including ..*Generation* (`NLG`), ..*Understanding* (`NLU`), *Deep Learning*, *Deep Reinforcement Learning* (`DRL`) and *Quantum Machine Learning* (`QML`).
+- As I've endeavored to comprehend *Quantum Computing*, *Quantum Computers*, and *Quantum Machine Learning*, I've compiled thousands of pages of notes, codes, and other resources, laboring over a plethora of exercises. This is the very heart of my work that I want to share with readers in this interactive JupyterBook format, aiming to simplify and visually enhance the learning experience for those who wish to delve into these mind expandingly exciting but challenging subjects.
+- I'm painfully aware that most of these topics are challenging to digest and demand dedicated effort. However, I have done my utmost to deconstruct these complex subjects into smaller, manageable pieces to facilitate a reverse-engineering approach for comprehension. These areas require unwavering patience and commitment to master, but be assured, with consistent practice and diligent exploration of resources, the speed and depth of your understanding will markedly increase.
+- I welcome and appreciate all forms of feedback - if you spot any errors, typos, or see opportunities for improvement, please do not hesitate to share!
+
+Best regards,
 
 - [D. Mo Houshmand](https://mohoushmand.com)
 - **mo@daria.com**
-- **mob: $+47 98079896$**
+- **mob: +47 98079896**
 
 ```
 
@@ -34,9 +55,22 @@ Kind regards
 :shadow: lg
 ![FEM Art](img/FEM_art_0.JPG)
 ```
-> Finite Element Artwork of an *Optimised FEM geometry prepared fo Direct Numerical Simulation (DNS)*  to be solved directly with *the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
+
+> Finite Element Artwork - *Optimised FEM geometry prepared for Computational Fluid Dynamics (`CFD`) Simulation*, a poor mans *Direct Numerical Simulation (`DNS`)*) *to be solved directly with*the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
 
 ---
+
+```{grid-item-card}
+:shadow: lg
+![swipe0](art/fluidart/bloom0.JPG)
+```
+
+> Fluid Art (Bloom) - *Bad Bloom series #0* <br> - **D. Mo Houshmand** (2021)
+
+---
+
+## Dedication
+
 As a strong proponent of social responsibility, I dedicate a significant part of this website to my charitable initiatives and unwavering commitment to aiding those who need assistance. I encourage you to join me in sparking positive change and enabling others to tap into their full potential.
 
 I staunchly believe in the transformative power of interdisciplinary collaboration and the potential of emerging technologies. Here, you will find a showcase of my artwork, emphasizing my passion for the nexus of Art & Science. I invite you to delve into my creative process, from inception to completion, and discover how I've crafted pieces that have significantly contributed to my personal and professional growth, and which I find particularly captivating. Specifically, I will highlight my enthusiasm for Fluid Art, Fluid Mechanics (Turbulence flow), Data Science, Quantum Computing, Quantum Machine Learning, and the Hardware of Quantum Computers.
@@ -45,47 +79,71 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 1. I will delve into the artistic aspects of preparing acrylic colors with specific viscosities, ready to blend into unique pieces of Fluid Art
 2. I will also discuss the underlying mathematics and associated numerical techniques - Computational Fluid Dynamics (CFD) and Direct Numerical Simulation (DNS). Both these computational techniques in numerical physics are exclusively dedicated to the solutions of the Navier-Stokes equations, whether solved approximately with CFD or directly with DNS - the holy grail of the governing equations of motion, explicitly dedicated to turbulent flows. DNS is an exceptionally intricate and costly technique, with only a select few worldwide having the privileged resources to simulate it.
-3. Quantum Computers, the next generation of computing set to revolutionize our world, are another central focus of mine. I will share my journey into the quantum realm, beginning with the basics of quantum mechanics and quantum information, ultimately leading to the hardware of quantum computers and quantum machine learning.
+3. Quantum Computers, the next generation of computing set to revolutionize our world, are another central focus of mine. I will share my journey into the quantum realm, beginning with the basics of quantum mechanics and quantum information, leading to the hardware of quantum computers and quantum machine learning and ultimately to `Topological Quantum Computers` (**`TQC`**) and Topological Quantum Field Theory (**`TQFT`**). I will emphesize the mathematical foundations of quantum computing, including linear algebra, quantum gates, and quantum circuits, and how they are implemented in quantum hardware.
 
-Feel free to browse, learn, and connect with me as you explore the various facets of my life and work. Whether you're captivated by my artistic creations or intrigued by my technical expertise, I warmly invite you to embark on this journey with me.
+### Hans Petter Langtangen (1962-2017)
 
----
+As a passionate supporter of education and personal growth I consider myself far too fortunate to have been guided by some of the most brilliant minds on the planet. I want to dedicate this space to these extraordinary individuals who, above all, set an example of kindness and respect for others, irrespective of their rank or status guided me to the topics that occupies most of my time and the vast majority of this space. Tragically, two of them passed away prematurely in 2017 and 2019.
 
-**Dedication:** <br>
+First, I would like to honor my former professor and greatest inspiration, the exceptional **Hans Petter Langtangen**, who lost his battle with pancreatic cancer in 2017. Astoundingly, he managed to write and finish a series of Springer published bestsellers in Scientific Computing and Engineering between being diagnosed in early 2015 and his untimely passing in the fall of 2017. An extraordinarily inspirational figure, he fostered an environment that encouraged you to perform above and beyond your perceived abilities. He held a firm belief that anyone, regardless of the difficulty of their goals, could succeed with dedication and hard work. A true genius in every sense, he had an unwavering conviction that there were no 'stupid' people and he could convince even the most self-doubting among us that we had the potential to achieve greatness. He was a part of the prestigious Center for Neuroplasticity and his teachings instilled in me a passionate love for Numerical Methods for Partial Differential Equations. I am immensely proud to have had the opportunity to proofread some of his writings, and to have contributed to his last authored bestseller, Finite Difference Computing with Partial Differential Equations - A Modern Software Approach. I think of him every single day with a mixture of grief and gratitude. Rest in Peace, Maestro!
 
-I am a passionate supporter of education and personal growth and consider myself fortunate to have been guided by some of the most brilliant minds on the planet. I want to dedicate this space to these extraordinary individuals who, above all, set an example of kindness and respect for others, irrespective of their rank or status. Sadly, two of them passed away prematurely in 2017 and 2019.
+### Peter Wittek (1980-2019)
 
-Firstly, I would like to honor my former professor and greatest inspiration, the exceptional **Hans Petter Langtangen**, who lost his battle with pancreatic cancer in 2017. Astoundingly, he managed to write and finish a series of Springer published bestsellers in Scientific Computing and Engineering between being diagnosed in early 2015 and his untimely passing in the fall of 2017. An extraordinarily inspirational figure, he fostered an environment that encouraged you to perform above and beyond your perceived abilities. He held a firm belief that anyone, regardless of the difficulty of their goals, could succeed with dedication and hard work. A true genius in every sense, he had an unwavering conviction that there were no 'stupid' people and he could convince even the most self-doubting among us that we had the potential to achieve greatness. He was a part of the prestigious Center for Neuroplasticity and his teachings instilled in me a passionate love for Numerical Methods for Partial Differential Equations. I am immensely proud to have had the opportunity to proofread some of his writings, and to have contributed to his last authored bestseller, Finite Difference Computing with Partial Differential Equations - A Modern Software Approach. I think of him every single day with a mixture of grief and gratitude. Rest in Peace, Maestro!
+Secondly, I wish to honor the memory of the adventurous and inspiring professor, Peter Wittek from the University of Toronto. He introduced me to Quantum Machine Learning back in 2017, when I had only just begun my earnest exploration of Machine Learning, Natural Language Processing, Topic Modelling, and Latent Dirichlet Allocation (LDA). At the time, I was an intern working as a Data Scientist in what was then the first officially funded AI Lab in Norway. Despite my novice status, I found Professor Wittek's teachings invaluable, due in large part to my background in physics which provided a foundation to grasp these complex concepts with considerable effort.
 
-Secondly, I would like to remember the adventurous and inspiring professor **Peter Wittek** from the University of Toronto, who introduced me to Quantum Machine Learning in 2017. He tragically passed away in the horrific Himalayan avalanche of 2019. I firmly believe that our third attempt to establish a Quantum Computer startup would have been a success if he were still with us. May he rest in peace.
+Unfortunately, Professor Wittek's life was tragically cut short in the devastating Himalayan avalanche of 2019. To this day, I carry a firm belief that had he still been with us, our third attempt to establish a Quantum Computing startup would have seen great success. His untimely demise is a profound loss to the scientific community and to everyone who had the privilege of knowing him personally or professionally. I shall always remember him, not just for his ground-breaking work in Quantum Machine Learning, but for his generosity in guiding a young Data Scientist during his early steps in the field. May he rest in peace.
 
-Last but not least, I want to acknowledge my former professor of *Non-Relativistic Quantum Mechanics* and an immense mentor, **Jon Magne Leinaas**, who, along with Jan Myrheim, discovered Anyons almost 50 years ago. Their discovery was independently confirmed twice in different labs during the pandemic (see for instance Welcome Anyons - Nature). Jon, a member of the Nobel Prize in Physics committee, and Jan have been strong candidates for the prestigious award. The discovery of Anyons, which bridges Fermions with Bosons, has the potential to revolutionize the field of Quantum Computing and could have an unparalleled, positive impact on humanity. 
+### Jon Magne Leinaas
 
-Upon covering the diverse array of qubit types, my attention will significantly shift towards Topological Quantum Computers. It is my intention to devote a considerable portion of my future work in this direction, to elucidate every facet of the groundbreaking discovery of Anyons by Jon Magne Leinaas.
+Last but not least, I want to acknowledge my former professor of *Non-Relativistic Quantum Mechanics* and allthough the relatively short time of interaction, nevertheless an immense mentor, **Jon Magne Leinaas**, who, along with **Jan Myrheim**, discovered `**Anyons**` almost 50 years ago. Their discovery was independently confirmed twice in different labs during the pandemic (see for instance Welcome Anyons - Nature). Jon, a member of the Nobel Prize in Physics committee, and Jan have been strong candidates for the prestigious award. The discovery of Anyons, which bridges Fermions with Bosons, has the potential to revolutionize the field of Quantum Computing and could have an unparalleled, positive impact on humanity.
 
-Anyons, a new class of particles, represent a profound advancement in our understanding of quantum mechanics. They form the underlying theoretical basis for Topological Quantum Computers, a novel computing paradigm that leverages the unique properties of Anyons for computational tasks. As such, they embody a promising approach to realizing fault-tolerant quantum computation, which is one of the most significant challenges in the field.
+Upon covering the diverse array of qubit types, my attention will significantly shift towards Topological Quantum Computers. It is my intention to devote a considerable portion of my future work in this direction, to elucidate every facet of the groundbreaking discovery of Anyons - a new class of particles, represent a profound advancement in our understanding of quantum mechanics. They form the underlying theoretical basis for Topological Quantum Computers, a novel computing paradigm that leverages the unique properties of so called exotic quasi particles Anyons for computational tasks. As such, they embody a promising approach to realizing fault-tolerant quantum computation, which is one of the most significant challenges in the field. 
 
-I am strongly convinced that Topological Quantum Computers, powered by Anyon-based qubits, will lead the next wave of advancements in quantum computing. My conviction is based on their inherent fault tolerance and stability, characteristics that are quintessential for the operation of practical, large-scale quantum computers.
+I am strongly convinced that Topological Quantum Computers, powered by Anyon-based qubits, will lead the next wave of advancements in quantum computing. My conviction is based on their inherent fault tolerance and stability, characteristics that are quintessential for the operation of practical, large-scale quantum computers. Through this dedicated exploration, I aim to highlight the profound potential of Anyon-based Topological Quantum Computers and their potential to dominate the future of quantum computing. This exploration will not only pay homage to the remarkable work of Leinaas but also contribute to advancing our collective understanding of this promising technology. I sincerely believe that by shedding light on the intricacies of these systems, we can inspire and accelerate further research and development in this space, ultimately bringing us closer to the quantum future we all envision.
 
-Through this dedicated exploration, I aim to highlight the profound potential of Anyon-based Topological Quantum Computers and their potential to dominate the future of quantum computing. This exploration will not only pay homage to the remarkable work of Leinaas but also contribute to advancing our collective understanding of this promising technology. I sincerely believe that by shedding light on the intricacies of these systems, we can inspire and accelerate further research and development in this space, ultimately bringing us closer to the quantum future we all envision.
+Finally I also want to express my gratitude to Delft University and edx for offering comprehensive, world-class courses in the field of Quantum Computing and Quantum Computer Technology. These resources have played an instrumental role in enabling me to grasp these fascinating yet incredibly complex subjects and this site is highly influenced from the courses they have offered. I highly recommend them to anyone interested in this field.
 
-Finally I also want to express my gratitude to Delft University and edx for offering comprehensive, world-class courses in the field of Quantum Computing and Quantum Computer Technology. These resources have played an instrumental role in enabling me to grasp these fascinating yet incredibly complex subjects. I highly recommend them to anyone interested in this field.
-
-I hope you enjoy exploring this website and feel free to reach out to me if you have any questions or comments. I am always delighted to connect with others who share my passion for learning, innovation, and positive impact. <br> 
-
-> - Mo
+I hope you enjoy exploring this website and feel free to reach out to me if you have any questions or comments. Feel free to browse, learn, and connect with me as you explore the various facets of my life and work. Whether you're captivated by my artistic creations or intrigued by my technical expertise, I warmly invite you to embark on this journey with me and I am always delighted to connect with others who share my passion for learning, innovation, and positive impact. <br>
+> Sincerely Yours, <br> - Mo
 
 ---
 
-> *Ibis Redibis Nunquam Per Bella Peribis* 
+> **`Ibis Redibis Nunquam Per Bella Peribis`**
+
+---
+
+```{grid-item-card}
+:shadow: lg
+![swipe0](art/fluidart/flipcup.JPG)
+```
+
+> Fluid Art (Flip Cup) - *Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
 
 ---
 
 ```{tableofcontents}
 ```
 
+```{grid-item-card}
+:shadow: lg
+![swipe0](art/fluidart/flipcup.JPG)
+```
+
+> Fluid Art (Flip Cup) - *Northern Light Series #03* <br> - **D. Mo Houshmand** (2020)
+
+---
+
 
 ```{nb-exec-table}
 ```
 
+---
 
+```{grid-item-card}
+:shadow: lg
+![swipe0](art/fluidart/Northern-Light.JPG)
+```
+
+> Fluid Art (Flip Cup) - *Rajee's Canvas Burning* <br> - **D. Mo Houshmand** (2019)
+
+---

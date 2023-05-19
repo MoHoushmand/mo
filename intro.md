@@ -65,3 +65,11 @@ Peter was a special person, a rarity so to speak. My encounter with him was in 2
 
 Probably the thoughest time of my life while waiting for the confirmation and news of his faith. It was a overly devestating hard time for not only his family and friends, but the small QML community as a whole since he was pioneering figure. In any case while waiting for official announcements, in a state of shock and disbelief, the pandemic hit us in the spring of 2020 and that was it! Investors backing of, and I was broke in many shape and form, the company dissolved even before starting. Againg left with a broken heart and broken dreams.
 
+
+```{figure} ./img/prof.jpg
+---
+scale: 30%
+figclass: margin
+
+---
+```
