@@ -11,9 +11,9 @@ figclass: margin
 
 ---
 
-```{admonition} Connect with me
-:class: tip
-**Click on badges to connect or explore!:**
+```{admonition} Connect
+
+**Click on badges to connect with me or explore!:**
 
 - [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
 - [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
@@ -30,7 +30,6 @@ figclass: margin
 
 
 ```{admonition} Work in progress
-class: tip
 
 **This site is currently under development.** <br> 
 Welcome to my personal space, reflecting my interdisciplinary background, diverse skillset, and some of the transformative projects that have shaped me.
@@ -56,7 +55,9 @@ Best regards,
 ![FEM Art](img/FEM_art_0.JPG)
 ```
 
-> Finite Element Artwork - *Optimised FEM geometry prepared for Computational Fluid Dynamics (`CFD`) Simulation*, a poor mans *Direct Numerical Simulation (`DNS`)*) *to be solved directly with*the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
+<br>
+
+> Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
 
 ---
 
@@ -65,13 +66,15 @@ Best regards,
 ![swipe0](art/fluidart/bloom0.JPG)
 ```
 
+<br>
+
 > Fluid Art (Bloom) - *Bad Bloom series #0* <br> - **D. Mo Houshmand** (2021)
 
 ---
 
 ## Dedication
 
-As a strong proponent of social responsibility, I dedicate a significant part of this website to my charitable initiatives and unwavering commitment to aiding those who need assistance. I encourage you to join me in sparking positive change and enabling others to tap into their full potential.
+As a strong proponent of social responsibility, I dedicate a significant part of this website to my charitable initiatives and unwavering commitment to aiding those who need assistance. I encourage you to join me in sparking positive change and enpowering others to tap into their full potential.
 
 I staunchly believe in the transformative power of interdisciplinary collaboration and the potential of emerging technologies. Here, you will find a showcase of my artwork, emphasizing my passion for the nexus of Art & Science. I invite you to delve into my creative process, from inception to completion, and discover how I've crafted pieces that have significantly contributed to my personal and professional growth, and which I find particularly captivating. Specifically, I will highlight my enthusiasm for Fluid Art, Fluid Mechanics (Turbulence flow), Data Science, Quantum Computing, Quantum Machine Learning, and the Hardware of Quantum Computers.
 
@@ -83,19 +86,18 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ### Hans Petter Langtangen (1962-2017)
 
-As a passionate supporter of education and personal growth I consider myself far too fortunate to have been guided by some of the most brilliant minds on the planet. I want to dedicate this space to these extraordinary individuals who, above all, set an example of kindness and respect for others, irrespective of their rank or status guided me to the topics that occupies most of my time and the vast majority of this space. Tragically, two of them passed away prematurely in 2017 and 2019.
-
-First, I would like to honor my former professor and greatest inspiration, the exceptional **Hans Petter Langtangen**, who lost his battle with pancreatic cancer in 2017. Astoundingly, he managed to write and finish a series of Springer published bestsellers in Scientific Computing and Engineering between being diagnosed in early 2015 and his untimely passing in the fall of 2017. An extraordinarily inspirational figure, he fostered an environment that encouraged you to perform above and beyond your perceived abilities. He held a firm belief that anyone, regardless of the difficulty of their goals, could succeed with dedication and hard work. A true genius in every sense, he had an unwavering conviction that there were no 'stupid' people and he could convince even the most self-doubting among us that we had the potential to achieve greatness. He was a part of the prestigious Center for Neuroplasticity and his teachings instilled in me a passionate love for Numerical Methods for Partial Differential Equations. I am immensely proud to have had the opportunity to proofread some of his writings, and to have contributed to his last authored bestseller, Finite Difference Computing with Partial Differential Equations - A Modern Software Approach. I think of him every single day with a mixture of grief and gratitude. Rest in Peace, Maestro!
+I am a passionate supporter of education and personal growth I consider myself far too fortunate to have been guided by some of the most brilliant minds on the planet. I want to dedicate this space to these extraordinary individuals who, above all, set an example of kindness and respect for others, irrespective of their rank or status guided me to the topics that occupies most of my time and the vast majority of this space. Tragically, two of them passed away prematurely in 2017 and 2019.
+First, I would like to honor my former professor and greatest inspiration, the exceptional awardwinning world reknowned [**Hans Petter Langtangen**](https://en.wikipedia.org/wiki/Hans_Petter_Langtangen) , who lost his battle with pancreatic cancer in 2017. Astoundingly, he managed to write and finish a series of Springer published bestsellers in Scientific Computing and Engineering between being diagnosed in early 2015 and his untimely passing in the fall of 2017. An extraordinarily inspirational figure, he fostered an environment that encouraged you to perform above and beyond your perceived abilities. He held a firm belief that anyone, regardless of the difficulty of their goals, could succeed with dedication and hard work. A true genius in every sense, he had an unwavering conviction that there were no 'stupid' people and he could convince even the most self-doubting among us that we had the potential to achieve greatness. He was a part of the prestigious Center for Neuroplasticity and his teachings instilled in me a passionate love for Numerical Methods for Partial Differential Equations. I am immensely proud to have had the opportunity to proofread some of his writings, and to have contributed to his last authored bestseller, Finite Difference Computing with Partial Differential Equations - A Modern Software Approach. I think of him every single day with a mixture of grief and gratitude. Rest in Peace, Maestro!
 
 ### Peter Wittek (1980-2019)
 
-Secondly, I wish to honor the memory of the adventurous and inspiring professor, Peter Wittek from the University of Toronto. He introduced me to Quantum Machine Learning back in 2017, when I had only just begun my earnest exploration of Machine Learning, Natural Language Processing, Topic Modelling, and Latent Dirichlet Allocation (LDA). At the time, I was an intern working as a Data Scientist in what was then the first officially funded AI Lab in Norway. Despite my novice status, I found Professor Wittek's teachings invaluable, due in large part to my background in physics which provided a foundation to grasp these complex concepts with considerable effort.
+Secondly, I wish to honor the memory of the adventurous and inspiring professor, [**Peter Wittek**](https://www.utoronto.ca/news/u-t-s-peter-wittek-who-will-be-remembered-feb-3-event-why-future-quantum) from the University of Toronto. He introduced me to Quantum Machine Learning back in 2017, when I had only just begun my earnest exploration of Machine Learning, Natural Language Processing, Topic Modelling, and Latent Dirichlet Allocation (LDA). At the time, I was an intern working as a Data Scientist in what was then the first officially funded AI Lab in Norway. Despite my novice status, I found Professor Wittek's teachings invaluable, due in large part to my background in physics which provided a foundation to grasp these complex concepts with considerable effort.
 
 Unfortunately, Professor Wittek's life was tragically cut short in the devastating Himalayan avalanche of 2019. To this day, I carry a firm belief that had he still been with us, our third attempt to establish a Quantum Computing startup would have seen great success. His untimely demise is a profound loss to the scientific community and to everyone who had the privilege of knowing him personally or professionally. I shall always remember him, not just for his ground-breaking work in Quantum Machine Learning, but for his generosity in guiding a young Data Scientist during his early steps in the field. May he rest in peace.
 
 ### Jon Magne Leinaas
 
-Last but not least, I want to acknowledge my former professor of *Non-Relativistic Quantum Mechanics* and allthough the relatively short time of interaction, nevertheless an immense mentor, **Jon Magne Leinaas**, who, along with **Jan Myrheim**, discovered `**Anyons**` almost 50 years ago. Their discovery was independently confirmed twice in different labs during the pandemic (see for instance Welcome Anyons - Nature). Jon, a member of the Nobel Prize in Physics committee, and Jan have been strong candidates for the prestigious award. The discovery of Anyons, which bridges Fermions with Bosons, has the potential to revolutionize the field of Quantum Computing and could have an unparalleled, positive impact on humanity.
+Last but not least, I want to acknowledge my former professor of *Non-Relativistic Quantum Mechanics* and allthough the relatively short time of interaction, nevertheless an immense mentor, [**Jon Magne Leinaas**](https://en.wikipedia.org/wiki/Jon_Magne_Leinaas) who, along with **Jan Myrheim**, discovered `**Anyons**` almost 50 years ago. Their discovery was independently confirmed twice in different labs during the pandemic (see for instance Welcome Anyons - Nature). Jon, a member of the Nobel Prize in Physics committee, and Jan have been strong candidates for the prestigious award. The discovery of Anyons, which bridges Fermions with Bosons, has the potential to revolutionize the field of Quantum Computing and could have an unparalleled, positive impact on humanity.
 
 Upon covering the diverse array of qubit types, my attention will significantly shift towards Topological Quantum Computers. It is my intention to devote a considerable portion of my future work in this direction, to elucidate every facet of the groundbreaking discovery of Anyons - a new class of particles, represent a profound advancement in our understanding of quantum mechanics. They form the underlying theoretical basis for Topological Quantum Computers, a novel computing paradigm that leverages the unique properties of so called exotic quasi particles Anyons for computational tasks. As such, they embody a promising approach to realizing fault-tolerant quantum computation, which is one of the most significant challenges in the field. 
 
