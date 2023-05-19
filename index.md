@@ -59,6 +59,7 @@ Best regards,
 
 ---
 
+
 ```{grid-item-card}
 :shadow: lg
 ![swipe0](art/fluidart/bloom0.JPG)
@@ -110,6 +111,7 @@ I hope you enjoy exploring this website and feel free to reach out to me if you 
 
 ---
 
+
 ```{grid-item-card}
 :shadow: lg
 ![swipe0](art/fluidart/flipcup.JPG)
@@ -119,8 +121,12 @@ I hope you enjoy exploring this website and feel free to reach out to me if you 
 
 ---
 
+
 ```{tableofcontents}
 ```
+
+---
+
 
 ```{grid-item-card}
 :shadow: lg
@@ -137,10 +143,11 @@ I hope you enjoy exploring this website and feel free to reach out to me if you 
 
 ---
 
+
 ```{grid-item-card}
 :shadow: lg
 ![swipe0](art/fluidart/Northern-Light.JPG)
-`
+```
 
 > Fluid Art (Flip Cup) - *Rajee's Canvas Burning* <br> - **D. Mo Houshmand** (2019)
 
