@@ -20,8 +20,6 @@ I'd like to once again take a moment to express my gratitude and acknowledge the
 
 ---
 
-`**Test**`
-
 ```{admonition} Test Explanation
 :class: dropdown
 
