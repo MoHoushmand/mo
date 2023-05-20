@@ -302,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>– Moves a point on the surface of the Bloch sphere.</p>
 <p>So far you mastered the notation of quantum mechanics and quantum computing, understood as much physics as needed to perform various operations on quantum states, and now you are ready to build quantum algorithms. In this notebook, we look at the basics of gate-model quantum computing, which is sometimes also referred to as universal quantum computing. Most academic and commercial efforts to build a quantum computer focus on this model: Alibaba, Baidu, Google, HP, IBM Q, Intel, IonQ, Microsoft, Rigetti Computing, and Tencent all aim at this, and the list keeps expanding. It remains unclear which implementation will prove scalable: superconducting chips, photonic systems, and ion traps are the most common types, each having its own advantages and disadvantages. We abstract away, we focus on the quantum algorithms irrespective of the physical implementation.</p>
 <p>To get there, first we have to familiarize ourselves with some gates and what happens to those gates on quantum computers. The following diagram shows the software stack that bridges a problem we want to solve with the actual computational back-end [<span class="xref myst">1</span>]:</p>
-<img src="figures/universal_quantum_workflow.png" alt="Software stack on a gate-model quantum computer" style="width: 400px;"/>
+<img alt="Software stack on a gate-model quantum computer" src="quantum_machine_learning/qml/figures/universal_quantum_workflow.png" />
 <p>First, we define the problem at a high-level and a suitable quantum algorithm is chosen. Then, we express the quantum algorithm as a quantum circuit composed of gates. This in turn has to be compiled to a specific quantum gate set available. The last step is to execute the final circuit either on a quantum processor or on a simulator.</p>
 <p>The quantum algorithms we are interested in are about machine learning. In this notebook, we look at the levels below algorithms: the definition of circuits, their compilation, and the mapping to the hardware or a simulator.</p>
 </section>
@@ -406,7 +406,7 @@ c0: 2/═══════════╩══╩═
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e2e1140d03b2514990f4ba4162a088639dc668da672421942c8a8045beb4af5f.png" src="../../_images/e2e1140d03b2514990f4ba4162a088639dc668da672421942c8a8045beb4af5f.png" />
+<img alt="../../_images/5254b77f33bb2a716e059429e6151d1186a5e1d91a0bbcf04b01808821a51e24.png" src="../../_images/5254b77f33bb2a716e059429e6151d1186a5e1d91a0bbcf04b01808821a51e24.png" />
 </div>
 </div>
 <p>As we have seen before, 01 and 10 never appear.</p>
@@ -425,8 +425,7 @@ e^{i\phi}\sin(\theta/2) &amp; e^{i\lambda+i\phi}\cos(\theta/2)
 <p>The compiler decomposes it into an actual gate sequence.</p>
 <p>This is one task of a quantum compiler. The next one is to translate the gates given in the circuit to the gates implemented in the hardware or the simulator. In the table above, we defined many gates, but a well-chosen set of three is sufficient for universality. For engineering constraints, typically one minimal set of universal gates is implemented in the hardware. It depends on the physical architecture which three.</p>
 <p>At this point, the number of gates applied is probably already increasing: the decomposition of unitary will create many gates and the translation of gates is also likely to add more gates. An additional problem is the topology of the qubits: in some implementations not all qubit registers are connected to each other. The most popular implementation is superconducting qubits, which are manufactured on silicon chips just like any digital device you have. Since this is a quintessentially two dimensional layout, most qubits on the chip will not be connected. Here is an example topology of eight qubits on a superconducting quantum computer:</p>
-<img src="figures/eight_qubits.svg" alt="8-qubit topology" style="width: 200px;"/>
-<p>If we want to perform a two-qubit operations between two qubits that are not neighbouring, we have to perform SWAP operations to switch the qubit states between registers. A SWAP consists of three CNOT gates in a sequence.</p>
+<img alt="8-qubit topology" src="quantum_machine_learning/qml/figures/eight_qubits.svg" /><p>If we want to perform a two-qubit operations between two qubits that are not neighbouring, we have to perform SWAP operations to switch the qubit states between registers. A SWAP consists of three CNOT gates in a sequence.</p>
 <p>The total number of gates at the end of the compilation reflects the true requirement of the hardware. <em>Circuit depth</em> is the number of time steps required to execute the circuit, assuming that gates acting on distinct qubits can operate in parallel. On current and near-term quantum computers, we want circuits to be shallow, otherwise decoherence or other forms of noise destroy our calculations.</p>
 <p>We have to emphasize that the compilation depends on the backend. On the simulator, physical constraints do not apply. If we compile the circuit above, its depth will not increase:</p>
 <div class="cell docutils container">

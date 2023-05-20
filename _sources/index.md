@@ -1,13 +1,65 @@
 # Daniel Mo Houshmand
 
+:::::{grid} 2
+::::{grid-item-card} Title
+:img-top:
+img/prof.jpg
+
+Header
+^^^
+
+::::
+
+::::{grid-item-card} AI Whisperers
+:img-bottom: img/prof.jpg
+
+Header
+^^^
+Content
++++
+Footer
+::::
+
+:::::
+
 ---
 
-```{figure} ./img/prof.jpg
----
-scale: 20%
-figclass: margin
----
+:::{figure-md} markdown-fig
+<img src="./img/prof.jpg" alt="fishy" class="bg-primary mb-1" width="200px">
+
+This is a caption in **Markdown**!
+:::
+
+```{image} ./img/prof.jpg
 ```
+
+::::{grid}
+:gutter: 2
+
+:::{grid-item-card} Connect
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+[![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+[![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+[![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+[![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+:::
+
+:::{grid-item-card} AI Whisperers
+
+```{image} ./img/prof.jpg
+:height: 150px
+:name:
+```
+:::
+::::
+---
+
+
 
 ---
 
@@ -29,16 +81,16 @@ figclass: margin
 ---
 
 
-```{admonition} Work in progress
+```{admonition} Site under development
 
-**This site is currently under development.** <br> 
 Welcome to my personal space, reflecting my interdisciplinary background, diverse skillset, and some of the transformative projects that have shaped me.
 
 - Most of the site is in English, though you will find minor sections in Norwegian, primarily catering to the courses I tutor in *Fluid Art* at [tegenskole.no](http://www.tegneskole.no/).
-- This space synthesizes my experiences, education, and projects across fields as diverse as *Art*, *Applied Behavioral Analysis*, *Quantum Information*, *Data Science*, and *Computational Science*, with a focus on *Applied Mathematics, Mechanics, and Numerical Physics*. You'll also find content touching on emerging and established subfields of *Artificial Intelligence*, particularly *Machine Learning* (`ML`), *Natural Language Processing* (`NLP`) including ..*Generation* (`NLG`), ..*Understanding* (`NLU`), *Deep Learning*, *Deep Reinforcement Learning* (`DRL`) and *Quantum Machine Learning* (`QML`).
+- This space synthesizes my experiences, education, and projects across fields as diverse as *Art*, *Applied Behavioral Analysis*, *Quantum Information*, *Data Science*, and *Computational Science*, with a focus on *Applied Mathematics** . 
 - As I've endeavored to comprehend *Quantum Computing*, *Quantum Computers*, and *Quantum Machine Learning*, I've compiled thousands of pages of notes, codes, and other resources, laboring over a plethora of exercises. This is the very heart of my work that I want to share with readers in this interactive JupyterBook format, aiming to simplify and visually enhance the learning experience for those who wish to delve into these mind expandingly exciting but challenging subjects.
-- I'm painfully aware that most of these topics are challenging to digest and demand dedicated effort. However, I have done my utmost to deconstruct these complex subjects into smaller, manageable pieces to facilitate a reverse-engineering approach for comprehension. These areas require unwavering patience and commitment to master, but be assured, with consistent practice and diligent exploration of resources, the speed and depth of your understanding will markedly increase.
+- I'm painfully aware that most of these topics are challenging to digest and demand dedicated effort. However, I have done my outmost to deconstruct these complex subjects into smaller, manageable pieces to facilitate a reverse-engineering approach for comprehension. These areas require unwavering patience and commitment to master, but be assured, with consistent practice and diligent exploration of resources, the speed and depth of your understanding will markedly increase.
 - I welcome and appreciate all forms of feedback - if you spot any errors, typos, or see opportunities for improvement, please do not hesitate to share!
+
 
 Best regards,
 
@@ -51,24 +103,43 @@ Best regards,
 ---
 
 
-```{grid-item-card}
+```{image} (img/FEM_art_0.JPG)
 :shadow: lg
-![FEM Art](img/FEM_art_0.JPG)
+:name: label
 ```
+
 > Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
 
 ---
 
+```{image} ./art/fluidart/bloom0.JPG
+:name: label
+```
 
 ```{grid-item-card}
 :shadow: lg
 ![swipe0](art/fluidart/bloom0.JPG)
 ```
 
+```{image} /art/fluidart/bloom0.JPG
+:name: label
+
+*Bad Bloom series #0*
+```
+
+```{image} ./art/fluidart/bloom0.JPG
+:name: label
+
+Bad Bloom #3
+```
+
 > Fluid Art (Bloom) - *Bad Bloom series #0* <br> - **D. Mo Houshmand** (2021)
 
 ---
 
+:::{div} sd-text-center sd-text-primary sd-fs-6 sd-text-wrap sd-text-{blue}
+Some CSS styled text
+:::
 ## Dedication
 
 As a strong proponent of social responsibility, I dedicate a significant part of this website to my charitable initiatives and unwavering commitment to aiding those who need assistance. I encourage you to join me in sparking positive change and enpowering others to tap into their full potential.
@@ -107,10 +178,18 @@ I hope you enjoy exploring this website and feel free to reach out to me if you 
 
 ---
 
+```{epigraph}
+Ibis Redibis Nunquam Per Bella Peribis
+```
+
 > **`Ibis Redibis Nunquam Per Bella Peribis`**
 
 ---
 
+
+```{image} ./path/to/figure.jpg
+:name: label
+```
 
 ```{grid-item-card}
 :shadow: lg
