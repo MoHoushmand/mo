@@ -87,7 +87,7 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 ![bloom0](art/fluidart/bloom0.JPG)
 ```
 
-> Fluid Art (Bloom) - *Bad Bloom series #0* <br> - **D. Mo Houshmand** (2021)
+> Fluid Art (Bloom) - *Bad Bloom series* <br> - **D. Mo Houshmand** (2021)
 
 ---
 ## Dedication
