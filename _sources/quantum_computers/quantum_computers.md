@@ -1,17 +1,16 @@
 # The Hardware of Quantum Computers
 
-Building Quantum Computers is an extremely challenging task. In the following chapters, we will learn about the different building blocks of a quantum computer and how we build one by integrating different kinds of technologies interacting with the machine. 
+Constructing quantum computers is an extremely daunting task. In the sections that follow, we will discuss the various components of a quantum computer and explain how we can build one by integrating different technologies that interact with the machine.
 
-We will begin to give an overview of the whole system, a brief journey through all layers. In the next 4-6 chapters we will dive deeper in the layer of the quantum chip (qubits).
+First, we will give an overview of the entire system and briefly touch upon all layers. Over the subsequent 4-6 chapters, we will delve deeper into the quantum chip (qubits) layer.
 
-Each qubit needs its own specific material. These materials need to contain one of the particles that we need to create the qubits and not be contaminated with other particles. Therefore we need to 'grow' materials.
+Each qubit necessitates the use of a specific material. These materials must contain particles suitable for creating the qubits while remaining uncontaminated by other particles. As a result, it is critical to 'grow' these required materials.
 
-To fully understand the topics of this, we will need some mathematical tools. In the chapters on Ket notation the mathematical basic principles  explained.
+To fully grasp the concepts presented herein, we will need certain mathematical tools. The mathematical basics will be explained in the chapters on Ket notation.
 
+Generally speaking, the 'building blocks' of a quantum computer include components such as *memory*, *bus interconnect*, and *processor chips*. Peripheral devices like keyboards or screens are essential for interacting with the machine.
 
-Briefly speaking the 'building blocks' of a quantum computer contains of *memory*, *bus interconnect* and *processor chips* but also the peripheral devices such as a keyboard or a even screen to be able to interact with the machine.
-
-In the following we will discusses the bigger picture of a quantum computer: namely from how to program it, to reading out the result. Now the first word we want to emphasize is the word *compute*. We are actually not really building a quantum computer, but we are building a quantum accelerator. Namely, a computational devise that can be connected to a classical processor that will provide the performance for a series of applications that we can never reach classically. Here you see the global view of what we currently understand as a heterogeneous multicore architecture.
+In the following segments, we will discuss the broader aspects of a quantum computer: from programming it to interpreting the results. The first term we want to emphasize is *compute*. In reality, we are not merely building a quantum computer; we are developing a quantum accelerator. Specifically, we are creating a computational device that can be connected to a classical processor, which will then provide the performance required for various applications that are beyond the reach of classical computing. The concept of a heterogeneous multicore architecture offers a global view of our current understanding in this domain.
 
 ```{grid-item-card}
 :shadow: md
