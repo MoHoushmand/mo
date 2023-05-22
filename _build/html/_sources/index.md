@@ -67,7 +67,6 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ---
 
-:::::{grid} 1
 
 ::::{grid-item-card} Finite Element Artwork
 :shadow: lg
@@ -81,7 +80,6 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
 ::::
 
-:::::
 
 ---
 
@@ -91,7 +89,6 @@ Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Nav
 
 ---
 
-:::::{grid} 1
 
 ::::{grid-item-card} Bad Bloom series
 :shadow: lg
@@ -105,7 +102,6 @@ Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Nav
 Fluid Art (Bloom) - *Bad Bloom series* <br> - **D. Mo Houshmand** (2021)
 ::::
 
-:::::
 
 ---
 ## Dedication
@@ -119,8 +115,6 @@ One initiative that resonates with me is the [Eco Moyo Education Center](https:/
 Contributing to Eco Moyo isn't merely about providing access to education, it's about shaping a sustainable future where these children are empowered to learn, grow, and eventually make a difference in their own communities. Join forces with Lindsay Sanner, lend a hand to Eco Moyo, and together, make a long lasting positive impact. 
 
 
-:::::{grid} 1
-
 ::::{grid-item-card} Eco Moyo Education Centre
 :shadow: lg
 
@@ -133,7 +127,6 @@ Contributing to Eco Moyo isn't merely about providing access to education, it's 
 Eco Moyo Education Centre
 ::::
 
-:::::
 
 ---
 
@@ -175,7 +168,6 @@ Ibis Redibis Nunquam Per Bella Peribis
 
 ---
 
-:::::{grid} 1
 
 ::::{grid-item-card} Rajee's Torch
 :shadow: lg
@@ -188,7 +180,6 @@ Ibis Redibis Nunquam Per Bella Peribis
 +++
 Fluid Art (Flip Cup) - *Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
 ::::
-:::::
 
 ---
 
@@ -197,7 +188,6 @@ Fluid Art (Flip Cup) - *Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
 
 ---
 
-:::::{grid} 1
 
 ::::{grid-item-card} Northern Light Series
 :shadow: lg
@@ -210,7 +200,7 @@ Fluid Art (Flip Cup) - *Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
 +++
 Fluid Art (Dutch Pour) - *Northern Light Series* <br> - **D. Mo Houshmand** (2020)
 ::::
-:::::
+
 
 ---
 
