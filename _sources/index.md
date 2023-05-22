@@ -73,7 +73,7 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ```{grid-item-card}
 :shadow: lg
-![bloom0](art/fluidart/bloom0.JPG)
+![FEM0](art/fluidart/bloom0.JPG)
 ```
 
 +++
