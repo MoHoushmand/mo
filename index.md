@@ -73,7 +73,7 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ```{grid-item-card}
 :shadow: lg
-![FEM0](img/FEM_art_0.JPG)
+![FEM0](img/FEM_art_0_m.png)
 ```
 
 +++
@@ -95,7 +95,7 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ```{grid-item-card}
 :shadow: lg
-![bloom0](img/bloom0.JPG)
+![bloom0](img/bloom0_m.png)
 ```
 
 +++
@@ -176,7 +176,7 @@ Ibis Redibis Nunquam Per Bella Peribis
 
 ```{grid-item-card}
 :shadow: lg
-![flip0](img/flipcup.JPG)
+![flip0](img/flipcup_m.png)
 ```
 
 +++
@@ -197,7 +197,7 @@ Ibis Redibis Nunquam Per Bella Peribis
 
 ```{grid-item-card}
 :shadow: lg
-![Dutch0](img/Northern-Light.JPG)
+![Dutch0](img/Northern-Light_m.png)
 ```
 
 +++
