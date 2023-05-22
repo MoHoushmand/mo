@@ -238,3 +238,17 @@ Here is a cool quotation.
 
 -- Jo the Jovyan
 ```
+
+```{grid-item-card}
+:shadow: lg
+![bloom0](art/fluidart/bloom0.JPG)
+```
+
+> Fluid Art (Bloom) - *Bad Bloom series* <br> - **D. Mo Houshmand** (2021)
+
+```{grid-item-card}
+:shadow: lg
+![FEM0](img/FEM_art_0.JPG)
+```
+
+> Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
