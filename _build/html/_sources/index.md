@@ -75,15 +75,16 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 > Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
 
 ---
+
 1. I will delve into the artistic aspects of preparing acrylic colors with specific viscosities, ready to blend into unique pieces of Fluid Art
 2. I will also discuss the underlying mathematics and associated numerical techniques - Computational Fluid Dynamics (CFD) and Direct Numerical Simulation (DNS). Both these computational techniques in numerical physics are exclusively dedicated to the solutions of the Navier-Stokes equations, whether solved approximately with CFD or directly with DNS - the holy grail of the governing equations of motion, explicitly dedicated to turbulent flows. DNS is an exceptionally intricate and costly technique, with only a select few worldwide having the privileged resources to simulate it.
-3. Quantum Computers, the next generation of computing set to revolutionize our world, are another central focus of mine. I will share my journey into the quantum realm, beginning with the basics of quantum mechanics and quantum information, leading to the hardware of quantum computers and quantum machine learning and ultimately to `Topological Quantum Computers` (**`TQC`**) and Topological Quantum Field Theory (**`TQFT`**). I will emphesize the mathematical foundations of quantum computing, including linear algebra, quantum gates, and quantum circuits, and how they are implemented in quantum hardware.
+3. Quantum Computers, the next generation of computing set to revolutionize our world, are another central focus of mine. I will share my journey into the quantum realm, beginning with the basics of quantum mechanics and quantum information, leading to the hardware of quantum computers and quantum machine learning and ultimately to `Topological Quantum Computers` (**`TQC`**) and Topological Quantum Field Theory (**`TQFT`**). I will emphesize the mathematical foundations of quantum computing, including linopear algebra, quantum gates, and quantum circuits, and how they are implemented in quantum hardware.
 
 ---
 
 ```{grid-item-card}
 :shadow: lg
-![swipe0](art/fluidart/bloom0.JPG)
+![bloom](art/fluidart/bloom0.JPG)
 ```
 
 > Fluid Art (Bloom) - *Bad Bloom series #0* <br> - **D. Mo Houshmand** (2021)
@@ -155,7 +156,7 @@ Ibis Redibis Nunquam Per Bella Peribis
 
 ```{grid-item-card}
 :shadow: lg
-![swipe0](art/fluidart/flipcup.JPG)
+![swipe0](art/fluidart/Northern-Light.JPG)
 ```
 
 > Fluid Art (Dutch Pour) - *Northern Light Series #03* <br> - **D. Mo Houshmand** (2020)
