@@ -355,8 +355,7 @@ Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 </div>
 </div>
 <p>Then we could turn this Hamiltonian slowly into a classical Ising model and read out the global solution.</p>
-<img src="figures/annealing_process.svg" alt="Annealing process" style="width: 400px;"/>
-<p>Adiabatic quantum computation exploits this phenomenon and it is able to perform universal calculations with the final Hamiltonian being <span class="math notranslate nohighlight">\(H=-\sum_{&lt;i,j&gt;} J_{ij} \sigma^Z_i \sigma^Z_{j} - \sum_i h_i \sigma^Z_i - \sum_{&lt;i,j&gt;} g_{ij} \sigma^X_i\sigma^X_j\)</span>. Note that is not the transverse-field Ising model: the last term is an X-X interaction. If a quantum computer respects the speed limit, guarantees the finite gap, and implements this Hamiltonian, then it is equivalent to the gate model with some overhead.</p>
+<img alt="Annealing process" src="quantum_machine_learning/qml/figures/annealing_process.svg" /><p>Adiabatic quantum computation exploits this phenomenon and it is able to perform universal calculations with the final Hamiltonian being <span class="math notranslate nohighlight">\(H=-\sum_{&lt;i,j&gt;} J_{ij} \sigma^Z_i \sigma^Z_{j} - \sum_i h_i \sigma^Z_i - \sum_{&lt;i,j&gt;} g_{ij} \sigma^X_i\sigma^X_j\)</span>. Note that is not the transverse-field Ising model: the last term is an X-X interaction. If a quantum computer respects the speed limit, guarantees the finite gap, and implements this Hamiltonian, then it is equivalent to the gate model with some overhead.</p>
 <p>The quadratic scaling on the gap does not appear too bad. So can we solve NP-hard problems faster with this paradigm? It is unlikely. The gap is highly dependent on the problem, and actually difficult problems tend to have an exponentially small gap. So our speed limit would be quadratic over the exponentially small gap, so the overall time required would be exponentially large.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="quantum-annealing">
@@ -387,7 +386,7 @@ Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 <h1><span class="section-number">73. </span>Quantum annealing<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h1>
 <p>A theoretical obstacle to adiabatic quantum computing is that calculating the speed limit is clearly not trivial; in fact, it is harder than solving the original problem of finding the ground state of some Hamiltonian of interest. Engineering constraints also apply: the qubits decohere, the environment has finite temperature, and so on. <em>Quantum annealing</em> drops the strict requirements and instead of respecting speed limits, it repeats the transition (the annealing) over and over again. Having collected a number of samples, we pick the spin configuration with the lowest energy as our solution. There is no guarantee that this is the ground state.</p>
 <p>Quantum annealing has a slightly different software stack than gate-model quantum computers. Instead of a quantum circuit, the level of abstraction is the classical Ising model – the problem we are interested in solving must be in this form. Then, just like superconducting gate-model quantum computers, superconducting quantum annealers also suffer from limited connectivity. In this case, it means that if our problem’s connectivity does not match that of the hardware, we have to find a graph minor embedding. This will combine several physical qubits into a logical qubit. The workflow is summarized in the following diagram [<span class="xref myst">1</span>]:</p>
-<img src="figures/quantum_annealing_workflow.png" alt="Software stack on a quantum annealer" style="width: 400px;"/>
+<img alt="Software stack on a quantum annealer" src="quantum_machine_learning/qml/figures/quantum_annealing_workflow.png" />
 <p>A possible classical solver for the Ising model is the simulated annealer that we have seen before:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -411,7 +410,7 @@ Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 </div>
 </div>
 <p>Let’s take a look at the minor embedding problem. This part is NP-hard in itself, so we normally use  probabilistic heuristics to find an embedding. For instance, for many generations of the quantum annealer that D-Wave Systems produces has unit cells containing a <span class="math notranslate nohighlight">\(K_{4,4}\)</span> bipartite fully-connected graph, with two remote connections from each qubit going to qubits in neighbouring unit cells. A unit cell with its local and remote connections indicated is depicted following figure:</p>
-<img src="figures/unit_cell.png" alt="Unit cell in Chimera graph" style="width: 80px;"/>
+<img alt="Unit cell in Chimera graph" src="quantum_machine_learning/qml/figures/unit_cell.png" />
 <p>This is called the Chimera graph. The current largest hardware has 2048 qubits, consisting of <span class="math notranslate nohighlight">\(16\times 16\)</span> unit cells of 8 qubits each. The Chimera graph is available as a <code class="docutils literal notranslate"><span class="pre">networkx</span></code> graph in the package <code class="docutils literal notranslate"><span class="pre">dwave_networkx</span></code>. We draw a smaller version, consisting of <span class="math notranslate nohighlight">\(2\times 2\)</span> unit cells.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -440,7 +439,7 @@ Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/75ae9e482286dbfe00be53014a94fc6afa29665d0d6c2c2928238428f0fbebab.png" src="../../_images/75ae9e482286dbfe00be53014a94fc6afa29665d0d6c2c2928238428f0fbebab.png" />
+<img alt="../../_images/a729301082f02440dd71427e1c9fa203633f778de4b56349ca4c6eb9b360e7c7.png" src="../../_images/a729301082f02440dd71427e1c9fa203633f778de4b56349ca4c6eb9b360e7c7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -460,7 +459,7 @@ Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a040697ccd85cdbe85334f0b7366901132f5fbb7d33d0064e6b10975eee9d3d6.png" src="../../_images/a040697ccd85cdbe85334f0b7366901132f5fbb7d33d0064e6b10975eee9d3d6.png" />
+<img alt="../../_images/9b78e15c08bdef660ff38e5ed8c4752bf83a68e61380849d4e4e0be7ac45e25e.png" src="../../_images/9b78e15c08bdef660ff38e5ed8c4752bf83a68e61380849d4e4e0be7ac45e25e.png" />
 </div>
 </div>
 <p>Qubits that have the same colour corresponding to a logical node in the original problem defined by the <span class="math notranslate nohighlight">\(K_9\)</span> graph. Qubits combined in such way form a chain. Even though our problem only has 9 variables (nodes), we used almost all 32 available on the toy Chimera graph. Let’s find the maximum chain length:</p>

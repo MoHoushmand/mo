@@ -1,19 +1,30 @@
 # Daniel Mo Houshmand
 
----
+```{admonition} Work in progress
 
-```{figure} ./img/prof.jpg
----
-scale: 20%
-figclass: margin
----
+- This site is in its infancy and under development, mostly in English but some minor parts of it is in Norwegian at the moment for courses tutoring in **Fluid Art** at [tegenskole.no](http://www.tegneskole.no/) <br> 
+- The rest is a combination of experience, educations and project in the realm Art, Applied Behavioral Analysis, Data Science and Computational with Applied Mathematics, Mechanics, Numerical Phuysics and some sub fields of Artificial Intelligence. 
+- In my attempt to grasp the fundamentals of Quantum Computing, Quantum Computers and Quantum Machine Learning I have literally been taken thousand of pages of notes, codes and other recourses wher I have worked through tons of exercises. All that will be the heart of what I want to share with the readers in this jupyterbook format that enables flexibility to build a more instructively, interactive and visually appealing book at a later stage to make it easier to grasp for others who want to learn more about these subjects so you don't suffer as much as I did due to the complexity and hardness of it. 
+- However, I also have to painfully admit that this is not an easy to read or grasp subject, and you will no matter patiently work hard to fascilitate the subjects to be sufficiently matured. To cliche; The more regularly you work through exercises, read other resources, visualize, mindmap, mnnomics and use all your senses to try understand comprehend, your imagination the faster and heavier you will comprehend. 
+- in Norwegian that is in the process of being translated to English.
+Any errors, typos or any shape of improvements are more than highly appreciated! <br>
+
+Kind regards 
+
+- **Daniel Mo Houshmand** 
+- **mo@daria.com**
+- **mob: $+47 98079896$**
 ```
 
 ---
 
-```{admonition} Connect
+:::::{grid} 2
 
-**Click on badges to connect with me or explore!:**
+::::{grid-item-card} Connect
+:img-top: img/particle_background.jpg
+
+Badges
+^^^
 
 - [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
 - [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
@@ -23,42 +34,52 @@ figclass: margin
 - [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
 - [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
 - [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
++++
 
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+
+::::
+
+::::{grid-item-card} Mo & Daria
+:img-top: img/particle_background.jpg
+
+AI Whispers...
+^^^
+
+```{image} ./img/prof.jpg
+:scale: 30 %
+:align: left
 ```
+
++++
+
+[![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+
+::::
+
+:::::
 
 ---
 
+I strongly believe in the transformative power of interdisciplinary collaboration and the potential of emerging technologies. Here, you will find a showcase of my artwork, emphasizing my passion for the nexus of Art & Science. I invite you to delve into my creative process, from inception to completion, and discover how I've crafted pieces that have significantly contributed to my personal and professional growth, and which I find particularly captivating. Specifically, I will highlight my enthusiasm for Fluid Art, Fluid Mechanics (Turbulence flow), Data Science, Quantum Computing, Quantum Machine Learning, and the Hardware of Quantum Computers.
 
-```{admonition} Work in progress
-
-**This site is currently under development.** <br> 
-Welcome to my personal space, reflecting my interdisciplinary background, diverse skillset, and some of the transformative projects that have shaped me.
-
-- Most of the site is in English, though you will find minor sections in Norwegian, primarily catering to the courses I tutor in *Fluid Art* at [tegenskole.no](http://www.tegneskole.no/).
-- This space synthesizes my experiences, education, and projects across fields as diverse as *Art*, *Applied Behavioral Analysis*, *Quantum Information*, *Data Science*, and *Computational Science*, with a focus on *Applied Mathematics, Mechanics, and Numerical Physics*. You'll also find content touching on emerging and established subfields of *Artificial Intelligence*, particularly *Machine Learning* (`ML`), *Natural Language Processing* (`NLP`) including ..*Generation* (`NLG`), ..*Understanding* (`NLU`), *Deep Learning*, *Deep Reinforcement Learning* (`DRL`) and *Quantum Machine Learning* (`QML`).
-- As I've endeavored to comprehend *Quantum Computing*, *Quantum Computers*, and *Quantum Machine Learning*, I've compiled thousands of pages of notes, codes, and other resources, laboring over a plethora of exercises. This is the very heart of my work that I want to share with readers in this interactive JupyterBook format, aiming to simplify and visually enhance the learning experience for those who wish to delve into these mind expandingly exciting but challenging subjects.
-- I'm painfully aware that most of these topics are challenging to digest and demand dedicated effort. However, I have done my utmost to deconstruct these complex subjects into smaller, manageable pieces to facilitate a reverse-engineering approach for comprehension. These areas require unwavering patience and commitment to master, but be assured, with consistent practice and diligent exploration of resources, the speed and depth of your understanding will markedly increase.
-- I welcome and appreciate all forms of feedback - if you spot any errors, typos, or see opportunities for improvement, please do not hesitate to share!
-
-Best regards,
-
-- [D. Mo Houshmand](https://mohoushmand.com)
-- **mo@daria.com**
-- **mob: +47 98079896**
-
-```
+My fascination lies at the intersection of science and art, turbulence flow, and quantum mechanics, a curiosity that has propelled me on a journey of in-depth exploration. I will share how my fascination for High-Performance materials and High-Performance Computation, particularly Computational Fluid Dynamics (CFD) simulations of Turbulence Flows, led me from the macroscopic uncertainty of classical physics, where the continuum hypothesis holds, to the microscopic uncertainty of the quantum world. Like any ambitious endeavor, building a Quantum Computer demands profound knowledge and concerted effort, which steered me towards the hardware of Quantum Computers and Quantum Machine Learning. But first, let me recount how the allure of the Navier-Stokes equations and the art of turbulence flow eventually guided me into the quantum domain.
 
 ---
-
 
 ```{grid-item-card}
 :shadow: lg
-![FEM Art](img/FEM_art_0.JPG)
+![swipe0](img/FEM_art_0.JPG)
 ```
+
 > Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
 
 ---
+1. I will delve into the artistic aspects of preparing acrylic colors with specific viscosities, ready to blend into unique pieces of Fluid Art
+2. I will also discuss the underlying mathematics and associated numerical techniques - Computational Fluid Dynamics (CFD) and Direct Numerical Simulation (DNS). Both these computational techniques in numerical physics are exclusively dedicated to the solutions of the Navier-Stokes equations, whether solved approximately with CFD or directly with DNS - the holy grail of the governing equations of motion, explicitly dedicated to turbulent flows. DNS is an exceptionally intricate and costly technique, with only a select few worldwide having the privileged resources to simulate it.
+3. Quantum Computers, the next generation of computing set to revolutionize our world, are another central focus of mine. I will share my journey into the quantum realm, beginning with the basics of quantum mechanics and quantum information, leading to the hardware of quantum computers and quantum machine learning and ultimately to `Topological Quantum Computers` (**`TQC`**) and Topological Quantum Field Theory (**`TQFT`**). I will emphesize the mathematical foundations of quantum computing, including linear algebra, quantum gates, and quantum circuits, and how they are implemented in quantum hardware.
 
+---
 
 ```{grid-item-card}
 :shadow: lg
@@ -68,18 +89,23 @@ Best regards,
 > Fluid Art (Bloom) - *Bad Bloom series #0* <br> - **D. Mo Houshmand** (2021)
 
 ---
-
 ## Dedication
 
-As a strong proponent of social responsibility, I dedicate a significant part of this website to my charitable initiatives and unwavering commitment to aiding those who need assistance. I encourage you to join me in sparking positive change and enpowering others to tap into their full potential.
+As someone who deeply values social responsibility, I've dedicated a significant portion of this website to highlight some charitable efforts and ongoing commitmens that supports those in need. I'm not here as a hero, but as an ally, an active participant in fostering change and empowering individuals to access their fullest potential.
 
-I staunchly believe in the transformative power of interdisciplinary collaboration and the potential of emerging technologies. Here, you will find a showcase of my artwork, emphasizing my passion for the nexus of Art & Science. I invite you to delve into my creative process, from inception to completion, and discover how I've crafted pieces that have significantly contributed to my personal and professional growth, and which I find particularly captivating. Specifically, I will highlight my enthusiasm for Fluid Art, Fluid Mechanics (Turbulence flow), Data Science, Quantum Computing, Quantum Machine Learning, and the Hardware of Quantum Computers.
+However, real change requires collective effort, and that's where your participation becomes invaluable. I extend an invitation for you to join this endeavor. Whether it's through a donation or by directly getting involved, every bit helps fuel the momentum of positive transformation.
 
-My fascination lies at the intersection of science and art, turbulence flow, and quantum mechanics, a curiosity that has propelled me on a journey of in-depth exploration. I will share how my fascination for High-Performance materials and High-Performance Computation, particularly Computational Fluid Dynamics (CFD) simulations of Turbulence Flows, led me from the macroscopic uncertainty of classical physics, where the continuum hypothesis holds, to the microscopic uncertainty of the quantum world. Like any ambitious endeavor, building a Quantum Computer demands profound knowledge and concerted effort, which steered me towards the hardware of Quantum Computers and Quantum Machine Learning. But first, let me recount how the allure of the Navier-Stokes equations and the art of turbulence flow eventually guided me into the quantum domain.
+One initiative that resonates with me is the [Eco Moyo Education Center](https://www.ecomoyo.com), an inspirational project initiated by my dear friend, *Lindsay Sanner*. Located in Kenya, Eco Moyo serves as a sanctuary of education and growth for homeless children and the surrounding community. It's not just a school, but a nurturing ground that encourages learning, inspires creativity, builds self-confidence, and instills an appreciation for the environment.
 
-1. I will delve into the artistic aspects of preparing acrylic colors with specific viscosities, ready to blend into unique pieces of Fluid Art
-2. I will also discuss the underlying mathematics and associated numerical techniques - Computational Fluid Dynamics (CFD) and Direct Numerical Simulation (DNS). Both these computational techniques in numerical physics are exclusively dedicated to the solutions of the Navier-Stokes equations, whether solved approximately with CFD or directly with DNS - the holy grail of the governing equations of motion, explicitly dedicated to turbulent flows. DNS is an exceptionally intricate and costly technique, with only a select few worldwide having the privileged resources to simulate it.
-3. Quantum Computers, the next generation of computing set to revolutionize our world, are another central focus of mine. I will share my journey into the quantum realm, beginning with the basics of quantum mechanics and quantum information, leading to the hardware of quantum computers and quantum machine learning and ultimately to `Topological Quantum Computers` (**`TQC`**) and Topological Quantum Field Theory (**`TQFT`**). I will emphesize the mathematical foundations of quantum computing, including linear algebra, quantum gates, and quantum circuits, and how they are implemented in quantum hardware.
+Contributing to Eco Moyo isn't merely about providing access to education, it's about shaping a sustainable future where these children are empowered to learn, grow, and eventually make a difference in their own communities. Join forces with Lindsay Sanner, lend a hand to Eco Moyo, and together, make a long lasting positive impact. 
+
+
+```{grid-item-card}
+:shadow: lg
+![EcomMoyo](img/em.png)
+```
+
+---
 
 ### Hans Petter Langtangen (1962-2017)
 
@@ -94,7 +120,7 @@ Unfortunately, Professor Wittek's life was tragically cut short in the devastati
 
 ### Jon Magne Leinaas
 
-Last but not least, I want to acknowledge my former professor of *Non-Relativistic Quantum Mechanics* and allthough the relatively short time of interaction, nevertheless an immense mentor, [**Jon Magne Leinaas**](https://en.wikipedia.org/wiki/Jon_Magne_Leinaas) who, along with **Jan Myrheim**, discovered `**Anyons**` almost 50 years ago. Their discovery was independently confirmed twice in different labs during the pandemic (see for instance Welcome Anyons - Nature). Jon, a member of the Nobel Prize in Physics committee, and Jan have been strong candidates for the prestigious award. The discovery of Anyons, which bridges Fermions with Bosons, has the potential to revolutionize the field of Quantum Computing and could have an unparalleled, positive impact on humanity.
+Last but not least, I want to acknowledge my former professor of *Non-Relativistic Quantum Mechanics* and allthough the relatively short time of interaction, nevertheless an immense mentor, [**Jon Magne Leinaas**](https://en.wikipedia.org/wiki/Jon_Magne_Leinaas) who, along with **Jan Myrheim**, discovered **`Anyons`** almost 50 years ago. Their discovery was independently confirmed twice in different labs during the pandemic (see for instance Welcome Anyons - Nature). Jon, a member of the Nobel Prize in Physics committee, and Jan have been strong candidates for the prestigious award. The discovery of Anyons, which bridges Fermions with Bosons, has the potential to revolutionize the field of Quantum Computing and could have an unparalleled, positive impact on humanity.
 
 Upon covering the diverse array of qubit types, my attention will significantly shift towards Topological Quantum Computers. It is my intention to devote a considerable portion of my future work in this direction, to elucidate every facet of the groundbreaking discovery of Anyons - a new class of particles, represent a profound advancement in our understanding of quantum mechanics. They form the underlying theoretical basis for Topological Quantum Computers, a novel computing paradigm that leverages the unique properties of so called exotic quasi particles Anyons for computational tasks. As such, they embody a promising approach to realizing fault-tolerant quantum computation, which is one of the most significant challenges in the field. 
 
@@ -103,14 +129,15 @@ I am strongly convinced that Topological Quantum Computers, powered by Anyon-bas
 Finally I also want to express my gratitude to Delft University and edx for offering comprehensive, world-class courses in the field of Quantum Computing and Quantum Computer Technology. These resources have played an instrumental role in enabling me to grasp these fascinating yet incredibly complex subjects and this site is highly influenced from the courses they have offered. I highly recommend them to anyone interested in this field.
 
 I hope you enjoy exploring this website and feel free to reach out to me if you have any questions or comments. Feel free to browse, learn, and connect with me as you explore the various facets of my life and work. Whether you're captivated by my artistic creations or intrigued by my technical expertise, I warmly invite you to embark on this journey with me and I am always delighted to connect with others who share my passion for learning, innovation, and positive impact. <br>
-> Sincerely Yours, <br> - Mo
 
+> Sincerely Yours
+>
+> -- Mo Houshmand
+
+:::{div} sd-text-center sd-text-primary sd-fs-6 sd-text-wrap sd-text-{black}
+Ibis Redibis Nunquam Per Bella Peribis
+:::
 ---
-
-> **`Ibis Redibis Nunquam Per Bella Peribis`**
-
----
-
 
 ```{grid-item-card}
 :shadow: lg
@@ -121,19 +148,17 @@ I hope you enjoy exploring this website and feel free to reach out to me if you 
 
 ---
 
-
 ```{tableofcontents}
 ```
 
 ---
-
 
 ```{grid-item-card}
 :shadow: lg
 ![swipe0](art/fluidart/flipcup.JPG)
 ```
 
-> Fluid Art (Flip Cup) - *Northern Light Series #03* <br> - **D. Mo Houshmand** (2020)
+> Fluid Art (Dutch Pour) - *Northern Light Series #03* <br> - **D. Mo Houshmand** (2020)
 
 ---
 
@@ -144,11 +169,3 @@ I hope you enjoy exploring this website and feel free to reach out to me if you 
 ---
 
 
-```{grid-item-card}
-:shadow: lg
-![swipe0](art/fluidart/Northern-Light.JPG)
-```
-
-> Fluid Art (Flip Cup) - *Rajee's Canvas Burning* <br> - **D. Mo Houshmand** (2019)
-
----

@@ -20,14 +20,14 @@ execute:
 parse:
   myst_enable_extensions:
 #    - amsmath
-#    - colon_fence
+    - colon_fence
 #    - deflist
     - dollarmath
-#    - html_admonition
-#    - html_image
+    - html_admonition
+    - html_image
 #    - linkify
 #    - replacements
-#    - smartquotes
+    - smartquotes
 #    - substitution
     - tasklist
 

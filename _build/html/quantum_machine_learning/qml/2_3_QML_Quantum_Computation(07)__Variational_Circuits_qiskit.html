@@ -287,8 +287,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>• Approximates the adiabatic pathway to stay close to an eigenstate of the Hamiltonian.
 #F</p>
 <p>Current and near-term quantum computers suffer from imperfections, as we repeatedly pointed it out. This is why we cannot run long algorithms, that is, deep circuits on them. A new breed of algorithms started to appear since 2013 that focus on getting an advantage from imperfect quantum computers. The basic idea is extremely simple: run a short sequence of gates where some gates are parametrized. Then read out the result, make adjustments to the parameters on a classical computer, and repeat the calculation with the new parameters on the quantum hardware. This way we create an iterative loop between the quantum and the classical processing units, creating classical-quantum hybrid algorithms.</p>
-<img src="figures/hybrid_classical_quantum.svg" alt="Hybrid classical-quantum paradigm" style="width: 400px;"/>
-<p>These algorithms are also called variational to reflect the variational approach to changing the parameters. One of the most important example of this approach is the quantum approximate optimization algorithm, which is the subject of this notebook.</p>
+<img alt="Hybrid classical-quantum paradigm" src="quantum_machine_learning/qml/figures/hybrid_classical_quantum.svg" /><p>These algorithms are also called variational to reflect the variational approach to changing the parameters. One of the most important example of this approach is the quantum approximate optimization algorithm, which is the subject of this notebook.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">81. </span>Quantum approximate optimization algorithm<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h1>
@@ -299,8 +298,7 @@ const thebe_selector_output = ".output, .cell_output"
 U = U(H_0, \beta_0)U(H_1, \gamma_0)\ldots U(H_0, \beta_p)U(H_1, \gamma_p).
 \]</div>
 <p>At the end of optimizing the parameters, this discretized evolution will approximate the adiabatic pathway:</p>
-<img src="figures/qaoa_process.svg" alt="Quantum approximate optimization algorithm" style="width: 400px;"/>
-<p>The Hamiltonian <span class="math notranslate nohighlight">\(H_0\)</span> is often referred to as the driving or mixing Hamiltonian, and <span class="math notranslate nohighlight">\(H_1\)</span> as the cost Hamiltonian. The simplest mixing Hamiltonian is <span class="math notranslate nohighlight">\(H_0 = -\sum_i \sigma^X_i\)</span>, the same as the initial Hamiltonian in quantum annealing. By alternating between the two Hamiltonian, the mixing Hamiltonian drives the state towards an equal superposition, whereas the cost Hamiltonian tries to seek its own ground state.</p>
+<img alt="Quantum approximate optimization algorithm" src="quantum_machine_learning/qml/figures/qaoa_process.svg" /><p>The Hamiltonian <span class="math notranslate nohighlight">\(H_0\)</span> is often referred to as the driving or mixing Hamiltonian, and <span class="math notranslate nohighlight">\(H_1\)</span> as the cost Hamiltonian. The simplest mixing Hamiltonian is <span class="math notranslate nohighlight">\(H_0 = -\sum_i \sigma^X_i\)</span>, the same as the initial Hamiltonian in quantum annealing. By alternating between the two Hamiltonian, the mixing Hamiltonian drives the state towards an equal superposition, whereas the cost Hamiltonian tries to seek its own ground state.</p>
 <p>Let us import the necessary packages first:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

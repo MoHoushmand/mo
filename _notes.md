@@ -97,7 +97,7 @@ Introduction
 - This site is in its infancy and under development, mostly in English but some minor parts of it is in Norwegian at the moment for courses tutoring in **Fluid Art** at [tegenskole.no](http://www.tegneskole.no/) <br> 
 - The rest is a combination of experience, educations and project in the realm Art, Applied Behavioral Analysis, Data Science and Computational with Applied Mathematics, Mechanics, Numerical Phuysics and some sub fields of Artificial Intelligence. 
 - In my attempt to grasp the fundamentals of Quantum Computing, Quantum Computers and Quantum Machine Learning I have literally been taken thousand of pages of notes, codes and other recourses wher I have worked through tons of exercises. All that will be the heart of what I want to share with the readers in this jupyterbook format that enables flexibility to build a more instructively, interactive and visually appealing book at a later stage to make it easier to grasp for others who want to learn more about these subjects so you don't suffer as much as I did due to the complexity and hardness of it. 
-- However, I have to painfully admit that this is not an easy to read or grasp subject, and you will no matter patiently work hard to fascilitate the subjects to be sufficiently matured. To cliche; The more regularly you work through exercises and read other resources the faster and heavier you will comprehend. 
+- However, I also have to painfully admit that this is not an easy to read or grasp subject, and you will no matter patiently work hard to fascilitate the subjects to be sufficiently matured. To cliche; The more regularly you work through exercises, read other resources, visualize, mindmap, mnnomics and use all your senses to try understand comprehend, your imagination the faster and heavier you will comprehend. 
 - in Norwegian that is in the process of being translated to English.
 Any errors, typos or any shape of improvements are more than highly appreciated! <br>
 
@@ -107,6 +107,21 @@ Kind regards
 - **mo@daria.com**
 - **mob: $+47 98079896$**
 ```
+
+```{admination} Work in progress
+:class: tip
+
+- This website is currently in its very early infancy stages of development, primarily written in English. However, some sections are currently in Norwegian, specifically for courses on **Fluid Art** at [tegenskole.no](http://www.tegneskole.no/). 
+- The content herein is a blend of passions, experiences, education, and projects spanning various fields including Art, Applied Behavioral Analysis, Data Science, and Computational Mathematics with Applied Mechanics, Numerical Physics, and several subdomains of Artificial Intelligence. 
+- As part of my journey to understand Quantum Computing, Quantum Computers, and Quantum Machine Learning, I have dedicated countless hours taking extensive notes, writing code, and working through myriad exercises. The resulting body of knowledge forms the core of what I intend to share with you, the reader. This information is presented in a Jupyterbook format to facilitate an instructive, interactive, and visually engaging learning experience.
+- I must concede that these subjects are complex and can be challenging to comprehend. It requires dedicated and regular practice to facilitate sufficient understanding. To phrase it cliché; the more regularly you engage with exercises, read additional resources, employ visualization techniques, mind maps, mnemonics, and harness all your senses to understand and imagine, the more rapidly and robustly you will comprehend these subjects.
+- There are sections in Norwegian currently being translated into English. I warmly welcome any feedback, whether it's pointing out errors, typos, or suggesting improvements of any kind. 
+
+With Kind Regards,
+
+- **Daniel Mo Houshmand** 
+- **mo@daria.com**
+- **Mobile: $+47 98079896$**
 
 ---
 
@@ -558,6 +573,125 @@ About
 ```
 
 :::
+
+
+::::{grid} sd-rounded-2
+:gutter: 2
+
+:::{grid-item-card} Click to connect
+
+Connect
+^^^
+
+| Badge | User |
+| ------ | ------- |
+| [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/) | D. Mo Houshmand  |
+| [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria) | QDaria |
+| [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand) | MoHoushmand |
+| [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](<https://www.facebook.com/DMoHoushmand> | Mo Houshmand |
+| [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/) | @mo_houshmand |
+| [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/) | @mo_houshmand_art   |
+| [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD) | QDaria  |
+| [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb) | QDaria |
+
+:::
+
+:::{grid-item-card} Mo & Daria
+
+AI Whisperers...
+^^^
+
+```{image} ./img/prof.jpg
+:scale: 30 %
+:align: left
+```
+
+:::
+::::
+
+---
+
+:::::{grid} 2
+::::{grid-item-card} Title
+:img-top:
+img/prof.jpg
+
+Header
+^^^
+
+::::
+
+::::{grid-item-card} AI Whisperers
+:img-bottom: img/prof.jpg
+
+Header
+^^^
+Content
++++
+Footer
+::::
+
+:::::
+
+---
+
+:::{figure-md} markdown-fig
+<img src="./img/prof.jpg" alt="fishy" class="bg-primary mb-1" width="200px">
+
+This is a caption in **Markdown**!
+:::
+
+```{image} ./img/prof.jpg
+```
+
+::::{grid}
+:gutter: 2
+
+:::{grid-item-card} Connect
+:img-background: img/particle_background.jpg
+:class-card: sd-text-black
+
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+:::
+
+:::{grid-item-card} AI Whisperers
+
+```{image} ./img/prof.jpg
+:scale: 30 %
+:align: left
+```
+:::
+::::
+---
+
+
+
+---
+
+```{admonition} Connect
+
+**Click on badges to connect with me or explore!:**
+
+- [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
+- [![GitHub-QDaria](https://badgen.net/badge/icon/QDaria?icon=github&label)](https://github.com/QDaria)
+- [![GitHub-MoHoushmand](https://badgen.net/badge/icon/MoHoushmand?icon=github&label)](https://github.com/MoHoushmand)
+- [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=plastic&logo=Facebook&logoColor=white)](https://www.facebook.com/DMoHoushmand)
+- [![Instagram](https://img.shields.io/badge/Instagram-E75480?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand/)
+- [![Instagram-Art](https://img.shields.io/badge/Instagram-800080?style=plastic&logo=Instagram&logoColor=white)](https://www.instagram.com/mo_houshmand_art/)
+- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QDaria/jbmo/HEAD)
+- [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/main/notebooks/colab-github-demo.ipynb)
+
+```
+
+---
 
 
 ---

@@ -463,8 +463,7 @@ The norm of the state after applying X
 <section class="tex2jax_ignore mathjax_ignore" id="interaction-with-the-environment-open-systems">
 <h1><span class="section-number">52. </span>Interaction with the environment: open systems<a class="headerlink" href="#interaction-with-the-environment-open-systems" title="Permalink to this headline"></a></h1>
 <p>Actual quantum systems are seldom closed: they constantly interact with their environment in a largely uncontrolled fashion, which causes them to lose coherence. This is true for current and near-term quantum computers too.</p>
-<img src="figures/open_system.svg" alt="A quantum processor as an open quantum system" style="width: 400px;"/>
-<p>This also means that their actual time evolution is not described by a unitary matrix as we would want it, but some other operator (the technical name for it is a completely positive trace-preserving map).</p>
+<img alt="A quantum processor as an open quantum system" src="quantum_machine_learning/qml/figures/open_system.svg" /><p>This also means that their actual time evolution is not described by a unitary matrix as we would want it, but some other operator (the technical name for it is a completely positive trace-preserving map).</p>
 <p>Quantum computing libraries often offer a variety of noise models that mimic different types of interaction, and increasing the strength of the interaction with the environment leads to faster decoherence. The timescale for decoherence is often called <span class="math notranslate nohighlight">\(T_2\)</span> time. Among a couple of other parameters, <span class="math notranslate nohighlight">\(T_2\)</span> time is critically important for the number of gates or the duration of the quantum computation we can perform.</p>
 <p>A very cheap way of studying the effects of decoherence is mixing a pure state with the maximally mixed state <span class="math notranslate nohighlight">\(\mathbb{1}/2^d\)</span>, where <span class="math notranslate nohighlight">\(d\)</span> is the number of qubits, with some visibility parameter in <span class="math notranslate nohighlight">\([0,1]\)</span>. This way we do not have to specify noise models or any other map modelling decoherence. For instance, we can mix the <span class="math notranslate nohighlight">\(|\phi^+\rangle\)</span> state with the maximally mixed state:</p>
 <div class="cell docutils container">
@@ -536,7 +535,7 @@ Barely any coherence remains by 0.2:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa20f4baa30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7d034c5370&gt;
 </pre></div>
 </div>
 <img alt="../../_images/86cc4a3d20b736e4817259bfd086e73a28c1ed71e6426c4f65a40c90f159ee6e.png" src="../../_images/86cc4a3d20b736e4817259bfd086e73a28c1ed71e6426c4f65a40c90f159ee6e.png" />
