@@ -1,5 +1,12 @@
 # Daniel Mo Houshmand
 
+```{tip}
+This site should preferably be viewd in **Google Chrome**! or all other than **Safari** due to formatting issues <br>
+Of some (unkown to my knowledge) reason, this site is not fully functional in **Safari**. <br>
+```
+
+---
+
 ```{admonition} Work in progress
 
 - This site is in its infancy and under development, mostly in English but some minor parts of it is in Norwegian at the moment for courses tutoring in **Fluid Art** at [tegenskole.no](http://www.tegneskole.no/) <br> 
@@ -73,7 +80,7 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ```{grid-item-card}
 :shadow: lg
-![FEM0](img/FEM_art_0_m.png)
+![FEM0](img/FEM_art_0_lg.png)
 ```
 
 +++
@@ -98,7 +105,7 @@ Optimised FEM geometry
 
 ```{grid-item-card}
 :shadow: lg
-![bloom0](img/bloom0_m.png)
+![bloom0](img/bloom0_lg.png)
 ```
 
 +++
@@ -179,7 +186,7 @@ Ibis Redibis Nunquam Per Bella Peribis
 
 ```{grid-item-card}
 :shadow: lg
-![flip0](img/flipcup_m.png)
+![flip0](img/flipcup_lg.png)
 ```
 
 +++
@@ -201,7 +208,7 @@ Rajee's Torch
 
 ```{grid-item-card}
 :shadow: lg
-![Dutch0](img/Northern-Light_m.png)
+![Dutch0](img/Northern-Light_lg.png)
 ```
 
 +++
