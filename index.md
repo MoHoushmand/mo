@@ -19,9 +19,9 @@ Kind regards
 ---
 
 :::::{grid} 2
-
 ::::{grid-item-card} Connect
 :img-top: img/particle_background.jpg
+:shadow: lg
 
 Badges
 ^^^
@@ -39,9 +39,9 @@ Badges
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohoushmand/)
 
 ::::
-
 ::::{grid-item-card} Mo & Daria
 :img-top: img/particle_background.jpg
+:shadow: lg
 
 AI Whispers...
 ^^^
@@ -68,16 +68,16 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 ---
 
 
-::::{grid-item-card} Finite Element Artwork
+::::{grid-item-card} Finite Element Artwork 
 :shadow: lg
 
 ```{grid-item-card}
 :shadow: lg
-![FEM0](art/fluidart/bloom0.JPG)
+![FEM0](img/FEM_art_0.JPG)
 ```
 
 +++
-Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
+ *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
 ::::
 
 
@@ -90,16 +90,18 @@ Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Nav
 ---
 
 
-::::{grid-item-card} Bad Bloom series
+::::{grid-item-card} Fluid Art (Bloom) 
 :shadow: lg
 
 ```{grid-item-card}
 :shadow: lg
-![bloom0](art/fluidart/bloom0.JPG)
+![bloom0](img/bloom0.JPG)
 ```
 
 +++
-Fluid Art (Bloom) - *Bad Bloom series* <br> - **D. Mo Houshmand** (2021)
+
+*Bad Bloom series* <br> - **D. Mo Houshmand** (2021)
+
 ::::
 
 
@@ -169,16 +171,18 @@ Ibis Redibis Nunquam Per Bella Peribis
 ---
 
 
-::::{grid-item-card} Rajee's Torch
+::::{grid-item-card} Fluid Art (Flip Cup) 
 :shadow: lg
 
 ```{grid-item-card}
 :shadow: lg
-![flip0](art/fluidart/flipcup.JPG)
+![flip0](img/flipcup.JPG)
 ```
 
 +++
-Fluid Art (Flip Cup) - *Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
+
+*Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
+
 ::::
 
 ---
@@ -188,17 +192,17 @@ Fluid Art (Flip Cup) - *Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
 
 ---
 
-
-::::{grid-item-card} Northern Light Series
+::::{grid-item-card} Fluid Art (Dutch Pour)
 :shadow: lg
 
 ```{grid-item-card}
 :shadow: lg
-![Dutch0](art/fluidart/Northern-Light.JPG)
+![Dutch0](img/Northern-Light.JPG)
 ```
 
 +++
-Fluid Art (Dutch Pour) - *Northern Light Series* <br> - **D. Mo Houshmand** (2020)
+
+ *Northern Light Series* <br> - **D. Mo Houshmand** (2020)
 ::::
 
 
