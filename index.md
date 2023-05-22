@@ -77,7 +77,10 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 ```
 
 +++
- *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
+Optimised FEM geometry
+
+- D. Mo Houshmand** (2014)
+
 ::::
 
 
@@ -99,9 +102,9 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 ```
 
 +++
+Bad Bloom series 
 
-*Bad Bloom series* <br> - **D. Mo Houshmand** (2021)
-
+- D. Mo Houshmand (2021)
 ::::
 
 
@@ -180,8 +183,9 @@ Ibis Redibis Nunquam Per Bella Peribis
 ```
 
 +++
+Rajee's Torch 
 
-*Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
+- D. Mo Houshmand** (2019)
 
 ::::
 
@@ -202,7 +206,10 @@ Ibis Redibis Nunquam Per Bella Peribis
 
 +++
 
- *Northern Light Series* <br> - **D. Mo Houshmand** (2020)
+Northern Light Series 
+
+- D. Mo Houshmand (2020)
+  
 ::::
 
 
