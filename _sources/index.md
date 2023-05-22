@@ -135,14 +135,17 @@ I hope you enjoy exploring this website and feel free to reach out to me if you 
 >
 > -- Mo Houshmand
 
+---
+
 :::{div} sd-text-center sd-text-primary sd-fs-6 sd-text-wrap sd-text-{black}
 Ibis Redibis Nunquam Per Bella Peribis
 :::
+
 ---
 
 ```{grid-item-card}
 :shadow: lg
-![swipe0](art/fluidart/flipcup.JPG)
+![flip0](art/fluidart/flipcup.JPG)
 ```
 
 > Fluid Art (Flip Cup) - *Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
