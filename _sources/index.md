@@ -1,5 +1,12 @@
 # Daniel Mo Houshmand
 
+```{tip}
+This site should preferably be viewd in **Google Chrome**! or all other than **Safari** due to formatting issues <br>
+Of some (unkown to my knowledge) reason, this site is not fully functional in **Safari**. <br>
+```
+
+---
+
 ```{admonition} Work in progress
 
 - This site is in its infancy and under development, mostly in English but some minor parts of it is in Norwegian at the moment for courses tutoring in **Fluid Art** at [tegenskole.no](http://www.tegneskole.no/) <br> 
@@ -73,11 +80,14 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ```{grid-item-card}
 :shadow: lg
-![FEM0](img/FEM_art_0_m.png)
+![FEM0](img/FEM_art_0_lg.png)
 ```
 
 +++
- *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
+Optimised FEM geometry
+
+- D. Mo Houshmand** (2014)
+
 ::::
 
 
@@ -95,13 +105,13 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ```{grid-item-card}
 :shadow: lg
-![bloom0](img/bloom0_m.png)
+![bloom0](img/bloom0_lg.png)
 ```
 
 +++
+Bad Bloom series 
 
-*Bad Bloom series* <br> - **D. Mo Houshmand** (2021)
-
+- D. Mo Houshmand (2021)
 ::::
 
 
@@ -176,12 +186,13 @@ Ibis Redibis Nunquam Per Bella Peribis
 
 ```{grid-item-card}
 :shadow: lg
-![flip0](img/flipcup_m.png)
+![flip0](img/flipcup_lg.png)
 ```
 
 +++
+Rajee's Torch 
 
-*Rajee's Torch* <br> - **D. Mo Houshmand** (2019)
+- D. Mo Houshmand** (2019)
 
 ::::
 
@@ -197,12 +208,15 @@ Ibis Redibis Nunquam Per Bella Peribis
 
 ```{grid-item-card}
 :shadow: lg
-![Dutch0](img/Northern-Light_m.png)
+![Dutch0](img/Northern-Light_lg.png)
 ```
 
 +++
 
- *Northern Light Series* <br> - **D. Mo Houshmand** (2020)
+Northern Light Series 
+
+- D. Mo Houshmand (2020)
+  
 ::::
 
 
