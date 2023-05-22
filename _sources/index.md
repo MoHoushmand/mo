@@ -69,7 +69,7 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ```{grid-item-card}
 :shadow: lg
-![swipe0](img/FEM_art_0.JPG)
+![FEM0](img/FEM_art_0.JPG)
 ```
 
 > Finite Element Artwork - *Optimised FEM geometry* carefully prepared for the Navier-Stokes equations* <br> - **D. Mo Houshmand** (2014)
@@ -84,10 +84,10 @@ My fascination lies at the intersection of science and art, turbulence flow, and
 
 ```{grid-item-card}
 :shadow: lg
-![bloom](art/fluidart/bloom0.JPG)
+![bloom0](art/fluidart/bloom0.JPG)
 ```
 
-> Fluid Art (Bloom) - *Bad Bloom series #0* <br> - **D. Mo Houshmand** (2021)
+> Fluid Art (Bloom) - *Bad Bloom series* <br> - **D. Mo Houshmand** (2021)
 
 ---
 ## Dedication
@@ -103,7 +103,7 @@ Contributing to Eco Moyo isn't merely about providing access to education, it's 
 
 ```{grid-item-card}
 :shadow: lg
-![EcomMoyo](img/em.png)
+![EcomMoyo0](img/em.png)
 ```
 
 ---
@@ -113,11 +113,14 @@ Contributing to Eco Moyo isn't merely about providing access to education, it's 
 I am a passionate supporter of education and personal growth I consider myself far too fortunate to have been guided by some of the most brilliant minds on the planet. I want to dedicate this space to these extraordinary individuals who, above all, set an example of kindness and respect for others, irrespective of their rank or status guided me to the topics that occupies most of my time and the vast majority of this space. Tragically, two of them passed away prematurely in 2017 and 2019.
 First, I would like to honor my former professor and greatest inspiration, the exceptional awardwinning world reknowned [**Hans Petter Langtangen**](https://en.wikipedia.org/wiki/Hans_Petter_Langtangen) , who lost his battle with pancreatic cancer in 2017. Astoundingly, he managed to write and finish a series of Springer published bestsellers in Scientific Computing and Engineering between being diagnosed in early 2015 and his untimely passing in the fall of 2017. An extraordinarily inspirational figure, he fostered an environment that encouraged you to perform above and beyond your perceived abilities. He held a firm belief that anyone, regardless of the difficulty of their goals, could succeed with dedication and hard work. A true genius in every sense, he had an unwavering conviction that there were no 'stupid' people and he could convince even the most self-doubting among us that we had the potential to achieve greatness. He was a part of the prestigious Center for Neuroplasticity and his teachings instilled in me a passionate love for Numerical Methods for Partial Differential Equations. I am immensely proud to have had the opportunity to proofread some of his writings, and to have contributed to his last authored bestseller, Finite Difference Computing with Partial Differential Equations - A Modern Software Approach. I think of him every single day with a mixture of grief and gratitude. Rest in Peace, Maestro!
 
+---
 ### Peter Wittek (1980-2019)
 
 Secondly, I wish to honor the memory of the adventurous and inspiring professor, [**Peter Wittek**](https://www.utoronto.ca/news/u-t-s-peter-wittek-who-will-be-remembered-feb-3-event-why-future-quantum) from the University of Toronto. He introduced me to Quantum Machine Learning back in 2017, when I had only just begun my earnest exploration of Machine Learning, Natural Language Processing, Topic Modelling, and Latent Dirichlet Allocation (LDA). At the time, I was an intern working as a Data Scientist in what was then the first officially funded AI Lab in Norway. Despite my novice status, I found Professor Wittek's teachings invaluable, due in large part to my background in physics which provided a foundation to grasp these complex concepts with considerable effort.
 
 Unfortunately, Professor Wittek's life was tragically cut short in the devastating Himalayan avalanche of 2019. To this day, I carry a firm belief that had he still been with us, our third attempt to establish a Quantum Computing startup would have seen great success. His untimely demise is a profound loss to the scientific community and to everyone who had the privilege of knowing him personally or professionally. I shall always remember him, not just for his ground-breaking work in Quantum Machine Learning, but for his generosity in guiding a young Data Scientist during his early steps in the field. May he rest in peace.
+
+---
 
 ### Jon Magne Leinaas
 
@@ -159,17 +162,14 @@ Ibis Redibis Nunquam Per Bella Peribis
 
 ```{grid-item-card}
 :shadow: lg
-![swipe0](art/fluidart/Northern-Light.JPG)
+![Dutch0](art/fluidart/Northern-Light.JPG)
 ```
 
 > Fluid Art (Dutch Pour) - *Northern Light Series #03* <br> - **D. Mo Houshmand** (2020)
 
 ---
 
-
 ```{nb-exec-table}
 ```
 
 ---
-
-
