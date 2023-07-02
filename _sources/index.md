@@ -192,7 +192,7 @@ Ibis Redibis Nunquam Per Bella Peribis
 +++
 Rajee's Torch 
 
-- D. Mo Houshmand** (2019)
+- D. Mo Houshmand (2019)
 
 ::::
 

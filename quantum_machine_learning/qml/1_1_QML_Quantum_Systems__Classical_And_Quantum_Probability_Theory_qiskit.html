@@ -123,7 +123,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">24. Classical and Quantum Probability Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#classical-probability-distributions">26. Classical Probability Distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#the-geometry-of-probability-distribution">27. The Geometry of Probability Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#stochastic-matrix">28. Stochastic Matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#quantum-states">29. Quantum states</a></li>
@@ -297,13 +297,13 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 <p>Throughout the following chapters we will assume finite probability distributions and finite dimensional spaces. This significantly simplifies notation and most quantum computers operate over finite dimensional spaces, so we do not lose much in generality.</p>
 <p>We’ve introduced quantum states as a generalization of classical probability distributions and quantum computations as a way of transforming these probability distributions. Before we get to quantum states and quantum computations, let’s look at a couple of elements of classical probability theory. So let’s start by looking at coin flipping. so coin flipping has two possible outcomes– heads or tails. And we associate the probability with each of these outcomes some P0 probability with heads and P1 with tails.</p>
 <p>Classical probability distributions can be thought of as a special case of the more generalized quantum states, and quantum computation is the way of transforming these probability distributions. Before diving into quantum states and quantum computations, let’s exploit some classical probability theory elements. A coin flip is an instructive starting point where we have two possible outcomes - heads or tails, associated with equally probable outcomes where p0 is the probability for heads and p1 for tails. More formally the probability for the outcome X to be H which is head is p0, and the same for tails T</p>
-<p>Probability theory is a cornerstone for machine learning. We can think of quantum states as probability distributions with certain properties that make them different from our classical notion of probabilities. Contrasting these properties is an easy and straightforward introduction to the most basic concepts we need in quantum computing.</p>
-<p>Apart from probability theory, linear algebra is also critical for many learning protocols. As we will see, geometry and probabilities are intrinsically linked in quantum computing, but geometric notions are also familiar in dealing with classical probability distributions. This notebook first talks about classical probabilities and stochastic vectors, and introduces quantum states as a natural generalization.</p>
-<p>Throughout this course, we will assume finite probability distributions and finite dimensional spaces. This significantly simplifies notation and most quantum computers operate over finite dimensional spaces, so we do not lose much in generality.</p>
+<p>The foundation of machine learning is deeply rooted in probability theory. One can interpret quantum states as specialized forms of probability distributions that possess distinct properties from the conventional classical probabilities. The juxtaposition of these distinctive properties offers a straightforward and intuitive gateway to the fundamental principles of quantum computing.</p>
+<p>Aside from probability theory, linear algebra plays an indispensable role in various learning protocols. We will discover that geometry and probabilities are inherently intertwined in quantum computing. However, geometric concepts are equally recognizable when dealing with classical probability distributions. This notebook initially discusses classical probabilities and stochastic vectors and subsequently introduces quantum states as their natural extension.</p>
+<p>For the duration of the following chaoters, we will make assumptions of finite probability distributions and finite-dimensional spaces. This decision considerably streamlines our notation, and given that the majority of quantum computers operate within finite-dimensional spaces, the impact on generality is minimal.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="classical-probability-distributions">
-<h1><span class="section-number">26. </span>Classical probability distributions<a class="headerlink" href="#classical-probability-distributions" title="Permalink to this headline"></a></h1>
-<p>Let us toss a biased coin. Without getting too technical, we can associate a random variable <span class="math notranslate nohighlight">\(X\)</span> with the output: it takes the value 0 for heads and the value 1 for tails. We get heads with probability <span class="math notranslate nohighlight">\(P(X=0) = p_0\)</span> and tails with <span class="math notranslate nohighlight">\(P(X=1) = p_1\)</span> for each toss of the coin. In classical, Kolmogorovian probability theory, <span class="math notranslate nohighlight">\(p_i\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>, and the probabilities sum to one: <span class="math notranslate nohighlight">\(\sum_i p_i = 1\)</span>. Let’s sample this distribution</p>
+<h1><span class="section-number">26. </span>Classical Probability Distributions<a class="headerlink" href="#classical-probability-distributions" title="Permalink to this headline"></a></h1>
+<p>Consider the scenario where we flip a biased coin. Avoiding any overly technical language, we can assign a random variable <span class="math notranslate nohighlight">\(X\)</span> to the outcome: it signifies the value 0 for heads and 1 for tails. The probability of landing heads is <span class="math notranslate nohighlight">\(P(X=0) = p_0\)</span>, while tails occur with a probability of <span class="math notranslate nohighlight">\(P(X=1) = p_1\)</span> for each coin toss. According to classical, Kolmogorovian probability theory, <span class="math notranslate nohighlight">\(p_i\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>, and the summation of all probabilities equals one: <span class="math notranslate nohighlight">\(\sum_i p_i = 1\)</span>. Let’s delve sample this distribution with numerical python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -315,9 +315,9 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0
- 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 1 0 0 1 1 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0
- 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 1
+ 0 0 1 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+ 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 1]
 </pre></div>
 </div>
 </div>
@@ -341,7 +341,7 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
 </pre></div>
 </div>
 </div>
@@ -362,7 +362,7 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.53
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.52
 </pre></div>
 </div>
 </div>
@@ -375,7 +375,7 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.57
 </pre></div>
 </div>
 </div>
@@ -399,7 +399,7 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;H&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;T&#39;
 </pre></div>
 </div>
 </div>
@@ -459,23 +459,16 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 <span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 
-<span class="nn">File ~/micromamba/envs/moenv/lib/python3.9/site-packages/ipykernel/kernelbase.py:1172,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1165</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
-<span class="g g-Whitespace">   </span><span class="mi">1166</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="sd"> Raises</span>
-<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> ------</span>
-<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1171</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1172</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1174</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1175</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1177</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1180</span> <span class="p">)</span>
+<span class="nn">File ~/micromamba/envs/mom1env/lib/python3.8/site-packages/ipykernel/kernelbase.py:1190,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1188</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1189</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1190</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1191</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1192</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1193</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1194</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1195</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1196</span> <span class="p">)</span>
 
 <span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
@@ -593,7 +586,6 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 </div>
 </div>
 <p>https://www.datacamp.com/community/tutorials/probability-distributions-python</p>
-<p><strong>End Test</strong></p>
 <p>We naturally expect that the empirically observed frequencies also sum to one:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -613,7 +605,7 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 </div>
 </div>
 </div>
-<p>Since <span class="math notranslate nohighlight">\(p_0\)</span> and <span class="math notranslate nohighlight">\(p_1\)</span> must be non-negative, all possible probability distributions are restricted to the positive orthant. The normalization constraint puts every possible distribution on a straight line. This plot describes all possible probability distributions by biased and unbiased coins.</p>
+<p>Given that <span class="math notranslate nohighlight">\(p_0\)</span> and <span class="math notranslate nohighlight">\(p_1\)</span> must be non-negative, all conceivable probability distributions are confined to the positive orthant. The normalization constraint situates every possible distribution on a linear path. This graph encapsulates all potential probability distributions, whether they stem from a biased or unbiased coin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -645,45 +637,41 @@ A quantum bit on the other hand, or more famously a qubit, could be visualised a
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="the-geometry-of-probability-distribution">
 <h1><span class="section-number">27. </span>The Geometry of Probability Distribution<a class="headerlink" href="#the-geometry-of-probability-distribution" title="Permalink to this headline"></a></h1>
-<p>Now, let’s take a look at the bit of the geometry of that probability distribution. So if you have a probability distribution like this, you can also write it as a vector.</p>
+<p>Now let’s explore the geometry of a probability distribution. Given a probability distribution as shown earlier, we can also represent it as a column vector - a stochastic vector.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\boldsymbol{p}=\left[\begin{array}{c}
 p_{0}\\
 p_{1}
 \end{array}\right]\end{split}\]</div>
-<p>stochastic vector.</p>
-<p>If we just take these probability values into a column vector, and we put a little arrow on top of the P to reflect that it’s a vector. We are going to do something very, very similar in quantum states. Quantum states are also normally represented by a column vector, and they have a particular notation to reflect that it’s a column vector. Now, the entries are all non-negative real values. And we also know that they are summed to 1.</p>
-<p>But this summation is actually the same as the summation of the absolute value, since we talk about non-negative numbers. Which means that we normalize the P vector in the 1 norm. So this is going to be normalized to 1 in the 1 norm.</p>
+<p>Quantum states, which also are represented by column vectors, follow a similar approach. However, their notation is distinct to indicate their column-vector nature. In a stochastic vector, the entries are non-negative real values, and their sum is equal to 1.</p>
+<p>Since we’re dealing with non-negative numbers in this case, the summation is equivalent to the summation of the absolute value. Therefore, the P vector is normalized in the 1 norm, as demonstrated below:</p>
 <div class="math notranslate nohighlight">
 \[\sum_{i}p_{i}=\sum_{i}\mid p_{i}\mid=\mid\boldsymbol{p}\mid_{1}\]</div>
-<p>This is, again, very important, because in quantum states the normalization is going to be in a different norm.</p>
-<p><strong>finish</strong></p>
+<p>This remains important because, as we will see, the normalization in quantum states will follow a different norm.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="stochastic-matrix">
 <h1><span class="section-number">28. </span>Stochastic Matrix<a class="headerlink" href="#stochastic-matrix" title="Permalink to this headline"></a></h1>
-<p>Lastly, let’s take a look at how we transform probability distributions. So now we can take this stochastic vector, and we want to end up with another stochastic vector– another probability distribution. To ensure this, the transformation that we apply on this vector must fulfill certain requirements.</p>
+<p>Finally, let’s examine the conversion of probability distributions. Assuming we have a stochastic vector and wish to acquire another stochastic vector (resulting in another probability distribution), the applied transformation must satisfy specific requirements.</p>
 <div class="math notranslate nohighlight">
 \[M\boldsymbol{p}=\boldsymbol{p}'\]</div>
-<p>M is left stochastic matrix. $<span class="math notranslate nohighlight">\(p_{i}'\geq0\)</span>$</p>
-<div class="math notranslate nohighlight">
-\[\mid\mid\boldsymbol{p}\mid\mid_{1}=1\]</div>
-<p>In the case of a left stochastic matrix, which means that we apply from the left of the stochastic vector, this means that the columns must add up to 1. Quantum calculations will also be some kind of matrix operations which will fulfill certain mathematical properties. They are going to be unitary operations, and they will transform quantum states or quantum probabilities into other quantum states.</p>
+<p>In this case, M is indicative of the left stochastic matrix, where $<span class="math notranslate nohighlight">\(p_{i}'\geq0\)</span><span class="math notranslate nohighlight">\( and \)</span><span class="math notranslate nohighlight">\(\mid\mid\boldsymbol{p}\mid\mid_{1}=1\)</span>$</p>
+<p>The transformation ensures that columns sum up to 1 when applied from the left side of the stochastic vector. Similarly, quantum computations involve matric operations adhering to a predefined set of mathematical properties. These unitary operations enable the transformation of quantum states or quantum probabilities into alternative quantum states.</p>
 <section id="quiz-classical-probability-distribution">
-<h2><span class="section-number">28.1. </span>Quiz Classical Probability Distribution<a class="headerlink" href="#quiz-classical-probability-distribution" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">28.1. </span>Quiz: Classical Probability Distribution<a class="headerlink" href="#quiz-classical-probability-distribution" title="Permalink to this headline"></a></h2>
 <p><strong>All classical probability distributions of coin flipping lie on…</strong></p>
 <p>– The unit circle in the <span class="math notranslate nohighlight">\(l_{1}\)</span> norm restricted to the positive orthant.</p>
-<p><strong>You are given a biased 6-sided dice where side 1 has a higher probability than all the other sides. The entropy is…</strong></p>
+<p><strong>You were given a biased 6-sided dice in which side 1 demonstrated a higher probability than all other sides. The entropy is…</strong></p>
 <p>– lower than <span class="math notranslate nohighlight">\(\log_{2}6\)</span>.</p>
 <p><strong>A stochastic matrix</strong></p>
-<p>– Transforms a stochastic vector to another stochastic vector.
-<em>Finish</em></p>
-<p>We may also arrange the probabilities in a vector</p>
+<p>– Transforms a stochastic vector to another stochastic vector.</p>
+<p>In conclusion, we can represent the probability distribution in a vector format as follows:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\vec{p} = \begin{bmatrix} p_0 \\ p_1 \end{bmatrix}\end{split}\]</div>
-<p>Here, for notational convenience, we put an arrow above the variable representing the vector, to distinguish it from scalars. You will see that quantum states also have a standard notation that provides convenience, but goes much further in usefulness than the humble arrow here.</p>
-<p>A vector representing a probability distribution is called a <em>stochastic vector</em>. The normalization constraint essentially says that the norm of the vector is restricted to one in the <span class="math notranslate nohighlight">\(l_1\)</span> norm. In other words,
-$<span class="math notranslate nohighlight">\(\mid \mid \vec{p}\mid \mid_{1} = \sum_i |p_i| = 1\)</span><span class="math notranslate nohighlight">\(. 
-This would be the unit circle in the \)</span>l_1<span class="math notranslate nohighlight">\( norm, but since \)</span>p_i\geq 0$, we are restricted to a quarter of the unit circle, just as we plotted above. We can easily verify this with numpy’s norm function:</p>
+<p>Using an arrow above the variable signifies a vector, allowing us to differentiate it from scalars. While quantum states have their unique notations, the primary objective is to offer convenience in representing these values.</p>
+<p>When a vector represents a probability distribution, it is called a stochastic vector. The normalization constraint bounds the vector’s norm to one in the <span class="math notranslate nohighlight">\(l_1\)</span> norm:</p>
+<div class="math notranslate nohighlight">
+\[\mid \mid \vec{p}\mid \mid_{1} = \sum_i |p_i| = 1\]</div>
+<p>As seen in the example plotted earlier, this equates to a quarter of the unit circle in the <span class="math notranslate nohighlight">\(l_1\)</span> norm. Using numpy’s norm function, we can quickly verify this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.8</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">]])</span>
@@ -727,8 +715,8 @@ The length in the \)</span>l_1$ norm gives the sought probability:</p>
 </div>
 </div>
 </div>
-<p>The two projections play an equivalent role to the values 0 and 1 when we defined the probability distribution. In fact, we could define a new random variable called <span class="math notranslate nohighlight">\(\Pi\)</span> that can take the projections <span class="math notranslate nohighlight">\(\Pi_0\)</span> and <span class="math notranslate nohighlight">\(\Pi_1\)</span> as values and we would end up with an identical probability distribution. This may sound convoluted and unnatural, but the measurement in quantum mechanics is essentially a random variable that takes operator values, such as projections.</p>
-<p>What happens when we want to transform a probability distribution to another one? For instance, to change the bias of a coin, or to describe the transition of a Markov chain. Since the probability distribution is also a stochastic vector, we can apply a matrix on the vector, where the matrix has to fulfill certain conditions. A left <em>stochastic matrix</em> will map stochastic vectors to stochastic vectors when multiplied from the left: its columns add up to one. In other words, it maps probability distributions to probability distributions. For example, starting with a unbiased coin, the map <span class="math notranslate nohighlight">\(M\)</span> will transform the distribution to a biased coin:</p>
+<p>The two projections function similarly to the values of 0 and 1 in our initial probability distribution definition. We could theoretically define a new random variable, say <span class="math notranslate nohighlight">\(\Pi\)</span>, which can take the projections <span class="math notranslate nohighlight">\(\Pi_0\)</span> and <span class="math notranslate nohighlight">\(\Pi_1\)</span> as its possible outcomes. This approach might seem overly complex or non-intuitive, yet it mirrors the quantum mechanics measurement process, where the measurement is essentially a random variable that assumes operator values, such as projections.</p>
+<p>How can we transform one probability distribution into another, such as adjusting the bias of a coin, or describing the transition of a Markov chain? As our probability distribution is a stochastic vector, we can apply a transformation matrix to this vector. This transformation matrix must meet certain conditions. <em>A left stochastic matrix</em> preserves the stochastic nature of vectors when applied from the left: its columns sum to one. In other words, it transforms one probability distribution into another. As an example, starting with an unbiased coin, the transformation matrix <span class="math notranslate nohighlight">\(M\)</span> would alter the distribution to represent a biased coin:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">.5</span><span class="p">]])</span>
