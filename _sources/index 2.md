@@ -1,5 +1,12 @@
 # Daniel Mo Houshmand
 
+```{tip}
+This site should preferably be viewd in **Google Chrome**! or all other than **Safari** due to formatting issues <br>
+Of some (unkown to my knowledge) reason, this site is not fully functional in **Safari**. <br>
+```
+
+---
+
 ```{admonition} Work in progress
 
 - This site is in its infancy and under development, mostly in English but some minor parts of it is in Norwegian at the moment for courses tutoring in **Fluid Art** at [tegenskole.no](http://www.tegneskole.no/) <br> 
