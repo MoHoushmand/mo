@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. The Hardware of Quantum Computers &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_computers/quantum_computers.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10.3. Spin Qubits 0" href="qubits/spin.html" />
+    <link rel="prev" title="3.1. Quantum Computation 0" href="../quantum_computation/qc/qc_0.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../computer_science/software_engineering/se.html">Software Engineering</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qubits/spin.html">10.3. Spin Qubits 0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qubits/nvcenter.html">10.4. NV Center Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qubits/superconducting.html">10.5. Superconducting Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qubits/topological.html">10.6. Topological Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qubits/topological.html#anyons">10.7. Anyons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qubits/topological.html#anyonic-quantum-computer">10.8. Anyonic Quantum Computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qubits/photonic.html">10.9. Photonic qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qubits/annealing.html">10.10. Quantum Annealing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html#introduction-to-topological-qubits">19. Introduction to Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#the-geometry-of-probability-distribution">27. The Geometry of Probability Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#stochastic-matrix">28. Stochastic Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">29. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#qubits-revisited">30. Qubits revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#superposition-revisited">31. Superposition revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#bloch-sphere-revisited">32. Bloch Sphere revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#interference">33. Interference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">34. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#multiple-qubits-revisited">35. Multiple Qubits revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#further-reading">36. Further reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">37. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#bra-ket-notation">38. Bra-Ket Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#dot-product">39. Dot product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#ket-bra">40. Ket-Bra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-the-bra-ket-notation">41. More on the bra-ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">42. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">43. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">44. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">45. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#mixed-states">46. Mixed States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#density-matrix">47. Density Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">48. Evolution in Closed Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#unitary-evolution">49. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#more-on-the-unitary-evolution">50. More on the Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#open-quantum-systems">51. Open Quantum Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">52. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">53. Classical Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#hamiltonian">54. Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-ising-model">55. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">56. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#commuting-hamiltonian">57. Commuting Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">58. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-approximate-optimization-algorithm">59. Quantum Approximate Optimization Algorithm.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#solovay-kitaev-theorem">60. Solovay-Kitaev theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-circuits">61. Quantum Circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#hadamard-gate">62. Hadamard gate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#the-cnot-gate">63. The CNOT gate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">64. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">65. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">66. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">67. Adiabatic Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#adiabatic-theorem">68. Adiabatic Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">69. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">70. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">71. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">72. Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#id1">73. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">74. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#implementations">75. Implementations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#superconducting-architectures">76. Superconducting Architectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#dissadvantages">77. Dissadvantages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#trapped-ions">78. Trapped ions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#photonic-systems">79. Photonic Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">80. Quantum Approximate Optimization Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#id1">81. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">82. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">83. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">84. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">85. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">86. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">87. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#more-qboost">88. More QBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">89. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">90. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">91. Clustering by Quantum Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#mapping-clustering-to-discrete-optimization">92. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">93. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">94. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">95. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">96. Kernel Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#an-inference">97. An Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#thinking-backward-learning-methods-based-on-what-the-hardware-can-do">98. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">99. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">100. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">101. An Inference Circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#tror-ikke-skal-vaere-her-men-i-11">102. (Tror ikke skal være her men i (11))</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probalistic-graphical-model">103. Probalistic Graphical Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#gfx">104. GFX!!!??</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">105. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#optimization-and-sampling-pgms">106. Optimization and Sampling PGMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-igjen-i-lyx-husk-implementering-og-plots">107. Se igjen i lyx (Husk implementering og plots)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">108. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">109. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">110. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">111. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">112. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#introduction">113. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#id1">114. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#even-more-quantum-phase-estimation">115. Even more Quantum Phase Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">116. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">117. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">118. Overview of the Harrow-Hassidim-Lloyd Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#introduction">119. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">120. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-matrix-inversion">121. Quantum Matrix Inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">122. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#using-quantum-linear-algebra-for-learning">123. Using Quantum Linear Algebra for Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">124. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">125. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">126. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-assisted-gaussian-processes">127. Quantum-Assisted Gaussian Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">128. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">129. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#preliminaries">130. Preliminaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#data-preparation">131. Data preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#training">132. Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">133. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#the-variational-circuit">134. The variational circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#importing-libraries">135. Importing libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#implementing-the-circuit">136. Implementing the circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#loading-data">137. Loading data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#visualising-the-decision-boundary">138. Visualising the decision boundary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#more-training">139. More Training</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ruter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ruter/ruter.html">Ruter</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>The Hardware of Quantum Computers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/quantum_computers/quantum_computers.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="the-hardware-of-quantum-computers">
+<h1><span class="section-number">4. </span>The Hardware of Quantum Computers<a class="headerlink" href="#the-hardware-of-quantum-computers" title="Permalink to this headline"></a></h1>
+<p>Constructing quantum computers is an extremely daunting task. In the sections that follow, we will discuss the various components of a quantum computer and explain how we can build one by integrating different technologies that interact with the machine.</p>
+<p>First, we will give an overview of the entire system and briefly touch upon all layers. Over the subsequent 4-6 chapters, we will delve deeper into the quantum chip (qubits) layer.</p>
+<p>Each qubit necessitates the use of a specific material. These materials must contain particles suitable for creating the qubits while remaining uncontaminated by other particles. As a result, it is critical to ‘grow’ these required materials.</p>
+<p>To fully grasp the concepts presented herein, we will need certain mathematical tools. The mathematical basics will be explained in the chapters on Ket notation.</p>
+<p>Generally speaking, the ‘building blocks’ of a quantum computer include components such as <em>memory</em>, <em>bus interconnect</em>, and <em>processor chips</em>. Peripheral devices like keyboards or screens are essential for interacting with the machine.</p>
+<p>In the following segments, we will discuss the broader aspects of a quantum computer: from programming it to interpreting the results. The first term we want to emphasize is <em>compute</em>. In reality, we are not merely building a quantum computer; we are developing a quantum accelerator. Specifically, we are creating a computational device that can be connected to a classical processor, which will then provide the performance required for various applications that are beyond the reach of classical computing. The concept of a heterogeneous multicore architecture offers a global view of our current understanding in this domain.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="alt text" src="../_images/scs0.png" /></p>
+</div>
+</div>
+</div>
+<p>Heterogeneous because we have different kind of accelerator technologies. We have an</p>
+<ul class="simple">
+<li><p>Field Programmable Gate Array (FPGA). We have</p></li>
+<li><p>Graphic Programming Unit GPU’s. These are the vector processors we are using to produce graphics computation.</p></li>
+<li><p>The third alternative accelerator technology will be a quantum co-processor which has the quantum properties that will provide a substantial increase in the compute power. This is basically what we see.</p></li>
+</ul>
+<p>That also means that when you write any application, you will most likely end up using different kinds of accelerators including the FPGA, the GPU and also the quantum accelerator and therefore your application has to be compiled for four different instruction sets; namely, your</p>
+<ol class="arabic simple">
+<li><p>Intel processor for instance on the classical machine, your</p></li>
+<li><p>FPGA instruction set, the</p></li>
+<li><p>GPU instruction set, and also the</p></li>
+<li><p>quantum instruction set.</p></li>
+</ol>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="alt text" src="../_images/scs1.png" /></p>
+</div>
+</div>
+</div>
+<p>That is very important to understand, so whatever we are going to discuss in the following talks is only going to focus on the quantum accelerator device or the application processes that we need classically as well as quantumly to be provided</p>
+<p>Whenever we talk about a computer, classically we have divided that in different layers; the lowest layer is always let’s say the hardware, the</p>
+<ol class="arabic simple">
+<li><p>chip that has been designed. It is never a single chip or a single processor.</p></li>
+<li><p>(Quantum to Classical) No, it has memory, it has interconnections, so a bus that allows the processor to communicate with the memory to retrieve instructions and to retrieve or produce the data. And then it goes up to the</p></li>
+<li><p>Microarchitecture that we need, up to the application level. We will now go in detail on each of those layers in a quantum context. Because we are basically adopting the same kind of layer view of what a quantum accelerator or a quantum computer would be, and we simply put the Q of quantum in front of every layer. And that is our research and working program. The highest level is the 7 (4) quantum algorithm that we know of. We don’t even know yet what they will be. We have examples such as factorization that is used in cryptography in securing communication between machines.</p></li>
+</ol>
+<p>But quantum algorithms can as well be designing a new molecule for personalized medicine. It can be that you might want to have a climate module that you want to run on your quantum accelerator that take all kind of mechanisms into account that we currently are unable to compute or even model on a classical machine. So that is the quantum algorithm layer, and that is where the biggest opportunity lies worldwide. Where many companies and organizations can actually start developing their own quantum application. Because every company or every end-user can think of how they can use that computational aspects of such a device.</p>
+<p>One layer lower is that when you have an application that you need to program. You do that classically again. You have a programming language such as C++, Fortran, Cobol or any language that you can think of. Those languages can produce the code for a classical processor. But we also have to develop our own quantum language for the quantum accelerator. There are a couple of languages that have been developed so far. There is ScaffCC, and ProjectQ. And here at QuTech we are developing our own programming language called OpenQL, which is inspired by OpenCL, which is a language developed for GPU programming. We are now shifting it to the quantum infrastructure, so making the changes to that language. So that is the programming language layer.</p>
+<p>For every programming language we need a compiler. A compiler takes the input of your algorithmic logic and compiles it into a lower level language that is classically called an assembly language. Again here we are working on a quantum assembly language which we call QASM, which was originally developed for a book ‘Quantum computation and information’ by Nielsen and Chuang. To generate the figures in their book of the quantum circuits.</p>
+<p>We just expanded that language into a full-fledged quantum assembly that is being generated by our OpenQL compiler, which is the programming language that we also developed. So that you can express your quantum logic in such a way. We are internationally collaborating with other partners working on similar things such that we standardize this quantum assembly language. Because for now everybody has its own local version, and that is not very good that everybody has his own variation, but if we all agree that this is what we assume to be QASM, then progress will come much faster.</p>
+<p>The next layer is quantum arithmetic’s because the mathematics of what you need to do is completely different than classically. The quantum gates operate quite differently, that’s why you need to develop the quantum arithmetic; how to do a quantum operation. I will not say anything about run-time, which is another part that we need in a quantum accelerator. Because we will need it, but what kind of functionality it should have is a bit unclear right now. That is where there is the tension between the compiler development because we still can develop a lot of things in the compiler and maybe at a later stage we will develop that in a run-time support.</p>
+<p>All of this QASM basically maps very well one on one with the quantum instruction set. This quantum instruction set basically describes what the operations are that your quantum device is capable of executing. That is why we have to think of what these instructions are. We know that classically we use an assignment like A = B + C. We should be able to do something similar in a quantum device. But it is not as simple as retrieving data from a memory location and perform the addition and writing back the result, because in quantum we use qubits.</p>
+<p>A qubit is a quantum bit. Classically, we reason in terms of bits, zeros and ones. And as you know we are now using qubits, quantum bits. And they can be also zero or one, but they can also be zero and one at the same time. And that is the famous superposition that we are exploiting in a quantum device. We can also combine two qubits so we don’t have two different states but we have a combination of those states; namely 4 states at the same time.</p>
+<p>we have 2^3 = 8 states. Now what is very nice about quantum is that the quantum mechanics gives us parallelism for free. Because I can apply quantum gates on those 2^n different states. You will come to understand in the upcoming lectures that nothing really comes for free. There is still a lot of challenges that need to be resolved. But that is ultimately the big challenge and the big opportunity that quantum offers. That is why you have to understand what this instruction set is and the corresponding architecture should be. And that immediately brings us to the layer of the micro-architecture.</p>
+<p>Just like any classical processors we have also a quantum micro architecture for my quantum device, which contains the processor, the memory and also the interconnects of how the processor will communicate with the qubits. It has local registers in the processor and an ALU, an arithmetic logical unit so that it can compute logical and arithmetical operations, and write back the result to memory so that the user gets an idea of what the algorithm has computed as a result.</p>
+<p>So again here in the quantum case we have a micro-architecture which has a similar kind of functionality. And that is the one we are also currently implementing in a real device that already controls a number of the physical qubits; a superconducting as well as a spin qubit that we are developing at QuTech. For now we are working on a 17 qubit micro-architecture, so that in principle we can go up to 2^17 parallel executions on the combination of those 17 qubits.</p>
+<p>A layer lower is the quantum to classical layer. Because whatever you perform on the quantum level is always an analog phenomenon. Now you say; “analog? I thought we were building a computer? Which should be digital…”. Well, everything up to the micro-architecture is clearly digital, but ultimately what you send down to the quantum chip is for example a microwave, it can be other things, but let’s say it is a microwave and we control an individual electron at the atomic level. The individual electron is important to understand. So if I have 17 qubits, I basically have 17 electrons, not hundred thousands, not millions, but 17. And there are ways to combine those 17 electrons and their spins in the way that they interact and move that indicates that they are doing a particular calculation. So that means that this layer is necessary for translating all of the logical steps that you need to do in your algorithm into the appropriate microwave or the physical signal that you want to send to this electron and to the qubit.</p>
+<p>And then ultimately it enters into the quantum chip. Which consists of these qubits which are connected to each other. And then we hope of course that we get a meaningful result. Now it is never the less important to understand for a quantum accelerator for any computational device is that it is a non-deterministic way of computing. That means that it is not like in a classical machine that you run a thousand times exactly the same algorithm and you will get a thousand times exactly the same result. Quantumly this is absolutely not true, because when you want to read out the result several things happen. The most important is that any entangled superposition that exists, actually is going to get destroyed. So if I have for example 2^17 possibilities, I am only going to get one of those possibilities back as a result. And all the others will disappear.</p>
+<p>And that is why you maybe have to do a computation 10 times, maybe 100 times, we don’t even know how many times we need to do that. And then you can make a histogram of what has been computed, and the readout that has the highest frequency of occurrence has a high probability of being read out by our micro-architecture and that is what we can report back to the end user. So that is something that you should not forget. A quantum device is a very powerful device, it gives massive parallelism in principle. But we need multiple runs and average out what those calculations of those results are. And the one with the highest frequency is the most likely result of your quantum device.</p>
+<div class="admonition-main-takeaways admonition">
+<p class="admonition-title">Main takeaways</p>
+<ul class="simple">
+<li><p>Current efforts are put into building a quantum accelerator, a computational add-on to the classical computers to exceed current performance.</p></li>
+<li><p>Heterogeneous multicore architecture entails a Field Programmable Gate Array, a Graphics Programming Unit and a quantum co-processor.</p></li>
+<li><p>The building blocks for a quantum computer are a quantum algorithm, a quantum language, a compiler, arithmetic, an instruction set, a micro-architecture, a quantum to classical conversion and a quantum chip.</p></li>
+</ul>
+</div>
+<p><strong>Q1</strong></p>
+<p>When N classical bits are read out after a computation they can be found in one of <span class="math notranslate nohighlight">\(2^{N}\)</span> different states (e.g. if you read out 2 classical bits from your computer’s memory you will find them to be 00, 01, 10, or 11). When N qubits are read out after a computation they can also be found in one of <span class="math notranslate nohighlight">\(2^{N}\)</span> different states, just like classical bits. Where, then, does the advantage of using a quantum accelerator for some tasks come from?</p>
+<ul class="simple">
+<li><p>There is no advantage to using a quantum accelerator.</p></li>
+<li><p>Unlike the classical bits, which can be in only one of the 2^{N} states before the read-out, the qubits can be in a superposition of the 2^{N} states (i.e. they can be in all 2^{N} states at the same time) before the read-out.</p></li>
+<li><p>A quantum accelerator uses the spin of electrons as the unit of computation. Since electrons are smaller than the transistors used in classical computers, quantum accelerators are faster. unanswered</p></li>
+</ul>
+<p><strong>Q2</strong></p>
+<p>“Quantum parallelism” is a term that is sometimes simplistically used to refer to the fact that when using N qubits in superposition to do computation it is as if we are doing 2^{N} computations at the same time. What is the main reason this can be misleading?</p>
+<ul class="simple">
+<li><p>While we can do operations on all the constituent states of a superposition simultaneously, we can only ever read out a single one of those states.</p></li>
+<li><p>Qubits are much more difficult to work with than classical bits, and so we can’t really claim to be able to do computations on them.</p></li>
+<li><p>It should be “ computations at the same time” instead of “ computations at the same time” because we only have qubits. correct</p></li>
+</ul>
+<hr class="docutils" />
+<section id="quiz-1">
+<h2><span class="section-number">4.1. </span>Quiz 1<a class="headerlink" href="#quiz-1" title="Permalink to this headline"></a></h2>
+<p>In the previous we described the current design of a quantum computer. It is not quite a ‘quantum computer’, but rather a classical computer with an extra component that is capable of doing quantum computations; the so called <em>quantum accelerator</em>. With this design, the computer is capable of doing both classical and quantum computations.</p>
+<section id="question-1-designing-the-quantum-computer">
+<h3><span class="section-number">4.1.1. </span>Question 1: Designing the quantum computer<a class="headerlink" href="#question-1-designing-the-quantum-computer" title="Permalink to this headline"></a></h3>
+<div class="admonition-why-is-it-a-good-idea-to-use-this-design admonition">
+<p class="admonition-title">Why is it a good idea to use this design?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> By using this, there is no need to reinvent the ‘wheel’ of computers.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> There is a clear classical/quantum boundary. Classical computers can do certain computations that quantum computers cannot.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Typical classical parts of a computation can be performed on the classical part of the computer.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Since classical computers are many years ahead in development, this will be a lot faster.</p></li>
+</ul>
+</div>
+<p><strong>Correct:</strong> A quantum algorithm typically has classical parts as well. A good example of this is Shor’s algorithm for semiprime factorization.</p>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>We can use the classical design of a layered structure as a basis on designing a quantum computer. This design has been studied and optimized for years, there is no need to reinvent that wheel. Quantum computers are not always faster than a classical computer, contrary to popular believe. For some (most) tasks a classical computer would be just as fast or faster than a quantum computer. Then the classical computer is preferred as it makes less errors.</p>
+</div>
+</section>
+<section id="question-2-quantum-algorithms-beyond-a-speedup">
+<h3><span class="section-number">4.1.2. </span>Question 2: Quantum Algorithms: beyond a speedup<a class="headerlink" href="#question-2-quantum-algorithms-beyond-a-speedup" title="Permalink to this headline"></a></h3>
+<p>Quantum computers are supposed to be a lot faster than classical computers for certain computations. We will soon dig into it, including what we mean by ‘fast’ and why quantum algorithms can have these properties. It is good to understand that by ‘fast’ we don’t mean ‘twice as fast’ or even ‘100 times as fast’. With the quantum speedup, we mean the difference between a month and the lifetime of the universe. So, computations that are nowhere feasible on a classical computer, suddenly become so on a quantum computer.</p>
+<p>It is also good to think about whether quantum algorithms can do other things better.</p>
+<div class="admonition-is-there-a-computation-that-is-in-principle-only-possible-on-a-quantum-computer admonition">
+<p class="admonition-title">Is there a computation that is, in principle, only possible on a quantum computer?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Yes</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> No</p></li>
+</ul>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Although it is highly inefficient (e.g. it would take decades), a classical computer can simulate a quantum computer. So everything that runs on a quantum computer can be simulated by a classical computer. Note that this does not apply to a quantum internet!</p>
+</div>
+</section>
+<section id="question-3-a-programming-language-for-a-computer">
+<h3><span class="section-number">4.1.3. </span>Question 3: A programming language for a computer<a class="headerlink" href="#question-3-a-programming-language-for-a-computer" title="Permalink to this headline"></a></h3>
+<div class="admonition-what-does-a-programming-language-do admonition">
+<p class="admonition-title">What does a programming language do?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> A programming language is used to automatically schedule events (also called a program) of what the computer does.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> It provides an extra layer between the computer and the user, so that the user can instruct the computer in an human-readable and understandable format.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> It is an essential layer of a computer, without a programming language we cannot make a computer function.</p></li>
+</ul>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Without a programming language, every input into the computer would need to be an exact instruction on the CPU. This would make using computers very hard and would take a lot of time.</p>
+</div>
+</section>
+<section id="question-4-the-compilery">
+<h3><span class="section-number">4.1.4. </span>Question 4: The compilery<a class="headerlink" href="#question-4-the-compilery" title="Permalink to this headline"></a></h3>
+<div class="admonition-what-does-a-compiler-do admonition">
+<p class="admonition-title">What does a compiler do?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> It translates the instructions written in the programming language into something that the computer can actually use.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> It does the same as a programming language, but only in an automated way.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> It provides an extra layer, to ease the transition of user input to instructions that the computer can work with</p></li>
+</ul>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Without the compiler, the computer doesn’t understand the instructions. So, a compiler and a programming language go hand in hand!</p>
+</div>
+</section>
+<section id="question-5-the-current-bottleneck">
+<h3><span class="section-number">4.1.5. </span>Question 5: The current bottleneck<a class="headerlink" href="#question-5-the-current-bottleneck" title="Permalink to this headline"></a></h3>
+<p>To design a complete quantum computer is no easy feat. There are still many problems and hurdles to overcome before a quantum computer becomes something that is widely available. There are problems across all layers of the design, but there is one layer that has the bulk of all the problems. It forms the current bottleneck of the technology.</p>
+<div class="admonition-what-layer-is-that admonition">
+<p class="admonition-title">What layer is that?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Quantum algorithms</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Programming paradigm and languages and the Arithmetic, Runtime and Compiler</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Quantum instruction set architecture</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Quantum Chip</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Microarchitecture</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Quantum to Classical</p></li>
+</ul>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Without the compiler, the computer doesn’t understand the instructions. So, a compiler and a programming language go hand in hand!</p>
+</div>
+<p>In the following, we will see multiple designs of a quantum chip.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="quantum-materials">
+<h1><span class="section-number">5. </span>Quantum materials<a class="headerlink" href="#quantum-materials" title="Permalink to this headline"></a></h1>
+<p>Quantum materials are an essential feature if one would like to build a quantum computer or use the quantum internet. On a daily basis, Giordano Scappucci is working on optimizing quantum materials at QuTech. He will introduce you to this field of quantum mechanics.</p>
+<p>Quantum mechanics describes how atoms bind and electrons interact at a fundamental level. Naively speaking, all materials are quantum because all matter, in the end, must be explained by quantum mechanics. For example, our body is largely made up of water. In water, chemical reactions bind hydrogen and oxygen atoms together. Although this can be explained by quantum mechanics, we usually don’t think about water in these terms, and a high-school-level chemistry description does the job. This is, because we can often approximate the quantum behaviour in materials by a classical description. It turns out that a classical description is in fact suitable for most of the phenomena that we experience in the macroscopic world around us.</p>
+<p>Sometimes, however, to fully understand the behaviour of certain materials, it is necessary to keep quantum in view: there is no classical explanation to help our understanding. A feature of the broad category of Quantum Materials is that their behaviour is generally rooted in the quantum world. And while behaviours observed in quantum materials cover a wide spectrum, there are some common features that recur.</p>
+<p>For example, many quantum materials derive their properties from reduced dimensionality. Electrons trapped in 2, 1, or 0 dimensions have different characteristics than electrons in 3D. Emergence is another recurring theme across quantum materials. Phenomena emerge due to the collective behaviour of original constituents.</p>
+<p>In superconductor materials, the interaction between electrons, mediated by vibrations of the crystal lattice, creates the so-called Cooper pairs. Differently from individual electrons, Cooper pairs can share the same quantum state. Superconductivity emerges from the concerted state of pairs that propagates without electrical resistance through the crystal. Certainly, you need quantum mechanics to understand this!</p>
+<p>The first quantum revolution, with the development of quantum mechanics, provided a microscopic understanding of nature. It had a tremendous impact in our life. Once you understand the periodic table and electronic wave functions, you understand semiconductors and how transistors are built and work. We now carry around billions of transistors in our pockets to perform complex tasks. It is clear that we need the concept of the photon to understand the laser.</p>
+<p>We are currently in the midst of a second quantum revolution, in which quantum matter is engineered to develop disruptive technologies beyond the reach of classical understanding. Quantum computing is the man on the moon goal of such second quantum revolution. By working in a fundamentally different way, quantum computers have the promise of solving complex problems that classical computers cannot handle.</p>
+<p>Quantum materials provide the environment where qubits, the elemental unit of quantum information processing, are defined and live. Therefore, quantum materials are at the basis of a quantum computer. To have a working quantum computer you need to couple together many qubits, while maintaining their long coherence time. These requirements are often conflicting. Qubits that are hard to couple together have long coherence times, because they tend to be isolated.</p>
+<p>On the other hand, systems that are easy to couple together tend to lose coherence quickly, because they can be perturbed easily by the environment. In all cases, the precision of the qubit materials is crucial to solve these two challenging requirements. And when we say “precision”, we mean precision in terms of: materials uniformity, chemical composition, and electrical properties.</p>
+<p>Ultimately, to make the phenomenally large number of qubits necessary to build a quantum computer, we would like to use the same manufacturing techniques of the microelectronic industry. Chemical vapour deposition, or CVD, is an industrial process that uses high purity gases to make high quality materials, with desired physical and electronic properties. For example, by depositing layers of silicon and silicon-germanium, we can tune the lattice parameter of silicon to be larger than usual and match that one of silicon germanium. As a result, the electronic properties of such hetero-structure, which is made of different materials, make it possible to form a 2D electron gas at the interface between silicon and silicon-germanium.</p>
+<p>Qubits can then be made by isolating with electric fields one electron spin at that interface. If you want to isolate one single electron spin and make it a qubit, you need to know the properties of the host material very well. Once we make our crystal into a silicon heterostructure, we usually break it, and have a close look at it from the side with a high-resolution electron microscope. We call this microscope a transmission electron microscope, or TEM. Its working principle is based on electronic diffraction, another quantum effect, of an electron beam passing through a thin piece of material.</p>
+<p>The spatial resolution is so high that we are able to see atomic arrangements in the lattice. In addition, a TEM is capable of distinguishing different elements from each other by their atomic weight. Therefore, it is a useful tool to analyze materials composition. Light elements appear darker than heavy elements. This allows us to check precisely to what extent, the material we made matches our expectations. For example, you see here the perfect atomic arrangement of silicon and germanium atoms at the critical interface between silicon and silicon-germanium. The lattice spacing is exactly the same at both sides of the sharp interface, indicating that the CVD process successfully strained silicon to match the underlying silicon-germanium.</p>
+<p>The fact that we are able to make crystals with such precision and very little imperfections, is a key asset to then make good qubits. Once we know how the material we made looks like, we usually study its electronic properties, by modifying them with external parameters. Temperature, electric fields, and magnetic fields are the few knobs that we turn in our labs to probe quantum materials. These studies provide useful feedback to make the material a better environment for the qubits.</p>
+<p>Take, for example, the Si heterostructure mentioned earlier. If we cool it to the very low temperatures at which qubits usually operate, say below one degree above absolute zero, it would be insulating. However, we can make the material conducting by imposing a vertical electric field. The electric field forms a metallic channel at the interface between silicon and silicon-germanium, which is then populated by electrons. The higher the electric field, the more the electrons in the channel.</p>
+<p>By studying how the electrical resistance of such channel responds to a magnetic field, we are able to measure the number of electrons in the channel and their mobility. The mobility tells us how fast electrons can travel in such channel, and is an indication of the disorder in the system. The higher the mobility, the lower the disorder, and there will be a better chance of fabricating many qubits with similar properties. Materials homogeneity is one requirement to scale up the number of qubits into a quantum computer. Think of the billions of transistors in your laptop, if they were all behaving differently, there would be no chance of having them to work for you. And while we are currently optimizing quantum materials to build a quantum computer, ultimately, the hope is that when such a machine will exist, one of the first uses will be to efficiently simulate quantum systems, fulfilling the vision put forward by Richard Feynmann more than 30 years ago. In turn, this will help us understand and build even more complex quantum materials with extraordinary properties that today we cannot even predict.</p>
+<section id="main-takeaways">
+<h2><span class="section-number">5.1. </span>Main takeaways<a class="headerlink" href="#main-takeaways" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Quantum materials provide the environment where qubits, the elemental unit of quantum information processing, are defined and live.</p></li>
+<li><p>Precision in material uniformity, chemical composition and electrical properties are crucial for the requirements of having both many qubits and long decoherence times.</p></li>
+<li><p>Chemical Vapour Deposition is an industrial process that uses high purity gases to make high quality materials, with desired physical and electronic properties.</p></li>
+<li><p>Transmission electron microscopy is a process to inspect the fabricated heterostructures with high resolution.</p></li>
+<li><p>Temperature, electric fields and magnetic fields are useful parameters to determine properties of quantum materials such as mobility and electron density.</p></li>
+</ul>
+<section id="material-criteria-test-quizz">
+<h3><span class="section-number">5.1.1. </span>Material Criteria test quizz<a class="headerlink" href="#material-criteria-test-quizz" title="Permalink to this headline"></a></h3>
+<p>A quantum computer should have some necessary properties to be called a quantum computer. These are called the DiVincenzo criteria:</p>
+<ul class="simple">
+<li><p>The system must be scalable with well defined qubits;</p></li>
+<li><p>The computer must have the ability to initialize the state of qubits;</p></li>
+<li><p>Qubits must have long decoherence times;</p></li>
+<li><p>The computer must be able to perform a universal set of quantum gates on the qubits;</p></li>
+<li><p>It should be possible to measure the qubits.</p></li>
+</ul>
+<p>We have to keep those criteria in mind when we choose the material for our qubits. For example, having homogeneous materials makes it possible to scale the system easily.</p>
+<div class="admonition-what-property-should-the-material-have-to-ensure-long-decoherence-times admonition">
+<p class="admonition-title">What property should the material have to ensure long decoherence times?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Use materials with low density where qubits can easily be accessed for error correction.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Use materials with high density to reduce the interaction of qubits with neighbouring qubits.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Use materials that can be cooled down quickly.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Avoid materials with a complex structure, as it is more likely to interact with the qubits.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Microarchitecture</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Quantum to Classical</p></li>
+</ul>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>It should be avoided that the material the qubit live in interacts with the qubit. If a material has a complex structure it is harder to avoid these interactions</p>
+<ul class="simple">
+<li><p><strong>Hint (1 of 2):</strong> What causes decoherence?</p></li>
+<li><p><strong>Hint (2 of 2):</strong> Qubits decohere when they interact with the environment Next Hint</p></li>
+</ul>
+</div>
+</section>
+<section id="question-1-the-usefulness-of-cooper-pairs">
+<h3><span class="section-number">5.1.2. </span>Question 1: The usefulness of Cooper pairs<a class="headerlink" href="#question-1-the-usefulness-of-cooper-pairs" title="Permalink to this headline"></a></h3>
+<p>Cooper pairs can, unlike single electrons or other fermions, be in the same quantum state.</p>
+<p>The invididual particles in the pair are fermions (both spin-1/2 particles), but the pair together is a boson (The total spin of the pair is 0 or 1).</p>
+<div class="admonition-how-are-cooper-pairs-created-in-superconducting-materials admonition">
+<p class="admonition-title">How are cooper pairs created in superconducting materials?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The crystal lattice doesn’t allow single electrons to pass through the lattice, only pairs. So all electrons passing through the lattice are parts of Cooper pairs.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Moving electrons cause vibrations in the crystal lattice, which exert forces on other electrons, creating Cooper pairs.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The gravitational force between two electrons trap them in their gravitational wells, creating a pair.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Since Cooper pairs are bosons, bringing any two photons (or other bosons) together also is a boson, which is a Cooper pair.</p></li>
+</ul>
+</div>
+</section>
+<section id="question-2">
+<h3><span class="section-number">5.1.3. </span>Question 2<a class="headerlink" href="#question-2" title="Permalink to this headline"></a></h3>
+<div class="math notranslate nohighlight">
+\[\lambda=\frac{h}{m*v}\]</div>
+<p>Where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> is the de Broglie wavelength of the particle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(h=6.6*10^{-34}\mathrm{~J}.\mathrm{s}\)</span> is the Planck Constant,</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> is the mass of the particle.</p></li>
+<li><p>For an electron ,<span class="math notranslate nohighlight">\(\ensuremath{m=9.1*10^{-31}\mathrm{~kg}}\)</span> and <span class="math notranslate nohighlight">\(v\)</span> is the speed of the particle.</p></li>
+<li><p>The atomic structure has a size of <span class="math notranslate nohighlight">\(100\)</span> picometer <span class="math notranslate nohighlight">\(\ensuremath{\left(=10^{-10}\right.}meter\ensuremath{)}\)</span>.</p></li>
+</ul>
+<div class="admonition-what-is-the-minimum-electron-velocity-that-enables-to-image-the-material admonition">
+<p class="admonition-title">What is the minimum electron velocity that enables to image the material?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 10^{4}\mathrm{~m}/\mathrm{s}
+- [x] \sim10^{7}\mathrm{~m}/\mathrm{s}</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> \sim10^{10}\mathrm{~m}/\mathrm{s}</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> \sim10^{13}\mathrm{~m}/\mathrm{s}</p></li>
+</ul>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>\ensuremath{v&gt;\frac{h}{m*\lambda}=\frac{6.6<em>10^{-34}}{9.1</em>10^{-31}<em>10^{-10}}=7</em>10^{6}\mathrm{~m}/\mathrm{s}\simeq10^{7}\mathrm{~m}/\mathrm{s}}Thisisabout\ensuremath{10%} the speed of light. Analysing the material with light would require a wavelength of light in the X-ray region. ?</p>
+<ul class="simple">
+<li><p>Hint: The speed of light is 299792458\mathrm{~m}/\mathrm{s}\left(\sim10^{\wedge}8\mathrm{~m}/\mathrm{s}\right)</p></li>
+</ul>
+<p>Explanation A higher temperature means more particles are moving around in the semiconducter, bumping into the electrons, slowing them down. Changing the electric field doesn’t change the mobility, only the (drift) velocity.</p>
+</div>
+</section>
+<section id="question-3-mobility">
+<h3><span class="section-number">5.1.4. </span>Question 3: Mobility<a class="headerlink" href="#question-3-mobility" title="Permalink to this headline"></a></h3>
+<p>The higher the mobility in a semiconductor, the smaller the disorder.</p>
+<div class="admonition-which-of-the-following-can-be-done-to-best-increase-the-mobility admonition">
+<p class="admonition-title">Which of the following can be done to best increase the mobility?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> Decrease the temperature from room temperature down to 4 Kelvin.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Increase the number of impurities in the material.
+- [ ] Increase the electric field. correct</p></li>
+</ul>
+</div>
+<div class="admonition-which-of-the-following-can-be-done-to-best-increase-the-mobility admonition">
+<p class="admonition-title">Which of the following can be done to best increase the mobility?</p>
+<ul class="simple">
+<li><p>Hint (1 of 3): When is your car ride on a highway as smooth as possible?</p></li>
+<li><p>Hint (2 of 3): Remove other cars with different velocities from the highway, and remove any potholes
+- Hint (3 of 3): The speed you’re going does not make the ride more or less smooth</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-ket-notation">
+<h1><span class="section-number">6. </span>Introduction to Ket notation<a class="headerlink" href="#introduction-to-ket-notation" title="Permalink to this headline"></a></h1>
+<p>Before we dive deeper into the different layers of a quantum computer, we first want to introduce you to ket notation. Ket notation is a specific quantum method used to perform operations and measurements and will introduce the basics of ket notation.</p>
+<p>Note that this is a densely packed section and don’t expect to understand everything after the first viewing. Much more time is needed to grasp the basics of Ket notation, and we advice you to review the following passages. Please do not let this subject deter you from following further. It is crucially important to understand the basics, because that will be used in the continuation. This is a difficult topic!</p>
+<p>Typo:</p>
+<ol class="arabic simple">
+<li><p>$\mid \psi\rangle=\cos(\theta/2)|0\rangle+e^{i\phi}\sin(\theta/2)|1\rangle$</p></li>
+<li><p>The highlited line should read: $<span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|0\rangle\langle0\mid0\rangle\otimes I|0\rangle+|0\rangle\langle0\mid1\rangle\otimes I|0\rangle+|1\rangle\langle1\mid0\rangle\otimes X|0\rangle+|1\rangle\langle1\mid1\rangle\otimes X|0\rangle)\end{array}\)</span>$</p></li>
+</ol>
+<p>We would like to control quantum degrees of freedom in order to implement quantum computing, among other goals that we have. To talk about these degrees of freedom, we’re going to use some notation that you might not be familiar with, but it’s all very close to linear algebra. You are likely already familiar with linear algebra, which has column vectors denoted with an arrow, or with boldface type.</p>
+<p>Column &amp; row vectors: $<span class="math notranslate nohighlight">\(\vec{x}=\boldsymbol{x}=\left[\begin{array}{c}
+10\\
+11\\
+12
+\end{array}\right],\,\,\,\vec{y}^{T}=\boldsymbol{y}^{T}=\left[\begin{array}{ccc}
+1 &amp; 2 &amp; 3\end{array}\right]\)</span>$</p>
+<p>It also has a transpose operation that maps column vectors to row vectors, and vice versa. We can calculate the inner product of two such vectors, either by transposing one of them and multiplying, or by writing the dot product explicitly. Either way, we get a scalar by taking the inner product of these two vectors.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\overrightarrow{y}^{T}\overrightarrow{x}=\boldsymbol{y}\cdot\boldsymbol{x}=\left[\begin{array}{ccc}
+1 &amp; 2 &amp; 3\end{array}\right]\left[\begin{array}{c}
+10\\
+11\\
+12
+\end{array}\right]=68\end{split}\]</div>
+<p>In addition, we can transform one vector into another using a matrix, which can be written using boldface type or a hat, your preference.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boldsymbol{A}\boldsymbol{x}=\left[\begin{array}{ccc}
+1 &amp; 2 &amp; 3\\
+4 &amp; 5 &amp; 6\\
+7 &amp; 8 &amp; 9
+\end{array}\right]\left[\begin{array}{c}
+10\\
+11\\
+12
+\end{array}\right]=\left[\begin{array}{c}
+66\\
+167\\
+266
+\end{array}\right]\end{split}\]</div>
+<p>There is a slightly different notation that we use for vectors and matrices in quantum computing, which we often call ket notation.</p>
+<p>In ket notation, a quantum state is expressed using a column vector with complex coefficients. For example, we can express the state of a qubit, a two-level system, as a linear combination of two basis vectors, which we call 0 and 1.</p>
+<p>Column vectors $<span class="math notranslate nohighlight">\(\rightarrow kets:\mid\psi\rangle=\alpha\mid0\rangle+\beta\mid1\rangle=\left[\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right]\)</span>$</p>
+<p>In a departure from regular linear algebra, there is a well-defined dual vector for each quantum state, called a bra, which we can obtain by taking the complex conjugate and the transpose of the ket vector.</p>
+<p>Dual vectors $<span class="math notranslate nohighlight">\(\text{Bra:}\langle\psi\mid=\left[\alpha^{*}\beta^{*}\right]\)</span>$</p>
+<p>This is important for calculating inner products, which we always do by multiplying the bra for one state by the ket of the other, forming a bra-ket.</p>
+<p><strong>Inner products:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\equiv brackets \langle\psi\mid\phi\rangle=\left[\begin{array}{cc}\alpha^{*} &amp; \beta^{*}\end{array}\right]\left[\begin{array}{c}\gamma\\\delta\end{array}\right]=\alpha^{*}\gamma+\beta^{*}\delta\end{split}\]</div>
+<p>A central feature of quantum mechanics is that, when we perform a measurement to determine whether a state is <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>, for example, we get a random answer, and the probability of measuring a state to be <span class="math notranslate nohighlight">\(0\)</span> is given by the squared magnitude of its <span class="math notranslate nohighlight">\(0\)</span> coefficient.</p>
+<div class="math notranslate nohighlight">
+\[\mid0\rangle/\mid1\rangle$ meaurement yields $\mid0\rangle$ with probability $\mid\langle\psi\mid0\rangle\mid^{2}=\mid\alpha\mid^{2}\]</div>
+<p>One consequence of this is that, since such a measurement on a qubit state must result in <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>, these squared magnitudes must sum to <span class="math notranslate nohighlight">\(1\)</span>, since they are probabilities. This is called Born’s rule and the constraint that the probabilities must sum to <span class="math notranslate nohighlight">\(1\)</span>, is called normalization.</p>
+<p>Normalization:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\langle\psi\mid\psi\rangle=\left[\begin{array}{cc}
+\alpha^{*} &amp; \beta^{*}\end{array}\right]\left[\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right]=\mid\alpha\mid^{2}+\mid\beta\mid^{2}=1
+\end{split}\]</div>
+<p>We can also express qubit states in different bases. Consider the often-used plus-minus basis, which consists of the normalized sum and difference of the 0 and 1 ket vectors. Given a state expressed in the 0/1 basis, we can calculate the coefficients required to express the same state in the plus-minus basis, as I have done here.</p>
+<p>States can be expressed in different bases:</p>
+<div class="math notranslate nohighlight">
+\[\mid\pm\rangle=\frac{\mid0\rangle\pm\mid1\rangle}{\sqrt{2}}\,\,\,\alpha\mid0\rangle+\beta\mid1\rangle=\left(\frac{\alpha+\beta}{\sqrt{2}}\right)\mid+\rangle+\left(\frac{\alpha-\beta}{\sqrt{2}}\right)\mid-\rangle\]</div>
+<p>This leaves us with a small question: if any basis is just as good as any other, is there a basis that we should use as the default? Fortunately, the devices that we use to store and manipulate qubit states provide us with just such a default basis.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="alt text" src="../_images/scs2.png" /></p>
+</div>
+</div>
+</div>
+<p>One such device, which we see quite frequently in quantum mechanics, is the harmonic oscillator, shown on the left. These devices are described by a Hamiltonian, which is a matrix that assigns an energy E_k to each of its eigenstates, or preferred basis states, psi_k.</p>
+<p>Every device has a Hamiltonian:</p>
+<div class="math notranslate nohighlight">
+\[H=\sum_{k}E_{k}\mid\psi_{k}\rangle\langle\psi_{k}\mid\]</div>
+<p>These states <span class="math notranslate nohighlight">\(\mid\psi_{k}\rangle\)</span> are orthogonal:</p>
+<div class="math notranslate nohighlight">
+\[\langle\psi_{j}\mid\psi_{k}\rangle=\delta_{j,k}\]</div>
+<p>and normalized (so we say that they’re orthonormal), so the inner product of <span class="math notranslate nohighlight">\(psi_j\)</span> with any <span class="math notranslate nohighlight">\(psi_k\)</span> other than itself is <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>This allows us to use these states as a computational basis, replacing any detailed knowledge of the wavefunction psi_k with a simple label k that indicates which state we’re talking about.</p>
+<p>They form a comutational basis</p>
+<p><span class="math notranslate nohighlight">\(\mid\psi_{k}\rangle\mapsto\mid k\rangle\)</span></p>
+<p>Some devices have finite-dimensional state spaces, unlike the harmonic oscillator.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="alt text" src="../_images/scs3.png" /></p>
+</div>
+</div>
+</div>
+<section id="operations-observables">
+<h2><span class="section-number">6.1. </span>Operations &amp; Observables<a class="headerlink" href="#operations-observables" title="Permalink to this headline"></a></h2>
+<p><strong>Logic gates \equiv unitary matrices</strong> <span class="math notranslate nohighlight">\(\equiv\)</span> changes of basis</p>
+<div class="math notranslate nohighlight">
+\[U=\sum_{k}\mid\psi_{k}\rangle\langle k\mid\,\,\,\,\,\left(\langle\psi_{j}\mid\psi_{k}\rangle=\delta_{j,k}\right)\]</div>
+<p>The logic gate is the smallest classical computing system, and all classical computations can be expressed as a large sequence of these gates. The quantum counterpart to a logic gate is a unitary matrix, which replaces the computational basis with a new basis that depends on the operation that we want to perform. Probabilistic measurements are also described by matrices, but these matrices are hermitian, so in ket notation, they are just weighted sums of these ket-bra terms, where the psi_k states form an orthonormal basis for the space.</p>
+<p><strong>Readout</strong> <span class="math notranslate nohighlight">\(\equiv\)</span> measurement operators <span class="math notranslate nohighlight">\(\equiv\)</span> hermitian matrices</p>
+<div class="math notranslate nohighlight">
+\[A=\sum_{k}r_{k}\mid\psi_{k}\rangle\langle\psi_{k}\mid\,\,\,\,\,\left(r_{k}\,\,real\right)\]</div>
+<p>If a measurement results in the state <span class="math notranslate nohighlight">\(\psi_{k}\)</span>, the value <span class="math notranslate nohighlight">\(r_{k}\)</span> becomes known to the experimentalist.</p>
+<p>The expected value for this measurement is given by sandwiching the measurement operator with the state that we’re measuring, and as you can see, the expectation value is just a weighted sum of the <span class="math notranslate nohighlight">\(r_{k}\)</span> terms, with the probabilities given by Born’s rule.</p>
+<p><strong>Average experimental outcomes</strong> <span class="math notranslate nohighlight">\(\equiv\)</span> ‘sandwich’ prodducts</p>
+<div class="math notranslate nohighlight">
+\[\langle\phi\mid A\mid\phi\rangle=\sum_{k}r_{k}\langle\phi\mid\psi_{k}\rangle\langle\psi_{k}\mid\phi\rangle=\sum_{k}r_{k}\mid\langle\phi\mid\psi_{k}\rangle\mid^{2}\]</div>
+<section id="unitary-operations">
+<h3><span class="section-number">6.1.1. </span>Unitary operations<a class="headerlink" href="#unitary-operations" title="Permalink to this headline"></a></h3>
+<p>That’s probably a lot to take in all at once, so let’s take a look at a few examples. Here, we have a unitary operation that exchanges states in the computational basis, which we call X, or the Pauli X if you’re already familiar with Pauli matrices.
+$<span class="math notranslate nohighlight">\(
+X=\left[\begin{array}{cc}
+0 &amp; 1\\
+1 &amp; 0
+\end{array}\right]=\mid1\rangle\langle0\mid+\mid0\rangle\langle1\mid\,\,\,\,\,X\mid0\rangle=\mid1\rangle\,\,\,\,\,X\mid1\rangle=\mid0\rangle
+\)</span>$</p>
+<p>Here it is decomposed into ket-bra terms, and here’s what happens when we use it to transform one of the computational basis states. We just get the other state. 0 goes to 1, and 1 goes back to 0. Not so exciting. Now let’s take a look at a more interesting operation, the Hadamard gate, H.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 &amp; 1\\
+1 &amp; -1
+\end{array}\right]=\mid+\rangle\langle0\mid+\mid-\rangle\langle1\mid\,\,\,\,\,H\mid0\rangle=\mid+\rangle\,\,\,\,\,H\mid1\rangle=\mid-\rangle
+\end{split}\]</div>
+<p>As you can see, this changes the basis from the 0/1 basis to the +/- basis that we discussed earlier. Put in a 0, get out a +, put in a 1, get out a -. There is another gate, called the phase gate, which only multiplies the one state by a factor of i, changing the basis in a very subtle way.
+$<span class="math notranslate nohighlight">\(
+P=\left[\begin{array}{cc}
+1 &amp; 0\\
+0 &amp; i
+\end{array}\right]=\mid0\rangle\langle0\mid+i\mid1\rangle\langle1\mid\,\,\,\,\,P\mid0\rangle=\mid0\rangle\,\,\,\,\,P\mid1\rangle=\mid1\rangle
+\)</span>$</p>
+<p>Now let’s take a look at a few measurement operators. In an interesting coincidence, the Pauli X shows up again, since it’s both unitary and hermitian, we can use it both as an operation and a measurement.</p>
+<p>Hermitian observables:
+$<span class="math notranslate nohighlight">\(
+X=\left[\begin{array}{cc}
+0 &amp; 1\\
+1 &amp; 0
+\end{array}\right]=\mid+\rangle\langle+\mid-\mid-\rangle\langle-\mid\,\,\,\,\,\langle+\mid X\mid+\rangle=1\,\,\,\,\,\langle-\mid X\mid-\rangle=-1
+\)</span>$</p>
+<p>Here, we have decomposed it into its eigenbasis, so the ket-bra terms are different than before, and we can see that its output values are +/- 1. Here’s another matrix which is both unitary and hermitian, the pauli Z.
+$<span class="math notranslate nohighlight">\(
+Z=\left[\begin{array}{cc}
+1 &amp; 0\\
+0 &amp; -1
+\end{array}\right]=\mid0\rangle\langle0\mid-\mid1\rangle\langle1\mid\,\,\,\,\,\langle0\mid Z\mid0\rangle=1\,\,\,\,\,\langle1\mid Z\mid1\rangle=-1
+\)</span>$</p>
+<p>It returns the exact same values as X, just for states in the 0/1 basis instead of the +/- basis.</p>
+<p>And finally we have the identity, which is also unitary and hermitian.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+I=\left[\begin{array}{cc}
+1 &amp; 0\\
+0 &amp; 1
+\end{array}\right]=\begin{array}{ccc}
+\mid0\rangle\langle0\mid &amp; - &amp; \mid1\rangle\langle1\mid\\
+ &amp; or\\
+\mid+\rangle\langle+\mid &amp; + &amp; \mid-\rangle\langle-\mid
+\end{array}\,\,\,\,\,\langle\psi\mid I\mid\psi\rangle=1\,\,\,\text{for all}\mid\psi\rangle
+\end{split}\]</div>
+<p>We can note that the identity doesn’t change the basis at all, so that indeed it can be expressed in any basis. Also when used as a measurement operator, it always returns 1, no matter what state is input.</p>
+</section>
+<section id="the-bloch-sphere">
+<h3><span class="section-number">6.1.2. </span>The Bloch Sphere<a class="headerlink" href="#the-bloch-sphere" title="Permalink to this headline"></a></h3>
+<p>Coefficient in polar co-ordinates:</p>
+<p>normalization constrains qubits’ states further</p>
+<p>Now that we have a few examples done, I would like to focus a little on a useful geometric representation of qubit states, called the Bloch Sphere. To show how qubit states can be mapped to the surface of a sphere, let’s start by expressing the coefficients alpha and beta in polar co-ordinates.</p>
+<div class="math notranslate nohighlight">
+\[
+|\psi\rangle=r_{0}e^{i\phi_{0}}|0\rangle+r_{1}e^{i\left(\phi_{0}+\phi\right)}|1\rangle
+\]</div>
+<p>Next, we can note that we can get rid of the phase on the alpha coefficient, since a ket multiplied by a phase produces the same measurement results as the ket itself, for any potential experiment, so these are not different in any physical sense.</p>
+<p>(global phases don’t matter??</p>
+<div class="math notranslate nohighlight">
+\[
+\mid\psi\rangle\mapsto e^{i\phi_{0}}\mid\psi\rangle
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\langle\psi\mid A\mid\psi\rangle\mapsto\left\langle \psi\left|e^{-i\alpha}Ae^{i\alpha}\right|\psi\right\rangle =\langle\psi\mid A\mid\psi\rangle
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mid\psi\rangle=r_{0}\mid0\rangle+r_{1}e^{i\phi}\mid1\rangle
+\]</div>
+<p>This results in a simpler expression for the state, but it’s not yet as simple as it can be.</p>
+<p>To get it even simpeler, we need to recall that these states have to be normalized, so the sum of the squares of the two radii involved has to be 1.</p>
+<div class="math notranslate nohighlight">
+\[
+\langle\psi\mid\psi\rangle=r_{0}^{2}+r_{1}^{2}\equiv1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\therefore\mid\psi\rangle=\cos(\theta)|0\rangle+e^{i\varphi}\mathrm{sin}(\theta)|1\rangle
+\]</div>
+<p>This implies that we can express them as the cosine and sine of an angle theta, since cos(theta)^2 + sin(theta)^2 is always 1.</p>
+<p>This family of angles theta and phi also describes the set of points on the surface of a sphere of unit radius in 3d space.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><img alt="alt text" src="../_images/scs4.png" /></p>
+</div>
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\mid\psi\rangle=\cos(\theta)|0\rangle+e^{i\phi}\sin(\theta)|1\rangle$$ anti-parallel on the Bloch sphere\\We can see that, setting theta to 0, and phi to whatever we want (here it's 0), we get $cos(theta) = 1$, $sin(theta) = 0$, so the corresponding state is simply the $0$ basis state.\\$$\mid\theta=0,\phi=0\rangle=\mid0\rangle,|\theta=\pi,\phi=0\rangle=\mid1\rangle\end{aligned}\end{align} \]</div>
+<p>If we set theta to <span class="math notranslate nohighlight">\(\pi\)</span> however, we get the 1 state regardless of the setting of phi. Likewise if we set theta to <span class="math notranslate nohighlight">\(pi/2\)</span>, and <span class="math notranslate nohighlight">\(\phi\)</span> to either <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(\pi\)</span>, we get one of the states from the <span class="math notranslate nohighlight">\(+/-\)</span> basis on the equator of the sphere.</p>
+<div class="math notranslate nohighlight">
+\[\mid\theta=\pi/2,\phi=0\rangle=|+\rangle,|\theta=\pi/2,\phi=\pi\rangle = \mid -\rangle\]</div>
+<p>Unitary operations, which change the basis we are working in, effect1ively rotate the sphere. For example, the Hadamard operation from earlier rotates the +/- states on the equator by 90 degrees until they’re at the poles. Also note that the states on opposite sides of the sphere are actually orthogonal, so this mapping does not preserve the angle between states, but it’s still useful for describing single-qubit states and operations.</p>
+<p>Unitary operations rotate the sphere $<span class="math notranslate nohighlight">\(\left\langle \psi\mid\psi^{\prime}\right\rangle =0\leftrightarrow\text{anti-parallel on the Bloch sphere}\)</span>$</p>
+<p>But how do we describe multi-qubit states and operations? Specifically, how do we build them up from operations on smaller subsystems of a many-qubit state? To accomplish this, we use a different kind of matrix product, called the tensor product, or Kronecker product. To take the tensor product of two matrices A and B, we write out a block matrix where each block is equal to B times the appropriate element of A.</p>
+<p>Multi-qubit states and operations: tensor (or Kronecker) products:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A\otimes B=\left[\begin{array}{ccc}
+A_{0,0}B &amp; \cdots &amp; A_{0,n-1}B\\
+\vdots &amp; \ddots &amp; \vdots\\
+A_{m-1,0}B &amp; \cdots &amp; A_{m-1,n-1}B
+\end{array}\right] Compatible with matrix-matrix product (B)(C\otimes D)=(AC)\end{split}\]</div>
+<p>The upper left block is B times the upper left element of <span class="math notranslate nohighlight">\(A\)</span>, and so on.</p>
+<p>The interesting thing about the tensor product is that it’s compatible with the regular matrix product.</p>
+<div class="math notranslate nohighlight">
+\[(A\otimes B)(C\otimes D)=(AC)\otimes(BD)\]</div>
+<p>That is to say if I take the matrix product of two tensor products, I get the same matrix as if I took the matrix products first, then evaluated the tensor product. This is also easier to understand if we take a look at a few examples.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="multi-qubit-states-operations">
+<h1><span class="section-number">7. </span>Multi-Qubit States &amp; Operations<a class="headerlink" href="#multi-qubit-states-operations" title="Permalink to this headline"></a></h1>
+<p>Here we see the tensor product of two states, + and 0, resulting in a state which we often call +0. Each 2-by-1 block of the state vector we’re calculating is proportional to the vector for the zero state, and it’s multiplied by one of the elements of the plus state.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mid+\rangle\otimes|0\rangle=\mid+0\rangle=\frac{1}{\sqrt{2}}\left[\begin{array}{lc}
+1 &amp; \left(\begin{array}{l}
+1\\
+0
+\end{array}\right)\\
+1 &amp; \left(\begin{array}{l}
+1\\
+0
+\end{array}\right)
+\end{array}\right]=\frac{1}{\sqrt{2}}\left[\begin{array}{l}
+1\\
+0\\
+1\\
+0
+\end{array}\right]\end{split}\]</div>
+<p>We can also take tensor products of operations and observables, here we take the tensor product of X and the identity, making a block matrix whose blocks are all equal to the identity, multiplied by one of the elements of X.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X\otimes I=\left[\begin{array}{ll}
+0\left(\begin{array}{ll}
+1 &amp; 0\\
+0 &amp; 1
+\end{array}\right) &amp; 1\left(\begin{array}{ll}
+1 &amp; 0\\
+0 &amp; 1
+\end{array}\right)\\
+1\left(\begin{array}{ll}
+1 &amp; 0\\
+0 &amp; 1
+\end{array}\right) &amp; 0\left(\begin{array}{ll}
+1 &amp; 0\\
+0 &amp; 1
+\end{array}\right)
+\end{array}\right]=\left[\begin{array}{llll}
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0
+\end{array}\right]\end{split}\]</div>
+<section id="example-bell-state-preparation">
+<h2><span class="section-number">7.1. </span>Example: Bell State Preparation<a class="headerlink" href="#example-bell-state-preparation" title="Permalink to this headline"></a></h2>
+<p>Now that we have seen the basic formalism and notation, we’re ready to calculate the results of a small sequence of quantum operations, which prepares a Bell state. First, we introduce a two-qubit gate which cannot be written as a tensor product of one-qubit gates, the controlled not, or cnot for short.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l}
+\text{ controlled-NOT: }\text{CNOT}=\left[\begin{array}{llll}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes X\\
+\\
+\end{array} Bell states are entangled: cannot be written as tensor product
+\end{split}\]</div>
+<p>As we can see, it can be decomposed into a sum of two tensor products that says if the first qubit is in the zero state, do the identity, and if the first qubit is in the one state, perform an X on the second qubit. Here we see the Bell state, which we’re going to prepare using the cnot.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{ Bell state: }\mid\Omega\rangle=\frac{\mid00\rangle+\mid11\rangle}{\sqrt{2}}=\frac{1}{\sqrt{2}}\left[\begin{array}{c}
+1\\
+0\\
+0\\
+1
+\end{array}\right]
+\end{split}\]</div>
+<p>We can write it out using either ket notation, or as a column vector.</p>
+</section>
+<section id="id1">
+<h2><span class="section-number">7.2. </span>Example: Bell State Preparation<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<p>Note that the Bell state, just like the cnot, cannot be written as a tensor product. The first step in preparing the Bell state is to perform a Hadamard operation on the first qubit, which has been initiliazed in the zero state. So we calculate the tensor product of the Hadamard with the identity, since we’re not going to do anything to the second qubit immediately.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H\otimes I=\frac{1}{\sqrt{2}}\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 1\\
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; -1
+\end{array}\right]
+\end{split}\]</div>
+<p>Now we’re ready to set up our sequence of operations. First, we prepare the state 00, then we apply the Hadamard, then the cnot. This results in a Bell state, which is written out here as a column vector.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l}
+\text{ CNOT }\times(H\otimes I)(|0\rangle\otimes|0\rangle)\\
+=\frac{1}{\sqrt{2}}\left[\begin{array}{llll}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 1\\
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; -1
+\end{array}\right]\left[\begin{array}{l}
+1\\
+0\\
+0\\
+0
+\end{array}\right]=\left[\begin{array}{c}
+\frac{1}{\sqrt{2}}\\
+0\\
+0\\
+\frac{1}{\sqrt{2}}
+\end{array}\right]
+\end{array}
+\end{split}\]</div>
+<p>Now this is the correct answer, but it was a little tedious to come to, and the matrices involved are a little large. 3x3 matrices are typically big enough for any phisicist, so 4x4 is overdoing it a little.</p>
+<p>Let’s try and do it the easy way, using some more ket notation. First, we use the compatibility of the Kronecker and regular products to show that the state we get from executing the Hadamard on the first qubit is simply +0, without having to use any matrices.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{l}
+H\otimes I(\mid0\rangle\otimes\mid0\rangle)=\mid+\rangle|0\rangle=\mid+0\rangle=\frac{1}{\sqrt{2}}\mid00\rangle+\mid10\rangle\end{array}
+\]</div>
+<p>Now, all we have to show is that the cnot will take our state, which is 00 + 10, to the 00 + 11 state that we’re after.</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega\rangle=CNOT\times\left(\frac{1}{\sqrt{2}}(\mid00\rangle+\mid10\rangle)\right)
+\]</div>
+<p>If we insert the decomposition of the cnot into tensor products that we saw earlier, we can see that the resulting state has coefficients proportional to these inner products of the 0 &amp; 1 states.</p>
+<div class="math notranslate nohighlight">
+\[
+=\frac{1}{\sqrt{2}}(\mid0\rangle\langle0\mid0\rangle\otimes I\mid0\rangle+\mid0\rangle\langle0\mid1\rangle\otimes I\mid1\rangle\quad+\mid1\rangle\langle1\mid0\rangle\otimes X\mid0\rangle+\mid1\rangle\langle1\mid1\rangle\otimes X\mid0\rangle)
+\]</div>
+<p>Of course, the 0/1 basis is orthonormal, so the products 00 and 11 evaluate to 1, and the products 01 and 10 evaluate to 0, leaving us with two remaining terms.</p>
+<div class="math notranslate nohighlight">
+\[
+=\frac{1}{\sqrt{2}}\left(\mid00\rangle+\mid11\rangle\right)
+\]</div>
+<p>These terms are exactly the 00 and 11 terms that we were after. And that’s how ket notation van help us to describe the effects of operations and measurements on quantum states.</p>
+<section id="id2">
+<h3><span class="section-number">7.2.1. </span>Main takeaways<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>In ket notation, a quantum state is expressed using a column vector with complex coefficients. The squared magnitudes of these coefficients are the probabilities of measuring that particular outcome.</p></li>
+<li><p>Devices used for storing and manipulating qubit states are described by a Hamiltonian, which is a matrix that assigns energies to each of its eigenstates or preferred basis states.</p></li>
+<li><p>Quantum logic gates are described by unitary matrices. Probabilistic measurements are described by Hermitian matrices.</p></li>
+<li><p>An entangled state is a multi-qubit state that cannot be written as a tensor product of one-qubit states.</p></li>
+<li><p>Qubit states are geometrically represented using the Bloch sphere.</p></li>
+<li><p>Multi-qubit states and operations can be described using the tensor product. Note, an actual two-qubit gate cannot be described with a tensor product.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="advantages-and-dissadvantages-of-ket-notation">
+<h1><span class="section-number">8. </span>Advantages and dissadvantages of Ket notation<a class="headerlink" href="#advantages-and-dissadvantages-of-ket-notation" title="Permalink to this headline"></a></h1>
+<p>In the previous ket notation we discussed three ways to represent quantum states:</p>
+<ol class="arabic simple">
+<li><p>column vectors with complex coefficients,</p></li>
+<li><p>kets themselves and</p></li>
+<li><p>the geometric representation,</p></li>
+</ol>
+<p>which uses the Bloch sphere. Each one of these has their own little advantages and disadvantages, which we are going to see in the course of these videos. First, let’s take a look at some of the advantages of ket notation. So here’s ket…notation. Is very nice for…sparse…states. That is to say: states… …which don’t have that many non-zero entries in some bases. Take for example this state here, which I will call psi, along with most other states.</p>
+<div class="math notranslate nohighlight">
+\[\mid\psi\rangle=\frac{\mid00000\rangle+\mid11111\rangle}{\sqrt{2}}\]</div>
+<p>It has got two nonzero terms. There is a one over root two term for the component in <span class="math notranslate nohighlight">\(00000\)</span> and a one over root two term for the all-ones as well. That would be very cumbersome to write out in terms of a full vector, because that would require <span class="math notranslate nohighlight">\(2^5\)</span> or <span class="math notranslate nohighlight">\(32\)</span> entries, but here you can do it very compactly. Now, if you don’t have a compact discription for the state like this, if you just have some arbitrary coefficients, it can be very painstaking and time-consuming to write out something like this.</p>
+<div class="math notranslate nohighlight">
+\[\alpha\mid00\rangle+\beta\mid01\rangle+\gamma\mid10\rangle+\delta\mid11\rangle\]</div>
+<p><span class="math notranslate nohighlight">\(\beta\otimes 01 + \gamma \otimes 10 + \delta \otimes 11\)</span>. Here you would be better of to use something more like a column vector. <span class="math notranslate nohighlight">\(\alpha, \beta, \gamma, \delta\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{c}
+\alpha\\
+\beta\\
+\gamma\\
+\delta
+\end{array}\right]
+\end{split}\]</div>
+<p>And in some other times, especially if you’re considering operations - transformations on the set of states – it can be beneficial to consider the Bloch sphere, where you have the reference state zero, some other states one, plus, minus and like so…</p>
+<section id="synthesising-rotations">
+<h2><span class="section-number">8.1. </span>Synthesising rotations<a class="headerlink" href="#synthesising-rotations" title="Permalink to this headline"></a></h2>
+<p>In some setups, experimentalists can only rotate along two axes of the Bloch sphere. In this video Ben will show you an example of how you can use these two rotation axes to achieve rotations around a third axis. He will do it both in vector form and in the Bloch sphere representation. Which do you think is the most convenient?</p>
+<p>Let’s show an example of something that’s a little bit difficult to do when looking at the matrix based picture of quantum mechanics, but if we put everything on the Bloch sphere it makes perfect sense.</p>
+<p>In many experiments, experimentalists can only rotate along two axes of the Bloch sphere. That is the x-axis, which goes in this direction and the y-axis, which is going in this way.</p>
+<p>Many algorithms rely on rotations around the z-axis, which is independent from these other two. And we would like to see how to synthesize the z-rotations out of the tools that we have available: x and y rotations.</p>
+<p>Now, I happen to know the answer to this question and I can begin by writing down the matrices that describe the operations that we would like to do. So, here is z and I’ll say this is z(theta). For those of you who are really in the know, this is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+e^{i*z*theta}. But if this doesn’t make sense to you, then this is just a diagonal matrix with Z(\theta)=e^{\frac{iZ\theta}{2}}=\left[\begin{array}{cc}
+e^{\frac{i\theta}{2}} &amp; 0\\
+0 &amp; e^{-\frac{i\theta}{2}}
+\end{array}\right]
+\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+e^{-i*theta/2} 
+\]</div>
+<p>on the diagonal, zeros off the diagonal. And we can see immediately that x and y rotations on their own aren’t going to give us this z-rotation.</p>
+<p>So we can write down x theta and y theta, which are just rotations around these axes by angles theta.</p>
+<div class="math notranslate nohighlight">
+\[E^{ix*theta/2}, e^{i*y*theta/2}\]</div>
+<p>And this guy is equal to cosine of theta over two minus i <span class="math notranslate nohighlight">\(sin(\frac{\theta}{2}) -i\sin(\frac{\theta}{2})\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X(\theta)=e^{\frac{iX\theta}{2}}=\left[\begin{array}{cc}
+\cos(\frac{\theta}{2}) &amp; -i\sin(\frac{\theta}{2})\\
+-i\sin(\frac{\theta}{2}) &amp; \cos(\frac{\theta}{2})
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+E^{i*y*theta/2}
+\]</div>
+<p>is quite similar. Cosine theta over two, sine theta over two, minus sine theta over two, cosine theta over two. Now, there’s a product of these rotations. A y an x and a y, that will excecute one of these sets.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y(\theta)=e^{\frac{iY\theta}{2}}=\left[\begin{array}{cc}
+\cos(\frac{\theta}{2}) &amp; -\sin(\frac{\theta}{2})\\
+-\sin(\frac{\theta}{2}) &amp; \cos(\frac{\theta}{2})
+\end{array}\right]
+\end{split}\]</div>
+<p>Lets look at those matrix rotations first. What I am going to do is set theta, well, equal to pi over two for a y rotation. And that’s going to give me one over root two, one one, minus one, one. Y theta equal to minus pi over 2 will give me operations that look like one, minus one, one, one. You might recognize these to be quite similar to the Hadamard matrix that changes from the computational basis to the plus minus basis, and that is by design.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y(\theta=\frac{\pi}{2})=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 &amp; -1\\
+1 &amp; 1
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y(\theta=-\frac{\pi}{2})=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 &amp; 1\\
+-1 &amp; 1
+\end{array}\right]
+\end{split}\]</div>
+<p>Now lets take a look at what happens if we sandwich an x rotations around theta with these two matrices, which we lovingly call y 90 and y -90. Because they are 90 degree rotations. So, we’re going to get a, well, y pi by 2 x theta y minus pi 2. Is equal to 1 over root two one, minus one, one,one, cosine theta over two, minus i sine theta over two, minus i sine theta over two, cosine of theta over two. Then we have another one over root two, one, minus one, one, one. We multiply these through. So, first off I can take these two factors of one over square root of two, make them a factor of a half. One minus one one one. Then if I multiply these here, I get cos theta over two plus I sine theta over two, because these two minus signs cancel. So that’s cos theta over two plus I sine theta over two.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y_{\frac{\pi}{2}}X_{\theta}Y_{-\frac{\pi}{2}} =\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 &amp; -1\\
+1 &amp; 1
+\end{array}\right]\cdot\left[\begin{array}{cc}
+\cos(\frac{\theta}{2}) &amp; -i\sin(\frac{\theta}{2})\\
+-i\sin(\frac{\theta}{2}) &amp; \cos(\frac{\theta}{2})
+\end{array}\right]\cdot\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 &amp; 1\\
+-1 &amp; 1
+\end{array}\right]
+ =\frac{1}{2}\left[\begin{array}{cc}
+1 &amp; -1\\
+1 &amp; 1
+\end{array}\right]\cdot\left[\begin{array}{cc}
+\cos(\frac{\theta}{2})+i\sin(\frac{\theta}{2}) &amp; \cos(\frac{\theta}{2})-i\sin(\frac{\theta}{2})\\
+-(\cos(\frac{\theta}{2})+i\sin(\frac{\theta}{2})) &amp; \cos(\frac{\theta}{2})-i\sin(\frac{\theta}{2})
+\end{array}\right]
+ =\frac{1}{2}\left[\begin{array}{cc}
+2\left(\cos(\frac{\theta}{2})+i\sin(\frac{\theta}{2})\right) &amp; 0\\
+0 &amp; 2?\left(\cos(\frac{\theta}{2})-i\sin(\frac{\theta}{2})\right)
+\end{array}\right]
+\end{split}\]</div>
+<p>Here I’ll get cosine theta over two minus I sine theta over two. Here I’ll get minus cosine, minus I sine. So that’s minus I cosine theta plus I sine theta over two. And then here I’ll get cosine minus I sine. So, cosine theta over two minus I sine theta over two. Continuing on with all this math I can notice that these two elements are equal and opposite. So If I take one and minus one, I’ll get cosine plus I sine, minus negative cosine plus I sine. Which is simply two cosine theta over two plus I sine theta over two. Here I take a number and it’s opposite, I get zero. Here I can take these two numbers which are equal and add them. That gives me theta over two minus I sine theta over two. And if I take one and minus one and these two I get zero as well.</p>
+<p>That’s a lot of matrix multiplication. Now, let’s also use Eulers identity. We know that this is equal to e^{i<em>theta/2} and that this is equal to e^{-i</em>Theta/2}.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+e^{i\theta}=\cos(\frac{\theta}{2})+i\sin(\frac{\theta}{2})\\e^{-i\theta}=\cos(\frac{\theta}{2})-i\sin(\frac{\theta}{2})\\From arithmetic using complex numbers. And so we have managed to synthesize this z rotation around theta just by using x rotations and y rotations.\\\begin{split}=\frac{1}{2}\left[\begin{array}{cc}
+2e^{i\theta} &amp; 0\\
+0 &amp; 2?e^{-i\theta}
+\end{array}\right]
+\end{split}\end{aligned}\end{align} \]</div>
+<p>So by using a little bit of ket notation and some trigonometric identities, we can show that we can obtain universal control using only the tools that are available to the experimentalists. This is nice because it means we don’t have to design new hardware. We can just put together operations that we already have in order to obtain universal control.</p>
+<p>But this is not that simple as it could be. There is a far easier way to see this, which we can do using the Bloch sphere. The action of this sequence of unitary operations. Y 90, x around some angle theta and then y minus 90 can be expressed in terms of matrices. But it’s much easier to see using the Bloch sphere. If we write down the Bloch sphere with the x axis pointing out of the board, we can see the effect of a y 90, a rotation around 90 degrees of the y axis, is just turning the sphere sort of like a steering wheel, so that the x axis now faces down and the z axis is where the x axis used to be. If we now apply a rotation around the x axis, that is giving us a rotation around our old z axis. And once we have that done, all we have to do is reverse the y 90 with a y minus 90 to restore the orientation of our original axes, having picked up a phase on the z. And that’s how we can synthesize a diagonal unitary. e^{itheta/2}, e^{-i*theta/2} out of the operations to which the experimentalists have access. A little bit of notations saves you a lot of hardware design.</p>
+</section>
+<section id="state-decomposition">
+<h2><span class="section-number">8.2. </span>State decomposition<a class="headerlink" href="#state-decomposition" title="Permalink to this headline"></a></h2>
+<p>Often in quantum computing , it is necessary to express one state in terms of a basis of some other states. I am going to go ahead and call this state decomposition, although you can see it under a variety of names and usually it’s clear from the context that they mean expressing one state in terms of a basis that is more familiar or convenient to. Now the rule of state decomposition is that any state phi can be expressed as a sum over k terms, where each term consists of an inner product of phi - the trial state - with one of the basis states phi_k, and the states phi_k. Number times vector. And this is the same as decomposing a vector in a basis if you are already familiar with linear algebra.</p>
+<div class="math notranslate nohighlight">
+\[
+\mid\phi\rangle=\sum_{k}\underbrace{\langle\psi_{k}\mid\phi}*{\text{number}}\mid\underbrace{\psi*{k}}_{\text{vector}}\rangle
+\]</div>
+<p>As an example of this, let’s take a look at a trial wave function of zero, and a basis which is the Hadamard basis, the plus minus basis, that we reviewed in the lecture. The sum over psi_k, phi, psi_k is then the inner product of plus and zero times plus and the inner product of minus and zero times minus. Now here I figured out those inner product. The inner product of plus zero is one over root two times the dot product of these two vectors, which is just one over root two. And the calculation for minus zero is very similar, there is a minus sign here, but it gets multiplied by zero, making no difference, and we end up with one over root two again. Therefore, zero can be decomposed as one over root two, plus + minus, just as the plus state can be decomposed as one over root two, zero + one.</p>
+<p>Example:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\mid\phi\rangle=\mid0\rangle,\,\,\,\mid\psi_{0}\rangle=\mid+\rangle,\,\,\,\mid\psi_{1}\rangle=\mid-1\rangle\\\mid\phi\rangle=\sum_{k}\langle\psi_{k}\mid\phi\rangle\mid\psi_{k}\rangle=\langle+\mid0\rangle\mid+\rangle+\langle-\mid0\rangle\mid-\rangle\\\begin{split}\langle+\mid0\rangle=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 &amp; 1\end{array}\right]\left[\begin{array}{c}
+1\\
+0
+\end{array}\right]=\frac{1}{\sqrt{2}}\end{split}\\\begin{split}\langle-\mid0\rangle=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}
+1 &amp; -1\end{array}\right]\left[\begin{array}{c}
+1\\
+0
+\end{array}\right]=\frac{1}{\sqrt{2}}\end{split}\\\therefore\mid0\rangle=\frac{1}{\sqrt{2}}\left(\mid+\rangle+\mid-\rangle\right)=\frac{1}{\sqrt{2}}
+\end{aligned}\end{align} \]</div>
+</section>
+<section id="performing-arbitrary-measurements">
+<h2><span class="section-number">8.3. </span>Performing arbitrary measurements<a class="headerlink" href="#performing-arbitrary-measurements" title="Permalink to this headline"></a></h2>
+<p>It could be that your measurement device is only capable of measuring in one basis. Ket notations helps us to show that it will not be difficult to let this simple measurement device measure in any basis. In this example Ben will show you how this works.</p>
+<p>I’d like to talk today about how a little bit of ket-notation can save us a big experimental headache, when it comes time to try measure a qubit in an arbitrary basis. First, we have to review a few of the important facts.</p>
+<p>Arbitrary measutremnent</p>
+<p>The conjugate transpose of a matrix or a vector is given by first taking the transpose of this 2-by-2 matrix that leaves the diagonal elements in the same place, and exchanges the elements being b and c here, but also taking the complex conjugate of each element in the matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mid fU=\frac{1}{2}\left[\begin{array}{cc}
+a &amp; b\\
+c &amp; d
+\end{array}\right],\,\,\,U^{\dagger}=\left[\begin{array}{cc}
+a^{*} &amp; b^{*}\\
+c^{*} &amp; d^{*}
+\end{array}\right]
+\end{split}\]</div>
+<p>A second important fact, which you can prove yourself using this definition, and I encourage you to do so, is that the dagger or complex conjugate transpose of U- psi (ket) is just the bra for psi times U-dagger. Now, that follows from linear algebra, but it is easy to check for yourself.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+\langle U\mid\psi\rangle\rangle^{\dagger}=\langle\psi\mid U^{\dagger}\\\begin{split}\mid\psi\rangle=\left[\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right],\,\,\,\mid\psi_{\bot}\rangle=\left[\begin{array}{c}
+\beta^{*}\\
+-\alpha^{*}
+\end{array}\right],
+\end{split}\end{aligned}\end{align} \]</div>
+<p>There’s also another construction that I’d like to use, which is that for every state psi, there is another state which I call psi-perp(endicular), which consists of these coefficients. So, if psi is alpha-beta, psi-perp is the conjugate of beta and minus the conjugate of alpha. And these states are by construction orthogonal, which you can also see just by taking the inner product and seeing that it’s always zero regardless of what alpha and beta are.</p>
+<p>And with those three ingredients, we can solve this question.</p>
+<p>´+ So, experimentalists usually measure a single operator: the Pauli-Z operator, that was perhaps discussed earlier. But we’d like to be able to measure in whatever basis we want.</p>
+<div class="math notranslate nohighlight">
+\[
+\{\mid0\rangle,\mid1\rangle\rangle,\,\,\,\text{basis}(Z)}
+\]</div>
+<p>So that if we have a question: “Is this state this or that?”, we can answer it without having to restrict ourselves to the 0-1 basis. So, we have a two-step plan to solve this. First, we’re going to apply some operator U, and then we’re going to measure in the 0-1 basis.</p>
+<p>+How to measure in other basis</p>
+<ol class="arabic simple">
+<li><p>Apply U</p></li>
+<li><p>Measure in {\mid0\rangle,\mid1\rangle\rangle</p></li>
+</ol>
+<p>Now, if you’ve got a controllable qubit, you can apply an operator U as you see fit, and as discussed in the statement of the question, we can measure in the 0-1 basis. We can measure the Z-operator. So, the expectation value of this measurement, if we first apply U on psi, that replaces psi with psi-U-dagger in the bra and U-psi in the ket, and then we take the familiar sandwich product to determine the expectation value of the operator, we end up with psi-U-dagger-Z-U-psi.</p>
+<p>Expectation value;</p>
+<div class="math notranslate nohighlight">
+\[
+ =\left(\langle\psi\mid U^{\dagger}\right)Z\left(U\mid\psi\rangle\right)
+ =\langle\psi\mid\left(U^{\dagger}ZU\right)\mid\psi\rangle
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+U^{\dagger}ZU=\underbrace{U^{\dagger}\mid0\rangle}*{\mid\psi\rangle}\underbrace{\langle0\mid U}*{\langle\psi\mid}-\underbrace{U^{\dagger}\mid1\rangle}*{\mid\psi*{\bot}\rangle}\underbrace{\langle1\mid U}*{\langle\psi*{\bot}\mid}
+\]</div>
+<p>So, it’s as if we had our original state psi, and instead of measuring Z, we measured U-dagger-Z-U. Now, U-dagger-Z-U we can write out like so. And if we label the state U-dagger-0 as psi, then U-dagger-Z-U is equal to psi-psi minus psi-perp-psi-perp. This is a measurement that will return 1 if the state is psi, and -1 if the state is psi-perp, giving us an arbitrary basis to measure in.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-fact-about-maximally-entangled-states">
+<h1><span class="section-number">9. </span>A fact about maximally entangled states<a class="headerlink" href="#a-fact-about-maximally-entangled-states" title="Permalink to this headline"></a></h1>
+<p>Ket notation is not always the best approach to find an answer or solve an equation. Ben will give you an example about entangled states where it would be a lot of work to use ket notation.</p>
+<p>Often when doing quantum information, ket-notation can fail you. This happens a lot when you have a densely packed vector full of a bunch of different coefficients and there’s no obvious structure. Now, hopefully when that happens to you, you’re only going to deal with a few qubits. Otherwise, you are going to writing out coefficients for a very long time.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{\sqrt{2}}\left(\mid\psi^{*}\psi\rangle+\mid\psi_{\bot}^{*}\psi_{\bot}\rangle\right)=\frac{1}{\sqrt{2}}\left(\mid00\rangle+\mid11\rangle\right)\qquad\text{always}
+\]</div>
+<p>Here, we can see a not too bad example with two qubits where we’re going to prove that for any maximally entangled state of the form psi-star-psi plus psi-perp-star-psi-perp, it’s always equal to the Bell state that’s fully correlated that we know and love: 1 over root 2 (times) 0-0 plus 1-1.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\mid\psi\rangle=\left[\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right],\,\,\,\mid\psi^{*}\rangle=\left[\begin{array}{c}
+\alpha^{*}\\
+\beta^{*}
+\end{array}\right],\end{split}\\\begin{split}\mid\psi_{\bot}\rangle=\left[\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right],\,\,\,\mid\psi_{\bot}^{*}\rangle=\left[\begin{array}{c}
+\beta\\
+-\alpha
+\end{array}\right],
+\end{split}\end{aligned}\end{align} \]</div>
+<p>And this is regardless of what psi is. So, if we take an arbitrary wavevector psi which is two complex coefficients alpha and beta, we can define psi-star, which is just the complex conjugate of that state, which is also a valid state, psi-perp, which is some state which is orthogonal to psi, which I encourage you to check for yourself by taking the inner product, and psi-perp-star, which is the complex conjugate of the orthogonal state. And if we write out all of our tensor products using the formula that we learned earlier, we obtain a pair of densely packed vectors full of those coefficients, which would be very awkward in ket-notation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{1}{\sqrt{2}}\left(\mid\psi^{*}\psi\rangle+\mid\psi_{\bot}^{*}\psi_{\bot}\rangle\right) =\frac{1}{\sqrt{2}}\left[\left[\begin{array}{c}
+\alpha^{*}\alpha\\
+\alpha^{*}\beta\\
+\beta^{*}\alpha\\
+\beta^{*}\beta
+\end{array}\right]+\left[\begin{array}{c}
+\beta^{*}\beta\\
+-\beta\alpha^{*}\\
+-\alpha\beta^{*}\\
+\alpha\alpha^{*}
+\end{array}\right]\right]
+ =\frac{1}{\sqrt{2}}\left[\left[\begin{array}{c}
+\mid\alpha\mid^{2}+\mid\beta\mid^{2}\\
+0\\
+0\\
+\mid\alpha\mid^{2}+\mid\beta\mid^{2}
+\end{array}\right]\right]
+ =\frac{1}{\sqrt{2}}\left[\begin{array}{c}
+1\\
+0\\
+0\\
+1
+\end{array}\right]
+\end{split}\]</div>
+<p>But we have here alpha-star-alpha, alpha-star-beta, beta-star-alpha and beta-star-beta. And we’re going to add to that: beta-beta-star, minus beta-alpha-star, minus alpha-beta-star and alpha-alpha-star. Now, beta-star-beta plus alpha-alpha-star is just the magnitude of alpha squared plus the magnitude of beta squared, which is 1. And we see that same thing in the top term here, alpha-star-alpha plus beta-beta-star, that’s 1. And then these inner terms cancel. Because you have alpha-star-beta minus beta-alpha-star, that has just been flipped here. And a beta-star-alpha minus alpha-beta-star, if I flipped these two, it becomes obvious that they are equal and opposite, so they cancel. This implies for example, that for example if Alice and Bob share a Bell state, and Alice measure in a 0-1 basis, she can get a state 0 or 1 and she can tell that Bob has the same state. Now she measures instead in the basis psi-star psi-star-perp, she can tell that Bob has the state psi or psi-perp depending on her measurement result.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="experimental-and-theoretical-measurements">
+<h1><span class="section-number">10. </span>Experimental and theoretical measurements<a class="headerlink" href="#experimental-and-theoretical-measurements" title="Permalink to this headline"></a></h1>
+<p>In this section we will explain the difference between measurements that occur in a laboratory and measurements that are described in theory. What are the differences and how are those similar?</p>
+<p>Let’s take this opportunity to clarify something that confuses a lot when first learning about quantum mechanics, which is the difference between measurements that occur in a laboratory and measurements that we describe in theory. And also point out hopefully the ways in which these things are similar. So, you may have already seen a picture like this one. But, in the laboratories we can measure some currents in nanoamperes, and if there’s a spin in the down state pointing parallel to the field, there will be no bump in the current. And if it’s in the up state, there will be a bump. And this is a large macroscopic classical signal that they can detect. And this relates to a measurement operator. You can imagine that we take the total area under this curve; the total amount of current, in the case that there’s no bump, and that corresponds to the spin down state. And the total current in the case that there is a bump will be slightly higher, and that corresponds to the spin up state. So, that real number: the amount of current times the projector on to the down state plus the total amount of current in the case that there is bump times the projector on to the up state gives us our measurement operator. Now, the important thing about these two signals being distinguishable, but there being a large difference between them, is that if they’re equal, we end up with some number times down-down plus some number which is identical, times up-up. So, the measurement operator becomes the identity, which doesn’t discern between the up and down states. So as useless is the measurement. But if these numbers are discernably different, then down-down and up-up receive different measurement outcomes, and out measurement operator is \mathbf{1}more like a Z, which is one we could use to accurately distinguish between the computational basis states in quantum computing.</p>
+<section id="practice-quiz-3">
+<h2><span class="section-number">10.1. </span>Practice Quiz 3<a class="headerlink" href="#practice-quiz-3" title="Permalink to this headline"></a></h2>
+<section id="question-1">
+<h3><span class="section-number">10.1.1. </span>Question 1:<a class="headerlink" href="#question-1" title="Permalink to this headline"></a></h3>
+<p>Suppose we are given a pure, two-qubit state
+$<span class="math notranslate nohighlight">\(\psi\rangle_{AB}=\alpha_{00}|00\rangle+\alpha_{01}|01\rangle+\alpha_{10}|10\rangle+\alpha_{11}|11\rangle, where \left|\alpha_{00}\right|^{2}+\left|\alpha_{01}\right|^{2}+\left|\alpha_{10}\right|^{2}+\left|\alpha_{11}\right|^{2}=1 \)</span><span class="math notranslate nohighlight">\(. 
+We can compute the amount of entanglement between the two qubits, as quantified by the entanglement measure known as the concurrence, using the following expression: \)</span><span class="math notranslate nohighlight">\(C\left(|\psi\rangle_{AB}\right)=2\left|\alpha_{00}\alpha_{11}-\alpha_{01}\alpha_{10}\right\mid\)</span><span class="math notranslate nohighlight">\(. If the two qubits are maximally entangled, then \)</span><span class="math notranslate nohighlight">\(C(|\psi\rangle)=1\)</span><span class="math notranslate nohighlight">\(; and if the qubits are not entangled at all, or are in a product state, then \)</span><span class="math notranslate nohighlight">\(C(|\psi\rangle)=0\)</span>$. Use the above expression to compute the amount of entanglement between the qubits in each of the following states:</p>
+<div class="admonition-how-much-entanglement-is-in-that-state admonition">
+<p class="admonition-title">how much entanglement is in that state?</p>
+<ul class="contains-task-list simple">
+<li><p>[] <span class="math notranslate nohighlight">\(\mid\psi\rangle_{AB}=\frac{1}{\sqrt{2}}(|00\rangle+|11\rangle)=\mathbf{1}\)</span></p></li>
+<li><p>[] <span class="math notranslate nohighlight">\(\psi\rangle_{AB}=\frac{1}{\sqrt{2}}(|01\rangle+|10\rangle)=\mathbf{1}\)</span></p></li>
+<li><p>[] <span class="math notranslate nohighlight">\(\psi\rangle_{AB}=|00\rangle=\mathbf{0}\)</span></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <span class="math notranslate nohighlight">\(\psi\rangle_{AB}=\sqrt{\frac{48}{100}}(|00\rangle+\sqrt{\frac{48}{100}}|11\rangle)+\sqrt{\frac{4}{100}}\mid10\rangle=\mathbf{0.96}\)</span></p></li>
+</ul>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Without a programming language, every input into the computer would need to be an exact instruction on the CPU. This would make using computers very hard and would take a lot of time.</p>
+</div>
+<p>0 points possible (ungraded)</p>
+</section>
+</section>
+<section id="quiz-3-ket-notation">
+<h2><span class="section-number">10.2. </span>Quiz 3: Ket notation<a class="headerlink" href="#quiz-3-ket-notation" title="Permalink to this headline"></a></h2>
+<section id="question-1-expectation-values">
+<h3><span class="section-number">10.2.1. </span>Question 1: Expectation values<a class="headerlink" href="#question-1-expectation-values" title="Permalink to this headline"></a></h3>
+<p>The expectation value <span class="math notranslate nohighlight">\(\langle A\rangle\)</span> of an operator <span class="math notranslate nohighlight">\(A\)</span> upon a state <span class="math notranslate nohighlight">\(\mid\psi\rangle\)</span> is, as mentioned, the average of very many outcomes of measurements of that operator. Mathematically speaking, it is the inner product of the state with itself, with the operator ‘sandwiched’ inbetween: <span class="math notranslate nohighlight">\(\langle\psi|A|\psi\rangle\)</span>.</p>
+<p>The easiest way to solve this is using the linear algebra representation: if, for instance,
+$<span class="math notranslate nohighlight">\(
+A = \left[\begin{array}{ccc}
+1 &amp; 0\\
+0 &amp; -1
+\end{array}\right], and |\psi\rangle equals \left[\begin{array}{l}
+1\\
+0
+\end{array}\right], then: \langle\psi|A|\psi\rangle=\left[\begin{array}{ll}
+1 &amp; 0\end{array}\right]\left[\begin{array}{cc}
+1 &amp; 0\\
+0 &amp; -1
+\end{array}\right]\left[\begin{array}{l}
+1\\
+0
+\end{array}\right] For the state \sqrt{\frac{1}{3}}|0\rangle+\sqrt{\frac{2}{3}}i|1\rangle\)</span>$</p>
+<p>calculate the expectation value of the following operators:</p>
+<section id="hadamard-matrix">
+<h4><span class="section-number">10.2.1.1. </span>Hadamard matrix:<a class="headerlink" href="#hadamard-matrix" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+H=\sqrt{\frac{1}{2}}\left[\begin{array}{cc}
+1 &amp; 1\\
+1 &amp; -1
+\end{array}\right],\end{split}\\\mid\psi\rangle=\sqrt{\frac{1}{3}}|0\rangle+\sqrt{\frac{2}{3}}i|1\rangle\\\begin{split}\mid\psi\rangle=\sqrt{\frac{1}{3}}\left[\begin{array}{l}
+1\\
+0
+\end{array}\right]+\sqrt{\frac{2}{3}}i\left[\begin{array}{l}
+0\\
+1
+\end{array}\right]\end{split}\\\begin{split}\mid\psi\rangle=\sqrt{\frac{1}{3}}|0\rangle+\sqrt{\frac{2}{3}}i|1\rangle=\left[\begin{array}{c}
+\sqrt{\frac{1}{3}}\\
+0
+\end{array}\right]+\left[\begin{array}{c}
+0\\
+\sqrt{\frac{2}{3}}i
+\end{array}\right]=\left[\begin{array}{c}
+\sqrt{\frac{1}{3}}\\
+\sqrt{\frac{2}{3}}i
+\end{array}\right]
+\end{split}\end{aligned}\end{align} \]</div>
+<p><strong>Complex conjugate transpose:</strong>
+$<span class="math notranslate nohighlight">\(
+\langle\psi\mid=\mid\psi*\rangle=\sqrt{\frac{1}{3}}|0\rangle-\sqrt{\frac{2}{3}}i|1\rangle=\left[\begin{array}{cc}
+\sqrt{\frac{1}{3}} &amp; -\sqrt{\frac{2}{3}}i\end{array}\right]
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\langle\psi\mid H\mid\psi\rangle=\left[\begin{array}{cc}
+\sqrt{\frac{1}{3}} &amp; -\sqrt{\frac{2}{3}}i\end{array}\right]\sqrt{\frac{1}{2}}\left[\begin{array}{cc}
+1 &amp; 1\\
+1 &amp; -1
+\end{array}\right]\left[\begin{array}{c}
+\sqrt{\frac{1}{3}}\\
+\sqrt{\frac{2}{3}}i
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{cc}
+\sqrt{\frac{1}{3}} &amp; -\sqrt{\frac{2}{3}}i\end{array}\right]\sqrt{\frac{1}{2}}\left[\begin{array}{c}
+\sqrt{\frac{1}{3}}+\sqrt{\frac{2}{3}}i\\
+\sqrt{\frac{1}{3}}-\sqrt{\frac{2}{3}}i
+\end{array}\right] =\sqrt{\frac{1}{2}}\left(\sqrt{\frac{1}{3}}\left(\sqrt{\frac{1}{3}}+\sqrt{\frac{2}{3}}i\right)-\sqrt{\frac{2}{3}}i\left(\sqrt{\frac{1}{3}}-\sqrt{\frac{2}{3}}i\right)\right)
+ =\sqrt{\frac{1}{2}}\left(\left(\sqrt{\frac{1}{3}}\sqrt{\frac{1}{3}}\right)+\left(\sqrt{\frac{1}{3}}\sqrt{\frac{2}{3}}i\right)-\left(\sqrt{\frac{2}{3}}i\sqrt{\frac{1}{3}}\right)+\left(\sqrt{\frac{2}{3}}i\sqrt{\frac{2}{3}}i\right)\right)
+ =\sqrt{\frac{1}{2}}\left(\frac{1}{3}+\frac{\sqrt{2}}{3}i-\frac{\sqrt{2}}{3}i-\frac{2}{3}\right)
+ =\sqrt{\frac{1}{2}}\left(\frac{1}{3}-\frac{2}{3}\right)=-\frac{1}{3\sqrt{2}}
+\end{split}\]</div>
+</section>
+<section id="pauli-x">
+<h4><span class="section-number">10.2.1.2. </span>Pauli X<a class="headerlink" href="#pauli-x" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X=\left[\begin{array}{cc}
+0 &amp; 1\\
+1 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\langle\psi \mid X\mid\psi\rangle=\left[\begin{array}{cc}
+\sqrt{\frac{1}{3}} &amp; -\sqrt{\frac{2}{3}}i\end{array}\right]\left[\begin{array}{cc}
+0 &amp; 1\\
+1 &amp; 0
+\end{array}\right]\left[\begin{array}{c}
+\sqrt{\frac{1}{3}}\\
+\sqrt{\frac{2}{3}}i
+\end{array}\right]
+ =\left[\begin{array}{cc}
+\sqrt{\frac{1}{3}} &amp; -\sqrt{\frac{2}{3}}i\end{array}\right]\left[\begin{array}{c}
+\sqrt{\frac{2}{3}}i\\
+\sqrt{\frac{1}{3}}
+\end{array}\right]
+ =\begin{array}{cc}
+\sqrt{\frac{1}{3}}\sqrt{\frac{2}{3}}i &amp; -\sqrt{\frac{2}{3}}i\sqrt{\frac{1}{3}}\end{array}
+ =0
+\end{split}\]</div>
+</section>
+<section id="pauli-y-matrix">
+<h4><span class="section-number">10.2.1.3. </span>Pauli Y matrix<a class="headerlink" href="#pauli-y-matrix" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y=\left[\begin{array}{cc}
+0 &amp; -i\\
+i &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\langle\psi \mid X\mid\psi\rangle=\left[\begin{array}{cc}
+\sqrt{\frac{1}{3}} &amp; -\sqrt{\frac{2}{3}}i\end{array}\right]\left[\begin{array}{cc}
+0 &amp; -i\\
+i &amp; 0
+\end{array}\right]\left[\begin{array}{c}
+\sqrt{\frac{1}{3}}\\
+\sqrt{\frac{2}{3}}i
+\end{array}\right]
+ =\left[\begin{array}{cc}
+\sqrt{\frac{1}{3}} &amp; -\sqrt{\frac{2}{3}}i\end{array}\right]\left[\begin{array}{c}
+\sqrt{\frac{2}{3}}\\
+\sqrt{\frac{1}{3}}i
+\end{array}\right]
+ =\sqrt{\frac{1}{3}}\sqrt{\frac{2}{3}}-\sqrt{\frac{2}{3}}i\sqrt{\frac{1}{3}}i
+ =\frac{\sqrt{2}}{3}+\frac{\sqrt{2}}{3}
+ =\frac{2\sqrt{2}}{3}\approx0.4714
+\end{split}\]</div>
+</section>
+<section id="pauli-z-matrix">
+<h4><span class="section-number">10.2.1.4. </span>Pauli Z matrix:<a class="headerlink" href="#pauli-z-matrix" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Z=\left[\begin{array}{cc}
+1 &amp; 0\\
+0 &amp; -1
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\langle\psi \mid X\mid\psi\rangle=\left[\begin{array}{cc}
+\sqrt{\frac{1}{3}} &amp; -\sqrt{\frac{2}{3}}i\end{array}\right]\sqrt{\frac{1}{2}}\left[\begin{array}{cc}
+1 &amp; 0\\
+0 &amp; -1
+\end{array}\right]\left[\begin{array}{c}
+\sqrt{\frac{1}{3}}\\
+\sqrt{\frac{2}{3}}i
+\end{array}\right]
+ =\left[\begin{array}{cc}
+\sqrt{\frac{1}{3}} &amp; -\sqrt{\frac{2}{3}}i\end{array}\right]\left[\begin{array}{c}
+\sqrt{\frac{1}{3}}\\
+-\sqrt{\frac{2}{3}}i
+\end{array}\right]
+ =\frac{1}{3}-\frac{2}{3}=-\frac{1}{3}
+\end{split}\]</div>
+</section>
+<section id="question-2-entanglement-between-qubits">
+<h4><span class="section-number">10.2.1.5. </span>Question 2: Entanglement between qubits<a class="headerlink" href="#question-2-entanglement-between-qubits" title="Permalink to this headline"></a></h4>
+<p>An entangled state is a multi-qubit quantum state that can not be written as a Kronecker product of single-qubit states.</p>
+<p>For example, if we take the tensor product of two arbitrary states |\psi\rangle=\left[\begin{array}{l}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\alpha\\
+\beta
+\end{array}\right] and |\phi\rangle=\left[\begin{array}{l}
+\gamma\\
+\delta
+\end{array}\right], we obtain |\psi\rangle\otimes|\phi\rangle=\left[\begin{array}{c}
+\alpha\gamma\\
+\alpha\delta\\
+\beta\gamma\\
+\beta\delta
+\end{array}\right].
+\end{split}\]</div>
+<p>If we are given a vector, such as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{l}
+1\\
+0\\
+0\\
+0
+\end{array}\right]
+\end{split}\]</div>
+<p>and we want to show that it is separable (unentangled), we need to find a set of numbers <span class="math notranslate nohighlight">\(\{\alpha,\beta,\gamma,\delta\}\)</span> such that <span class="math notranslate nohighlight">\(\alpha\gamma=1,\alpha\delta=0,\beta\gamma=0\)</span>, and <span class="math notranslate nohighlight">\(\beta\delta=0\)</span>. The assignment <span class="math notranslate nohighlight">\(\alpha=\gamma=1\)</span>, <span class="math notranslate nohighlight">\(\beta=\delta=0\)</span> accomplishes this, and we can say that the state is <span class="math notranslate nohighlight">\(\mid0\rangle\otimes|0\rangle\)</span>, and therefore separable. If such an assignment does not exist, then the state is entangled. Mark all states below that are entangled:</p>
+<div class="admonition-how-much-entanglement-is-in-that-state admonition">
+<p class="admonition-title">how much entanglement is in that state?</p>
+<ul class="contains-task-list simple">
+<li><p>[] <span class="math notranslate nohighlight">\(\mid\psi\rangle=\sqrt{\frac{1}{4}}\left[\begin{array}{l}
+1\\
+1\\
+1\\
+1\end{array}\right]\)</span></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <span class="math notranslate nohighlight">\(\mid\psi\rangle=\sqrt{\frac{1}{4}}\left[\begin{array}{l}
+1\\
+1\\
+1\\
+1
+\end{array}\right]\)</span></p></li>
+<li><p>[] <span class="math notranslate nohighlight">\(\mid\psi\rangle=\sqrt{\frac{1}{2}}\left[\begin{array}{l}
+0\\
+0\\
+0\\
+0\\
+1\\
+0\\
+0\\
+1
+\end{array}\right]v\)</span></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <span class="math notranslate nohighlight">\(\mid\)</span></p></li>
+<li><p>[] \mid\psi\rangle=\sqrt{\frac{1}{2}}\left[\begin{array}{l}
+0\
+0\
+1\
+0\
+0\
+0\
+1\
+0
+\end{array}\right]</p></li>
+<li><p>[] \mid\psi\rangle=\frac{\mid00\rangle+\mid10\rangle}{\sqrt{2}}</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> \mid\psi\rangle=\frac{\mid00\rangle+\mid11\rangle}{\sqrt{2}}</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> \mid\psi\rangle=\frac{\mid++\rangle+\mid–\rangle}{\sqrt{2}}</p></li>
+</ul>
+</div>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Following the method from the hints, the state
+$<span class="math notranslate nohighlight">\(\sqrt{\frac{1}{4}}\left[\begin{array}{l}
+1\\
+1\\
+1\\
+1
+\end{array}\right] has coefficients a_{00}=a_{01}=a_{10}=a_{11}=\frac{1}{\sqrt{4}}\)</span>$</p>
+<p>So if we write out the kronecker product, we see that</p>
+<p><span class="math notranslate nohighlight">\(\alpha^{*}\gamma,\alpha^{*}\delta,\beta^{*}\gamma\)</span> and <span class="math notranslate nohighlight">\(\beta^{*}\delta\)</span> should all be equal to <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\)</span>.</p>
+<p>This is easily the case for <span class="math notranslate nohighlight">\(\alpha=\beta=\gamma=\delta=\frac{1}{\sqrt{2}}\)</span>. We can conclude that we can write this state as <span class="math notranslate nohighlight">\((\alpha|0\rangle+\beta|1\rangle)\otimes(\gamma|0\rangle+\delta|1\rangle)\)</span> with <span class="math notranslate nohighlight">\(\alpha=\beta=\gamma=\delta=\frac{1}{\sqrt{2}}\)</span>, so the state is not entangled. If we try to write $<span class="math notranslate nohighlight">\(\mid\psi\rangle=\sqrt{\frac{1}{3}}\left[\begin{array}{l}
+1\\
+0\\
+1\\
+1
+\end{array}\right\)</span><span class="math notranslate nohighlight">\( 
+as a kronecker product, we see that \)</span>\alpha^{<em>}\delta=0<span class="math notranslate nohighlight">\(, but that \)</span>\alpha^{</em>}\gamma=\beta^{*}\delta=\frac{1}{\sqrt{3}}$. This is a direct qubit states, and is thus entangled.</p>
+</div>
+</section>
+<section id="question-3-two-qubit-operations">
+<h4><span class="section-number">10.2.1.6. </span>Question 3: Two-qubit operations<a class="headerlink" href="#question-3-two-qubit-operations" title="Permalink to this headline"></a></h4>
+<p>2 qubit operations are operations that involve, as expected, 2 qubits. Just as 1 qubit operations they can be written in matrix form. However, since 2 qubits are now involved, these matrices are now 4\times4 unitaries. For the following 2 qubit operations, click the appropiate matrix that corresponds with the operation. - The 2 qubit operation that applies a bit flip on the second qubit, conditioned on the first qubit being in the <span class="math notranslate nohighlight">\(\mid1\rangle\)</span> state. So, a bit flip is applied to the second qubit if the first qubit is in the <span class="math notranslate nohighlight">\(\mid1\rangle\)</span> state, and no flip is applied if the first qubit is in the <span class="math notranslate nohighlight">\(\mid0\rangle\)</span> state. A bit flip (or X ) turns a 0 into a 1 and a 1 into a 0 . so</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}X(\alpha|0\rangle+\beta|1\rangle)=\beta|0\rangle+\alpha|1\rangle$$. \\
+What we see in this question is a controlled bit flip, or a CNOT gate, with the first qubit as control qubit, and the second qubit as target qubit. We only do a bitflip on the second qubit, if the first one is 1. \\\begin{split}```{admonition} how much entanglement is in that state?
+- [x] $\left[\begin{array}{llll}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]$
+- [] $\left[\begin{array}{llll}
+0 &amp; 1 &amp; 0 &amp; 0\\
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]$
+- [] $\left[\begin{array}{llll}
+0 &amp; 1 &amp; 0 &amp; 0\\
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]$
+- [] $\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; -1$
+- [] $\right] \fullmoon\qquad\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; -1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1$
+- [x] $\right]\newmoon\qquad\left[\begin{array}{llll}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0$
+- [] $\right] \fullmoon\qquad\left[\begin{array}{llll}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]$
+```\end{split}\\```{admonition} Explanation
+- The 2 qubit operation that applies a phase flip on the second qubit, conditioned on the first qubit being in the |-\rangle state. A phase flip (or Z ) is the equivelant of a bit flip. But in the Hadamard basis. It turns a + intoa - and a - into +. You could think of this as changing the sign of the |0\rangle component; Z(\alpha|0\rangle+\beta|1\rangle)=\alpha|0\rangle-\beta|1\rangle. Here we ask for a controlled phase gate, or a CPHASE gate. But in a different basis; We only do a phase flip, if the first qubit is |-\rangle \fullmoon\qquad\\Explanation The first operation is exactly the CNOT. You should be able to recognize this one! The second operation looks very much like the CPHASE, but it has one important difference: the condition is on the |-\rangle state and not on the |1\rangle state. The Hadamard transform these to eachother, so that we need the CPHASE by that matrix that transforms the first qubit, and does nothing on the second qubit: H\otimes I. We need to map, perform the CPHASE, and map back, so the total operation becomes: (H\otimes I)CPHASE(H\otimes I). In terms of 4\times4 matrices this is\\\begin{split}$$\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 1\\
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; -1
+\end{array}\right]\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; -1
+\end{array}\right]\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 1\\
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; -1
+\end{array}\right]\end{split}\end{aligned}\end{align} \]</div>
+<p>Calculating this product results in the desired matrix.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+### Question 4: Unitaries, or mapping one basis to another
+
+Let the basis 
+
+$$\{\mathbf{v}\} be the set of vectors \left\{ \left[\begin{array}{c}
+\cos\theta_{1}\\
+\sin\theta_{1}
+\end{array}\right],\left[\begin{array}{c}
+-\sin\theta_{1}\\
+\cos\theta_{1}
+\end{array}\right]\right\}  
+$$
+
+And let the basis 
+
+$$\{\mathbf{b}\} be the set of vectors \left\{ \left[\begin{array}{c}
+\cos\theta_{2}\\
+\sin\theta_{2}
+\end{array}\right],\left[\begin{array}{c}
+-\sin\theta_{2}\\
+\cos\theta_{2}
+\end{array}\right]\right\}  
+$$
+Calculate the matrix that maps $\{\mathbf{b}\}$ to $\{\mathbf{v}\}$. To input the questions, fill every 4 entries in seperately below. Simplify answers as good as possible by using these identities.
+
+$$
+\begin{array}{|l|}
+\hline \operatorname{Product-to-sum}\\
+\hline \cos\theta\cos\varphi=\frac{\cos(\theta-\varphi)+\cos(\theta+\varphi)}{2}\\
+\sin\theta\sin\varphi=\frac{\cos(\theta-\varphi)-\cos(\theta+\varphi)}{2}\\
+\sin\theta\cos\varphi=\frac{\sin(\theta+\varphi)+\sin(\theta-\varphi)}{2}\\
+\cos\theta\sin\varphi=\frac{\sin(\theta+\varphi)-\sin(\theta-\varphi)}{2}\\
+\tan\theta\tan\varphi=\frac{\cos(\theta-\varphi)-\cos(\theta+\varphi)}{\cos(\theta-\varphi)+\cos(\theta+\varphi)}\\
+\hline \prod_{k=1}^{n}\cos\theta_{k}=\frac{1}{2^{n}}\sum_{e\in S}\cos\left(e_{1}\theta_{1}+\cdots+e_{n}\theta_{n}\right)\\
+\text{ where }e=\left(e_{1},\cdots,e_{n}\right)\in S=\{1,-1\}^{n}\\
+\prod_{k=1}^{n}\sin\theta_{k}=\frac{(-1)^{\left\lfloor \frac{n}{2}\right\rfloor }}{2^{n}}\left\{ \sum_{e\in S}\cos\left(e_{1}\theta_{1}+\cdots+e_{n}\theta_{n}\right)\prod_{j=1}^{n}e_{j}\text{ if }n\right.\text{ is even, }
+\\\hline \end{array}
+$$
+$$
+\begin{aligned} &amp; \text{ Sum-to-product }{}^{[28]}\\
+ &amp; \sin\theta\pm\sin\varphi=2\sin\left(\frac{\theta\pm\varphi}{2}\right)\cos\left(\frac{\theta\mp\varphi}{2}\right)\\
+ &amp; \cos\theta+\cos\varphi=2\cos\left(\frac{\theta+\varphi}{2}\right)\cos\left(\frac{\theta-\varphi}{2}\right)\\
+ &amp; \cos\theta-\cos\varphi=-2\sin\left(\frac{\theta+\varphi}{2}\right)\sin\left(\frac{\theta-\varphi}{2}\right)\\
+ &amp; \tan\theta\pm\tan\varphi=\frac{\sin(\theta\pm\varphi)}{\cos\theta\cos\varphi}
+\end{aligned}
+$$
+
+A nice video that explains transformations of bases can be found here. Fill in 
+
+$$\cos\theta_{1} as \cos\left(\right. theta_1) \cos\left(\theta_{1}+\theta_{2}\right)$$ as 
+$$\cos (theta_1 + theta_2), \cos\theta_{1}\cos\theta_{2} as \cos\left(\right. theta_1)$$ 
+
+$$\cos ($ theta_ 2$), \cos \theta_{1}+\cos \theta_{2}$$ 
+as 
+$$\cos ($ theta_1 $+$ $\cos$ (theta_2)$$, etc. Also, answers provided in the most compact form: $$\sin \left(\theta_{1}+\theta_{2}\right)$$ or similar are preferred as others might raise problems in being detected as correct even if they are. Remember and use these identities:
+
+$$\sin\left(\theta_{1}\pm\theta_{2}\right)=\sin\left(\theta_{1}\right)\cos\left(\theta_{2}\right)\pm\cos\left(\theta_{1}\right)\sin\left(\theta_{2}\right)$$
+
+$$\cos\left(\theta_{1}\pm\theta_{2}\right)=\cos\left(\theta_{1}\right)\cos\left(\theta_{2}\right)\mp\sin\left(\theta_{1}\right)\sin\left(\theta_{2}\right)$$
+
+
+```{admonition} Explanation
+Hint (1 of 3): Since it is a mapping from one basis to another, the matrix should be unitary.
+
+Hint (2 of 3): You can use a geometrical argument to solve this
+
+Hint (3 of 3): The top left entry is the inner product between \boldsymbol{v}*{1}and \boldsymbol{b*{1}:}\langle\boldsymbol{v_{1}}\mid\boldsymbol{b_{1}}\rangle
+
+The top left entry in the matrix is:
+
+- [x] $cos(theta_{1}-theta_{2})$$
+
+$$ cos(theta_1 - theta_2) or cos(theta_2 - theta_1) or cos(theta_1)cos(theta_2) + sin(theta_1)sin(theta_2) or cos(theta_1-theta_2) or cos(theta_2-theta_1) or cos(theta_1)cos(theta_2)+sin(theta_1)sin(theta_2) or cos(theta_2)cos(theta_1) + sin(theta_2)sin(theta_1) or cos(theta_2)cos(theta_1)+sin(theta_2)sin(theta_1)$$
+
+The top right entry in the matrix is:
+
+- [x] $sin(theta_{1}-theta_{2})$ 
+
+$$ sin(theta_1 - theta_2) or sin(theta_2 - theta_1) or cos(theta_1)sin(theta_2) - sin(theta_1)cos(theta_2) or -sin(theta_1-theta_2) or sin(theta_2-theta_1)$$ or 
+$$cos(theta_1)sin(theta_2)-sin(theta_1)cos(theta_2) or sin(theta_2)cos(theta_1)-cos(theta_2)sin(theta_1) or sin(theta_2)cos(theta_1) - cos(theta_2)sin(theta_1)$$
+
+The bottom left entry in the matrix is:
+
+- [x] sin(theta_{1}-theta_{2})
+
+sin(theta_1 - theta_2) or -sin(theta_2 - theta_1) or sin(theta_1)cos(theta_2) - cos(theta_1)sin(theta_2) or sin(theta_1-theta_2) or -sin(theta_2-theta_1) or sin(theta_1)cos(theta_2)-cos(theta_1)sin(theta_2) or cos(theta_2)sin(theta_1) - sin(theta_2)cos(theta_1) or cos(theta_2)sin(theta_1)-sin(theta_2)cos(theta_1)
+
+The bottom right entry in the matrix is:
+
+- [x] cos(theta_{1}-theta_{2})
+
+$$ cos(theta_1 - theta_2) or cos(theta_2 - theta_1) or cos(theta_1 - theta_2) or cos(theta_2 - theta_1) or cos(theta_2-theta_1) or cos(theta_1-theta_2)$$
+
+**Explanation:** The inner product between \boldsymbol{v_{1}\,}\text{and}\,\boldsymbol{b_{1}}\rangleis cos(𝜃1)cos(𝜃2)+sin(𝜃1)sin(𝜃2). Using the identities in the link, this can be written as cos(𝜃1−𝜃2). The rest of the inner products can be calculated the same way. Note that the answer only depends on the difference between $\theta_{1}$ and $\theta_{1}$!
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_computers"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../quantum_computation/qc/qc_0.html" class="btn btn-neutral float-left" title="3.1. Quantum Computation 0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qubits/spin.html" class="btn btn-neutral float-right" title="10.3. Spin Qubits 0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

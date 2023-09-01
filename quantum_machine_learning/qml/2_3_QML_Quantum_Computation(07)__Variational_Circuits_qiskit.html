@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>80. Quantum Approximate Optimization Algorithm &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/2_3_QML_Quantum_Computation(07)__Variational_Circuits_qiskit.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="83. Encoding Classical Information" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html" />
+    <link rel="prev" title="67. Adiabatic Quantum Computing" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computer_science/software_engineering/se.html">Software Engineering</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-topological-qubits">19. Introduction to Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#the-geometry-of-probability-distribution">27. The Geometry of Probability Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#stochastic-matrix">28. Stochastic Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">29. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#qubits-revisited">30. Qubits revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#superposition-revisited">31. Superposition revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#bloch-sphere-revisited">32. Bloch Sphere revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#interference">33. Interference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">34. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#multiple-qubits-revisited">35. Multiple Qubits revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#further-reading">36. Further reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">37. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#bra-ket-notation">38. Bra-Ket Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#dot-product">39. Dot product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#ket-bra">40. Ket-Bra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-the-bra-ket-notation">41. More on the bra-ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">42. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">43. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">44. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">45. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#mixed-states">46. Mixed States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#density-matrix">47. Density Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">48. Evolution in Closed Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#unitary-evolution">49. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#more-on-the-unitary-evolution">50. More on the Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#open-quantum-systems">51. Open Quantum Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">52. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">53. Classical Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#hamiltonian">54. Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-ising-model">55. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">56. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#commuting-hamiltonian">57. Commuting Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">58. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-approximate-optimization-algorithm">59. Quantum Approximate Optimization Algorithm.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#solovay-kitaev-theorem">60. Solovay-Kitaev theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-circuits">61. Quantum Circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#hadamard-gate">62. Hadamard gate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#the-cnot-gate">63. The CNOT gate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">64. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">65. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">66. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">67. Adiabatic Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#adiabatic-theorem">68. Adiabatic Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">69. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">70. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">71. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">72. Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#id1">73. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">74. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#implementations">75. Implementations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#superconducting-architectures">76. Superconducting Architectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#dissadvantages">77. Dissadvantages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#trapped-ions">78. Trapped ions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#photonic-systems">79. Photonic Systems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">80. Quantum Approximate Optimization Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id1">81. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#analysis-of-the-results">82. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">83. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">84. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">85. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">86. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">87. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#more-qboost">88. More QBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">89. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">90. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">91. Clustering by Quantum Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#mapping-clustering-to-discrete-optimization">92. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">93. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">94. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">95. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">96. Kernel Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#an-inference">97. An Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#thinking-backward-learning-methods-based-on-what-the-hardware-can-do">98. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">99. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">100. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">101. An Inference Circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#tror-ikke-skal-vaere-her-men-i-11">102. (Tror ikke skal være her men i (11))</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probalistic-graphical-model">103. Probalistic Graphical Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#gfx">104. GFX!!!??</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">105. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#optimization-and-sampling-pgms">106. Optimization and Sampling PGMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-igjen-i-lyx-husk-implementering-og-plots">107. Se igjen i lyx (Husk implementering og plots)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">108. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">109. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">110. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">111. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">112. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#introduction">113. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#id1">114. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#even-more-quantum-phase-estimation">115. Even more Quantum Phase Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">116. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">117. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">118. Overview of the Harrow-Hassidim-Lloyd Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#introduction">119. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">120. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-matrix-inversion">121. Quantum Matrix Inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">122. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#using-quantum-linear-algebra-for-learning">123. Using Quantum Linear Algebra for Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">124. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">125. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">126. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-assisted-gaussian-processes">127. Quantum-Assisted Gaussian Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">128. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">129. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#preliminaries">130. Preliminaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#data-preparation">131. Data preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#training">132. Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">133. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#the-variational-circuit">134. The variational circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#importing-libraries">135. Importing libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#implementing-the-circuit">136. Implementing the circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#loading-data">137. Loading data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#visualising-the-decision-boundary">138. Visualising the decision boundary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#more-training">139. More Training</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ruter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ruter/ruter.html">Ruter</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">80. </span>Quantum Approximate Optimization Algorithm</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_machine_learning/qml/2_3_QML_Quantum_Computation(07)__Variational_Circuits_qiskit.ipynb" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="quantum-approximate-optimization-algorithm">
+<h1><span class="section-number">80. </span>Quantum Approximate Optimization Algorithm<a class="headerlink" href="#quantum-approximate-optimization-algorithm" title="Permalink to this headline"></a></h1>
+<p>https://strawberryfields.ai/photonics/demos/run_tutorial_machine_learning.html</p>
+<p>We talked about gate model quantum computers, we talked about quantum annealers, and we also talked about how we implement them. And we saw when it comes to implementations, we introduce imperfections. These imperfections prevent us from running the most famous quantum algorithms on these quantum computers. And there has been a change over the last, I would say, five, six years in mentality. So we started to develop a new breed of quantum algorithms, which are called variational circuits. So these are designed for noisy and imperfect quantum computers because if we have a system which is our quantum processing unit, it’s embedded in an environment. You know, whether it’s a superconducting architecture, whether these are trapped ions, there’s always an environment. And there is some interaction going on, so you will face decoherence and equilibration– all sorts of strange process are going on. So we have this limited ability to control the system and this limits our circuit depth, for instance. What we want to do is run a short burst of calculation on the quantum processing unit, extract the results to a classical CPU, and then the circuit that we ran on the quantum computer is parametrized. So by understanding the results of a calculation, we can go back, adjust the parameters of the quantum processor, and again, run a short burst of calculation, and it becomes this iterative loop. So one of the most famous variational circuits is quantum approximate optimization, or QAOA for short, which actually draws inspiration from quantum annealing. So what we are trying to do is approximate the adiabatic pathway, but on a gate model quantum computer. So remember that what we do here is we calculate the ground state of some simple Hamiltonian, say, just the sigma x interaction at every single site. The ground state of this is just going to be the equal superposition of all states. And then we follow this adiabatic pathway.</p>
+<div class="math notranslate nohighlight">
+\[H_{0}=\sum_{i}\sigma^{x}\]</div>
+<p>And if we do the transition slow enough, then we can read out the ground state of the system that we are interested in, for instance, the Ising model.</p>
+<div class="math notranslate nohighlight">
+\[H_{1}=-\sum_{&lt;i,j&gt;}J_{ij}\sigma_{i}^{z}\sigma_{j}^{z}+\sum_{i}h\sigma_{i}^{z}$\]</div>
+<p>So again with our quantum computer, what we do is we break this pathway up into discrete chunks. And the way we parameterize the circuit is to have a more and more accurate approximation of this transition. So at the end of it, you would actually read out the ground state just the same way as you would do it on a quantum annealer. So we have this transition that we want to approximate, so this time-evolving Hamiltonian.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}H(t)=(1-t)H_{0}+tH_{1}\qquad t\in[0:1]$$ And say, up to some time $T$ null, we could approximate it in two steps. \\$$U_{o}(t_{0})\approx U(H_{0},\beta_{0})U(H_{1},\gamma_{0})WhereU\approx U(H_{0},\beta_{0})U(H_{1},\gamma_{0})\ldots U(H_{p},\beta_{p})U(H_{p},\gamma_{p})\end{aligned}\end{align} \]</div>
+<p>So one, say, went this way, another going this way. First, we would apply the first Hamiltonian– the sigma x interaction– for some duration beta null, followed by the application of the second Hamiltonian for some duration gamma null. And then we can have subsequent time steps, and we multiply them together. So this approximation is known as Trotterization. And you can control the accuracy by increasing the p. So the more steps you have in the discretization, the more accurate your optimization is going to be. So this way, now you can formulate an optimization problem over these parameters, and do a, say, a gradient descent to actually find the ground state of your target system.</p>
+<p>Check</p>
+<p>The quantum approximate optimization algorithm (QAOA)…</p>
+<p>• Noisy, intermediate-scale quantum computers are open systems. True</p>
+<p>• You run a short burst of quantum calculation to exploit quantum effects, and have a classical feedback loop to vary the parameters of the quantum calculation.</p>
+<p>• Approximates the adiabatic pathway to stay close to an eigenstate of the Hamiltonian.
+#F</p>
+<p>Current and near-term quantum computers suffer from imperfections, as we repeatedly pointed it out. This is why we cannot run long algorithms, that is, deep circuits on them. A new breed of algorithms started to appear since 2013 that focus on getting an advantage from imperfect quantum computers. The basic idea is extremely simple: run a short sequence of gates where some gates are parametrized. Then read out the result, make adjustments to the parameters on a classical computer, and repeat the calculation with the new parameters on the quantum hardware. This way we create an iterative loop between the quantum and the classical processing units, creating classical-quantum hybrid algorithms.</p>
+<img alt="Hybrid classical-quantum paradigm" src="quantum_machine_learning/qml/figures/hybrid_classical_quantum.svg" /><p>These algorithms are also called variational to reflect the variational approach to changing the parameters. One of the most important example of this approach is the quantum approximate optimization algorithm, which is the subject of this notebook.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">81. </span>Quantum approximate optimization algorithm<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h1>
+<p>The quantum approximate optimization algorithm (QAOA) is a shallow-circuit variational algorithm for gate-model quantum computers that was inspired by quantum annealing. We discretize the adiabatic pathway in some <span class="math notranslate nohighlight">\(p\)</span> steps, where <span class="math notranslate nohighlight">\(p\)</span> influences precision. Each discrete time step <span class="math notranslate nohighlight">\(i\)</span> has two parameters, <span class="math notranslate nohighlight">\(\beta_i, \gamma_i\)</span>. The classical variational algorithms does an optimization over these parameters based on the observed energy at the end of a run on the quantum hardware.</p>
+<p>More formally, we want to discretize the time-dependent <span class="math notranslate nohighlight">\(H(t)=(1-t)H_0 + tH_1\)</span> under adiabatic conditions. We achieve this by Trotterizing the unitary. For instance, for time step <span class="math notranslate nohighlight">\(t_0\)</span>, we can split this unitary as <span class="math notranslate nohighlight">\(U(t_0) = U(H_0, \beta_0)U(H_1, \gamma_0)\)</span>. We can continue doing this for subsequent time steps, eventually splitting up the evolution to <span class="math notranslate nohighlight">\(p\)</span> such chunks:</p>
+<div class="math notranslate nohighlight">
+\[
+U = U(H_0, \beta_0)U(H_1, \gamma_0)\ldots U(H_0, \beta_p)U(H_1, \gamma_p).
+\]</div>
+<p>At the end of optimizing the parameters, this discretized evolution will approximate the adiabatic pathway:</p>
+<img alt="Quantum approximate optimization algorithm" src="quantum_machine_learning/qml/figures/qaoa_process.svg" /><p>The Hamiltonian <span class="math notranslate nohighlight">\(H_0\)</span> is often referred to as the driving or mixing Hamiltonian, and <span class="math notranslate nohighlight">\(H_1\)</span> as the cost Hamiltonian. The simplest mixing Hamiltonian is <span class="math notranslate nohighlight">\(H_0 = -\sum_i \sigma^X_i\)</span>, the same as the initial Hamiltonian in quantum annealing. By alternating between the two Hamiltonian, the mixing Hamiltonian drives the state towards an equal superposition, whereas the cost Hamiltonian tries to seek its own ground state.</p>
+<p>Let us import the necessary packages first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">BasicAer</span> <span class="k">as</span> <span class="n">Aer</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">execute</span>
+<span class="kn">from</span> <span class="nn">qiskit.quantum_info</span> <span class="kn">import</span> <span class="n">Pauli</span>
+<span class="kn">from</span> <span class="nn">qiskit.aqua</span> <span class="kn">import</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">get_aer_backend</span>
+<span class="kn">from</span> <span class="nn">qiskit.aqua.components.initial_states</span> <span class="kn">import</span> <span class="n">Custom</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumRegister</span><span class="p">,</span> <span class="n">execute</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">qiskit.quantum_info</span> <span class="kn">import</span> <span class="n">Pauli</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">qiskit.aqua</span> <span class="kn">import</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">get_aer_backend</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">qiskit.aqua.components.initial_states</span> <span class="kn">import</span> <span class="n">Custom</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;qiskit.aqua&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can define our mixing Hamiltonian on some qubits. As in the notebook on classical and quantum many-body physics, we had to define, for instance, an <code class="docutils literal notranslate"><span class="pre">IZ</span></code> operator to express <span class="math notranslate nohighlight">\(\mathbb{I}\otimes\sigma_1^Z\)</span>, that is, the <span class="math notranslate nohighlight">\(\sigma_1^Z\)</span> operator acting only on qubit 1. We can achieve the same effect the following way (this time using the Pauli-X operator):</p>
+<p>In Qiskit, Pauli matrices can be instantiated using the class <code class="docutils literal notranslate"><span class="pre">Pauli</span></code>. This class takes two parameters, the first for <span class="math notranslate nohighlight">\(\sigma^Z\)</span> and the second for <span class="math notranslate nohighlight">\(\sigma^X\)</span>. Each parameter is a binary vector of dimension <code class="docutils literal notranslate"><span class="pre">n_qubits</span></code>, such that the component <span class="math notranslate nohighlight">\(i\)</span> is 1 if you want a Pauli matrix to apply on the <span class="math notranslate nohighlight">\(i^{th}\)</span> qubit and 0 otherwise. For instance, <span class="math notranslate nohighlight">\(\sigma_1^Z \otimes \sigma_3^Z \otimes \sigma_1^X\)</span> would be implemented using <code class="docutils literal notranslate"><span class="pre">Pauli([1,0,1],[1,0,0])</span></code>.</p>
+<p>In order to build Hamiltonians and make them evolve (i.e. exponentiate them, as required in QAOA), we need to use the class <code class="docutils literal notranslate"><span class="pre">Operator</span></code> from Qiskit Aqua. This class constructs a Hamiltonian as a sum of products of Pauli matrices. It takes an array of size <span class="math notranslate nohighlight">\(n \times 2\)</span> as parameter, such that each row corresponds to a term in the sum and each term has two components: a coefficient and a <code class="docutils literal notranslate"><span class="pre">Pauli</span></code> object. For instance, <span class="math notranslate nohighlight">\(3 \sigma^Z_1 + 2 \sigma^X_3\)</span> would be written <code class="docutils literal notranslate"><span class="pre">Operator([[3,</span> <span class="pre">Pauli([1,0,0],</span> <span class="pre">[0,0,0])],</span> <span class="pre">[2,</span> <span class="pre">Pauli([0,0,0],[0,0,3])]])</span></code>.</p>
+<p>To simplify the code, let’s build a function <code class="docutils literal notranslate"><span class="pre">pauli_x</span></code> that simply takes a qubit and a coefficient and returns the corresponding X-Pauli matrix as an <code class="docutils literal notranslate"><span class="pre">Operator</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pauli_x</span><span class="p">(</span><span class="n">qubit</span><span class="p">,</span> <span class="n">coeff</span><span class="p">):</span>
+    <span class="n">eye</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">((</span><span class="n">n_qubits</span><span class="p">))</span> <span class="c1"># the i^th row of the identity matrix is the correct parameter for \sigma_i </span>
+    <span class="k">return</span> <span class="n">Operator</span><span class="p">([[</span><span class="n">coeff</span><span class="p">,</span> <span class="n">Pauli</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">),</span> <span class="n">eye</span><span class="p">[</span><span class="n">qubit</span><span class="p">])]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The coefficient here means the strength of the transverse field at the given qubit. This operator will act trivially on all qubits, except the given one. Let’s define the mixing Hamiltonian over two qubits:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_qubits</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">identity</span> <span class="o">=</span> <span class="n">pauli_x</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">Hm</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">pauli_x</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">)],</span> <span class="n">identity</span><span class="p">)</span>
+<span class="n">Hm</span><span class="o">.</span><span class="n">to_matrix</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As an example, we will minimize the Ising problem defined by the cost Hamiltonian <span class="math notranslate nohighlight">\(H_c=-\sigma^Z_1 \otimes \sigma^Z_2\)</span>. First let’s create the functions defining the operators using the Pauli-Z matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pauli_z</span><span class="p">(</span><span class="n">qubit</span><span class="p">,</span> <span class="n">coeff</span><span class="p">):</span>
+    <span class="n">eye</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">((</span><span class="n">n_qubits</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">Operator</span><span class="p">([[</span><span class="n">coeff</span><span class="p">,</span> <span class="n">Pauli</span><span class="p">(</span><span class="n">eye</span><span class="p">[</span><span class="n">qubit</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">))]])</span>
+
+
+<span class="k">def</span> <span class="nf">product_pauli_z</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">,</span> <span class="n">coeff</span><span class="p">):</span>
+    <span class="n">eye</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">((</span><span class="n">n_qubits</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">Operator</span><span class="p">([[</span><span class="n">coeff</span><span class="p">,</span> <span class="n">Pauli</span><span class="p">(</span><span class="n">eye</span><span class="p">[</span><span class="n">q1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">))</span> <span class="o">*</span> <span class="n">Pauli</span><span class="p">(</span><span class="n">eye</span><span class="p">[</span><span class="n">q2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">))]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we define the cost Hamiltonian:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># itertools.product returns a list of all the pairs (i,j) lower than n_qubits</span>
+<span class="n">Hc</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">product_pauli_z</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="n">J</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
+             <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">2</span><span class="p">)],</span> <span class="n">identity</span><span class="p">)</span>
+<span class="n">Hc</span><span class="o">.</span><span class="n">to_matrix</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We set the number of time evolution steps <span class="math notranslate nohighlight">\(p=1\)</span> and initialize the <span class="math notranslate nohighlight">\(\beta_i\)</span> and <span class="math notranslate nohighlight">\(\gamma_i\)</span> parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The initial state is a uniform superposition of all the states <span class="math notranslate nohighlight">\(|q_1,...,q_n\rangle\)</span></p>
+<p>To declare the initial state, we use the Qiskit Aqua class <code class="docutils literal notranslate"><span class="pre">Custom</span></code>. It takes two arguments: the number of qubits of the state we want to prepare, and the vector containing the amplitudes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">init_state_vect</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">n_qubits</span><span class="p">)]</span>
+<span class="n">init_state</span> <span class="o">=</span> <span class="n">Custom</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">,</span> <span class="n">state_vector</span><span class="o">=</span><span class="n">init_state_vect</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The initial circuit prepares the initial state</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qr</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">)</span>
+<span class="n">circuit_init</span> <span class="o">=</span> <span class="n">init_state</span><span class="o">.</span><span class="n">construct_circuit</span><span class="p">(</span><span class="s1">&#39;circuit&#39;</span><span class="p">,</span> <span class="n">qr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We define a function <code class="docutils literal notranslate"><span class="pre">evolve</span></code> that takes a Hamiltonian <span class="math notranslate nohighlight">\(H\)</span> and an angle <span class="math notranslate nohighlight">\(t\)</span> and returns a circuit component made of the unitary matrix <span class="math notranslate nohighlight">\(e^{i H t}\)</span>.</p>
+<p>For that, we use the method <a class="reference external" href="https://github.com/Qiskit/qiskit-aqua/blob/master/qiskit/aqua/operator.py"><code class="docutils literal notranslate"><span class="pre">evolve</span></code></a> of the class <code class="docutils literal notranslate"><span class="pre">Operator</span></code>. The arguments are:</p>
+<ul class="simple">
+<li><p><strong>initial circuit</strong>: if we want to build <span class="math notranslate nohighlight">\(e^{iHt} |\psi\rangle\)</span> with <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> an initial state. Set to <code class="docutils literal notranslate"><span class="pre">None</span></code> if we just need <span class="math notranslate nohighlight">\(e^{iHt}\)</span>, as in our case (we will append the initial circuit built above only at the end, not between all the exponentials).</p></li>
+<li><p><strong>angle</strong>: the parameter t in <span class="math notranslate nohighlight">\(e^{iHt}\)</span></p></li>
+<li><p><strong>type</strong> of the returned object: in our case, we want a ‘circuit’</p></li>
+<li><p><strong>quantum registers</strong>: as usual</p></li>
+<li><p><strong>expansion_mode</strong>: method used to compute the evolution</p></li>
+<li><p><strong>expansion_order</strong>: order of the approximation used for computing the evolution</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evolve</span><span class="p">(</span><span class="n">hamiltonian</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">quantum_registers</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">hamiltonian</span><span class="o">.</span><span class="n">evolve</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="s1">&#39;circuit&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="n">quantum_registers</span><span class="o">=</span><span class="n">quantum_registers</span><span class="p">,</span>
+                              <span class="n">expansion_mode</span><span class="o">=</span><span class="s1">&#39;suzuki&#39;</span><span class="p">,</span>
+                              <span class="n">expansion_order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To create the circuit, we need to compose the different unitary matrice given by <code class="docutils literal notranslate"><span class="pre">evolve</span></code>.</p>
+<p>We use the same trick as above to sum the circuits:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_circuit</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
+    <span class="n">circuit_evolv</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">evolve</span><span class="p">(</span><span class="n">Hc</span><span class="p">,</span> <span class="n">beta</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">qr</span><span class="p">)</span> <span class="o">+</span> <span class="n">evolve</span><span class="p">(</span><span class="n">Hm</span><span class="p">,</span> <span class="n">gamma</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">qr</span><span class="p">)</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">)],</span> <span class="n">evolve</span><span class="p">(</span><span class="n">identity</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">qr</span><span class="p">))</span>
+    <span class="n">circuit</span> <span class="o">=</span> <span class="n">circuit_init</span> <span class="o">+</span> <span class="n">circuit_evolv</span>
+    <span class="k">return</span> <span class="n">circuit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now create a function <code class="docutils literal notranslate"><span class="pre">evaluate_circuit</span></code> that takes a single vector <code class="docutils literal notranslate"><span class="pre">gamma_beta</span></code> (the concatenation of <code class="docutils literal notranslate"><span class="pre">gamma</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code>) and returns <span class="math notranslate nohighlight">\(\langle H_c \rangle = \langle \psi | H_c | \psi \rangle\)</span> where <span class="math notranslate nohighlight">\(\psi\)</span> is defined by the circuit created with the function above.</p>
+<p>We use the method <code class="docutils literal notranslate"><span class="pre">eval</span></code> of the class <code class="docutils literal notranslate"><span class="pre">Operator</span></code> in order to compute <span class="math notranslate nohighlight">\(\langle \psi | H_c | \psi\rangle\)</span>. It takes the circuit of <span class="math notranslate nohighlight">\(|\psi\rangle\)</span> and a backend as argument (as well as the method to use to perform the evaluation, here <code class="docutils literal notranslate"><span class="pre">&quot;matrix&quot;</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_circuit</span><span class="p">(</span><span class="n">beta_gamma</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta_gamma</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+    <span class="n">circuit</span> <span class="o">=</span> <span class="n">create_circuit</span><span class="p">(</span><span class="n">beta_gamma</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">beta_gamma</span><span class="p">[</span><span class="n">n</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">Hc</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;matrix&quot;</span><span class="p">,</span> <span class="n">circuit</span><span class="p">,</span> <span class="n">get_aer_backend</span><span class="p">(</span><span class="s1">&#39;statevector_simulator&#39;</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we optimize the angles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">evaluate_circuit</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">]),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;L-BFGS-B&#39;</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: -0.9999999999999347
+ hess_inv: &lt;2x2 LbfgsInvHessProduct with dtype=float64&gt;
+      jac: array([-0., -0.])
+  message: b&#39;CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL&#39;
+     nfev: 51
+      nit: 7
+   status: 0
+  success: True
+        x: array([ 2.356, 12.174])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analysis-of-the-results">
+<h1><span class="section-number">82. </span>Analysis of the results<a class="headerlink" href="#analysis-of-the-results" title="Permalink to this headline"></a></h1>
+<p>We create a circuit using the optimal parameters found.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span> <span class="o">=</span> <span class="n">create_circuit</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">][:</span><span class="n">p</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">][</span><span class="n">p</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">statevector_simulator</span></code> backend in order to display the state created by the circuit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;statevector_simulator&#39;</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_statevector</span><span class="p">(</span><span class="n">circuit</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">state</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">state</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.707 0.    0.    0.707]
+[ 0.785 -1.464 -1.464  0.785]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the state is approximately <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}} \left( |00 \rangle + |11 \rangle \right)\)</span>. It corresponds to a uniform superposition of the two solutions of the classicial problem: <span class="math notranslate nohighlight">\((\sigma_1=1\)</span>, <span class="math notranslate nohighlight">\(\sigma_2=1)\)</span> and <span class="math notranslate nohighlight">\((\sigma_1=-1\)</span>, <span class="math notranslate nohighlight">\(\sigma_2=-1)\)</span></p>
+<p>Let’s now try to evaluate the operators <span class="math notranslate nohighlight">\(\sigma^Z_1\)</span> and <span class="math notranslate nohighlight">\(\sigma^Z_2\)</span> independently:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z0</span> <span class="o">=</span> <span class="n">pauli_z</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Z1</span> <span class="o">=</span> <span class="n">pauli_z</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Z0</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;matrix&quot;</span><span class="p">,</span> <span class="n">circuit</span><span class="p">,</span> <span class="n">get_aer_backend</span><span class="p">(</span><span class="s1">&#39;statevector_simulator&#39;</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Z1</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;matrix&quot;</span><span class="p">,</span> <span class="n">circuit</span><span class="p">,</span> <span class="n">get_aer_backend</span><span class="p">(</span><span class="s1">&#39;statevector_simulator&#39;</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1102230246251565e-16
+1.1102230246251565e-16
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that both are approximatively equal to zero. It’s expected given the state we found above and corresponds a typical quantum behavior where <span class="math notranslate nohighlight">\(\mathbb{E}[\sigma^Z_1 \sigma^Z_2] \neq \mathbb{E}[\sigma^Z_1] \mathbb{E}[\sigma^Z_2]\)</span></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_machine_learning/qml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html" class="btn btn-neutral float-left" title="67. Adiabatic Quantum Computing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html" class="btn btn-neutral float-right" title="83. Encoding Classical Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

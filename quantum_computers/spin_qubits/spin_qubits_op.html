@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11.4. Operations on spin qubits &mdash; Daniel Mo Houshmand</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
+    <link rel="canonical" href="https://mohoushmand.com/quantum_computers/spin_qubits/spin_qubits_op.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/design-tabs.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+        <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12. Superconducting qubits" href="../superconducting_qubits/superconducting_qubits.html" />
+    <link rel="prev" title="11. Spin Qubits" href="spin_qubits.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computer_science/software_engineering/se.html">Software Engineering</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="spin_qubits.html">11. Spin Qubits</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">11.4. Operations on spin qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#question-4-single-qubit-gates-with-spin-qubits">11.5. Question 4: Single-qubit gates with spin qubits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#introduction-to-topological-qubits">19. Introduction to Topological Qubits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">24. Classical and Quantum Probability Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">25. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">26. Classical probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#the-geometry-of-probability-distribution">27. The Geometry of Probability Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#stochastic-matrix">28. Stochastic Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">29. Quantum states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#qubits-revisited">30. Qubits revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#superposition-revisited">31. Superposition revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#bloch-sphere-revisited">32. Bloch Sphere revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#interference">33. Interference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">34. More qubits and entanglement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#multiple-qubits-revisited">35. Multiple Qubits revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#further-reading">36. Further reading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">37. Measurements revisited</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#bra-ket-notation">38. Bra-Ket Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#dot-product">39. Dot product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#ket-bra">40. Ket-Bra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-the-bra-ket-notation">41. More on the bra-ket notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">42. More on Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">43. Collapse of the Wave Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">44. The Born Rule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">45. Measuring multiqubit systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#mixed-states">46. Mixed States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#density-matrix">47. Density Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">48. Evolution in Closed Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#unitary-evolution">49. Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#more-on-the-unitary-evolution">50. More on the Unitary evolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#open-quantum-systems">51. Open Quantum Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">52. Interaction with the environment: open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">53. Classical Ising Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#hamiltonian">54. Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-ising-model">55. The Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">56. The transverse-field Ising model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#commuting-hamiltonian">57. Commuting Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">58. Gate-Model Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-approximate-optimization-algorithm">59. Quantum Approximate Optimization Algorithm.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#solovay-kitaev-theorem">60. Solovay-Kitaev theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-circuits">61. Quantum Circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#hadamard-gate">62. Hadamard gate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#the-cnot-gate">63. The CNOT gate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">64. Defining circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">65. Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">66. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">67. Adiabatic Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#adiabatic-theorem">68. Adiabatic Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">69. Unitary evolution and the Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">70. The adiabatic theorem and adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">71. Quantum Annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">72. Chimera Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#id1">73. Quantum annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">74. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#implementations">75. Implementations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#superconducting-architectures">76. Superconducting Architectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#dissadvantages">77. Dissadvantages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#trapped-ions">78. Trapped ions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#photonic-systems">79. Photonic Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">80. Quantum Approximate Optimization Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#id1">81. Quantum approximate optimization algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">82. Analysis of the results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">83. Encoding Classical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">84. Loss Functions and Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">85. Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">86. Ensemble methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">87. Qboost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#more-qboost">88. More QBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">89. Solving by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">90. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">91. Clustering by Quantum Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#mapping-clustering-to-discrete-optimization">92. Mapping clustering to discrete optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">93. Solving the max-cut problem by QAOA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">94. Solving the max-cut problem by annealing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">95. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">96. Kernel Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#an-inference">97. An Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#thinking-backward-learning-methods-based-on-what-the-hardware-can-do">98. Thinking backward: learning methods based on what the hardware can do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">99. A natural kernel on a shallow circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">100. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">101. An Inference Circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#tror-ikke-skal-vaere-her-men-i-11">102. (Tror ikke skal være her men i (11))</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probalistic-graphical-model">103. Probalistic Graphical Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#gfx">104. GFX!!!??</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">105. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#optimization-and-sampling-pgms">106. Optimization and Sampling PGMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-igjen-i-lyx-husk-implementering-og-plots">107. Se igjen i lyx (Husk implementering og plots)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">108. Se bildet grafen på lyx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">109. Boltzmann machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">110. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">111. SE EKSAMEN!!!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">112. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#introduction">113. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#id1">114. Quantum Fourier Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#even-more-quantum-phase-estimation">115. Even more Quantum Phase Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">116. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">117. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">118. Overview of the Harrow-Hassidim-Lloyd Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#introduction">119. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">120. Setting up the problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-matrix-inversion">121. Quantum Matrix Inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">122. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#using-quantum-linear-algebra-for-learning">123. Using Quantum Linear Algebra for Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">124. Conditional rotation of ancilla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">125. Uncomputing the eigenvalue register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">126. Rejection sampling on the ancilla register and a swap test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-assisted-gaussian-processes">127. Quantum-Assisted Gaussian Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">128. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">129. Integrating quantum kernels into scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#preliminaries">130. Preliminaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#data-preparation">131. Data preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#training">132. Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">133. Creating a variational classifier with PennyLane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#the-variational-circuit">134. The variational circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#importing-libraries">135. Importing libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#implementing-the-circuit">136. Implementing the circuit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#loading-data">137. Loading data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#visualising-the-decision-boundary">138. Visualising the decision boundary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#more-training">139. More Training</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ruter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ruter/ruter.html">Ruter</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="spin_qubits.html"><span class="section-number">11. </span>Spin Qubits</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">11.4. </span>Operations on spin qubits</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/quantum_computers/spin_qubits/spin_qubits_op.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="operations-on-spin-qubits">
+<h1><span class="section-number">11.4. </span>Operations on spin qubits<a class="headerlink" href="#operations-on-spin-qubits" title="Permalink to this headline"></a></h1>
+<p>With standard semiconductor technology, billions of transistors can be integrated on a single chip. This forms one of the key motivations for quantum dot qubits, as these qubit types are fabricated using the same technology, such that one can envision billions of quantum bits on a chip. In this lecture we focus on the operation of these quantum dot qubits. We will discuss how qubits are defined, how they can be initialized and readout, how the qubits can be controlled and how these qubits can be coupled to one another to execute two-qubit logic gates.
+Figure 17
+We start with an empty quantum dot connected to an electron reservoir. The quantum dot energy levels are above the Fermi energy of the reservoir and so no electrons can tunnel from the reservoir to the dot. We define our qubit states on the spin states of the quantum dot. To do so, we apply a magnetic field on the order of a Tesla. Due to the Zeeman energy, the spin states are then split by about hundred micro electron volt, assuming a g-factor around</p>
+<p>two. The lowest level corresponds then to the state spin down, while the upper level corresponds to the state spin up.
+We can initialize our quantum dot in the state spin down, by simply lowering the energy level such that the state spin down is below the Fermi energy, while the state spin up is still above the Fermi energy. At this position, only an electron with state spin down can tunnel from the reservoir to the quantum dot. If we pulse the levels even deeper, the quantum dot will remain in the state spin down. No electrons can tunnel from the reservoir to the quantum dot, since it is already occupied, and thus the state remains spin down. If we want to readout the state, we can simply do the reverse protocol. We align the levels such that the Fermi energy of the reservoir is in between the spin down and spin up level. An electron will only tunnel out if the state is spin up. This sequence converts a spin in to charge, because there is only charge movement if the state is spin up. As quantum dot systems can also be used as highly sensitive and accurate electrometers, we can readout the spin state by measuring the charge transfer during this protocol. In the graph below we see the current through a quantum dot electrometer.
+Figure 18
+We see that there are different current levels. These differences correspond to the different gate voltages that are applied to align the electron reservoir and quantum dot levels. The middle level corresponds to the alignment for readout. In some cases we see that there is a small bump around one milliseconds and in some case we don’t see it. This corresponds to the spin-to-charge conver- sion. The experiment shown here is performed in gallium arsenide. Electrons in gallium arsenide have a negative g-factor. Now a good exercise is to verify yourself that in this particular case a bump corresponds to the state spin down and not to the statespin up, as one may expect. This method of readout is called Elzerman readout and has been one of the central methods for readout of spin qubits. Now that we know how to initialize and readout the spin state, we can start controlling the state and turn it into a qubit.
+Figure 19
+Qubit control can be realized by introducing an alternating magnetic field in a direction perpendicular to the applied magnetic field. This is done by applying an ac current through a small strip close to the quantum dot system. The AC current generates an electromagnetic wave. When the frequency of this wave matches the resonance frequency of the qubit, photons are generated with an energy equal to the Zeeman energy of the spin states and they can flip the spin state. If we introduce this alternating magnetic field then we will observe that the spin starts to rotate as a function of time.
+10</p>
+<p>Figure 20
+These oscillations are called Rabi oscillations and they form the basis of our single qubit rotations. This mechanism has been demonstrated with quantum dot systems and first in the material gallium arsenide and in the figure you see that as a function of time, coherent oscillations appear with a frequency depen- dent on the applied electromagnetic power. Unfortunately, these oscillations do not survive until infinity. The oscillations decay due to qubit decoherence. A major source of decoherence for spin qubits in gallium arsenide is the interaction between the electron and nuclear spins in the environment. Gallium arsenide has many isotopes with a nonzero nuclear spin and these can interact with the qubit through the hyperfine interaction. These interactions vary over time. And consequently, the qubit frequency changes over time and so the emitted photons from the stripline are not always in resonance with the electron spin. This is a major limitation, but fortunately, it can be solved by simply changing the host material. Silicon can be purified to an isotope with zero nuclear spin, Silicon-28. As one can see, in this material one can just simply keep on going with rotating the electron spin. This is of course very favourable for qubit operations.
+Figure 21
+The resulting improvement becomes even more apparent if we compare the coherence time of electron spins in different materials. In this figure, you see three different sequences to determine the quantum coherence of a qubit. The simplest sequence is the Ramsey experiment. It starts by rotating the spin to the equator using a pi/2 pulse. Then, another pi/2 pulse is applied to rotate it to the state spin up. In the experiment, the waiting time in between these two pulses is varied. This results typically in an exponential decay, where the time constant in the exponent defines the coherence time.
+Figure 22
+The Hahn echo and CPMG sequences are more sophisticated sequences that can extend the quantum coherence time and they probe the ultimate quantum coherence. From the figure it becomes clear that the quantum coherence can be greatly improved by both using sophisticated sequences and by using materials with zero nuclear spins, resulting in a maximum coherence time of tens of mil- liseconds. And this is an eternity in the quantum world. Now that we know how to initialize and read and control qubits, we can start to couple qubits together. To do so, we use the exchange interaction. This interaction can be controlled by tuning the electric gates of a quantum dot qubit, which modulates the potential landscape. To turn the interaction on, the electric gates are pulsed such that the energy barrier between the qubits is short and low.</p>
+<p>Figure 23
+Consequently, the wave function of the two electron spins start to overlap and they hybridize. In the figure on the left, there is no interaction. In the figure on the right there is interaction. Now what is crucial here, is that when the interaction is on, the resonance frequency of one qubit is determined by the state of the other qubit. In the left figure, we see that the energy in flipping the red qubit is independent on the state of the blue qubit. It is good to verify this yourself.
+Figure 24
+If we overlay these figures it becomes clear that the scenario is different when interaction is on. When interaction is on, flipping the red qubit costs less energy when the blue qubit is in the state spin down, while it costs more energy when it is in the state spin up.
+This is very important, as we can now control one qubit depending on the state of the other qubit, and use this, for example to create quantum entangle- ment. One can also see from the figure that we have two knobs that we can use for control.
+Figure 25
+First, we can directly control the tunnel barrier. Secondly, we can also change the relative energies of the electron spin states. By moving towards the state where one electron spin is almost doubly occupied, the exchange interaction increases. The first approach where one controls the tunnel barrier may be the preferred method, as operation is here at the so-called symmetry point.
+At this point the qubit is the least sensitive to noise, as the slope of the energy level is to first order zero with respect to the detuning. However, the second approach is what is typically been exploited in experiments today as this is often easier to do. In the experiment we see here, the second option of controlling the detuning has been adopted and the experiment combines both single and two qubit gates. The two graphs on the right show two experiments.
+Figure 26
+In the top graph, the red qubit is always in the state spin up. In the bottom graph the red qubit is in the state spin down. The blue qubit is initialized using the Elzerman method by aligning the electron spin to the reservoir. Then a pi/2 pulse is executed by applying an AC current through the stripline. Now the detuning is changed. This detuning brings down the second empty level of
+12</p>
+<p>the red qubit. The state of the blue qubit hybridizes with this level and the resonance frequency changes accordingly. This change in resonance frequency causes in-plane rotations of the blue qubit. As we can see from the experiment, the blue qubit starts to rotate, but with a frequency that is dependent on the state of the red qubit. A special point is reached after roughly 0.5 a microsecond, as then there is exactly a pi-rotation difference between the two states. The experimental sequence is completed by another pi/2 pulse using the stripline.
+We now see that at this special point of 0.5 microsecond, the blue qubit returns to the state spin up or spin down, depending on the state of the red qubit. This qubit dependent controlled rotation is called a controlled not gate or CNOT gate and constitutes a very important gate in quantum computation. Now we can combine all aspects, from readout and initialization, to single and two-qubit control, and use this implement elementary quantum algorithms.
+Figure 27
+For example, here you see an experiment where these operations are com- bined to demonstrate Grover’s search algorithm and the Deutsch-Jozsa algo- rithm. These experiments demonstrate the feasibility of quantum dot qubits, and now one of the main challenges is to up-scale the qubit number and qubit quality to go to large systems. In the field of quantum dot quantum compu- tation, the vision of a future quantum computer is one where small arrays of quantum dots are coupled together using long-range qubit links. The small ar- rays operate using the ingredients as we discussed here. The long-range links could be based on quantum buses, where an electron spin is transported over an array of quantum dots. Alternatively, the electron spin can be coupled to photons in superconducting microwave cavities. Such approaches are now ac- tively being pursued and rapid advancements are being made, and these lay the foundation for a future quantum dot quantum computer. 195-202
+Figure 28
+Main take-aways
+• Applying a magnetic field on a quantum dots causes Zeeman splitting in the energy level of the qubit states. The g-factor gives a measure for this splitting with regards to the magnetic field strength.
+• Qubit control can be realized by introducting an alternating magnetic field in a direction perpendicular to the applied magnetic field, causing Rabi oscillations.
+• Exchange interaction is the mechanis behind coupling of two qubits.
+• Using either quantum buses or coupling to photons in superconducting microwave cavities, small arrays can be coupled together.
+13</p>
+<hr class="docutils" />
+<section id="practice-quiz-5">
+<h2><span class="section-number">11.4.1. </span>Practice Quiz 5<a class="headerlink" href="#practice-quiz-5" title="Permalink to this headline"></a></h2>
+</section>
+<hr class="docutils" />
+<section id="quiz-5-operations-on-spin-qubits">
+<h2><span class="section-number">11.4.2. </span>Quiz 5: Operations on spin qubits<a class="headerlink" href="#quiz-5-operations-on-spin-qubits" title="Permalink to this headline"></a></h2>
+<section id="question-1-elzerman-readout">
+<h3><span class="section-number">11.4.2.1. </span>Question 1: Elzerman readout<a class="headerlink" href="#question-1-elzerman-readout" title="Permalink to this headline"></a></h3>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>This indirect technique may seem complicated, but it is suc- cessful, because it is much easier to detect a moving electron than it is to directly detect a change in spin state using a magnetometer, for example.</p>
+</div>
+</section>
+<section id="question-2-more-about-spin-readout">
+<h3><span class="section-number">11.4.2.2. </span>Question 2: More about spin readout<a class="headerlink" href="#question-2-more-about-spin-readout" title="Permalink to this headline"></a></h3>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>The energy gap between the spin-up and spin-down states is quite small, much smaller than the charging energy of a quantum dot, seen in the previous quiz. Since the fermi level of the reservoir is biased to be between the spin-down and spin-up states, this allows an even small fluctuation to excite a spin-down electron into the reservoir.</p>
+</div>
+</section>
+<section id="question-3-gaas-vs-si">
+<h3><span class="section-number">11.4.2.3. </span>Question 3: GaAs vs Si<a class="headerlink" href="#question-3-gaas-vs-si" title="Permalink to this headline"></a></h3>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Silicon-28 has zero nuclear spin. This reduces the magnetic noise in the substrate, giving the spins long coherence times. Fabrication of large-scale silicon quantum chips can in principle be more accessible than other platforms because of the similarties with conventional manufacturing technol- ogy.</p>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="question-4-single-qubit-gates-with-spin-qubits">
+<h1><span class="section-number">11.5. </span>Question 4: Single-qubit gates with spin qubits<a class="headerlink" href="#question-4-single-qubit-gates-with-spin-qubits" title="Permalink to this headline"></a></h1>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>We can think of the action of this pulse as a rotation in the Bloch sphere. The point at the north pole will be rotated 180 degrees (pi radians), due to the selected duration of the microwave pulse. Also note that the global phase in front of the calculated state is irrelevant, since it cannot affect the results of any measurement.</p>
+</div>
+<section id="question-5-qubit-qubit-interaction">
+<h2><span class="section-number">11.5.1. </span>Question 5: Qubit-qubit interaction<a class="headerlink" href="#question-5-qubit-qubit-interaction" title="Permalink to this headline"></a></h2>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>By applying a voltage on the gate controlling the tunnel coupling between the two dots, or by shifting the energy levels of the dots we can bring the electrons close together and make them interact.</p>
+</div>
+</section>
+<section id="question-6-strengths-of-spin-qubits">
+<h2><span class="section-number">11.5.2. </span>2.6 Question 6: Strengths of spin qubits<a class="headerlink" href="#question-6-strengths-of-spin-qubits" title="Permalink to this headline"></a></h2>
+<div class="admonition-explanation admonition">
+<p class="admonition-title">Explanation</p>
+<p>Low temperatures are a necessity for spin quantum dots, to allow trapping of single electrons, and to prevent thermal noise from randomly changing the spin state. In the absence of nuclear spins (as is the case when using a silicon-28 substrate), millisecond coherence times can be reached, which is far longer than the nanosecond or microsecond coherence times seen in gallium arsenide quantum dots. Operations can take up to a few microseconds, so they can be carried out quite coherently. Also, techniques from semiconductor manufacturing allow a typical dot size of 100 nanometres, permitting a high density of quantum dots on a chip.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_computers/spin_qubits"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spin_qubits.html" class="btn btn-neutral float-left" title="11. Spin Qubits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../superconducting_qubits/superconducting_qubits.html" class="btn btn-neutral float-right" title="12. Superconducting qubits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

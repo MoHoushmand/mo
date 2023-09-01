@@ -1,0 +1,82 @@
+Traceback (most recent call last):
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import random
+import numpy as np
+from dwave.system import DWaveSampler, EmbeddingComposite
+import dwave_networkx as dnx
+import networkx as nx
+import dimod
+
+
+# Number of geolocations (nodes)
+num_nodes = 6
+
+# Function to generate random geolocations
+def generate_geolocations(num_nodes):
+    geolocations = [(random.uniform(0, 100), random.uniform(0, 100)) for _ in range(num_nodes)]
+    return geolocations
+
+# Function to calculate the Euclidean distance between two points
+def euclidean_distance(p1, p2):
+    return np.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
+
+# Generate geolocations
+geolocations = generate_geolocations(num_nodes)
+
+# Create a complete graph with nodes representing geolocations
+G = nx.complete_graph(num_nodes)
+
+# Add edges with weights as the Euclidean distance between geolocations
+for i, p1 in enumerate(geolocations):
+    for j, p2 in enumerate(geolocations):
+        if i != j:
+            G.add_edge(i, j, weight=euclidean_distance(p1, p2))
+
+# Set up the QUBO problem
+lagrange = 1.0
+qubo = dnx.traveling_salesperson_qubo(G, lagrange)
+
+# Convert the QUBO to a BQM (Binary Quadratic Model)
+bqm = dimod.BinaryQuadraticModel.from_qubo(qubo)
+
+# Set up the sampler
+sampler = EmbeddingComposite(DWaveSampler())
+
+# Solve the TSP problem using D-Wave's quantum annealer
+sampleset = sampler.sample(bqm)
+
+# Find the shortest path from the sampleset
+path = dnx.traveling_salesperson(G, sampleset)
+
+print("Shortest path:", path)
+print("Total distance:", sampleset.first.energy)
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 3[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mrandom[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[0;32m----> 3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mdwave[39;00m[38;5;21;01m.[39;00m[38;5;21;01msystem[39;00m [38;5;28;01mimport[39;00m DWaveSampler, EmbeddingComposite
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mdwave_networkx[39;00m [38;5;28;01mas[39;00m [38;5;21;01mdnx[39;00m
+[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mnetworkx[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnx[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'dwave'
+
