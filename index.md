@@ -1,5 +1,21 @@
 # Daniel Mo Houshmand
 
+::::{grid-item-card} Fluid Art (Bloom)
+:shadow: lg
+
+```{grid-item-card}
+:shadow: lg
+![bloom0](art/fluidart/bloom0.JPG)
+```
+
++++
+Bad Bloom series
+
+- D. Mo Houshmand**(2021)
+::::
+
+---
+
 ::::{grid-item-card}
 :shadow: lg
 
@@ -150,22 +166,6 @@ Finally I also want to express my gratitude to Delft University and edx for offe
 
 I hope you enjoy exploring this website and feel free to reach out to me if you have any questions or comments. Feel free to browse, learn, and connect with me as you explore the various facets of my life and work. Whether you're captivated by my artistic creations or intrigued by my technical expertise, I warmly invite you to embark on this journey with me and I am always delighted to connect with others who share my passion for learning, innovation, and positive impact. <br>
 
-::::
-
----
-
-::::{grid-item-card} Fluid Art (Bloom)
-:shadow: lg
-
-```{grid-item-card}
-:shadow: lg
-![bloom0](art/fluidart/bloom0.JPG)
-```
-
-+++
-Bad Bloom series
-
-- D. Mo Houshmand**(2021)
 ::::
 
 ---
