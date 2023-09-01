@@ -38,7 +38,11 @@ parts:
     - file: data_science/stats/ds
       sections:
       - file: data_science/stats/statML
-
+  - caption: Computer Science
+    chapters:
+    - file: computer_science/software_engineering/se
+      sections:
+      - file: computer_science/software_engineering/zipminator
   - caption: Quantum Mechanics
     numbered: true
     #numbered: True  # Only applies to chapters in Part 1.

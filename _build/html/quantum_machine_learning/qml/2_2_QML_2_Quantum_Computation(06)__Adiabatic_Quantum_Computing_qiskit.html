@@ -82,11 +82,15 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computer_science/software_engineering/se.html">Software Engineering</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
 <ul>
@@ -348,7 +352,7 @@ an eigenstate. This implies that if the system started in the ground state, if c
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues: [-2.  0.  0.  2.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues: [-2. -0.  0.  2.]
 Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 </pre></div>
 </div>
@@ -403,8 +407,14 @@ Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Energy of samples:
-[-2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">dimod</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">J</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mf">1.0</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">}</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;dimod&#39;
 </pre></div>
 </div>
 </div>
@@ -425,7 +435,7 @@ Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/13adf2cd659ddf185a4461d49805f7e5b88fc3d1377a79d47744f6c061b50eb1.png" src="../../_images/13adf2cd659ddf185a4461d49805f7e5b88fc3d1377a79d47744f6c061b50eb1.png" />
+<img alt="../../_images/88e3c73b695047ff8ad7e1d355ee0069f74a89d698f0922409f29387cba32353.png" src="../../_images/88e3c73b695047ff8ad7e1d355ee0069f74a89d698f0922409f29387cba32353.png" />
 </div>
 </div>
 <p>Let’s create a graph that certainly does not fit this connectivity structure. For instance, the complete graph <span class="math notranslate nohighlight">\(K_n\)</span> on nine nodes:</p>
@@ -439,7 +449,7 @@ Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/362b4a4b23807a5bfda0cc78359e1c4863a29077b75ed417d21f7272090f83a0.png" src="../../_images/362b4a4b23807a5bfda0cc78359e1c4863a29077b75ed417d21f7272090f83a0.png" />
+<img alt="../../_images/f226e5a027418387b3c7ab809f43f5f0a1e03505dc2de7a507070dc24a1b7682.png" src="../../_images/f226e5a027418387b3c7ab809f43f5f0a1e03505dc2de7a507070dc24a1b7682.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -459,7 +469,7 @@ Eigenstate for lowest eigenvalue [0.5 0.5 0.5 0.5]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f45d9dde31c0e16f53946792b85596ae712966ae03225cf4b2cfd3a2a73d6ef7.png" src="../../_images/f45d9dde31c0e16f53946792b85596ae712966ae03225cf4b2cfd3a2a73d6ef7.png" />
+<img alt="../../_images/984f602e9e7250a8926997b5513c70353e1f4eab085f5d13b0d22f5af1108f0f.png" src="../../_images/984f602e9e7250a8926997b5513c70353e1f4eab085f5d13b0d22f5af1108f0f.png" />
 </div>
 </div>
 <p>Qubits that have the same colour corresponding to a logical node in the original problem defined by the <span class="math notranslate nohighlight">\(K_9\)</span> graph. Qubits combined in such way form a chain. Even though our problem only has 9 variables (nodes), we used almost all 32 available on the toy Chimera graph. Let’s find the maximum chain length:</p>

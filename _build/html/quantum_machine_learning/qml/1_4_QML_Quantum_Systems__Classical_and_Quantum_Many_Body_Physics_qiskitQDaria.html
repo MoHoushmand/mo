@@ -82,11 +82,15 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computer_science/software_engineering/se.html">Software Engineering</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
 <ul>
@@ -380,6 +384,16 @@ would give you -1 in the optimum configuration.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">dimod</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;dimod&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>The simulated annealing solver requires us to define the couplings as a dictionary between spins, and we must also pass the external field values as a dictionary. The latter is all zeros for us.</p>
 <div class="cell docutils container">
@@ -526,7 +540,7 @@ would give you -1 in the optimum configuration.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.+0.j -1.-0.j]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.+0.j -1.+0.j]
 </pre></div>
 </div>
 </div>
@@ -582,7 +596,7 @@ would give you -1 in the optimum configuration.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pauli-X, then Pauli-Z: [ 0.+0.j -1.-0.j]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pauli-X, then Pauli-Z: [ 0.+0.j -1.+0.j]
 Pauli-Z, then Pauli-X: [0.+0.j 1.+0.j]
 </pre></div>
 </div>

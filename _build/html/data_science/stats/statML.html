@@ -46,7 +46,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2. Quantum Mechanics" href="../../quantum_mechanics/quantum_mechanics.html" />
+    <link rel="next" title="Software Engineering" href="../../computer_science/software_engineering/se.html" />
     <link rel="prev" title="Data Science" href="ds.html" /> 
 </head>
 
@@ -80,7 +80,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="current">
@@ -106,6 +106,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="#a-real-world-data-journey">A real-world data journey</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computer_science/software_engineering/se.html">Software Engineering</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
 <ul>
@@ -298,6 +302,19 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># import libraries</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -362,7 +379,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7582c577a11363439d0d5a1199228e9216348bc5d6649ba75b304b5e842da9ad.png" src="../../_images/7582c577a11363439d0d5a1199228e9216348bc5d6649ba75b304b5e842da9ad.png" />
+<img alt="../../_images/95ae9e96b6458485e05b071ab8a7e871771194387a3ffb065f5b92042cdbd335.png" src="../../_images/95ae9e96b6458485e05b071ab8a7e871771194387a3ffb065f5b92042cdbd335.png" />
 </div>
 </div>
 <section id="representing-types-of-data">
@@ -403,31 +420,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable             Type       Data/Info
------------------------------------------
-average_group1       int        40
-average_group2       int        45
-ax                   ndarray    2: 2 elems, type `object`, 16 bytes
-chardata             str        xyz
-data_group1          ndarray    40: 40 elems, type `float64`, 320 bytes
-data_group2          ndarray    35: 35 elems, type `float64`, 280 bytes
-datalims             list       n=2
-dictdata             dict       n=3
-fig                  Figure     Figure(600x400)
-listdata             list       n=3
-logitdata            bool       True
-np                   module     &lt;module &#39;numpy&#39; from &#39;/Us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
-ns                   list       n=2
-numdata              list       n=4
-p                    float64    0.00019355090725937528
-plt                  module     &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
-samples_group1       int        40
-samples_group2       int        35
-sigtxt               tuple      n=2
-standard_deviation   float      5.6
-stats                module     &lt;module &#39;scipy.stats&#39; fro&lt;...&gt;scipy/stats/__init__.py&#39;&gt;
-strdata              str        x
-t                    float64    -3.9263665926448614
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable    Type    Data/Info
+-----------------------------
+chardata    str     xyz
+dictdata    dict    n=3
+listdata    list    n=3
+logitdata   bool    True
+numdata     list    n=4
+strdata     str     x
 </pre></div>
 </div>
 </div>
@@ -486,7 +486,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/22c17b4081d407f20b6a3a2d178109061ae42021bf67dda89a51c7ec3147eec8.png" src="../../_images/22c17b4081d407f20b6a3a2d178109061ae42021bf67dda89a51c7ec3147eec8.png" />
+<img alt="../../_images/520d445241b2d39ca6baa49e412edfc3aa290e9e3b9a6bab4a7f4dd9badec5de.png" src="../../_images/520d445241b2d39ca6baa49e412edfc3aa290e9e3b9a6bab4a7f4dd9badec5de.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -519,7 +519,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9d7d2ae364e8f1e1453abe8e99059f67ce01ed71942ff4465f7e37d79f724635.png" src="../../_images/9d7d2ae364e8f1e1453abe8e99059f67ce01ed71942ff4465f7e37d79f724635.png" />
+<img alt="../../_images/13923ddae00c20a21cd977ad401e0c99c3e4b9fbbe5faa6242ef535b731fc708.png" src="../../_images/13923ddae00c20a21cd977ad401e0c99c3e4b9fbbe5faa6242ef535b731fc708.png" />
 </div>
 </div>
 </section>
@@ -594,7 +594,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ec73e90efca60b18fb7e95f4bf7407245276b1f75a41cfe1b1306f00497f359d.png" src="../../_images/ec73e90efca60b18fb7e95f4bf7407245276b1f75a41cfe1b1306f00497f359d.png" />
+<img alt="../../_images/e9f51c0079fea4ad5aba3b9782dbb2e45cd2710bc3e6d50e477a360f70ec287d.png" src="../../_images/e9f51c0079fea4ad5aba3b9782dbb2e45cd2710bc3e6d50e477a360f70ec287d.png" />
 </div>
 </div>
 </section>
@@ -626,7 +626,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2f4d3f971294cd7bd93873127ce42a9cc1c3d55f9748959e95de9c5f90607e83.png" src="../../_images/2f4d3f971294cd7bd93873127ce42a9cc1c3d55f9748959e95de9c5f90607e83.png" />
+<img alt="../../_images/74587c62a4ac54a8320fb6b22b058c6126f39ac9634d207dd7722ee7035cb404.png" src="../../_images/74587c62a4ac54a8320fb6b22b058c6126f39ac9634d207dd7722ee7035cb404.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -643,7 +643,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a29e52b6477a76e9824476325ed48e18fedf84b134c92086ee194c5e9bcca694.png" src="../../_images/a29e52b6477a76e9824476325ed48e18fedf84b134c92086ee194c5e9bcca694.png" />
+<img alt="../../_images/9833d72876da3a9362c092002a3f562964796c75dab300626260781e37895f2b.png" src="../../_images/9833d72876da3a9362c092002a3f562964796c75dab300626260781e37895f2b.png" />
 </div>
 </div>
 </section>
@@ -687,7 +687,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8ecea0f9ba0f24d653728994389f8330e61f5aaab8ee9a87ca6c477bd33d315d.png" src="../../_images/8ecea0f9ba0f24d653728994389f8330e61f5aaab8ee9a87ca6c477bd33d315d.png" />
+<img alt="../../_images/db53f77f40a9b428e09da910b73448530ff4bead0734e29f91c70bbb998e7790.png" src="../../_images/db53f77f40a9b428e09da910b73448530ff4bead0734e29f91c70bbb998e7790.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -699,7 +699,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/806bde7d04ae118ee43de954f98d48c843acb3ae01ddae3009d657ce3a8810ae.png" src="../../_images/806bde7d04ae118ee43de954f98d48c843acb3ae01ddae3009d657ce3a8810ae.png" />
+<img alt="../../_images/f8c9d105e858f5ffca703693e58f6ff2e4e81c00c8d32aec5c9a6c381cc3105c.png" src="../../_images/f8c9d105e858f5ffca703693e58f6ff2e4e81c00c8d32aec5c9a6c381cc3105c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -712,7 +712,11 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3121dc7d34bade4e67baba7c2e08c199b319cb8a0c040e4c76f170dcfd8cb4d7.png" src="../../_images/3121dc7d34bade4e67baba7c2e08c199b319cb8a0c040e4c76f170dcfd8cb4d7.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/m0/mambaforge/lib/python3.10/site-packages/seaborn/categorical.py:82: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+  plot_data = [np.asarray(s, float) for k, s in iter_data]
+</pre></div>
+</div>
+<img alt="../../_images/f26496d20f7e272138ab63c9d2c74f742dbd154ae10045edb0a99324573d96e8.png" src="../../_images/f26496d20f7e272138ab63c9d2c74f742dbd154ae10045edb0a99324573d96e8.png" />
 </div>
 </div>
 </section>
@@ -759,7 +763,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d61eba57680d63e6d0aa2a1eb94e544b9db398bff688c50cc00f8538920a867d.png" src="../../_images/d61eba57680d63e6d0aa2a1eb94e544b9db398bff688c50cc00f8538920a867d.png" />
+<img alt="../../_images/e62256e604456d63077bb95f1b8739d6d15f85ce83b9e34b7d0b14ad7066fca8.png" src="../../_images/e62256e604456d63077bb95f1b8739d6d15f85ce83b9e34b7d0b14ad7066fca8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -777,7 +781,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4170f2bc2292cfe2375e73bf6674461c69d44fddb390239a809ceaa057325298.png" src="../../_images/4170f2bc2292cfe2375e73bf6674461c69d44fddb390239a809ceaa057325298.png" />
+<img alt="../../_images/a4e5a1b7dc56aa8420fd95d9e25e8986be930daab4be464f1acf8c8c03462781.png" src="../../_images/a4e5a1b7dc56aa8420fd95d9e25e8986be930daab4be464f1acf8c8c03462781.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -808,7 +812,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bbad295749bc3cbea6db7631eb742e654f17d6175e31e1d38d92cf84243223d3.png" src="../../_images/bbad295749bc3cbea6db7631eb742e654f17d6175e31e1d38d92cf84243223d3.png" />
+<img alt="../../_images/e398767eabe493ef0120e8603bd2f294605a6fdc63826d919b98dbf8147d3813.png" src="../../_images/e398767eabe493ef0120e8603bd2f294605a6fdc63826d919b98dbf8147d3813.png" />
 </div>
 </div>
 </section>
@@ -850,8 +854,8 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/11b51ac364ed378b77bdfd25b33b2e759f40ddda515d03abb21576e9cc6ebef6.png" src="../../_images/11b51ac364ed378b77bdfd25b33b2e759f40ddda515d03abb21576e9cc6ebef6.png" />
-<img alt="../../_images/c4041a21e1bedc25a7942eb58e68d0eda90387ca21641031d1a486b09993426a.png" src="../../_images/c4041a21e1bedc25a7942eb58e68d0eda90387ca21641031d1a486b09993426a.png" />
+<img alt="../../_images/ca986c0c290a11bbc0a31cf70ced82c011b656c1ac23b2107e6ed9fd7140b4cb.png" src="../../_images/ca986c0c290a11bbc0a31cf70ced82c011b656c1ac23b2107e6ed9fd7140b4cb.png" />
+<img alt="../../_images/a51103e506439a9b58991cf8fb53084b8854e107a76f24a193dac5126537277c.png" src="../../_images/a51103e506439a9b58991cf8fb53084b8854e107a76f24a193dac5126537277c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -864,10 +868,18 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/m0/mambaforge/lib/python3.10/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  warnings.warn(
+/Users/m0/mambaforge/lib/python3.10/site-packages/seaborn/_core.py:1326: UserWarning: Vertical orientation ignored with only `x` specified.
+  warnings.warn(single_var_warning.format(&quot;Vertical&quot;, &quot;x&quot;))
+/Users/m0/mambaforge/lib/python3.10/site-packages/seaborn/categorical.py:1296: UserWarning: 6.4% of the points cannot be placed; you may want to decrease the size of the markers or use stripplot.
+  warnings.warn(msg, UserWarning)
 </pre></div>
 </div>
-<img alt="../../_images/98f53cc7c4f8f5a9a9fefa41c25f1fda93b46c88b7c70996c3484439bac01668.png" src="../../_images/98f53cc7c4f8f5a9a9fefa41c25f1fda93b46c88b7c70996c3484439bac01668.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/4c86fdf9329f841b0796f0fd0a4ff0c157048877d242de943419bc1e762ba55d.png" src="../../_images/4c86fdf9329f841b0796f0fd0a4ff0c157048877d242de943419bc1e762ba55d.png" />
 </div>
 </div>
 </section>
@@ -899,7 +911,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6f219866577ad589dc31d4a8db5b916f494a0b6b82d1540e48dc070ebd39ac67.png" src="../../_images/6f219866577ad589dc31d4a8db5b916f494a0b6b82d1540e48dc070ebd39ac67.png" />
+<img alt="../../_images/7aa4ac46e917c3836d4520725eac12ef30b5b9a9feac1f7bd8a08ef61c839cb4.png" src="../../_images/7aa4ac46e917c3836d4520725eac12ef30b5b9a9feac1f7bd8a08ef61c839cb4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -931,7 +943,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6c48c0e6031f07f4edd2bbb7843d48600a8b3b74e1906e701d9525cb0d11130c.png" src="../../_images/6c48c0e6031f07f4edd2bbb7843d48600a8b3b74e1906e701d9525cb0d11130c.png" />
+<img alt="../../_images/ed25b1839bd32837f6fa6260fb02034f9e517a661be3e21c176a1b126f457c62.png" src="../../_images/ed25b1839bd32837f6fa6260fb02034f9e517a661be3e21c176a1b126f457c62.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -943,7 +955,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/85ddba7c9efbf0a8631118d8a1f4a978f81c1d10ceab4ebff80953c64af5855a.png" src="../../_images/85ddba7c9efbf0a8631118d8a1f4a978f81c1d10ceab4ebff80953c64af5855a.png" />
+<img alt="../../_images/c46c5bf666c780cf93061e4b60813948521268cc53a0e9008b5de6278cfa0a66.png" src="../../_images/c46c5bf666c780cf93061e4b60813948521268cc53a0e9008b5de6278cfa0a66.png" />
 </div>
 </div>
 </section>
@@ -983,7 +995,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2725848298694098 1.2717594158249361
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.211007070531542 1.212300290707061
 </pre></div>
 </div>
 </div>
@@ -1014,7 +1026,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1e6a352613392e077ecfa29211db530072a3de6309cc6404c181e564f672c117.png" src="../../_images/1e6a352613392e077ecfa29211db530072a3de6309cc6404c181e564f672c117.png" />
+<img alt="../../_images/9fd2bdd55591cd161e5a212da6a5dff4bce55b9149b037d263264ef366b9e8cb.png" src="../../_images/9fd2bdd55591cd161e5a212da6a5dff4bce55b9149b037d263264ef366b9e8cb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1037,7 +1049,7 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6c1f63868927dcddba731bdfa2c996f1f0d3a95c6ce989c235651bbfd80ca84b.png" src="../../_images/6c1f63868927dcddba731bdfa2c996f1f0d3a95c6ce989c235651bbfd80ca84b.png" />
+<img alt="../../_images/d8cd082426b262a594b12d8d09d428b8b7dc3a16f9fd764ffefcd8acef328baf.png" src="../../_images/d8cd082426b262a594b12d8d09d428b8b7dc3a16f9fd764ffefcd8acef328baf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1050,23 +1062,14 @@ t                    float64    -3.9263665926448614
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/vb/p4cj873s5hv09rghss4_z_680000gn/T/ipykernel_59875/3862138838.py:4: UserWarning: 
-
-`distplot` is a deprecated function and will be removed in seaborn v0.14.0.
-
-Please adapt your code to use either `displot` (a figure-level function with
-similar flexibility) or `histplot` (an axes-level function for histograms).
-
-For a guide to updating your code to use the new functions, please see
-https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
-
-  sns.distplot(data) # uses FD rule by default
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/m0/mambaforge/lib/python3.10/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Density&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/992f30e10a52686bc04ce70611690871a47094393a3ac596bf0b3dec120d16a3.png" src="../../_images/992f30e10a52686bc04ce70611690871a47094393a3ac596bf0b3dec120d16a3.png" />
+<img alt="../../_images/dc9ba1c30036c4edcd3d679ac455419f7dfd8d96964f4d2ad8f5511a993e19f2.png" src="../../_images/dc9ba1c30036c4edcd3d679ac455419f7dfd8d96964f4d2ad8f5511a993e19f2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1083,7 +1086,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7425cb1cce24b3551d0077c1693775774da9617a173430313423be017283c235.png" src="../../_images/7425cb1cce24b3551d0077c1693775774da9617a173430313423be017283c235.png" />
+<img alt="../../_images/ce7f9a4a8ab26e4994824f836639cef7788a36f6ff04ebbcbebea536bddc37b7.png" src="../../_images/ce7f9a4a8ab26e4994824f836639cef7788a36f6ff04ebbcbebea536bddc37b7.png" />
 </div>
 </div>
 </section>
@@ -1102,10 +1105,10 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa6e6afa640&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1518ce050&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/271dea2121ae1c99c6d7dc96b31042e7e8b1e911fda2e917085ad2d2623b7040.png" src="../../_images/271dea2121ae1c99c6d7dc96b31042e7e8b1e911fda2e917085ad2d2623b7040.png" />
+<img alt="../../_images/6f1dd6f80ef757a9a2cbef080d3faf86a308d1e1994d10ad5b31ce956ebea10d.png" src="../../_images/6f1dd6f80ef757a9a2cbef080d3faf86a308d1e1994d10ad5b31ce956ebea10d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1139,7 +1142,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bfafdd33137e383c013f2732d9a6f7b06e0683e7a9b7fbdb925efaa1d0fcbc0a.png" src="../../_images/bfafdd33137e383c013f2732d9a6f7b06e0683e7a9b7fbdb925efaa1d0fcbc0a.png" />
+<img alt="../../_images/68eb59325305e69206fbd0f0e0114d49c53e181c7ff65df161bd765215f53cec.png" src="../../_images/68eb59325305e69206fbd0f0e0114d49c53e181c7ff65df161bd765215f53cec.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1164,7 +1167,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17dbd8d7d565110efd6af49075361d092d577472103eaf7802991accd3354aa2.png" src="../../_images/17dbd8d7d565110efd6af49075361d092d577472103eaf7802991accd3354aa2.png" />
+<img alt="../../_images/3b14c643ce1ef82afe95ad461f6e323e614d6392d0d952b522d96085a99e7950.png" src="../../_images/3b14c643ce1ef82afe95ad461f6e323e614d6392d0d952b522d96085a99e7950.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1185,7 +1188,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 5.00766
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entropy = 5.23685
 </pre></div>
 </div>
 </div>
@@ -1214,7 +1217,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1000892803df94164ee1f1da8af7136b35bcbcdf6dbb1e30daae85b30563f066.png" src="../../_images/1000892803df94164ee1f1da8af7136b35bcbcdf6dbb1e30daae85b30563f066.png" />
+<img alt="../../_images/5dc7a8436877133b2bd7ea8b208965bc8bda084bbad60edc961283cc61426775.png" src="../../_images/5dc7a8436877133b2bd7ea8b208965bc8bda084bbad60edc961283cc61426775.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>124.99221530601626
 </pre></div>
 </div>
@@ -1240,7 +1243,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c2a900144152ca9e8035801cb3fcbe49dc8a6ca337ea0f54563a5bb1eceb8ccf.png" src="../../_images/c2a900144152ca9e8035801cb3fcbe49dc8a6ca337ea0f54563a5bb1eceb8ccf.png" />
+<img alt="../../_images/54086480d958ab595eac43fe9ed3391fff34ff33c2ab8a5d1cc84402dccd8b3a.png" src="../../_images/54086480d958ab595eac43fe9ed3391fff34ff33c2ab8a5d1cc84402dccd8b3a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1269,7 +1272,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/62e3c13040dc09e99c9a2904357c48e7eb1864674abe2d1a68f67af3ac9f857d.png" src="../../_images/62e3c13040dc09e99c9a2904357c48e7eb1864674abe2d1a68f67af3ac9f857d.png" />
+<img alt="../../_images/7140f76a5c2406e82fd679e2cf92cdf09d77e3f390f5cc0c27038675ff228568.png" src="../../_images/7140f76a5c2406e82fd679e2cf92cdf09d77e3f390f5cc0c27038675ff228568.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1287,7 +1290,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b179814f3a1d9df5132ac0039a42508f57ffc2ae851f581ace33c8c3b5f18894.png" src="../../_images/b179814f3a1d9df5132ac0039a42508f57ffc2ae851f581ace33c8c3b5f18894.png" />
+<img alt="../../_images/e274e10838adc98e0f619c4dd5f0793e4fb2a93be4466f472d8366437eccbee5.png" src="../../_images/e274e10838adc98e0f619c4dd5f0793e4fb2a93be4466f472d8366437eccbee5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1314,7 +1317,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/885afde1381b7724e6d5436acd65f489485365644fb7e4e8abca4aca700194de.png" src="../../_images/885afde1381b7724e6d5436acd65f489485365644fb7e4e8abca4aca700194de.png" />
+<img alt="../../_images/0dab45aa944c999cecb509aad00cfadfe20a3bc2d28bb383e72d2d0b0589ce37.png" src="../../_images/0dab45aa944c999cecb509aad00cfadfe20a3bc2d28bb383e72d2d0b0589ce37.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1337,7 +1340,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fa610eca26e21fe446dc39c7614fe7eaa5408ca320530e81178d34ec7adf020a.png" src="../../_images/fa610eca26e21fe446dc39c7614fe7eaa5408ca320530e81178d34ec7adf020a.png" />
+<img alt="../../_images/e212c42f0a84f90a87273b2a0f6bd88e91b95a7cb409b9841053a0d3233415ad.png" src="../../_images/e212c42f0a84f90a87273b2a0f6bd88e91b95a7cb409b9841053a0d3233415ad.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1357,7 +1360,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cae5a77532eb2ce40e4d40f24b04e2a683234500ad046ed8467723154866dc7b.png" src="../../_images/cae5a77532eb2ce40e4d40f24b04e2a683234500ad046ed8467723154866dc7b.png" />
+<img alt="../../_images/dd79a7e573593441534c3be89d030282bec0d1efc18764d9cdfa92ed9eeb7421.png" src="../../_images/dd79a7e573593441534c3be89d030282bec0d1efc18764d9cdfa92ed9eeb7421.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1382,7 +1385,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/017ba0047dc77edc65dba427c10c88e5c864e75a8a2e12e94ccf9766a6b3de97.png" src="../../_images/017ba0047dc77edc65dba427c10c88e5c864e75a8a2e12e94ccf9766a6b3de97.png" />
+<img alt="../../_images/5e12ded8789be2428bfae1549a15f7eaeade86ab0a48e25c6dfaa8b6f3241ce9.png" src="../../_images/5e12ded8789be2428bfae1549a15f7eaeade86ab0a48e25c6dfaa8b6f3241ce9.png" />
 </div>
 </div>
 </section>
@@ -1423,7 +1426,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cfec45f25eef71484e9cbb5c6f6af276b561512c9c2b4290a32895007eba739d.png" src="../../_images/cfec45f25eef71484e9cbb5c6f6af276b561512c9c2b4290a32895007eba739d.png" />
+<img alt="../../_images/ef9f77bd833b2c8a15db2373674c06e9de48b490f3ca32576a130c634673dc7c.png" src="../../_images/ef9f77bd833b2c8a15db2373674c06e9de48b490f3ca32576a130c634673dc7c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1443,37 +1446,37 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  0.33928113,   9.63822811,  16.50168118,  20.00904006,
-        17.48849453,  24.19437997,   7.06102147,   5.13943132,
-        10.66139346,   9.99490508,   3.36893358,  10.72987213,
-        -2.07065058,  27.95173512,   8.72488549,  12.9060821 ,
-        15.00889137,  25.8259536 ,  16.68125808,   9.93696073,
-        18.48070728,   7.26250537,  -4.30741151,   9.07750248,
-         5.05285704,  22.94439717,  14.32437475,  12.730077  ,
-        24.34868787,  17.13677784,   8.19262552,  15.08872867,
-         1.77672733,   8.19975895,  22.57928401,   3.27075728,
-        -0.46605597,   7.70412604,   2.20431828,   9.26739351,
-        15.16945472,  10.28737412,  12.73863149,  14.57408161,
-        -1.09256383,   4.31276156,  -6.2091289 ,  16.66507686,
-        -5.07630162,   9.36197168,  16.78079666,  15.2138832 ,
-         8.5631082 ,   2.0352365 ,  12.40430581,  -1.5756888 ,
-         9.84648552,   1.10347091,  -2.86578114,  16.98510513,
-        22.84604514,  16.94274031,  12.0330292 ,  10.50675152,
-        17.09540633,  23.01802957,  -9.10921588,   9.83453613,
-         9.52271753,  -1.01215425,  10.29971803,  -1.74473577,
-         3.01860362,   0.82133769,   8.01392192,   4.99251444,
-        -0.91361159,  11.86237018,   6.47919058,  14.73882861,
-        12.38067842,   4.49698036,  11.69397516,   9.27359478,
-        10.30851263,   3.98206079,   1.35718217,   2.96048636,
-         6.30286632,   3.70051206,   9.7885723 ,   8.47416749,
-        10.95560323,  -4.49711275,   7.25541132,   8.07753147,
-         1.20062981,  15.57950528,  15.10082804, -13.15398972,
-         9.73197369,  14.18970329,  18.62726236,  -3.89949281,
-         8.93553378,  10.16594208,  11.83557659,   9.10421322,
-        20.72524881,   4.69009307,  10.95509981,  18.91412804,
-        16.68218541,  10.49945047,   4.51693694,  10.3937002 ,
-        16.54865979,  21.66175245,  13.47683173,  18.45868742,
-         8.61255663,  21.0485232 ,  11.80112324])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -0.87388704,  23.65336127,   1.27988544,  17.04829163,
+        10.75457484,   9.68249118,  11.22715252,  19.7725035 ,
+        -1.01689652,   4.35014906,   2.42744711,  20.90617046,
+        13.00854419,  -0.10259506,   6.82944939, -11.89267865,
+        21.16631839,  16.39280516,   9.09476693,  19.98243464,
+        22.61578168,  -1.46609947,   2.16429265,  20.47355737,
+        16.84275579,  31.25852569,  24.34842632,  12.67746311,
+        13.28386249,   0.40678189,  -1.74459528,  16.23562355,
+        14.31916935,  10.82066382,   7.5758167 ,  19.18904038,
+        15.03423568,  18.77275799,  -6.54852808,  -2.15708239,
+        -3.49932265,   9.61055948,  -5.41354871,   9.96327393,
+        25.30366261,   5.19479576,   4.59751711,  11.50987925,
+        13.85467453,   9.74117974,  17.305712  ,   4.52833339,
+         7.1356735 ,  13.42456617,   3.70541112,   1.33029122,
+        18.38764755,  20.38798885,   8.13071973,  13.0716251 ,
+         3.2078581 ,   7.15034437,  10.84541165,   3.66708897,
+        -5.58821728,  18.03226744,  14.31356567,  -2.63861608,
+         5.34760912,  10.05683736,  -0.52072099,  16.51949691,
+        21.48789778,  -2.93630354,  13.84026169,   5.90434504,
+         4.16912942,  10.96207774,  20.17271268,  22.72277056,
+         6.19739485,   5.07995896,   1.67212248,  20.69802595,
+        24.54634857,   9.46639918,  10.33854841,   6.42727657,
+        17.52544009,  18.01852162,   7.504182  ,  -8.6243624 ,
+        11.46639884,   5.8924707 ,  23.40506416,   5.12431053,
+        12.76111211,  21.31636725,  12.37984906, -14.00257955,
+        22.03093215,   5.18363698,  17.26538053,   8.50443335,
+         8.4218123 ,  17.74338666,  10.88031496,  -0.99600587,
+         6.50961604,  12.18119378,  -2.51193418,   4.76236751,
+         9.96541643,  12.12123062,  17.64317282,  14.50346946,
+         5.86475471,   7.28886638,   4.78059196,  15.49434827,
+        25.1052644 ,  11.61240844,   2.67046243])
 </pre></div>
 </div>
 </div>
@@ -1500,7 +1503,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/690f151cbf9dc448b5c1c63cfd72df9f8c7794b0aa3b1e269057007410d99a67.png" src="../../_images/690f151cbf9dc448b5c1c63cfd72df9f8c7794b0aa3b1e269057007410d99a67.png" />
+<img alt="../../_images/f31dec7a86d79dfbfffc841c53333a4e9c0864013646327dd3338148ff6cd902.png" src="../../_images/f31dec7a86d79dfbfffc841c53333a4e9c0864013646327dd3338148ff6cd902.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1532,7 +1535,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/59b1de6a98b653244155bf9cd01a6b3d34ff2ecf6a6e73b514e62e8df176863e.png" src="../../_images/59b1de6a98b653244155bf9cd01a6b3d34ff2ecf6a6e73b514e62e8df176863e.png" />
+<img alt="../../_images/23958ba42315967074b06c37727073c631373b7da9a750e72b45d67ce005044a.png" src="../../_images/23958ba42315967074b06c37727073c631373b7da9a750e72b45d67ce005044a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1571,7 +1574,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1103e170a73e8b6785da253f91479b170c004110e6b06bc7f9acc9f5e7f3e660.png" src="../../_images/1103e170a73e8b6785da253f91479b170c004110e6b06bc7f9acc9f5e7f3e660.png" />
+<img alt="../../_images/41867416c1c6a382f62dbf63c0b1eb3d9915d89ef138af68536e1c32bcc2ccc8.png" src="../../_images/41867416c1c6a382f62dbf63c0b1eb3d9915d89ef138af68536e1c32bcc2ccc8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1591,7 +1594,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7ca05a9b5c95578fa0b0bf04f6a50148fec93f5f9d96ef9101eb7f1086d0bc1c.png" src="../../_images/7ca05a9b5c95578fa0b0bf04f6a50148fec93f5f9d96ef9101eb7f1086d0bc1c.png" />
+<img alt="../../_images/b795f5ab882ef59f363a09b446061805750a8483696f7b3c911548aa1f20aac1.png" src="../../_images/b795f5ab882ef59f363a09b446061805750a8483696f7b3c911548aa1f20aac1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1626,7 +1629,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/83e3415cf75dd1f7f2ca2b8df8a3f9afcb4ea9e75df1b52aba945f69c7fc6ac2.png" src="../../_images/83e3415cf75dd1f7f2ca2b8df8a3f9afcb4ea9e75df1b52aba945f69c7fc6ac2.png" />
+<img alt="../../_images/157e81d5b2b5ed82fc21b1a6c8128b047fbf960308e945665c71cc3995c69026.png" src="../../_images/157e81d5b2b5ed82fc21b1a6c8128b047fbf960308e945665c71cc3995c69026.png" />
 </div>
 </div>
 </section>
@@ -1667,7 +1670,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2f8307536a12a9b83b4a7621746a62f4844d44c74e022595d390ab5b9f1b950e.png" src="../../_images/2f8307536a12a9b83b4a7621746a62f4844d44c74e022595d390ab5b9f1b950e.png" />
+<img alt="../../_images/062d7ee652cd5ea2ed93888f8f4c89d04bf674bedabdff22f1d99362f20c27a0.png" src="../../_images/062d7ee652cd5ea2ed93888f8f4c89d04bf674bedabdff22f1d99362f20c27a0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1692,7 +1695,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7ff8b4638d7bf7a11e53d8343821fc874a17613e7b6f0e3dc53354bb0c010880.png" src="../../_images/7ff8b4638d7bf7a11e53d8343821fc874a17613e7b6f0e3dc53354bb0c010880.png" />
+<img alt="../../_images/0e9de96228d29a4b0b9f5a68d8413ae64c983956b0eb62c471af8865456c5eb2.png" src="../../_images/0e9de96228d29a4b0b9f5a68d8413ae64c983956b0eb62c471af8865456c5eb2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1719,7 +1722,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7270c1f6533167e9c72665c7ec10b4b3e0b8ebcffff3899ec3808171a18f15b3.png" src="../../_images/7270c1f6533167e9c72665c7ec10b4b3e0b8ebcffff3899ec3808171a18f15b3.png" />
+<img alt="../../_images/44ebe6bfe2482d13d629b26abbc6c3ed86e63205e73d0e87eb89bff84ff4cecf.png" src="../../_images/44ebe6bfe2482d13d629b26abbc6c3ed86e63205e73d0e87eb89bff84ff4cecf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1761,7 +1764,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5720388271b9b730334bc73cebdc95ee6d6e5e51ebd98a30a8f1aa723177b925.png" src="../../_images/5720388271b9b730334bc73cebdc95ee6d6e5e51ebd98a30a8f1aa723177b925.png" />
+<img alt="../../_images/db3a14cbc9746c5925c8cced772c0a48c69a4810cf94eb8228dc52c427301e96.png" src="../../_images/db3a14cbc9746c5925c8cced772c0a48c69a4810cf94eb8228dc52c427301e96.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1780,14 +1783,15 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0 appears 5 times.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.0 appears 2 times.
 0.0 appears 4 times.
-1.0 appears 1 times.
+1.0 appears 3 times.
+3.0 appears 1 times.
  
-The modal value is -1
+The modal value is 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/vb/p4cj873s5hv09rghss4_z_680000gn/T/ipykernel_59875/3832225992.py:10: FutureWarning: Unlike other reduction functions (e.g. `skew`, `kurtosis`), the default behavior of `mode` typically preserves the axis it acts along. In SciPy 1.11.0, this behavior will change: the default value of `keepdims` will become False, the `axis` over which the statistic is taken will be eliminated, and the value None will no longer be accepted. Set `keepdims` to True or False to avoid this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/93/6sy7vf8142969b_8w873sxcc0000gn/T/ipykernel_19313/3832225992.py:10: FutureWarning: Unlike other reduction functions (e.g. `skew`, `kurtosis`), the default behavior of `mode` typically preserves the axis it acts along. In SciPy 1.11.0, this behavior will change: the default value of `keepdims` will become False, the `axis` over which the statistic is taken will be eliminated, and the value None will no longer be accepted. Set `keepdims` to True or False to avoid this warning.
   print(&#39;The modal value is %g&#39;%stats.mode(data)[0][0])
 </pre></div>
 </div>
@@ -1825,7 +1829,7 @@ The modal value is -1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/87a416bbe3e7475e45ad4853782d57b0c80104962d5d91c664547b7546d73375.png" src="../../_images/87a416bbe3e7475e45ad4853782d57b0c80104962d5d91c664547b7546d73375.png" />
+<img alt="../../_images/4db468aa275c3b01ab2debab6401814148370882b043313e05addf494c2daed1.png" src="../../_images/4db468aa275c3b01ab2debab6401814148370882b043313e05addf494c2daed1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1853,7 +1857,7 @@ The modal value is -1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/146776f4b24fb7ca81f8136100dbbd9d6243472cd2a16d116b01b21e2b9346ba.png" src="../../_images/146776f4b24fb7ca81f8136100dbbd9d6243472cd2a16d116b01b21e2b9346ba.png" />
+<img alt="../../_images/433ef7eee83bcdcee2e7b28c8a481d259aaa716fdff5f8d97371eb6b5c4ed052.png" src="../../_images/433ef7eee83bcdcee2e7b28c8a481d259aaa716fdff5f8d97371eb6b5c4ed052.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1869,7 +1873,7 @@ The modal value is -1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f396dee4388f665672ebd3f5c560f7df5f6a05ad2e3092dc6d7368e38480708a.png" src="../../_images/f396dee4388f665672ebd3f5c560f7df5f6a05ad2e3092dc6d7368e38480708a.png" />
+<img alt="../../_images/a356cd05db59c74befdee6870c645d7db33c4ee85e8087a6ff88d6d3622df8d2.png" src="../../_images/a356cd05db59c74befdee6870c645d7db33c4ee85e8087a6ff88d6d3622df8d2.png" />
 </div>
 </div>
 </section>
@@ -1916,18 +1920,7 @@ The modal value is -1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">67</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">statsmodels</span> <span class="kn">import</span> <span class="n">robust</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">## create some data</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;statsmodels&#39;
-</pre></div>
-</div>
+<img alt="../../_images/ef2764e87832e0272d66a89ff430ee8d064b931bfdc90040dc35bef19888eb9b.png" src="../../_images/ef2764e87832e0272d66a89ff430ee8d064b931bfdc90040dc35bef19888eb9b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -14872,7 +14865,7 @@ To adopt the future behavior and silence this warning, use
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ds.html" class="btn btn-neutral float-left" title="Data Science" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../quantum_mechanics/quantum_mechanics.html" class="btn btn-neutral float-right" title="2. Quantum Mechanics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../computer_science/software_engineering/se.html" class="btn btn-neutral float-right" title="Software Engineering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

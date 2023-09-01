@@ -82,11 +82,15 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computer_science/software_engineering/se.html">Software Engineering</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
 <ul>
@@ -345,6 +349,59 @@ Hence, if after fully encoding all training data and test data into the state <s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">BasicAer</span> <span class="k">as</span> <span class="n">Aer</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/mom1env/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2417,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2415</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2416</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2417</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2419</span> <span class="c1"># The code below prevents the output from being displayed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2420</span> <span class="c1"># when using magics with decodator @output_can_be_silenced</span>
+<span class="g g-Whitespace">   </span><span class="mi">2421</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2422</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">File ~/micromamba/envs/mom1env/lib/python3.8/site-packages/IPython/core/magics/pylab.py:99,</span> in <span class="ni">PylabMagics.matplotlib</span><span class="nt">(self, line)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Available matplotlib backends: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">backends_list</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">enable_matplotlib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_show_matplotlib_backend</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/mom1env/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3588,</span> in <span class="ni">InteractiveShell.enable_matplotlib</span><span class="nt">(self, gui)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3567</span> <span class="k">def</span> <span class="nf">enable_matplotlib</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gui</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3568</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Enable interactive matplotlib and inline figure support.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3569</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3570</span><span class="sd">     This takes the following steps:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3586</span><span class="sd">         display figures inline.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3587</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3588</span>     <span class="kn">from</span> <span class="nn">matplotlib_inline.backend_inline</span> <span class="kn">import</span> <span class="n">configure_inline_support</span>
+<span class="g g-Whitespace">   </span><span class="mi">3590</span>     <span class="kn">from</span> <span class="nn">IPython.core</span> <span class="kn">import</span> <span class="n">pylabtools</span> <span class="k">as</span> <span class="n">pt</span>
+<span class="g g-Whitespace">   </span><span class="mi">3591</span>     <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">find_gui_and_backend</span><span class="p">(</span><span class="n">gui</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">mom1env</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib_inline</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">backend_inline</span><span class="p">,</span> <span class="n">config</span>  <span class="c1"># noqa</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.6&quot;</span>  <span class="c1"># noqa</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">mom1env</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib_inline</span><span class="o">/</span><span class="n">backend_inline</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;A matplotlib backend for publishing figures via display_data&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Copyright (c) IPython Development Team.</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Distributed under the terms of the BSD 3-Clause License.</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">matplotlib.backends</span> <span class="kn">import</span> <span class="n">backend_agg</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>We are constructing an instance-based classifier: we will calculate a kernel between all training instances and a test example. In this sense, this learning algorithm is lazy: no actual learning happens and each prediction includes the entire training set.</p>
 <p>As a consequence, state preparation is critical to this protocol. We have to encode the training instances in a superposition in a register, and the test instances in another register. Consider the following training instances of the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/iris">Iris dataset</a>: <span class="math notranslate nohighlight">\(S = \{(\begin{bmatrix}0 \\ 1\end{bmatrix}, 0), (\begin{bmatrix}0.790 \\ 0.615\end{bmatrix}, 1)\}\)</span>, that is, one example from class 0 and one example from class 1. Furthermore, let’s have two test instances, <span class="math notranslate nohighlight">\(\{\begin{bmatrix}-0.549\\ 0.836\end{bmatrix}, \begin{bmatrix}0.053 \\ 0.999\end{bmatrix}\}\)</span>. These examples were cherry-picked because they are relatively straightforward to prepare.</p>
@@ -437,25 +494,7 @@ Hence, if after fully encoding all training data and test data into the state <s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">training_angle</span> <span class="o">=</span> <span class="n">get_angle</span><span class="p">(</span><span class="n">training_set</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">test_angles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">training_angle</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">state_preparation_0</span> <span class="o">=</span> <span class="n">prepare_state</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">circuit_drawer</span><span class="p">(</span><span class="n">state_preparation_0</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
-
-<span class="nn">Cell In[4], line 13,</span> in <span class="ni">prepare_state</span><span class="nt">(q, c, angles)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Prepare the test vector</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">circuit</span><span class="o">.</span><span class="n">cu3</span><span class="p">(</span><span class="n">angles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ancilla_qubit</span><span class="p">,</span> <span class="n">data_qubit</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># Flip the ancilla qubit &gt; this moves the input </span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># vector to the |0&gt; state of the ancilla</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">ancilla_qubit</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: &#39;QuantumCircuit&#39; object has no attribute &#39;cu3&#39;
-</pre></div>
-</div>
+<img alt="../../_images/42db7bfb1c7ec966dbf611596e45ab5512133745a91fb8bcf1bb0ba4553ffbb2.png" src="../../_images/42db7bfb1c7ec966dbf611596e45ab5512133745a91fb8bcf1bb0ba4553ffbb2.png" />
 </div>
 </div>
 <p>The vertical lines are barriers to make sure that all gates are finished by that point. They also make a natural segmentation of the state preparation.</p>

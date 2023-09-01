@@ -82,11 +82,15 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computer_science/software_engineering/se.html">Software Engineering</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
 <ul>
@@ -315,6 +319,18 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">dimod</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>The probability distribution of a configuration <span class="math notranslate nohighlight">\(P(X_1, \ldots, X_N) = \frac{1}{Z}\exp(-\sum_k E[C_k])\)</span> does not explicitly define the temperature, but it is implicitly there in the constants defining the Hamiltonian. So, for instance, we can scale it by a temperature <span class="math notranslate nohighlight">\(T=1\)</span>.</p>
 <p>Let’s now find out the probability <span class="math notranslate nohighlight">\(P(E)\)</span> of each energy level <span class="math notranslate nohighlight">\(E\)</span>. It can be expressed as a sum over all the states with energy <span class="math notranslate nohighlight">\(E\)</span>: <span class="math notranslate nohighlight">\(P(E)=\sum_{E(X_1,...,X_n)=E} P(X_1,...,X_N)=\sum_{E(X_1,...,X_n)=E} \frac{1}{Z}e^{-E/T}\)</span>. The term in the sum is constant (it doesn’t depend on <span class="math notranslate nohighlight">\(X_1,...,X_N\)</span> anymore). Therefore, we just need to count the number of states such that <span class="math notranslate nohighlight">\(E(X_1,...,X_n)=E\)</span>. This number is called the <em>degeneracy</em> of the energy level <span class="math notranslate nohighlight">\(E\)</span>, and often noted <span class="math notranslate nohighlight">\(g(E)\)</span>. Hence, we have <span class="math notranslate nohighlight">\(P(E)=\frac{1}{Z} g(E) e^{-E/T}\)</span>.</p>
@@ -349,7 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Degeneracy {-4.0: 1, -2.0: 3, 0.0: 1}
 </pre></div>
 </div>
-<img alt="../../_images/07d8e9f5b366d56db1ae4e7137544a5d1e380e15363c0c2d3c35acab73501639.png" src="../../_images/07d8e9f5b366d56db1ae4e7137544a5d1e380e15363c0c2d3c35acab73501639.png" />
+<img alt="../../_images/f746174a66251ec01ce7a9697c8f294e9d88a5f488c884ce455bf0e7f2cd3062.png" src="../../_images/f746174a66251ec01ce7a9697c8f294e9d88a5f488c884ce455bf0e7f2cd3062.png" />
 </div>
 </div>
 </section>

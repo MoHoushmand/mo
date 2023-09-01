@@ -14,7 +14,7 @@ execute:
     - '.DS_Store'
     - '*pattern3withwildcard'
     - 'dsData.zip'
-    - 'notes'
+    - '_notes'
 
 # Parse and render settings
 parse:

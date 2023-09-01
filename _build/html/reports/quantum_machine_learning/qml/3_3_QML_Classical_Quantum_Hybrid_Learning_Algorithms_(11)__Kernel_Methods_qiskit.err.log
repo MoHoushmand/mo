@@ -1,50 +1,82 @@
 Traceback (most recent call last):
-  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
-    return just_run(coro(*args, **kwargs))
-  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
-    return loop.run_until_complete(coro)
-  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
     return future.result()
-  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/mol/micromamba/envs/moenv/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/Users/moh/micromamba/envs/mom1env/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from qiskit.tools.visualization import circuit_drawer
+from qiskit import ClassicalRegister, QuantumRegister, QuantumCircuit
+from qiskit import execute
+from qiskit import BasicAer as Aer
+import numpy as np
 
-# Compute the angles for the testvectors
-test_angles = [get_angle(test_set[0][0]), get_angle(test_set[1][0])]
-# Compute the angle for the second training vector (as the first vector is trivial)
-training_angle = get_angle(training_set[1][0])/2
+%matplotlib inline
 
-angles = [test_angles[0], training_angle]
-state_preparation_0 = prepare_state(q, c, angles)
-circuit_drawer(state_preparation_0, output='mpl')
+np.set_printoptions(precision = 3)
+
+q = QuantumRegister(4)
+c = ClassicalRegister(4)
+backend = Aer.get_backend('qasm_simulator')
 ------------------
 
+
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mAttributeError[0m                            Traceback (most recent call last)
-Cell [0;32mIn[5], line 9[0m
-[1;32m      6[0m training_angle [38;5;241m=[39m get_angle(training_set[[38;5;241m1[39m][[38;5;241m0[39m])[38;5;241m/[39m[38;5;241m2[39m
-[1;32m      8[0m angles [38;5;241m=[39m [test_angles[[38;5;241m0[39m], training_angle]
-[0;32m----> 9[0m state_preparation_0 [38;5;241m=[39m [43mprepare_state[49m[43m([49m[43mq[49m[43m,[49m[43m [49m[43mc[49m[43m,[49m[43m [49m[43mangles[49m[43m)[49m
-[1;32m     10[0m circuit_drawer(state_preparation_0, output[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmpl[39m[38;5;124m'[39m)
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 6[0m
+[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mqiskit[39;00m [38;5;28;01mimport[39;00m BasicAer [38;5;28;01mas[39;00m Aer
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[0;32m----> 6[0m [43mget_ipython[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mrun_line_magic[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mmatplotlib[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43minline[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m      8[0m np[38;5;241m.[39mset_printoptions(precision [38;5;241m=[39m [38;5;241m3[39m)
+[1;32m     10[0m q [38;5;241m=[39m QuantumRegister([38;5;241m4[39m)
 
-Cell [0;32mIn[4], line 13[0m, in [0;36mprepare_state[0;34m(q, c, angles)[0m
-[1;32m     10[0m circuit[38;5;241m.[39mbarrier()
-[1;32m     12[0m [38;5;66;03m# Prepare the test vector[39;00m
-[0;32m---> 13[0m [43mcircuit[49m[38;5;241;43m.[39;49m[43mcu3[49m(angles[[38;5;241m0[39m], [38;5;241m0[39m, [38;5;241m0[39m, ancilla_qubit, data_qubit)
-[1;32m     14[0m [38;5;66;03m# Flip the ancilla qubit > this moves the input [39;00m
-[1;32m     15[0m [38;5;66;03m# vector to the |0> state of the ancilla[39;00m
-[1;32m     16[0m circuit[38;5;241m.[39mx(ancilla_qubit)
+File [0;32m~/micromamba/envs/mom1env/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2417[0m, in [0;36mInteractiveShell.run_line_magic[0;34m(self, magic_name, line, _stack_depth)[0m
+[1;32m   2415[0m     kwargs[[38;5;124m'[39m[38;5;124mlocal_ns[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mget_local_scope(stack_depth)
+[1;32m   2416[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39mbuiltin_trap:
+[0;32m-> 2417[0m     result [38;5;241m=[39m [43mfn[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m   2419[0m [38;5;66;03m# The code below prevents the output from being displayed[39;00m
+[1;32m   2420[0m [38;5;66;03m# when using magics with decodator @output_can_be_silenced[39;00m
+[1;32m   2421[0m [38;5;66;03m# when the last Python token in the expression is a ';'.[39;00m
+[1;32m   2422[0m [38;5;28;01mif[39;00m [38;5;28mgetattr[39m(fn, magic[38;5;241m.[39mMAGIC_OUTPUT_CAN_BE_SILENCED, [38;5;28;01mFalse[39;00m):
 
-[0;31mAttributeError[0m: 'QuantumCircuit' object has no attribute 'cu3'
-AttributeError: 'QuantumCircuit' object has no attribute 'cu3'
+File [0;32m~/micromamba/envs/mom1env/lib/python3.8/site-packages/IPython/core/magics/pylab.py:99[0m, in [0;36mPylabMagics.matplotlib[0;34m(self, line)[0m
+[1;32m     97[0m     [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mAvailable matplotlib backends: [39m[38;5;132;01m%s[39;00m[38;5;124m"[39m [38;5;241m%[39m backends_list)
+[1;32m     98[0m [38;5;28;01melse[39;00m:
+[0;32m---> 99[0m     gui, backend [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mshell[49m[38;5;241;43m.[39;49m[43menable_matplotlib[49m[43m([49m[43margs[49m[38;5;241;43m.[39;49m[43mgui[49m[38;5;241;43m.[39;49m[43mlower[49m[43m([49m[43m)[49m[43m [49m[38;5;28;43;01mif[39;49;00m[43m [49m[38;5;28;43misinstance[39;49m[43m([49m[43margs[49m[38;5;241;43m.[39;49m[43mgui[49m[43m,[49m[43m [49m[38;5;28;43mstr[39;49m[43m)[49m[43m [49m[38;5;28;43;01melse[39;49;00m[43m [49m[43margs[49m[38;5;241;43m.[39;49m[43mgui[49m[43m)[49m
+[1;32m    100[0m     [38;5;28mself[39m[38;5;241m.[39m_show_matplotlib_backend(args[38;5;241m.[39mgui, backend)
+
+File [0;32m~/micromamba/envs/mom1env/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3588[0m, in [0;36mInteractiveShell.enable_matplotlib[0;34m(self, gui)[0m
+[1;32m   3567[0m [38;5;28;01mdef[39;00m [38;5;21menable_matplotlib[39m([38;5;28mself[39m, gui[38;5;241m=[39m[38;5;28;01mNone[39;00m):
+[1;32m   3568[0m [38;5;250m    [39m[38;5;124;03m"""Enable interactive matplotlib and inline figure support.[39;00m
+[1;32m   3569[0m 
+[1;32m   3570[0m [38;5;124;03m    This takes the following steps:[39;00m
+[0;32m   (...)[0m
+[1;32m   3586[0m [38;5;124;03m        display figures inline.[39;00m
+[1;32m   3587[0m [38;5;124;03m    """[39;00m
+[0;32m-> 3588[0m     [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib_inline[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackend_inline[39;00m [38;5;28;01mimport[39;00m configure_inline_support
+[1;32m   3590[0m     [38;5;28;01mfrom[39;00m [38;5;21;01mIPython[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m [38;5;28;01mimport[39;00m pylabtools [38;5;28;01mas[39;00m pt
+[1;32m   3591[0m     gui, backend [38;5;241m=[39m pt[38;5;241m.[39mfind_gui_and_backend(gui, [38;5;28mself[39m[38;5;241m.[39mpylab_gui_select)
+
+File [0;32m~/micromamba/envs/mom1env/lib/python3.8/site-packages/matplotlib_inline/__init__.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m [38;5;28;01mimport[39;00m backend_inline, config  [38;5;66;03m# noqa[39;00m
+[1;32m      2[0m __version__ [38;5;241m=[39m [38;5;124m"[39m[38;5;124m0.1.6[39m[38;5;124m"[39m  [38;5;66;03m# noqa[39;00m
+
+File [0;32m~/micromamba/envs/mom1env/lib/python3.8/site-packages/matplotlib_inline/backend_inline.py:6[0m
+[1;32m      1[0m [38;5;124;03m"""A matplotlib backend for publishing figures via display_data"""[39;00m
+[1;32m      3[0m [38;5;66;03m# Copyright (c) IPython Development Team.[39;00m
+[1;32m      4[0m [38;5;66;03m# Distributed under the terms of the BSD 3-Clause License.[39;00m
+[0;32m----> 6[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m
+[1;32m      7[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m colors
+[1;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m [38;5;28;01mimport[39;00m backend_agg
+
+[0;31mModuleNotFoundError[0m: No module named 'matplotlib'
 

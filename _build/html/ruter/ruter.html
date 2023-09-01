@@ -79,11 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../applied_mathematics/applied_math.html">Applied Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data_science/stats/ds.html">Data Science</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../computer_science/software_engineering/se.html">Software Engineering</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
 <ul>
@@ -323,40 +327,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">41</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">bqm</span> <span class="o">=</span> <span class="n">dimod</span><span class="o">.</span><span class="n">BinaryQuadraticModel</span><span class="o">.</span><span class="n">from_qubo</span><span class="p">(</span><span class="n">qubo</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="c1"># Set up the sampler</span>
-<span class="ne">---&gt; </span><span class="mi">41</span> <span class="n">sampler</span> <span class="o">=</span> <span class="n">EmbeddingComposite</span><span class="p">(</span><span class="n">DWaveSampler</span><span class="p">())</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="c1"># Solve the TSP problem using D-Wave&#39;s quantum annealer</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">sampleset</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">bqm</span><span class="p">)</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">random</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">dwave.system</span> <span class="kn">import</span> <span class="n">DWaveSampler</span><span class="p">,</span> <span class="n">EmbeddingComposite</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">dwave_networkx</span> <span class="k">as</span> <span class="nn">dnx</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 
-<span class="nn">File ~/micromamba/envs/moenv/lib/python3.9/site-packages/dwave/system/samplers/dwave_sampler.py:184,</span> in <span class="ni">DWaveSampler.__init__</span><span class="nt">(self, failover, retry_interval, **config)</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="bp">self</span><span class="o">.</span><span class="n">retry_interval</span> <span class="o">=</span> <span class="n">retry_interval</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span> <span class="bp">self</span><span class="o">.</span><span class="n">_solver_penalty</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">184</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">185</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_solver</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_solver_penalty</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/moenv/lib/python3.9/site-packages/dwave/cloud/client/base.py:374,</span> in <span class="ni">Client.from_config</span><span class="nt">(cls, config_file, profile, client, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">371</span> <span class="n">_client</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;client&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;base&#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">373</span> <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Creating </span><span class="si">%s</span><span class="s2">.Client() with: </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">_client</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">374</span> <span class="k">return</span> <span class="n">_clients</span><span class="p">[</span><span class="n">_client</span><span class="p">](</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/moenv/lib/python3.9/site-packages/dwave/cloud/events.py:105,</span> in <span class="ni">dispatches_events.__call__.&lt;locals&gt;.wrapped</span><span class="nt">(*pargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="n">dispatch_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">before_eventname</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">105</span>     <span class="n">rval</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">pargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="n">dispatch_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">after_eventname</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">exc</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/moenv/lib/python3.9/site-packages/dwave/cloud/client/base.py:477,</span> in <span class="ni">Client.__init__</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">475</span> <span class="n">token</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">476</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">token</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">477</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;API token not defined&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">479</span> <span class="c1"># parse optional client certificate</span>
-<span class="g g-Whitespace">    </span><span class="mi">480</span> <span class="n">client_cert</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;client_cert&#39;</span><span class="p">]</span>
-
-<span class="ne">ValueError</span>: API token not defined
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;dwave&#39;
 </pre></div>
 </div>
 </div>
