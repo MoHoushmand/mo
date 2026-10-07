@@ -19,8 +19,8 @@ edX); quantum computer hardware (TU Delft, edX).
 
 | Period | Role |
 |---|---|
-| From 2017 | Founder; CEO of QDaria, a quantum-computing company in Oslo |
-| Between 2017 and 2021 | CTO of iProud, with Xplorico: a personal coach built on hybrid machine-learning algorithms |
+| From 2019 | Founder of QDaria, a quantum-computing company in Oslo; CEO from 2019, elected by the board |
+| 2018 | CTO of iProud, backed by Xplorico and Malaysian officials: a personal coach built on hybrid machine-learning algorithms |
 | 2022 | Data handling, infrastructure design and full-stack development at NAV; began Zipminator |
 | 2017 | Data scientist, NAV AI Lab, one of its first |
 | Earlier | Proofreading for Professor Hans Petter Langtangen, including *Finite Difference Computing with Partial Differential Equations* |
@@ -40,7 +40,7 @@ interactive Jupyter Book.
 
 ## Art
 
-Fluid-art paintings: the Bloom series (2021), the Northern Light series (2020) and *Rajee's Torch*
+Fluid-art paintings: the *Bad Bloom* series (2021), the Northern Light series (2020) and *Rajee's Torch*
 (2019); and *Optimised FEM geometry* (2014), a finite-element mesh as a drawing. See the
 [Art](../../art/art.md) part.
 

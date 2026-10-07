@@ -137,8 +137,14 @@ body::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background: url("paper.svg") repeat; opacity: var(--mo-texture-opacity); mix-blend-mode: var(--mo-texture-blend);
 }
-.bd-container, .bd-main, .bd-page-width, .bd-header-article, .bd-sidebar-primary, .bd-sidebar-secondary,
-.bd-article-container, .bd-footer, .bd-footer-content { background: transparent; }
+.bd-container, .bd-main, .bd-page-width, .bd-article-container, .bd-footer, .bd-footer-content { background: transparent; }
+/* The sidebars sit on the paper ground on wide screens; on phones pydata moves them into modal dialogs,
+   which need a solid paper. The article header is sticky, so text must not scroll through it. */
+@media (min-width: 960px) { .bd-sidebar-primary, .bd-sidebar-secondary { background: transparent; } }
+@media (max-width: 959.98px) { .bd-sidebar-primary, .bd-sidebar-secondary { background: var(--mo-paper); } }
+#pst-primary-sidebar-modal, #pst-secondary-sidebar-modal, #pst-search-dialog { background: var(--mo-paper); color: var(--mo-ink); border: 0.5px solid var(--mo-rule); border-radius: 0; }
+#pst-primary-sidebar-modal::backdrop, #pst-secondary-sidebar-modal::backdrop, #pst-search-dialog::backdrop { background: color-mix(in srgb, var(--mo-ink) 35%, transparent); }
+.bd-header-article { background: var(--mo-paper); }
 ::selection { background: color-mix(in srgb, var(--mo-saffron) 25%, var(--mo-paper)); color: var(--mo-ink); }
 :focus-visible { outline: 2px solid var(--mo-focus); outline-offset: 2px; box-shadow: none; }
 
@@ -202,6 +208,8 @@ a:hover { color: var(--mo-link); text-decoration-thickness: 2px; }
 }
 .bd-header-article .btn:hover, .theme-switch-button:hover { color: var(--mo-link); background: transparent; }
 .dropdown-menu { border-radius: 0; border: 0.5px solid var(--mo-rule); box-shadow: none; background: var(--mo-paper); }
+.bd-article kbd, .search-button-field kbd, .kbd-shortcut__modifier, kbd { border-radius: 0; box-shadow: none; }
+.search-button-field:focus-visible, .search-button-field:hover { border-radius: 0; }
 .bd-search, .search-button-field, .bd-search input {
   border-radius: 0; box-shadow: none; border-color: var(--mo-rule); background: var(--mo-surface); color: var(--mo-ink);
 }
@@ -252,7 +260,7 @@ a:hover { color: var(--mo-link); text-decoration-thickness: 2px; }
 .sd-card-img-top, .sd-card-img { border-radius: 0; }
 .bd-article img { border-radius: 0; }
 .bd-article figure { margin: 1.5rem 0 2rem; }
-.bd-article figcaption, .bd-article .caption, .bd-article figure .caption-text {
+.bd-article figcaption, .bd-article figure .caption, .bd-article figure .caption-text {
   font-size: var(--mo-caption); line-height: 1.45; color: var(--mo-muted); text-align: left; margin-top: 0.75rem;
 }
 .bd-article figcaption p { max-width: var(--mo-measure); }
@@ -260,6 +268,9 @@ a:hover { color: var(--mo-link); text-decoration-thickness: 2px; }
 .mo-plates img { width: 100%; height: auto; border: 0.5px solid var(--mo-rule); }
 .mo-portrait img { width: 100%; max-width: 22rem; height: auto; border: 0.5px solid var(--mo-rule); }
 .mo-intro ul { padding-left: 1.1rem; }
+html[data-theme="dark"] .bd-content img:not(.only-dark):not(.dark-light) { border-radius: 0; }
+html[data-theme="dark"] .bd-content :is(.mo-plates, .mo-portrait) img { filter: none; background: transparent; }
+.bd-article .admonition-title, .bd-article .sd-card-title, .bd-article .sd-card-header { text-shadow: none; }
 
 .bd-article table, .bd-article table.table {
   border-collapse: collapse; border-top: 1px solid var(--mo-ink); border-bottom: 1px solid var(--mo-ink);
@@ -275,6 +286,10 @@ a:hover { color: var(--mo-link); text-decoration-thickness: 2px; }
 .bd-article table tbody tr:last-child > * { border-bottom: 0; }
 .bd-article table tbody tr:hover > * { background: transparent; }
 
+.bd-article .toctree-wrapper p.caption, .bd-article .toctree-wrapper .caption-text {
+  margin: 1.5rem 0 0.25rem; font-size: var(--mo-label); color: var(--mo-ink); text-align: left;
+  font-variant-caps: all-small-caps; letter-spacing: 0.16em;
+}
 .bd-article .epigraph { border: 0; padding: 0; margin: 3rem 0 1rem; font-style: italic; color: var(--mo-muted-strong); }
 
 /* ── Code and notebook cells ────────────────────────────────────────────────────────────────────── */
@@ -282,11 +297,11 @@ a:hover { color: var(--mo-link); text-decoration-thickness: 2px; }
 .bd-article code.literal, .bd-article p code, .bd-article li code {
   background: transparent; border: 0; padding: 0; font-size: 0.92em; color: var(--mo-ink);
 }
-.bd-article div.highlight, .bd-article .highlight, .bd-article div[class*="highlight-"] {
+html[data-theme] .bd-article div.highlight, html[data-theme] .bd-article .highlight, .bd-article div[class*="highlight-"] {
   background: var(--mo-surface); border-radius: 0; box-shadow: none;
 }
 .bd-article div[class*="highlight-"] { border-block: 0.5px solid var(--mo-rule); margin: 1.5rem 0; }
-.bd-article .highlight pre { background: transparent; border: 0; border-radius: 0; box-shadow: none; padding: 1rem; font-size: 0.95rem; line-height: 1.6; color: var(--mo-ink); }
+html[data-theme] .bd-article .highlight pre { background: transparent; border: 0; border-radius: 0; box-shadow: none; padding: 1rem; font-size: 0.95rem; line-height: 1.6; color: var(--mo-ink); }
 .bd-article .copybtn { border-radius: 0; box-shadow: none; background: var(--mo-paper); border: 0.5px solid var(--mo-rule); }
 .bd-article div.cell div.cell_input, .bd-article div.cell_input {
   border: 0; border-block: 0.5px solid var(--mo-rule); border-radius: 0; background: var(--mo-surface);
@@ -296,14 +311,14 @@ a:hover { color: var(--mo-link); text-decoration-thickness: 2px; }
 .bd-article div.cell_output img { max-width: 100%; }
 
 /* Code colours from the brand tokens, in both themes. */
-.highlight .c, .highlight .c1, .highlight .cm, .highlight .ch, .highlight .cs, .highlight .cp, .highlight .cpf { color: var(--mo-muted); font-style: italic; }
-.highlight .k, .highlight .kn, .highlight .kd, .highlight .kc, .highlight .kr, .highlight .kt, .highlight .kp, .highlight .ow { color: var(--mo-violet); font-weight: 400; }
-.highlight .s, .highlight .s1, .highlight .s2, .highlight .sd, .highlight .se, .highlight .sa, .highlight .sb, .highlight .si, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .ss, .highlight .dl { color: var(--mo-saffron-text); }
-.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo, .highlight .il, .highlight .mb { color: var(--mo-blue); }
-.highlight .nf, .highlight .fm, .highlight .nc, .highlight .nn { color: var(--mo-blue); }
-.highlight .nb, .highlight .bp, .highlight .nd { color: var(--mo-link); }
-.highlight .n, .highlight .nx, .highlight .na, .highlight .nv, .highlight .p, .highlight .o, .highlight .w, .highlight .err { color: var(--mo-ink); background: transparent; }
-.highlight .gp, .highlight .go { color: var(--mo-muted); }
+html[data-theme] .highlight .c, html[data-theme] .highlight .c1, html[data-theme] .highlight .cm, html[data-theme] .highlight .ch, html[data-theme] .highlight .cs, html[data-theme] .highlight .cp, html[data-theme] .highlight .cpf { color: var(--mo-muted); font-style: italic; }
+html[data-theme] .highlight .k, html[data-theme] .highlight .kn, html[data-theme] .highlight .kd, html[data-theme] .highlight .kc, html[data-theme] .highlight .kr, html[data-theme] .highlight .kt, html[data-theme] .highlight .kp, html[data-theme] .highlight .ow { color: var(--mo-violet); font-weight: 400; }
+html[data-theme] .highlight .s, html[data-theme] .highlight .s1, html[data-theme] .highlight .s2, html[data-theme] .highlight .sd, html[data-theme] .highlight .se, html[data-theme] .highlight .sa, html[data-theme] .highlight .sb, html[data-theme] .highlight .si, html[data-theme] .highlight .sh, html[data-theme] .highlight .sx, html[data-theme] .highlight .sr, html[data-theme] .highlight .ss, html[data-theme] .highlight .dl { color: var(--mo-saffron-text); }
+html[data-theme] .highlight .m, html[data-theme] .highlight .mi, html[data-theme] .highlight .mf, html[data-theme] .highlight .mh, html[data-theme] .highlight .mo, html[data-theme] .highlight .il, html[data-theme] .highlight .mb { color: var(--mo-blue); }
+html[data-theme] .highlight .nf, html[data-theme] .highlight .fm, html[data-theme] .highlight .nc, html[data-theme] .highlight .nn { color: var(--mo-blue); }
+html[data-theme] .highlight .nb, html[data-theme] .highlight .bp, html[data-theme] .highlight .nd { color: var(--mo-link); }
+html[data-theme] .highlight .n, html[data-theme] .highlight .nx, html[data-theme] .highlight .na, html[data-theme] .highlight .nv, html[data-theme] .highlight .p, html[data-theme] .highlight .o, html[data-theme] .highlight .w, html[data-theme] .highlight .err { color: var(--mo-ink); background: transparent; }
+html[data-theme] .highlight .gp, html[data-theme] .highlight .go { color: var(--mo-muted); }
 
 /* ── Buttons and controls ───────────────────────────────────────────────────────────────────────── */
 .btn, .sd-btn, button { border-radius: 0; box-shadow: none; }

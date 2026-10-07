@@ -44,6 +44,7 @@ However, there is also a separate kind of fermion in high energy physics
 which is called a Majorana fermion.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5asc0.png
+:alt: Lecture slide: Majorana fermions and where to find them
 :name: 0
 ```
 
@@ -67,6 +68,7 @@ To introduce Majorana bound states, we can first do a simple mathematical trick.
 or it can be empty, in which case we have a hole.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5asc1.png
+:alt: Lecture slide: Majorana fermions and where to find them
 :name: 1
 ```
 
@@ -78,6 +80,7 @@ that those operators are Majorana operators:
 Gamma 1 equals gamma 1 dagger, and gamma 2 equals gamma 2 dagger.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5asc2.png
+:alt: Lecture slide: Majorana fermions and where to find them
 :name: 2
 ```
 
@@ -88,6 +91,7 @@ can always be described by two Majorana operators.
 However, once you can separate the two Majorana bound states, and they become distinguishable from each other, then things become interesting.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5asc3.png
+:alt: Lecture slide: Majorana fermions and where to find them
 :name: 3
 ```
 
@@ -98,6 +102,7 @@ Now, what is the connection to qubits?
 With fermionic states, we can encode qubits.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5asc4.png
+:alt: Lecture slide: Majorana fermions and where to find them
 :name: 4
 ```
 
@@ -111,6 +116,7 @@ But if I have 2 spatially separated Majoranas I can encode one fermionic degree 
 in a very nonlocal way, protected from any local perturbation.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5asc5.png
+:alt: Lecture slide: Majorana fermions and where to find them
 :name: 5
 ```
 
@@ -125,6 +131,7 @@ As I told you before, the equivalent of particles and antiparticles in condensed
 electrons and holes.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5asc6.png
+:alt: Lecture slide: Majorana fermions and where to find them
 :name: 6
 ```
 
@@ -134,6 +141,7 @@ It is usually impossible to form a superposition of them.
 It however turns out that a good system for Majoranas are superconductors.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5asc6.png
+:alt: Lecture slide: Majorana fermions and where to find them
 :name: 7
 ```
 
@@ -168,6 +176,7 @@ The blurring of electron and hole can be described mathematically as a so-called
 For a particle at energy E you must have an antiparticle at energy minus E.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5b1.png
+:alt: Lecture slide: Majorana bound states in superconductors
 :name: b1
 ```
 
@@ -182,6 +191,7 @@ We say that they are topologically protected.
 Let me show you now in a simple picture what this actually means.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5b2.png
+:alt: Lecture slide: Majorana bound states in superconductors
 :name: b2
 ```
 
@@ -210,6 +220,7 @@ A superconductor without Majorana fermions we call trivial superconductor.
 Now, there is actually an interesting aspect about Majorana bound states being at 0 energy.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5b3.png
+:alt: Lecture slide: Majorana bound states in superconductors
 :name: b3
 ```
 
@@ -232,6 +243,7 @@ At this point it might seem easy to find Majoranas: we just have to find states 
 with zero energy.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5b4.png
+:alt: Lecture slide: Majorana bound states in superconductors
 :name: b4
 ```
 
@@ -257,6 +269,7 @@ So, a P-wave superconductor would be nice to have, but it turns out that all the
 that we know of are just trivial superconductors.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5b5.png
+:alt: Lecture slide: Majorana bound states in superconductors
 :name: b5
 ```
 
@@ -297,6 +310,7 @@ where Majorana bound states were observed for the first time.
 Remember that Majoranas only appeared by tuning the system into a topological phase.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5c1.png
+:alt: Lecture slide: Majorana experiments
 :name: c1
 ```
 
@@ -319,6 +333,7 @@ Let us first consider the case of a normal superconductor
 and forget about Majoranas for a while.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5c2.png
+:alt: Lecture slide: Majorana experiments
 :name: c2
 ```
 
@@ -343,6 +358,7 @@ and is the fundamental process of current flowing in a normal-superconducting ju
 Conductance spectroscopy is usually done in the presence of a tunnel barrier in the junction.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5c3.png
+:alt: Lecture slide: Majorana experiments
 :name: c3
 ```
 
@@ -363,6 +379,7 @@ Note that one can directly read off the superconducting gap Delta from such a me
 What happens if you have a Majorana bound state there?
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5c4.png
+:alt: Lecture slide: Majorana experiments
 :name: c4
 ```
 
@@ -377,6 +394,7 @@ inside a superconducting gap, as a signature of Majorana bound states.
 This particular measurement was done 2012 in Delft.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5c5.png
+:alt: Lecture slide: Majorana experiments
 :name: c5
 ```
 
@@ -394,6 +412,7 @@ Also, there are other effects that might induce a peak at zero bias, besides Maj
 However, since 2012 experimentalists have worked very hard on establishing Majoranas more in system.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5c6.png
+:alt: Lecture slide: Majorana experiments
 :name: c6
 ```
 
@@ -409,6 +428,7 @@ that we have Majorana bound states in these nanowire systems.
 We covered in detail about the nanowire platform for Majorana bound states.
 
 ```{figure} /quantum_computers/qc_img/gfx5/m5c7.png
+:alt: Lecture slide: Majorana experiments
 :name: c7
 ```
 

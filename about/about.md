@@ -8,9 +8,10 @@ work through what I learn.
 
 ## Background
 
-I started in art and design, and for me the bridge to science was fluid: the way acrylic paint flows,
-cells and spreads on a canvas is fluid mechanics you can watch. I followed that thread through
-engineering into applied mathematics, then into physics, data science and quantum computing.
+I am an artist at heart. My journey began in art and grew into an appreciation of where art and science
+meet, above all in fluid art and fluid mechanics: the way acrylic paint flows, cells and spreads on a
+canvas is fluid mechanics you can watch. Alongside it run applied mathematics, physics, data science and,
+now, quantum computing.
 
 I hold an MSc in Applied Mathematics, Mechanics and Numerical Physics from the University of Oslo, a BSc
 in Civil Engineering from Oslo and Akershus University College of Applied Sciences (HiOA, now OsloMet),
@@ -31,9 +32,9 @@ since grown into the post-quantum encryption software described in the
 
 ## Ventures
 
-From 2017 I worked on quantum technologies as a founder. As CTO of iProud, with Xplorico, we set out to
-build a personal coach on hybrid machine-learning algorithms. As CEO of QDaria, Norway's first
-quantum-computer company, the aim was a quantum computer for problems classical machines cannot reach,
+Between 2017 and 2021 I worked on ventures in quantum technologies. In 2018, as CTO of iProud, backed by
+Xplorico and Malaysian officials, we set out to build a personal coach on hybrid machine-learning
+algorithms. From 2019, as CEO of QDaria, Norway's first quantum-computer company, the aim was a quantum computer for problems classical machines cannot reach,
 organised in four departments: quantum hardware engineering, a quantum AI lab, a synthetic-biology lab
 and an investment hub, with health technology (bioinformatics, diagnosis, prediction and drug discovery)
 as the first application.
@@ -56,8 +57,8 @@ brilliance. Two of them died far too early, in 2017 and 2019.
 
 ### Hans Petter Langtangen (1962–2017)
 
-[Hans Petter Langtangen](https://en.wikipedia.org/wiki/Hans_Petter_Langtangen) was my professor and my
-greatest inspiration: an award-winning educator who changed how scientific computing is taught. After his
+[Hans Petter Langtangen](https://en.wikipedia.org/wiki/Hans_Petter_Langtangen) was my professor and an enduring
+inspiration: an award-winning educator who changed how scientific computing is taught. After his
 diagnosis with pancreatic cancer in early 2015 he still wrote and finished a series of books on
 scientific computing for Springer before he died in the autumn of 2017. He believed there were no
 "stupid" people, that anyone could reach a hard goal with dedication and work, and he made the most
@@ -83,10 +84,11 @@ course.
 
 [Jon Magne Leinaas](https://en.wikipedia.org/wiki/Jon_Magne_Leinaas) taught me non-relativistic quantum
 mechanics. Nearly fifty years ago he and Jan Myrheim predicted **anyons**, particles that are neither
-fermions nor bosons; experiments confirmed them independently twice during the pandemic. Jon has served
-on the Nobel Committee for Physics, and he and Jan have been strong candidates for the prize. Anyons are the
+fermions nor bosons; experiments confirmed them independently twice during the pandemic. Jon is a member
+of the Royal Swedish Academy of Sciences, which awards the physics prize, and many consider him and Jan
+strong candidates for it. Anyons are the
 theoretical basis of topological quantum computing, which uses them for computation that is protected
-against errors by its very construction, and fault tolerance is one of the hardest open problems in the
+against errors by its very construction, and fault tolerance is one of the central open problems in the
 field. That is why the topological chapters on this site get the most space, and why I intend to spend
 much of my future work there.
 

@@ -7,6 +7,7 @@ At the end of every quantum algorithm, the computation result has to be obtained
 can be measured via a readout resonator that is coupled to it. The resonance frequency of the resonator is quite far away from the qubit transition frequency, on the order of GHz.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4d1.png
+:alt: Lecture slide: Measurement
 :name: d1
 ```
 
@@ -26,6 +27,7 @@ Hence, we are able to distinguish and measure the two different qubit states. Th
 as they are averaged over thousands of measurements.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4d2.png
+:alt: Lecture slide: Measurement
 :name: d2
 ```
 
@@ -56,6 +58,7 @@ indicating that the signal practically only depends on the state of the targeted
 separating 00 and 10 from 00 and 11.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4d3.png
+:alt: Lecture slide: Measurement
 :name: d3
 ```
 
@@ -68,6 +71,7 @@ Here, we depicted a seventeen-qubit device where we play the simultaneous readou
 using seventeen readout resonators divided over three different input and output lines.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4d4.png
+:alt: Lecture slide: Measurement
 :name: d4
 ```
 
@@ -94,6 +98,7 @@ with the ground and excited state on the poles
 and the other points on the surface corresponding to quantum superpositions.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4e1.png
+:alt: Lecture slide: Single qubit gates
 :name: e1
 ```
 
@@ -102,6 +107,7 @@ for instance, here the X90 gate, which converts the ground and excited states in
 We use the physical effect called Rabi oscillation:
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4e2.png
+:alt: Lecture slide: Single qubit gates
 :name: e2
 ```
 
@@ -118,6 +124,7 @@ Let’s see how the oscillating field affects the qubit state.
 When we apply it, it drives the qubit from the ground to the first excited state and back.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4e3.png
+:alt: Lecture slide: Single qubit gates
 :name: e3
 ```
 
@@ -127,6 +134,7 @@ We can control where exactly it lies by changing the phase of the applied field:
 while a cosine with 90 degrees phase offset will induce a rotation around the y-axis. On the other hand, the speed of the rotation is proportional to the amplitude of the electric field. In order to perform a desired gate, for instance a rotation by 90 degrees around the x-axis, we thus need to apply a short pulse with the correct phase, amplitude and length.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4e4.png
+:alt: Lecture slide: Single qubit gates
 :name: e4
 ```
 
@@ -142,6 +150,7 @@ Of course, we want to make the pulses as short and strong as possible,
 to be able to do quantum computations quickly.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4e5.png
+:alt: Lecture slide: Single qubit gates
 :name: e5
 ```
 
@@ -149,6 +158,7 @@ However, the shorter the pulse,
 the more frequency components it has besides the transition frequency f01. We can see this by looking at the spectral decomposition of the pulse. Unfortunately, that means that if we make the pulses shorter and shorter, at some point, the spectrum is so broadthat the pulse drives oscillations not only between the states 0 and 1, but also 1 and 2! Then, the transmon does not work as a qubit anymore, since three transmon states are involved, and the nice Bloch sphere rotation picture breaks down. We must avoid this situation, and this limits us in making the pulses too short. To push the limit of how short we can make the pulse, instead of a square pulse, we need a pulse which is well localized in time and also frequency.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4e6.png
+:alt: Lecture slide: Single qubit gates
 :name: e6
 ```
 
@@ -158,6 +168,7 @@ Using a technique called derivative removal by adiabatic gate, or DRAG,
 we can push the limit further:
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4e7.png
+:alt: Lecture slide: Single qubit gates
 :name: e7
 ```
 
@@ -177,6 +188,7 @@ Interactions between qubits are controlled using two qubit gates.
 In transmen qubits the two qubit gate that is used to form a universal gate set. It's the conditional phase gate also known as the C phase or C's at gate.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4f1.png
+:alt: Lecture slide: Two qubit gates
 :name: f1
 ```
 
@@ -188,6 +200,7 @@ how qubits can be tuned in and out of resonance, wooden interaction,
 and why this causes the qubits to accumulate phase.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4f2.png
+:alt: Lecture slide: Two qubit gates
 :name: f2
 ```
 
@@ -197,6 +210,7 @@ And finally what the experimental challenges are when implementing high fidelity
 In superconducting transmen qubits to qubit gates are based on a transversal cubed cubed coupling.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4f3.png
+:alt: Lecture slide: Two qubit gates
 :name: f3
 ```
 
@@ -208,6 +222,7 @@ To be able to tune in and out of resonance with the interaction,
 the transition frequency of a transplant qubit must be controlled.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4f4.png
+:alt: Lecture slide: Two qubit gates
 :name: f4
 ```
 
@@ -219,6 +234,7 @@ While the cubit is detuned face accumulates. To understand how this flux control
 let us take a look at the level diagram...
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4f5.png
+:alt: Lecture slide: Two qubit gates
 :name: f5
 ```
 
@@ -231,6 +247,7 @@ By detuning the qubits into the red region, it is possible to make the target qu
 However, the interaction we are using, is an interaction between the 1-1 and the 0-2 state.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4f6.png
+:alt: Lecture slide: Two qubit gates
 :name: f6
 ```
 
@@ -242,6 +259,7 @@ Distortions can be caused by electrical components in the signal path
 between the waveform generator and the qubit, such as filters and cables.
 
 ```{figure} /quantum_computers/qc_img/gfx4/m4f7.png
+:alt: Lecture slide: Two qubit gates
 :name: f7
 ```
 
@@ -268,6 +286,7 @@ Main takeaways
 ### Question 1
 
 ```{figure} /quantum_computers/qc_img/gfx4/general_bloch_sphere.jpg
+:alt: Lecture slide: Question 1
 :name: f7-2
 ```
 

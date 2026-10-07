@@ -8,7 +8,8 @@ do with information.
 This part works through four ideas, each followed by a short quiz:
 
 - **Entanglement.** Two qubits that share one state. Why entanglement cannot be shared with a third
-  party (its *monogamy*), and why entangled qubits measured in the same basis always agree.
+  party (its *monogamy*), and why maximally entangled qubits measured in the same basis give perfectly
+  correlated outcomes.
 - **Teleportation.** Moving an unknown qubit state from one place to another with one entangled pair and
   two classical bits.
 - **Measurement.** The probability of each outcome, and what measuring one part of an entangled state

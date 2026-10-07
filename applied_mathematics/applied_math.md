@@ -16,5 +16,5 @@ faster: only a few groups in the world run it at scale. That cost is one of the 
 ask what quantum computers might do for simulation.
 
 The numerical methods behind all of this, finite differences above all, I learned from Professor Hans
-Petter Langtangen; his *Finite Difference Computing with Partial Differential Equations* is the best
+Petter Langtangen; his *Finite Difference Computing with Partial Differential Equations* is a good
 place to start.

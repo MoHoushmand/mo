@@ -3,7 +3,7 @@
 ```{div} mo-lead
 Artist, applied mathematician and quantum-computing founder in Oslo. This site holds my notes on
 quantum mechanics, quantum hardware and quantum machine learning, written as an interactive Jupyter
-Book, next to the fluid-art paintings where the mathematics started for me.
+Book, next to my fluid-art paintings.
 ```
 
 ::::{grid} 1 1 2 2
@@ -57,9 +57,9 @@ Most of the site is in English; the painting course is in Norwegian, with an Eng
 
 :::{grid-item}
 ```{figure} art/fluidart/bloom0.JPG
-:alt: Bad Bloom, an acrylic pour of blooming cells
+:alt: A painting from the Bad Bloom series, an acrylic pour of blooming cells
 
-*Bad Bloom*, from the Bloom series. Fluid acrylic, 2021.
+From the *Bad Bloom* series. Fluid acrylic, 2021.
 ```
 :::
 
@@ -92,8 +92,8 @@ Most of the site is in English; the painting course is in Norwegian, with an Eng
 
 My way into quantum computing ran through fluid mechanics. Computational fluid dynamics (CFD) and
 direct numerical simulation (DNS) both solve the Navier–Stokes equations; DNS resolves every scale of a
-turbulent flow and is so expensive that only a handful of groups can run it at scale. Working on those
-simulations, and on the high-performance materials they describe, led me to ask what a quantum computer
+turbulent flow and is so expensive that only a handful of groups can run it at scale. My interest in
+high-performance materials and in CFD simulations of turbulent flows led me to ask what a quantum computer
 could do for such problems, and from there to the quantum mechanics underneath.
 
 The hardware part of this site follows that path from the device up. I give topological qubits extra

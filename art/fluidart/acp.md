@@ -24,7 +24,7 @@ and pouring medium) and the tools, and go through the techniques of the course: 
 swipe. They end with how to finish a painting so that it keeps its colours and does not yellow.
 ```
 
-![swipe0](Northern-Light.JPG)
+![Northern Light, et Dutch pour-maleri](Northern-Light.JPG)
 
 ---
 
@@ -36,7 +36,7 @@ Dette dokumentet var skrevet i mai 2021 for kursdeltakere som var påmeldt *flui
 ---
 
 
-![swipe0](bloom0.JPG)
+![Maleri fra Bad Bloom-serien](bloom0.JPG)
 
 ---
 
@@ -52,19 +52,19 @@ Deretter skal vi endelig komme igang med de utvalgte teknikkene vi skal gjennomf
 
 Men først til inspirasjon og en sniktitt på endt resultat av noen malerier jeg har laget, og noen av tenikkene vi skal gå gjennom: 
 
-![swipe0](bloom3.JPG)
+![Maleri fra Bad Bloom-serien](bloom3.JPG)
 
 ---
 
-![swipe0](swipe0.JPG)
+![Maleri laget med swipe-teknikken](swipe0.JPG)
 
 ---
 
-![swipe0](flipcup.JPG)
+![Flip cup-maleri](flipcup.JPG)
 
 ---
 
-![swipe0](bloom2.JPG)
+![Maleri fra Bad Bloom-serien](bloom2.JPG)
 
 ---
 

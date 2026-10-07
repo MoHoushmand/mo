@@ -19,7 +19,7 @@ Generally speaking, the 'building blocks' of a quantum computer include componen
 
 In the following segments, we will discuss the broader aspects of a quantum computer: from programming it to interpreting the results. The first term we want to emphasize is *compute*. In reality, we are not merely building a quantum computer; we are developing a quantum accelerator. Specifically, we are creating a computational device that can be connected to a classical processor, which will then provide the performance required for various applications that are beyond the reach of classical computing. The concept of a heterogeneous multicore architecture offers a global view of our current understanding in this domain.
 
-![alt text](../quantum_computers/qc_img/gfx1/scs0.png)
+![Lecture slide: The Hardware of Quantum Computers](../quantum_computers/qc_img/gfx1/scs0.png)
 
 Heterogeneous because we have different kind of accelerator technologies. We have an
 
@@ -34,7 +34,7 @@ That also means that when you write any application, you will most likely end up
 3. GPU instruction set, and also the
 4. quantum instruction set.
 
-![alt text](../quantum_computers/qc_img/gfx1/scs1.png)
+![Lecture slide: The Hardware of Quantum Computers](../quantum_computers/qc_img/gfx1/scs1.png)
 
 That is very important to understand, so whatever we are going to discuss in the following talks is only going to focus on the quantum accelerator device or the application processes that we need classically as well as quantumly to be provided
 
@@ -394,7 +394,7 @@ $$\mid\pm\rangle=\frac{\mid0\rangle\pm\mid1\rangle}{\sqrt{2}}\,\,\,\alpha\mid0\r
 
 This leaves us with a small question: if any basis is just as good as any other, is there a basis that we should use as the default? Fortunately, the devices that we use to store and manipulate qubit states provide us with just such a default basis.
 
-![alt text](../quantum_computers/qc_img/gfx1/scs2.png)
+![Lecture slide: Introduction to Ket notation](../quantum_computers/qc_img/gfx1/scs2.png)
 
 One such device, which we see quite frequently in quantum mechanics, is the harmonic oscillator, shown on the left. These devices are described by a Hamiltonian, which is a matrix that assigns an energy E_k to each of its eigenstates, or preferred basis states, psi_k.
 
@@ -416,7 +416,7 @@ $\mid\psi_{k}\rangle\mapsto\mid k\rangle$
 
 Some devices have finite-dimensional state spaces, unlike the harmonic oscillator.
 
-![alt text](../quantum_computers/qc_img/gfx1/scs3.png)
+![Lecture slide: Introduction to Ket notation](../quantum_computers/qc_img/gfx1/scs3.png)
 
 ### Operations & Observables
 
@@ -544,7 +544,7 @@ This implies that we can express them as the cosine and sine of an angle theta, 
 
 This family of angles theta and phi also describes the set of points on the surface of a sphere of unit radius in 3d space.
 
-![alt text](../quantum_computers/qc_img/gfx1/scs4.png)
+![Lecture slide: The Bloch Sphere](../quantum_computers/qc_img/gfx1/scs4.png)
 
 $$\mid\psi\rangle=\cos(\theta)|0\rangle+e^{i\phi}\sin(\theta)|1\rangle$$ anti-parallel on the Bloch sphere
 
