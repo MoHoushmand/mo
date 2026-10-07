@@ -6,7 +6,7 @@ logo: img/mologo/mo0.png
 
 only_build_toc_files: true
 # The local build environment and the notes are never pages.
-exclude_patterns: [.venv, _build, _notes, "**/.ipynb_checkpoints", Thumbs.db, .DS_Store]
+exclude_patterns: [.venv, _build, _notes, .remember, "**/.ipynb_checkpoints", Thumbs.db, .DS_Store]
 
 # Execution settings
 execute:

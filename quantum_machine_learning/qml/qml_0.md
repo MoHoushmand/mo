@@ -6,9 +6,9 @@ Where these notebooks come from, and how to read their results.
 
 ## Sources
 
-The notebooks are adapted from *Quantum Machine Learning*, the University of Toronto course on
-[edX](https://www.edx.org/course/quantum-machine-learning) by Peter Wittek, Arthur Pesah, Patrick
-Huembeli and contributors. Peter Wittek introduced me to the field; the [About](../../about/about.md)
+The notebooks are adapted from *Quantum Machine Learning*, the University of Toronto course on edX by
+Peter Wittek, Arthur Pesah, Patrick Huembeli and contributors, whose lecture notebooks are on
+[GitHub](https://github.com/qosf/qml-mooc). Peter Wittek introduced me to the field; the [About](../../about/about.md)
 page says more about him. The course's text and figures are licensed under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and its code under the MIT License. Its figures
 are reproduced here unchanged; the text and code are adapted, with my own notes added.

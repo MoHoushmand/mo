@@ -46,7 +46,7 @@ html[data-theme="light"] {
   --mo-saffron-text: #874E0D;
   --mo-blue: #115BCD;
   --mo-violet: #7C3AED;
-  --mo-link: #AD1737;
+  --mo-link: #97142F;           /* maroon, darkened from #AD1737 to reach 7:1 on the paper edge */
   --mo-focus: #115BCD;
   --mo-texture-opacity: 0.03;
   --mo-texture-blend: multiply;
@@ -206,6 +206,7 @@ a:hover { color: var(--mo-link); text-decoration-thickness: 2px; }
   content: ""; position: absolute; left: -0.6rem; top: calc(50% - 8px); width: 2px; height: 16px; background: var(--mo-saffron);
 }
 .bd-sidebar-primary .sidebar-primary-items__end, .bd-sidebar-primary .bd-sidebar__bottom { display: none; }
+nav.bd-links li > a:focus-visible, .bd-links a:focus-visible, .toc-entry a.nav-link:focus-visible { outline: 2px solid var(--mo-focus); outline-offset: 2px; }
 
 .bd-header-article { border-bottom: 0.5px solid var(--mo-rule); }
 .bd-header-article .btn, .article-header-buttons .btn, .theme-switch-button {
@@ -257,6 +258,7 @@ a:hover { color: var(--mo-link); text-decoration-thickness: 2px; }
 .bd-article .admonition.dropdown > .admonition-title { cursor: pointer; padding-right: 2rem; }
 .bd-article .toggle-button, .bd-article button.toggle-button { color: var(--mo-ink); }
 .bd-article .toggle-button svg { stroke: currentColor; }
+.bd-article button.toggle-button:focus-visible, .bd-article .admonition.dropdown > .admonition-title:focus-visible { outline: 2px solid var(--mo-focus); outline-offset: 2px; }
 
 /* ── Cards, figures, tables ─────────────────────────────────────────────────────────────────────── */
 .sd-card { border: 0.5px solid var(--mo-rule); border-radius: 0; background: transparent; box-shadow: none !important; }
@@ -275,7 +277,9 @@ a:hover { color: var(--mo-link); text-decoration-thickness: 2px; }
 .mo-intro ul { padding-left: 1.1rem; }
 html[data-theme="dark"] .bd-content img:not(.only-dark):not(.dark-light) { border-radius: 0; }
 html[data-theme="dark"] .bd-content :is(.mo-plates, .mo-portrait) img { filter: none; background: transparent; }
-.bd-article .admonition-title, .bd-article .sd-card-title, .bd-article .sd-card-header { text-shadow: none; }
+.bd-article .admonition-title, .bd-article .sd-card-title, .bd-article .sd-card-header,
+html[data-theme="dark"] .bd-article .admonition-title, html[data-theme="dark"] .bd-article .sd-card-title,
+html[data-theme="dark"] .bd-article .sd-card-header, html[data-theme="dark"] .bd-article .admonition > .admonition-title { text-shadow: none; }
 
 .bd-article table, .bd-article table.table {
   border-collapse: collapse; border-top: 1px solid var(--mo-ink); border-bottom: 1px solid var(--mo-ink);
