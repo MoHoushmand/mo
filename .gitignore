@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Build output: the site is published from the gh-pages branch
+_build/
+
+# Local Python environment and notebook state
+.venv/
+.ipynb_checkpoints/
+__pycache__/
