@@ -1,74 +1,39 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
+#
+# Every page from the 2023 table of contents is still published here, regrouped. The qubits/* stubs
+# repeat the full hardware chapters and stay unlisted, as do intro.md (the startup story), the template
+# pages, applied_mathematics/bioinformatics.md and the 0_x and 2_4 notebooks.
 
 format: jb-book
 root: index
 defaults:  # The defaults key will be applied to all chapters and sub-sections
   titlesonly: True
-options:
-  numbered: true
-#defaults:  # The defaults key will be applied to all chapters and sub-sections
-#titlesonly: True
-#expand_subsections: True
 parts:
   - caption: About
-    #numbered: True  # Only applies to chapters in Part 1.
-    chapters:  
-    #- file: intro
+    chapters:
     - file: about/about
       sections:
       - file: about/CV/CV
-  - caption: Art
-    numbered: true
-    #numbered: True  # Only applies to chapters in Part 1.
-    chapters:  
-    - file: art/art
-      sections:
-      - file: art/fluidart/acp
-    #numbered: False  # Only applies to chapters in Part 1.
-  - caption: Applied Mathematics
-    #numbered: False
-    chapters:
-    - file: applied_mathematics/applied_math
-      sections:
-      - file: applied_mathematics/PDEs/NS_eq
-  - caption: Data Science
-    #numbered: False
-    chapters:
-    - file: data_science/stats/ds
-      sections:
-      - file: data_science/stats/statML
-  - caption: Computer Science
-    chapters:
-    - file: computer_science/software_engineering/se
-      sections:
-      - file: computer_science/software_engineering/zipminator
+
   - caption: Quantum Mechanics
     numbered: true
-    #numbered: True  # Only applies to chapters in Part 1.
-    chapters:  
+    chapters:
     - file: quantum_mechanics/quantum_mechanics
       sections:
       - file: quantum_mechanics/qm/qm_0
-  - caption: Quantum Computation 
+
+  - caption: Quantum Computation
     numbered: true
-    #numbered: True  # Only applies to chapters in Part 1.
-    chapters:  
+    chapters:
     - file: quantum_computation/quantum_computation
       sections:
       - file: quantum_computation/qc/qc_0
+
   - caption: Quantum Computer Hardware
     numbered: true
-    #numbered: True  # Only applies to chapters in Part 1.
-    chapters:  
+    chapters:
     - file: quantum_computers/quantum_computers
-      sections:
-      - file: quantum_computers/qubits/spin
-      - file: quantum_computers/qubits/nvcenter
-      - file: quantum_computers/qubits/superconducting
-      - file: quantum_computers/qubits/topological
-      - file: quantum_computers/qubits/photonic
-      - file: quantum_computers/qubits/annealing
     - file: quantum_computers/spin_qubits/spin_qubits
       sections:
       - file: quantum_computers/spin_qubits/spin_qubits_op
@@ -78,36 +43,73 @@ parts:
     - file: quantum_computers/nv_center_qubits/nv_center_qubits
       sections:
       - file: quantum_computers/nv_center_qubits/nv_center_qubits_op
-    - file: quantum_computers/quantum_annealing/quantum_annealing
-      sections:
-      - file: quantum_computers/quantum_annealing/quantum_annealing_op
     - file: quantum_computers/topological_qubits/topological_qubits
       sections:
       - file: quantum_computers/topological_qubits/topological_qubits_op
-    - file: quantum_computers/sum
+      - file: quantum_computers/qubits/topological
+    - file: quantum_computers/quantum_annealing/quantum_annealing
+      sections:
+      - file: quantum_computers/quantum_annealing/quantum_annealing_op
+    - file: quantum_computers/qsum
+
   - caption: Quantum Machine Learning
     numbered: true
-    #numbered: True  # Only applies to chapters in Part 1.
-    chapters:  
+    chapters:
     - file: quantum_machine_learning/quantum_machine_learning
       sections:
       - file: quantum_machine_learning/qml/qml_0
     - file: quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit
+      title: "Classical and quantum probability"
     - file: quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria
+      title: "Measurements and mixed states"
     - file: quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria
+      title: "Evolution in closed and open systems"
     - file: quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria
+      title: "Classical and quantum many-body physics"
     - file: quantum_machine_learning/qml/2_1_QML_Quantum_Computations_(05)__Gate_Model_Quantum_Computing_qiskitQDaria
+      title: "Gate-model quantum computing"
     - file: quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation(06)__Adiabatic_Quantum_Computing_qiskit
+      title: "Adiabatic quantum computing"
     - file: quantum_machine_learning/qml/2_3_QML_Quantum_Computation(07)__Variational_Circuits_qiskit
+      title: "Variational circuits"
     - file: quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(9)__Discrete_Optimization_And_Ensemble_Learning_qiskit(Ecoding_Classical_Inforfmation)
+      title: "Discrete optimisation and ensemble learning"
     - file: quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(10)__Discrete_Optimization_and_Unsupervised_Learning_qiskit
+      title: "Discrete optimisation and unsupervised learning"
     - file: quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(11)__Kernel_Methods_qiskit
+      title: "Kernel methods"
     - file: quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_(12)__Training_Probabilistic_Graphical_Models
+      title: "Probabilistic graphical models"
     - file: quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_(13)__Quantum_Phase_Estimation_qiskit
+      title: "Quantum phase estimation"
     - file: quantum_machine_learning/qml/4_2_QML_Coherent_Learning_(14)__Quantum_Matrix_Inversion_qiskit
+      title: "Quantum matrix inversion"
     - file: quantum_machine_learning/qml/5_1_QML_Lecture_(15)__quantumkernels_svm
+      title: "Quantum kernels and support vector machines"
     - file: quantum_machine_learning/qml/5_2_QML_Lecture_(16)__quantumkernels_variational
-  - caption: Ruter
-    #numbered: True  # Only applies to chapters in Part 1.
-    chapters:  
+      title: "Variational quantum kernels"
+
+  - caption: Mathematics and Data
+    chapters:
+    - file: applied_mathematics/applied_math
+      sections:
+      - file: applied_mathematics/PDEs/NS_eq
+    - file: data_science/stats/ds
+      sections:
+      - file: data_science/stats/statML
+
+  - caption: Software
+    chapters:
+    - file: computer_science/software_engineering/se
+      sections:
+      - file: computer_science/software_engineering/zipminator
+
+  - caption: Art
+    chapters:
+    - file: art/art
+      sections:
+      - file: art/fluidart/acp
+
+  - caption: Experiments
+    chapters:
     - file: ruter/ruter
