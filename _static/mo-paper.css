@@ -145,6 +145,11 @@ body::before {
 #pst-primary-sidebar-modal, #pst-secondary-sidebar-modal, #pst-search-dialog { background: var(--mo-paper); color: var(--mo-ink); border: 0.5px solid var(--mo-rule); border-radius: 0; }
 #pst-primary-sidebar-modal::backdrop, #pst-secondary-sidebar-modal::backdrop, #pst-search-dialog::backdrop { background: color-mix(in srgb, var(--mo-ink) 35%, transparent); }
 .bd-header-article { background: var(--mo-paper); }
+/* pydata 0.17 renders its own top navbar under sphinx-book-theme 1.3; it only repeats the search button,
+   and the article header already carries the menu toggle, so it is hidden. */
+#pst-header { display: none; }
+/* Bootstrap's rounded-pill is !important; the back-to-top button stays square. */
+#pst-back-to-top { border-radius: 0 !important; box-shadow: none; background: var(--mo-ink); color: var(--mo-paper); border: 0; }
 ::selection { background: color-mix(in srgb, var(--mo-saffron) 25%, var(--mo-paper)); color: var(--mo-ink); }
 :focus-visible { outline: 2px solid var(--mo-focus); outline-offset: 2px; box-shadow: none; }
 

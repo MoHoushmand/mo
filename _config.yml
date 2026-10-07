@@ -90,6 +90,7 @@ sphinx:
     # Mo Paper: the site's own theme, on top of sphinx-book-theme. custom.css keeps the classes the
     # pages use (the orange admonitions, the picture cards), restyled to match.
     html_css_files: [mo-paper.css, custom.css]
+    html_js_files: [mo-toggles.js]
     # CNAME is copied to the site root, so every deploy keeps the mohoushmand.com domain; _redirects
     # keeps the addresses of pages that were merged into others.
     html_extra_path: [CNAME, _redirects]
