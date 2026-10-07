@@ -1,1 +1,0 @@
-# Quantum Annealing 0
