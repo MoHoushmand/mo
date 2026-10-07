@@ -2,7 +2,7 @@
 
 Anyons are an essential ingredient if you want to do quantum computing with topological qubits. In this first video Attila Geresdi will explain more about these anyons.
 
-# What are anyons?
+## What are anyons?
 
 To understand the importance of anyons in quantum computation,
 let’s take two identical elementary particles.
@@ -57,7 +57,7 @@ This property is usually referred to as the topological equivalence of the excha
 In the next video, we will see how the non-Abelian anyons
 fulfill the requirements of building a quantum computer.
 
-## Main takeaways
+### Main takeaways
 
 - A Majorana fermion is a fermion which is its own antiparticle. In principle they could exist, but nobody knows for sure if they do.
 - In condensed matter, Majoranas regard Majorana bound states, rather than actual Majorana fermions.
@@ -65,7 +65,7 @@ fulfill the requirements of building a quantum computer.
 - The possibility of spatially separating Majoranas protect against local perturbations, laying the basis of topological qubits.
 - Superconductors are a good system for Majoranas, as linear superpositions of electrons and holes can be formed.
 
-# Quantum computation on anyons
+## Quantum computation on anyons
 
 Now let’s do quantum computation with anyons.
 If we want to develop a scalable quantum computer, we have to consider the DiVincenzo criteria:
@@ -122,7 +122,7 @@ Main takeaways
 - Braiding operations are always discrete. They either happen or don’t happen. As a result, the quantum gates have a fidelity of 100%.
 - Braiding operations cannot reach the entire Bloch sphere. Additional gates can be supplemented with unprotected operations.
 
-# Qubit implementation in nanowire networks
+## Qubit implementation in nanowire networks
 
 Let’s discuss some real-life implementations
 of these topological quantum bits.
@@ -194,9 +194,9 @@ Main takeaways
 - In order to measure the states, degeneracy has to be broken by splitting off states.
 - It remains to be seen which geometry will lead to the very first experimental demonstration of a topological qubit.
 
-## Practice Quiz 11
+### Practice Quiz 11
 
-### Question 1
+#### Question 1
 
 Why is a Majorana bound state immune against thermal fluctuations in its environment?
 
@@ -204,7 +204,7 @@ Why is a Majorana bound state immune against thermal fluctuations in its environ
 - **It cannot lose energy because it is in the ground state; and it cannot gain energy because of the energy gap.**
 - Because it is insensitive to imperfections in the exchange path.
 
-### Question 2
+#### Question 2
 
 Consider two Majorana bound states in a nanowire. Due to the 1D nature of the nanowire it is not possible to braid the bound states without fusing them. Attila mentioned a solution to that in the video. What was it?
 
@@ -212,9 +212,9 @@ Consider two Majorana bound states in a nanowire. Due to the 1D nature of the na
 - Apply a magnetic field to temporarily change the energy of one of the bound states so that they don’t fuse when their positions are exchanged.
 - **Attach an extra segment to the nanowire that allows us to perform the braiding without the bound states crossing paths.**
 
-## Quiz 11: Operations on topological qubits
+### Quiz 11: Operations on topological qubits
 
-### Question 1: Bosons
+#### Question 1: Bosons
 
 0.0/1.0 point (graded)
 How exchanging two particles in a three dimensional world leads to the classification in fermions or bosons.
@@ -229,7 +229,7 @@ Which of the following is a boson?
 Explanation
 Photons and Higgs bosons are bosons. It was explained that the wavefunction of two bosons doesnt change if you exchange the two. Electrons are fermions, if you exchange two electrons (fermions) the total wavefunction will pick up a minus sign.
 
-### Question 2: Fermions
+#### Question 2: Fermions
 
 Phonons and Higgs bosons are bosons. The wavefunction of two bosons doesn't change if you exchange the two. Electrons are fermions, if you exchange two electrons (fermions) the total wavefunction will pick up a minus sign.
 
@@ -238,7 +238,7 @@ Phonons and Higgs bosons are bosons. The wavefunction of two bosons doesn't chan
 - Higgs boson
 - Anyon
 
-### Question 3: Anyons
+#### Question 3: Anyons
 
 The wavefunction changes when we exchange two particles. Here he introduced two wavefunctions, $\Psi(1,2)$ and $\Psi(2,1)$. The two are related as follows. When we exchange particle 1 and 2 , we pick up a phase $\alpha$ for the wavefunction. We write this as $\Psi(2,1)=e^{i \alpha} \Psi(1,2)$.
 What value can $\alpha$ be for anyons?
@@ -251,7 +251,7 @@ What value can $\alpha$ be for anyons?
 Explanation
 When exchanging two anyons, the wavefunction can pick up any phase. By a phase we mean any (possible) complex number $x$ for which hold that $|x|=1 .$ This holds for $\left|e^{i \alpha}\right|=1$ if $\alpha$ is a real number.
 
-### Question 4: Measurements
+#### Question 4: Measurements
 
 In the previous modules we have discussed several other qubits. When looking at measurement, which sort of qubits have measurement setup similar to the setup discussed by Atilla in the last lecture (i.e. to measure the result of the fusion)?
 
@@ -286,7 +286,7 @@ $$
 See wikipedia for more information on conjugating complex numbers
 https://en.wikipedia.org/wiki/Complex_conjugate
 
-### Question 5: Braiding 12
+#### Question 5: Braiding 12
 
 As mentioned in the first video by Atilla, every quantum gate is an unitary operation. Later he discusses braiding operations as the way to do gate operations on topological qubits. Assume now that we have four anyons making up 1 qubit. For the following, let's have $\mathcal{B}_{12}=e^{-i \pi / 8}\left[\begin{array}{ll}1 & 0 \\ 0 & i\end{array}\right]$ as the operator for exchanging anyon 1 and 2 and $\mathcal{B}_{23}=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}1 & -i \\ -i & 1\end{array}\right]$ as the operator for exchanging anyon 2 and 3. So these are both braiding operators. Atilla says that we can do quantum gate with these, but are these actually quantum gates?
 Calculate $\mathcal{B}_{12} \mathcal{B}_{12}^{\dagger}$. What is the result?
@@ -302,7 +302,7 @@ $\left[\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right]$
 
 ---
 
-### Question 6: Braiding 23
+#### Question 6: Braiding 23
 
 Calculate $\mathcal{B}_{23} \mathcal{B}_{23}^{\dagger}$. What is the result?
 
@@ -317,7 +317,7 @@ $\left[\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right]$
 
 ---
 
-### Question 7: Braiding and unitaries
+#### Question 7: Braiding and unitaries
 
 What can we conclude from the previous two questions?
 
@@ -327,7 +327,7 @@ What can we conclude from the previous two questions?
 
 ---
 
-### Question 8: Abelian and non-Abelian operations
+#### Question 8: Abelian and non-Abelian operations
 
 We call a braiding group Abelian if for every combination of elements from the group it holds that $\mathcal{B}_{1} \mathcal{B}_{2}=\mathcal{B}_{2} \mathcal{B}_{1}$. In other words, the order in which we apply the operations doesn't matter. Lets have a look at the two braiding operators introduced before: $\mathcal{B}_{12}, \mathcal{B}_{23}$.
 What do you get if you do the following multiplication (up to a phase!!): $\mathcal{B}_{12} \mathcal{B}_{23}=$
@@ -341,7 +341,7 @@ What do you get if you do the following multiplication (up to a phase!!): $\math
 $\left[\begin{array}{cc}1 & -i \\ 1 & i\end{array}\right]$
 ```
 
-### Question 9: More braiding
+#### Question 9: More braiding
 
 What do you get if you do the following multiplication (up to a phase!!): $\mathcal{B}_{12} \mathcal{B}_{12}=$
 
@@ -354,7 +354,7 @@ What do you get if you do the following multiplication (up to a phase!!): $\math
 $\left[\begin{array}{cc}1 & 0 \\ 0 & -1\end{array}\right]$
 ```
 
-### Question 10: Braiding 2 and 3
+#### Question 10: Braiding 2 and 3
 
 What do you get if you do the following multiplication (up to a phase!!): $\mathcal{B}_{23} \mathcal{B}_{23}=$
 
@@ -370,7 +370,7 @@ $\left[\begin{array}{ll}0 & 1 \\ 1 & 0\end{array}\right]$
 Explanation
 This is actually an X gate! So by braiding we can do bit flips!
 
-### Question 11: Multiple braidings
+#### Question 11: Multiple braidings
 
 What do you get if you do the following multiplication (up to a phase!!): $\mathcal{B}_{12} \mathcal{B}_{23} \mathcal{B}_{12}=$
 
@@ -386,7 +386,7 @@ $\left[\begin{array}{cc}1 & 0 \\ 0 & -1\end{array}\right]$
 Explanation
 This is actually a Hadamard gate!
 
-### Question 12: Anyons in nanowires
+#### Question 12: Anyons in nanowires
 
 We have seen how to implement these anyons in nanowires.
 What is a problem if we want to exchange two particles in a nanowire?
@@ -398,7 +398,7 @@ What is a problem if we want to exchange two particles in a nanowire?
 Explanation
 Because a nanowire can be treated as a 1D system, the anyons cannot move around eachother. The thus can't exchange position without directly crossing eachother, which leads to an unwanted fusion.
 
-# Learn More
+## Learn More
 
 https://www.youtube.com/watch?v=igPXzKjqrNg
 
@@ -408,7 +408,7 @@ Advanced introduction of topological quantum computing
 This paper gives an elaborate introduction to topological quantum computing where also the underlying mathematics are explained. This material is mainly suited for participants with a background in quantum mechanics, do not be discouraged if it is hard to follow.
 https://arxiv.org/pdf/1705.04103.pdf
 
-## Topological Quantum Computer - Professor John Preskill, Caltech
+### Topological Quantum Computer - Professor John Preskill, Caltech
 
 You can use topology to make a quantum computer work now topology is the word that mathematicians use when they want to describe the properties of objects which remain unchanged if we smoothly deform the object without tearing it topology is irrelevant to quantum computation because we would like the way a quantum computer processes its protected information to remain invariant if we deform the quantum computer by introducing some noise or
 error now physicists have known for a long time for decades that there are physical interactions that have a topological character for example I can transport an electron around a tube of magnetic flux and that will modify the quantum state of that electron even though the electron never enters the tube in a way that depends on the enclosed magnetic flux and that
