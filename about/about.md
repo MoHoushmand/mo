@@ -1,254 +1,99 @@
----
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
+# About me
 
-(about)=
-
-# About
-
-```{code-cell} ipython3
-:tags: ["full-width"]
-print("This is a test.")
+```{div} mo-lead
+I am Daniel Mo Houshmand: an artist, applied mathematician and founder of QDaria, a quantum-computing
+company in Oslo. I came to quantum computing through fluid mechanics and art, and this site is where I
+work through what I learn.
 ```
 
-(my-label)=
+## Background
 
-## My header
+I am an artist at heart. My journey began in art and grew into an appreciation of where art and science
+meet, above all in fluid art and fluid mechanics: the way acrylic paint flows, cells and spreads on a
+canvas is fluid mechanics you can watch. Alongside it run applied mathematics, physics, data science and,
+now, quantum computing.
 
-## huip
+I hold an MSc in Applied Mathematics, Mechanics and Numerical Physics from the University of Oslo, a BSc
+in Civil Engineering from Oslo and Akershus University College of Applied Sciences (HiOA, now OsloMet),
+and a BA in Design and Modelling Techniques from ESMOD Bordeaux/Oslo. I have since completed
+specialisations in mathematics for machine learning, quantum machine learning and quantum computer
+hardware; the last two are the backbone of the quantum parts of this site.
 
-```{code-cell} ipython3
-:tags: ["output_scroll"]
-for ii in range(10):
-  print("This is a test.")
-```
+## Work
 
-###
+I proofread for Professor Hans Petter Langtangen, among other things his book
+*Finite Difference Computing with Partial Differential Equations: A Modern Software Approach*.
 
-bhipbhio
+In 2017 I joined the AI Lab of the Norwegian Labour and Welfare Administration (NAV) as one of its first
+data scientists. I returned to NAV in 2022, working on data handling, infrastructure design and
+full-stack development. There I began Zipminator, a tool for handling sensitive data securely; it has
+since grown into the post-quantum encryption software described in the
+[Zipminator](../computer_science/software_engineering/zipminator.md) chapter.
 
-####
+## Ventures
 
-```{code-cell} ipython3
-:tags: ["margin"]
-print("This is a test.")
-```
+Between 2017 and 2021 I worked on ventures in quantum technologies. In 2018, as CTO of iProud, backed by
+Xplorico and Malaysian officials, we set out to build a personal coach on hybrid machine-learning
+algorithms. From 2019, as CEO of QDaria, Norway's first quantum-computer company, the aim was a quantum computer for problems classical machines cannot reach,
+organised in four departments: quantum hardware engineering, a quantum AI lab, a synthetic-biology lab
+and an investment hub, with health technology (bioinformatics, diagnosis, prediction and drug discovery)
+as the first application.
 
-```{code-cell} ipython3
-:tags: ["hide-input"]
-print("This is a test.")
-```
+QDaria is active today. From Oslo it works on topological quantum computing with Fibonacci anyons, and
+on products that put quantum methods to work: Zipminator for post-quantum encryption, Qm9 for finance,
+QDiana for education, QNilaya for health and QMikeAI for quantum-enhanced fluid dynamics and
+high-performance computing. More at [qdaria.com](https://qdaria.com).
 
-```{code-cell} ipython3
-:tags: ["hide-cell"]
-print("This is a test.")
-```
+## Interests
 
-```{code-cell} ipython3
-:tags: ["remove-input"]
-print("This is a test.")
-```
+I believe interdisciplinary work is where new technologies open up. My own fields are fluid art, fluid
+mechanics and turbulence, computational science, data science and quantum computing, and this site shows
+them side by side: paintings next to proofs, notebooks next to device physics.
 
-```{code-cell} ipython3
-:tags: ["remove-cell"]
-print("This is a test.")
-```
+## Teachers
 
-```{code-cell} ipython3
-:tags: ["raises-exception"]
-while True print('Hello world')
-```
+I have been fortunate to learn from people who set an example of kindness and respect as much as of
+brilliance. Two of them died far too early, in 2017 and 2019.
 
-```python
-note = "Python syntax highlighting"
-print(node)
-```
+### Hans Petter Langtangen (1962–2017)
 
-```{code-cell} ipython3
-note = "Python syntax highlighting"
-print(note)
-```
+[Hans Petter Langtangen](https://en.wikipedia.org/wiki/Hans_Petter_Langtangen) was my professor and an enduring
+inspiration: an award-winning educator who changed how scientific computing is taught. After his
+diagnosis with pancreatic cancer in early 2015 he still wrote and finished a series of books on
+scientific computing for Springer before he died in the autumn of 2017. He believed there were no
+"stupid" people, that anyone could reach a hard goal with dedication and work, and he made the most
+self-doubting of us believe it too. He was part of the Centre for Neuroplasticity, and he gave me a
+lasting love of numerical methods for partial differential equations. I am proud to have proofread some
+of his writing, including his last book, *Finite Difference Computing with Partial Differential
+Equations*. I think of him every day, with grief and with gratitude.
 
+### Peter Wittek (1980–2019)
 
-<html>
-  <head>
-    <title>Ice Cream Picker</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  </head>
-  <body>
+[Peter Wittek](https://www.utoronto.ca/news/u-t-s-peter-wittek-who-will-be-remembered-feb-3-event-why-future-quantum)
+of the University of Toronto introduced me to quantum machine learning in 2017, when I had only just
+begun with machine learning, natural-language processing and topic modelling (latent Dirichlet
+allocation) as a data-science intern at Norway's first publicly funded AI lab. My physics background
+helped me follow his teaching, with considerable effort. He died in a Himalayan avalanche in 2019. I
+believe our third attempt at a quantum-computing start-up would have succeeded had he still been with
+us. I remember him for his work in quantum machine learning, and for his generosity in guiding a
+newcomer through a field that was then completely new, and for his faith in our ambitious plan to build
+Norway's first quantum-computer company. The quantum machine learning series here is adapted from his
+course.
 
-    <py-config>
-      packages = ["matplotlib", "pandas"]
-    </py-config>
+### Jon Magne Leinaas
 
-    <py-script>
-      import js
-      import pandas as pd
-      import matplotlib.pyplot as plt
+[Jon Magne Leinaas](https://en.wikipedia.org/wiki/Jon_Magne_Leinaas) taught me non-relativistic quantum
+mechanics. Nearly fifty years ago he and Jan Myrheim predicted **anyons**, particles that are neither
+fermions nor bosons; experiments confirmed them independently twice during the pandemic. Jon is a member
+of the Royal Swedish Academy of Sciences, which awards the physics prize, and many consider him and Jan
+strong candidates for it. Anyons are the
+theoretical basis of topological quantum computing, which uses them for computation that is protected
+against errors by its very construction, and fault tolerance is one of the central open problems in the
+field. That is why the topological chapters on this site get the most space, and why I intend to spend
+much of my future work there.
 
-      from pyodide.http import open_url
-      from pyodide.ffi import create_proxy
+## Contact
 
-      url = (
-          "https://raw.githubusercontent.com/Cheukting/pyscript-ice-cream/main/bj-products.csv"
-      )
-      ice_data = pd.read_csv(open_url(url))
-
-      current_selected = []
-      flavour_elements = js.document.getElementsByName("flavour")
-
-      def plot(data):
-          plt.rcParams["figure.figsize"] = (22,20)
-          fig, ax = plt.subplots()
-          bars = ax.barh(data["name"], data["rating"], height=0.7)
-          ax.bar_label(bars)
-          plt.title("Rating of ice cream flavours of your choice")
-          display(fig, target="graph-area", append=False)
-
-      def select_flavour(event):
-          for ele in flavour_elements:
-              if ele.checked:
-                  current_selected = ele.value
-                  break
-          if current_selected == "ALL":
-              plot(ice_data)
-          else:
-              filter = ice_data.apply(lambda x: ele.value in x["ingredients"], axis=1)
-              plot(ice_data[filter])
-
-      ele_proxy = create_proxy(select_flavour)
-
-      for ele in flavour_elements:
-          if ele.value == "ALL":
-            ele.checked = True
-            current_selected = ele.value
-          ele.addEventListener("change", ele_proxy)
-
-      plot(ice_data)
-
-    </py-script>
-
-    <div id="input" style="margin: 20px;">
-      Select your 🍨 flavour: <br/>
-      <input type="radio" id="all" name="flavour" value="ALL">
-      <label for="all"> All 🍧</label>
-      <input type="radio" id="chocolate" name="flavour" value="COCOA">
-      <label for="chocolate"> Chocolate 🍫</label>
-      <input type="radio" id="cherrie" name="flavour" value="CHERRIES">
-      <label for="cherrie"> Cherries 🍒</label>
-      <input type="radio" id="berries" name="flavour" value="BERRY">
-      <label for="berries"> Berries 🍓</label>
-      <input type="radio" id="cheese" name="flavour" value="CHEESE">
-      <label for="cheese"> Cheese 🧀</label>
-      <input type="radio" id="peanut" name="flavour" value="PEANUT">
-      <label for="peanut"> Peanut 🥜</label>
-    </div>
-
-    <py-repl>
-      ice_data
-    </py-repl>
-
-    <div id="graph-area"></div>
-  </body>
-</html>
-
-
-```{only} html
-<iframe src="https://pyscript.net/latest/pyscript.html" width="100%" height="600px"></iframe>
-```
-
-```{only} html
-<html>
-  <head>
-    <title>Ice Cream Picker</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  </head>
-  <body>
-
-    <py-config>
-      packages = ["matplotlib", "pandas"]
-    </py-config>
-
-    <py-script>
-      import js
-      import pandas as pd
-      import matplotlib.pyplot as plt
-
-      from pyodide.http import open_url
-      from pyodide.ffi import create_proxy
-
-      url = (
-          "https://raw.githubusercontent.com/Cheukting/pyscript-ice-cream/main/bj-products.csv"
-      )
-      ice_data = pd.read_csv(open_url(url))
-
-      current_selected = []
-      flavour_elements = js.document.getElementsByName("flavour")
-
-      def plot(data):
-          plt.rcParams["figure.figsize"] = (22,20)
-          fig, ax = plt.subplots()
-          bars = ax.barh(data["name"], data["rating"], height=0.7)
-          ax.bar_label(bars)
-          plt.title("Rating of ice cream flavours of your choice")
-          display(fig, target="graph-area", append=False)
-
-      def select_flavour(event):
-          for ele in flavour_elements:
-              if ele.checked:
-                  current_selected = ele.value
-                  break
-          if current_selected == "ALL":
-              plot(ice_data)
-          else:
-              filter = ice_data.apply(lambda x: ele.value in x["ingredients"], axis=1)
-              plot(ice_data[filter])
-
-      ele_proxy = create_proxy(select_flavour)
-
-      for ele in flavour_elements:
-          if ele.value == "ALL":
-            ele.checked = True
-            current_selected = ele.value
-          ele.addEventListener("change", ele_proxy)
-
-      plot(ice_data)
-
-    </py-script>
-
-    <div id="input" style="margin: 20px;">
-      Select your 🍨 flavour: <br/>
-      <input type="radio" id="all" name="flavour" value="ALL">
-      <label for="all"> All 🍧</label>
-      <input type="radio" id="chocolate" name="flavour" value="COCOA">
-      <label for="chocolate"> Chocolate 🍫</label>
-      <input type="radio" id="cherrie" name="flavour" value="CHERRIES">
-      <label for="cherrie"> Cherries 🍒</label>
-      <input type="radio" id="berries" name="flavour" value="BERRY">
-      <label for="berries"> Berries 🍓</label>
-      <input type="radio" id="cheese" name="flavour" value="CHEESE">
-      <label for="cheese"> Cheese 🧀</label>
-      <input type="radio" id="peanut" name="flavour" value="PEANUT">
-      <label for="peanut"> Peanut 🥜</label>
-    </div>
-
-    <py-repl>
-      ice_data
-    </py-repl>
-
-    <div id="graph-area"></div>
-  </body>
-</html>
-```
+The quickest way to reach me is through [LinkedIn](https://www.linkedin.com/in/mohoushmand/) or
+[GitHub](https://github.com/MoHoushmand). If you spot an error on this site, or see how a page could be
+clearer, please tell me; the site is better for every correction.

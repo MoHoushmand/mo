@@ -9,71 +9,43 @@ But that's not all - we'll also explore how we can interconnect NV centers using
 Hold on to your seats as we dive deeper into the enigmatic world of NV Center qubits and their potential applications in quantum computing and beyond.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o2.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o2.png)
 
 The first thing to realize is that this electron spin is surrounded by an entire cloud of nuclear spins.
 About 1% of diamond consists of Carbon-13, which is a spin-1/2 system and the rest consists of Carbon-12, which has no spin.
 
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o3.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o3.png)
 
 Now normally speaking, these nuclear spins are a source of decoherence.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o4.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o4.png)
 
 They flip-flop around randomly, and create a slowly-varying magnetic field on the NV-center.
 If we prepare the NV center in a quantum superposition state, then this fluctuating magnetic field changes the NV energy levels, that causes its phase evolution to become random and the quantum state is lost. This dephasing time is only about 5 microseconds, not that long.
 
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o5.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o5.png)
 
 Luckily, we can play a trick. We can apply a pulse that inverts the state of the NV. That if we flip it, this also inverts the effect of the magnetic field on the spin. So, if we have the same time before and after this flip, then the effect of the field exactly cancels and the quantum state is protected. We call this a spin echo. Of course this cancelation only works if the magnetic field is constant over time.
 
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o6.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o6.png)
 
 But don’t worry. As long as the field fluctuates slowly, we can just flip the electron spin multiple times, faster and faster, so that everything still averages out. In this graph you can see that this works.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o7.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o7.png)
 
 We bring the electron spin in a super position and as we apply more and more pulses, we protect the electron spin longer and longer. In this way, we can even protect the quantum state for over a second, so really over macroscopic time scales and about six orders of magnitude better than without flipping the electron. We thus have very good coherence for the electron spins. How can we now use this to control multiple nuclear spins in the environment? The key here is that if the electron spin is, let’s say, in a state pointing downwards, then it creates a dipolar magnetic field.
 
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o8.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o8.png)
 
 Each nuclear spin has a different position and angle from the electron spin, so that each of them feels a different magnetic field. This gives each nuclear spin a unique frequency, so that we can apply radiofrequency pulses that are resonant only with a particular targeted nuclear spin. We can selectively control the spins. Moreover, if we now flip the electron to its zero state, it does not create a magnetic field.
 
@@ -82,11 +54,7 @@ The evolution of the nuclear spin thus depends on the state of the electron spin
 This means we have a controlled quantum gate between the electron and nuclear spin. A CNOT.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o9.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o9.png)
 
 That is exactly what we need for quantum computation.
 This enables us to control multiple nuclear spins near a single NV center.
@@ -95,22 +63,14 @@ How do we link these NV centres together into a network?
 For that we use photons.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o10.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o10.png)
 
 Consider two NV centres in two different diamonds.
 We first make each of these NV centres emit a photon that is entangled with the spin state.
 And then we take these two photons and bring them together on a beam splitter.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o11.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o11.png)
 
 After this beam splitter it is fundamentally impossible to tell which photon came from which NV center.
 This means if the detectors behind the beam splitter register a certain pattern of photons,
@@ -137,20 +97,12 @@ The next big step will be to combine the control of multiple qubits in each node
 with optical links to generate entanglement, in order to build increasingly larger quantum networks.
 all the way on the right. This experiment was done to provide a more stringent test if quantum entanglement really exists.
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o12.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o12.png)
 
 Of course there are still many challenges.
 We need really good quantum control over all these spins and photons.
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3o13.png)
-```
+![Lecture slide: Operations on NV center qubits](../qc_img/gfx3/m3o13.png)
 
 We need to understand how to efficiently run quantum computations and error correction
 over these networks, and we need to build the complex electronics and software
@@ -410,7 +362,8 @@ Video on entanglement on demand
 
 ### Bonus question: Bandgap of a NV center (ungraded)
 
-```{figure} /gfx/gfx3/NVminus_cear.png
+```{figure} /quantum_computers/qc_img/gfx3/NVminus_cear.png
+:alt: Lecture slide: Bonus question: Bandgap of a NV center (ungraded)
 :name: Quantum Network
 
 Quantum Network

@@ -1,5 +1,12 @@
 # Spin Qubits
 
+```{admonition} Source
+:class: mo-source
+This chapter follows TU Delft's QTM2x course on edX closely, with its figures and quizzes, and adds my
+own notes. Where the text says *we*, the course's lecturers are speaking. I am grateful to TU Delft for
+teaching this openly.
+```
+
 Now that we have coverded all the basic building blocks of a quantum computer. It is now time to dive deeper into the block at the bottom of the stack: the quantum chip! Qubits can be realized in many different physical platforms, and in the next week's we will introduce you to some of these realizations.
 
 We will start with an introduction about electron spin qubits realized in semiconductor quantum dots. These qubits highly resemble the classical semiconductor transistors that we use everyday in almost every electronic equipment. This unique characteristic has attracted a lot of attention from the most important semiconductor companies. Check out this article about Intel's vision about spin qubits.
@@ -10,20 +17,12 @@ When we look back at the development of semi-conducting technology, a great mome
 
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum k0](../qc_img/gfx2/m2a-1.png)
-```
+![Lecture slide: Spin Qubits](../qc_img/gfx2/m2a-1.png)
 
 
 So a second momentous step was in 1958 - the first demonstration of an integrated circuit, where all of the relevant components were integrated monolithically in the same piece of germanium or silicon, and that's led to the remarkably powerful and complex processors that we use in computers and memory chips today.
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx2/m2a-2.png)
-```
+![Lecture slide: Spin Qubits](../qc_img/gfx2/m2a-2.png)
 
 Now, based on this very same core technology of transistors and integrated circuits, we have found in the last decade how to build some of the highest-quality quantum bits. If we look at how a transistor is built, essentially, it is a switch that controls the flow of electrons between two contacts using the voltage applied to a single gate.
 
@@ -31,11 +30,7 @@ If we now imagine that we replace the one gate by multiple gates side-by-side se
 
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx2/m2a-3.png)
-```
+![Lecture slide: Spin Qubits](../qc_img/gfx2/m2a-3.png)
 
 In this way it is actually possible to isolate small puddles of electrons from the rest of the world. A quantum dot is the small space where electrons are pulled in below one gate separated by other puddles of electrons.
 
@@ -44,65 +39,37 @@ So how in the world can we isolate individual electrons and control them? It sta
 How do we know that individual charges are being added to the island?
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx2/m2a-4.png)
-```
+![Lecture slide: Spin Qubits](../qc_img/gfx2/m2a-4.png)
 
 The standard method is to look at the current that flows between the contacts through the quantum dot – the central island. In this schematic, we see a set of lines, called electrochemical potential lines, that can be pushed up or pulled down by the gate voltage as a ladder, and each line indicates the energy needed to add the next electron to the island. What we see in the configuration on the left is that this energy is larger than the energy of the highest occupied state in the reservoirs, called the Fermi energy, so the electrons in the reservoir don’t have enough energy to go into the quantum dot. Furthermore, the line at the dot below it is lower than the Fermi energy in both reservoirs so no electron can leave the dot.
 
 In other words, electrons cannot be removed from the island and electrons cannot be added to the island; current is blocked. We call this Coulomb blockade. In the configuration on the right, we have adjusted the gate voltage in such a way that the ladder comes down, and the electrochemical potential μ(N) lies exactly within the window between the source and drain Fermi energies or electrochemical potentials. In this condition, if an electron can move from the source into the island, then from the island it can move out to the drain. However, before the first electron leaves, no second electron can enter. So individual electrons are really being added one by one as they pass through the quantum dot. But altogether, these many electrons moving through one by one, do produce a measurable current.
 
-```{grid-item-card}
-:shadow: md
+![Lecture slide: Spin Qubits](../qc_img/gfx2/m2a-5.png)
 
-![Quantum Network](../qc_img/gfx2/m2a-5.png)
-```
-
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx2/m2a-6.png)
-```
+![Lecture slide: Spin Qubits](../qc_img/gfx2/m2a-6.png)
 
 The current flows whenever the electrochemical potential lies within this biased window between source and drain. We see this beautifully in measurements as sharp peaks in the conductors and current through the quantum dot for specific gate voltages where we have reached an alignment as shown in the schematic on the right, and for the intermediate gate voltages, the current is blocked. A second important method to measure and detect the presence or absence of individual electrons is what we call charge sensing.
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../qc_img/gfx2/m2a-7.png)
-```
+![Lecture slide: Spin Qubits](../qc_img/gfx2/m2a-7.png)
 
 Basically, if you imagine a single quantum dot and another quantum dot next to it, as you have seen, the current through the second quantum dot sensitively depends on the gate voltage; with a small change in gate voltage we can produce a large current or completely shut off the current.
 Now imagine a second quantum dot is placed next to the first. It turns out that a single charge added to the second quantum dot acts like a small shifting gate voltage through capacitive coupling, it shifts the position of the levels in the first quantum dot. So when a single charge is added to one quantum dot, the current through a neighbouring quantum dot is changed in a measurable way. Let’s look at an example of two quantum dots.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../quantum_computers/qc_img/gfx2/m2a-8.png)
-```
+![Lecture slide: Spin Qubits](/quantum_computers/qc_img/gfx2/m2a-8.png)
 
 In this case we need an additional gate in between the two quantum dots to control their coupling. By lowering the voltage on this tunnel barrier gate we can tune the electrical potential in such way that the two electrons are well isolated from each other. If we draw a gate voltage space where the gate voltage that controls the potential of one quantum dot is plotted on the horizontal axis, and the gate voltage that controls the second quantum dot on the vertical axis; then, if the two quantum dots are uncoupled, for specific voltages on the first gate electrode electrons are added to the first quantum dot.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../quantum_computers/qc_img/gfx2/m2a-9.png)
-```
+![Lecture slide: Spin Qubits](/quantum_computers/qc_img/gfx2/m2a-9.png)
 
 These transitions are represented by the vertical lines in the plot.
 Similarly, for specific voltages on the second gate electrode, electrons are added one at a time to the second quantum dot. These are the horizontal lines. If we now consider two quantum dots in each other's vicinity, two effects will happen.
 
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../qc_img/gfx2/m2a-10.png)
-```
+![Lecture slide: Spin Qubits](../qc_img/gfx2/m2a-10.png)
 
 The first is that crosstalk. The voltage applied to the first gate electrode also affects the potential of the second quantum dot, which sits to its side; and vice versa. That's why, the lines that were vertical and horizontal before, are now aligned at an angle.
 
@@ -134,11 +101,7 @@ A “ladder” diagram describes situations in which electrons from the reservoi
 :::{grid-item-card} a
 :shadow: md
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../qc_img/gfx2/m2aq1_current_left.png)
-```
+![Lecture slide: Practice Quiz 4](../qc_img/gfx2/m2aq1_current_left.png)
 
 
 Here's the first card.
@@ -147,11 +110,7 @@ Here's the first card.
 :::{grid-item-card} b
 :shadow: md
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../qc_img/gfx2/m2aq1_current_right.png)
-```
+![Lecture slide: Practice Quiz 4](../qc_img/gfx2/m2aq1_current_right.png)
 
 
 Here's the second card.
@@ -160,11 +119,7 @@ Here's the second card.
 :::{grid-item-card} c
 :shadow: md
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../qc_img/gfx2/m2aq1_no_flow.png)
-```
+![Lecture slide: Practice Quiz 4](../qc_img/gfx2/m2aq1_no_flow.png)
 
 
 Here's the third card.
@@ -275,11 +230,7 @@ Thermal excitation is a primary source of error in quantum computing, which is w
 :::{grid-item-card} a
 :shadow: md
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../qc_img/gfx2/ChargeStability1.jpg)
-```
+![Lecture slide: Question 3: Charge stability diagrams](../qc_img/gfx2/ChargeStability1.jpg)
 
 Here's the first card.
 :::
@@ -287,11 +238,7 @@ Here's the first card.
 :::{grid-item-card} b
 :shadow: md
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../qc_img/gfx2/ChargeStability2.jpg)
-```
+![Lecture slide: Question 3: Charge stability diagrams](../qc_img/gfx2/ChargeStability2.jpg)
 
 Here's the second card.
 :::
@@ -325,11 +272,7 @@ If in both graphs the lines had been vertical, the dot would have solely been co
 :::{grid-item-card} a
 :shadow: md
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Network](../qc_img/gfx2/m2aq4_Presentation6.jpg)
-```
+![Lecture slide: Question 4: Charge sensing](../qc_img/gfx2/m2aq4_Presentation6.jpg)
 
 Here's the first card.
 :::
@@ -375,7 +318,7 @@ Connectors can be tens of thousands of times larger than the typical quantum dot
 ### Question 5: Challenges for spin qubits
 
 ```{exercise}
-:label: Quiz 4 Q5
+:label: Quiz 4 Q5 challenges
 
 What is one of the biggest challenges to build large 2D arrays of quantum dots?
 

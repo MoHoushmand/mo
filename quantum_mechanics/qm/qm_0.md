@@ -28,7 +28,7 @@ It’s almost romantic to think that two particles can be entangled even when th
 More about quantum entanglement. How is it generated and what are the implications?
 Entanglement further explained
 
-# Entanglement further explained
+## Entanglement further explained
 
 So what is entanglement precisely? Imagine we have 2 particles: we have particle $A$ and particle B. And these particles can be either full, which is the filled have here, empty, or a superposition of the two. Now let’s say that particle A and B are entangled. The weird thing about this entanglement is that when we would measure one of the particles, say we’d like to measure particle A, and we get the outcome/result full. Instantaneously the particle at B collapses into the full state as well. This happens instantaneously, so even faster than the speed of light.
 However, particle B, or an observer at particle B would never know if Alice, the observer at A has already measured her particle. In order for him to know if Alice measured her particle, Alice needs to send a signal over a classical internet,
@@ -59,11 +59,11 @@ $$\frac{1}{\sqrt{2}}\left[\begin{array}{c} 1\\ 1\\1\\ -1 \end{array}\right]$$
 
 Indeed!
 
-# Different Ways of Entanglement
+## Different Ways of Entanglement
 
 Entanglement can be generated in different ways. This difference will manifest itself in the outcome statistics when performing measurements. In this example you can see an entangled pair of qubits that always produces the opposite answers, rather than the same answers as we saw before.
 
-## Question 1: Entanglement with general correlations
+### Question 1: Entanglement with general correlations
 
 Correlated and anti-correlated states aren't the only maximally entangled states. In fact, any state which can be written as
 
@@ -102,15 +102,15 @@ Multiplying the 1 state by $-1$ also results in a state orthogonal to the $0$ st
 
 ---
 
-# Teleportation
+## Teleportation
 
 Quantum teleportation is a method to send qubits using entanglement. Teleportation works as follows: First Alice and Bob need to establish an entangled pair of qubits between them. Alice then takes the qubit that she wants to send and the qubit that is entangled with Bob’s qubit and performs a measurement on them. This measurement collapses the qubits and destroys the entanglement, but gives her two classical outcomes in the form of two classical bits. She takes this two classical bits and sends them over the classical internet to Bob. Bob then applies a correction operation that depends on these two classical bits to his qubit. This allows him to recover the qubit that was originally in Alice’s possession. Note that we have now transmitted a qubit without really using a physical carrier that is capable of transmitting qubits. But of course you already need entanglement to do this. It is also important to note that quantum teleportation does not allow for faster than light communication. This is so because Bob cannot make sense of the qubit in her possession before he gets the classical measurement outcomes from Alice. These classical measurement outcomes must take a certain amount of time to be transmitted. And this time is lower bounded by the speed of light.
 
-# Teleportation further explained
+## Teleportation further explained
 
 So we’ve talked a lot about entanglement, but now we will see how we can use this entanglement to teleport a certain quantum state. So let’s take a look at how this works. First, we have two stations: we have station Alice and we have station Bob. Alice and Bob share an entangled state, which means Bob has one qubit of the entangled state and Alice has the other one of the entangled state. What Alice also has is another qubit which is not entangled with any of those which has a state A. Alice and Bob’s goal is to teleport Alice’s state A to Bob’s qubit. The first thing they do is to perform some operations which we again denote as a black box. After the operations have been done, Alice will measure her qubits. Since Alice has 2 qubits the total outcome can be 4 different situations. For example: both the qubits could be measured into the state empty, the first qubit might have been full and the second empty and vice versa. And there is also the situation where both of the qubits are measured to be full. And these four situation also results in 4 different states for Bob. So in the empty-empty case we get the full state A back, but as you can see not all the measurement outcomes result in this nice state A. They do resemble A, but they are rotated or flipped a bit. So Bob needs to do something in order to correctly retrieve the state A. And for this he needs Alice’s help. What does Alice do? Alice uses her information she had on the measured qubits to send Bob instructions. If her first bit was measured to be full, she says to Bob: rotate your qubit 180 degrees clockwise. If it’s empty, do nothing. Almost the same goes for the second qubit, only now the rotation is 90 degrees clockwise. So if it’s full, Bob has to rotate the bit, if it’s empty Bob has to do nothing. So let’s take a look at what this would result in. So let’s take a look at the first case: Alice measured empty-empty. She knows now: I measured empty-empty, and because of my clever operations in the black box I know that Bob must already be in the state A. So I order him to do nothing. She sends Bob this information over a classical internet, so she cannot exceed the speed of light on this one. Then we go to the second possibility, so she measured full on the first qubit and empty on the second qubit. Remember: the instruction on this one was: rotate your qubit 180 degrees clockwise. So let’s take a look. We see we have an A upside down here, and we have to rotate it 180 degrees. And we see that we get the correct state A. So it works for this outcome. But now we take a look at what happened for the third possibility. What is the first qubit was empty and the second qubit was full. This corresponds to a 90 degrees clockwise rotation. So she sends this information to Bob, and Bob says: OK, right, 90 degrees, I can do this! So we see we have this sort of flipped A here, and were going to rotate it 90 degrees clockwise, again resulting in the state A. And you can already a little bit check for the final case, when both the qubits are full, we have to rotate 180 degrees clockwise and also rotate 90 degrees clockwise. So this would again result in: first the 180 degrees clockwise... ..and now the 90 degrees clockwise, which is again the state A. So if Bob follows the orders of Alice correctly, and Alice of course sends the correct information, Bob will always retrieve the quantum state A that Alice initially had. So the quantum state has been teleported from Alice’s lab to Bob’s lab.
 
-# One-bit "Teleportation"
+## One-bit "Teleportation"
 
 There's a simpler protocol, called "one-bit teleportation", which does not consume an entangled state, but requires Alice and Bob to be close together, such that they can perform the $\text{CNOT}$ CNOT gate on their qubits:
 
@@ -138,7 +138,7 @@ What is the resulting state?
 If Bob now measures his qubit in the Z basis and receives 0, Alice has received Bob's initial state. If Bob receives a $1$, he can send a classical message to Alice telling her to perform the X operation, at which point she will possess Bob's initial state.
 ```
 
-# Measurement
+## Measurement
 
 Measurement is the act of observing a quantum state. This observation will yield classical information such as a bit. It is important to note that this measurement process will change the quantum state. For instance if the state is in superposition, this measurement will ‘collapse’ it into a classical state; zero or one. This collapse process happens randomly. Before we do the measurement we have no way of knowing what the outcome will be. What we can do however is to calculate the probability of each outcome. This probability is a prediction about the quantum state, a prediction that we can test by preparing the state many times, measuring it and then counting the fraction of each outcome.
 
@@ -168,7 +168,7 @@ This probability must be equal to the probability that we calculated earlier, wh
 
 ---
 
-# Measurement in superposition
+## Measurement in superposition
 
 When performing measurement we do not necessarily have to collapse into the zero or the one state. We can also choose to collapse into a pair of superposition states. This has important consequences when measuring entangled pairs. When both parties perform the same type of measurement the outcomes will always agree. But if one party performs one type and the other party performs the other type the answers will no longer agree. In fact they will be completely uncorrelated.
 
@@ -192,7 +192,7 @@ Which of the eigenstates of $Z\otimes I$ may be output from this measurement, an
 Explanation The measurement cannot return the 01 or 10 states, since the inner product of the input state with those basis states is zero. The inner products of the input state with the 00 and 11 states are equal, leading to a 50-50 distribution.
 ```
 
-### Question 2: Partial measurement of an entangled state - continued
+### Question 2: Partial measurement of an entangled state, continued
 
 0 points possible (ungraded) Suppose that Alice and Bob have prepared some entangled state, and Alice has performed the partial measurement described above, resulting in the basis state $\mid00\rangle$ .
 
@@ -206,12 +206,12 @@ What happens if Bob measures $𝑍$ or $𝑋$ on his qubit? See the previous ket
 ```
 
 
-# Repeaters
+## Repeaters
 
 Repeaters enable long distance communication over a quantum network. An optical fiber can transmit a qubit over roughly $100$ kilometers. If you want to send a quantum information over an very long distance just a fiber is not good enough. To send information over this long distances we need quantum repeaters. Quantum repeaters can be thought of as a series of short entangled links connecting the two points. The quantum information can then be teleported through these links and arrive safely at its destination.
 
-# Repeaters Further Explained
-Quantum repeaters are vital components for establishing long-distance quantum communication. While your analogy effectively explained the basic principle behind quantum repeaters, here's another way to explain it without sounding too much like GPT-4:
+## Repeaters Further Explained
+Quantum repeaters are vital components for establishing long-distance quantum communication. Here is another way to picture what a repeater does.
 
 Imagine you're trying to play a complex board game with someone who lives hundreds of miles away from you. Your goal is to duplicate the exact game state between your place and theirs. You can do this by sending them detailed instructions about each move you make, but the further away they are, the higher the chance your messages will get lost or garbled along the way. This is similar to the problems we face in quantum communication.
 
@@ -224,73 +224,6 @@ The repeater receives one qubit from Alice and one from Bob. At this point, Alic
 The specifics of the operations in the "black box" involve some complicated quantum mechanics and are beyond the scope of this explanation, but they're necessary to ensure that the original quantum state isn't destroyed in the process.
 
 
-## Question 1: Definition of a quantum repeater
-
-```{exercise} More about spin readout
-:label: x0
-:class: orange
-
-In order to read out the state of a spin qubit in a quantum dot, we move the Fermi level of the reservoir in between the two spin states. Then, only a spin-up electron can tunnel out of the dot to one of the available states in the reservoir. A spin-down electron will remain trapped inside the quantum dot.
-Which could be a limiting factor of this readout protocol?
-```
-
-```{solution} x0
-:label: sq5q2
-:class: orange
-:class: dropdown
-- [ ] It is not possible to read out a superposition of spin states.
-- [ ] Three quantum dots are required to perform this readout protocol.
-- [ ] Magnetic noise can prevent the spin-up electron to tunnel out, since the Lorentz force accelerates the electron perpendicular to the direction of motion.
-- [x] A spin-down electron can acquire the energy necessary to tunnel out of the dot from thermal fluctuations.
-```
-
-d
-
-dw
-
-[x] True
-[] False
-
-dw
-
-```{admonition} Explanation
-Explanation We can think of the repeater protocol as being divided into two smaller protocols. First, Alice and the repeater generate shared entanglement. Then, Bob and the repeater generate shared entanglement, which they use to teleport half of the Alice/repeater entangled state to Bob
-```
-
-```{exercise} More about spin readout
-:label: q5q2
-:class: orange
-
-
-As discussed in the lecture, in order to read out the state of a spin qubit in a quantum dot, we move the Fermi level of the reservoir in between the two spin states. Then, only a spin-up electron can tunnel out of the dot to one of the available states in the reservoir. A spin-down electron will remain trapped inside the quantum dot.
-Which could be a limiting factor of this readout protocol?
-
-```
-
-```{solution} q5q2
-:label: sq5q2
-:class: orange
-:class: dropdown
-- [ ] It is not possible to read out a superposition of spin states.
-- [ ] Three quantum dots are required to perform this readout protocol.
-- [ ] Magnetic noise can prevent the spin-up electron to tunnel out, since the Lorentz force accelerates the electron perpendicular to the direction of motion.
-- [x] A spin-down electron can acquire the energy necessary to tunnel out of the dot from thermal fluctuations.
-
-```
-
-```{admonition} Explanation
-The energy gap between the spin-up and spin-down states is quite small, much smaller than the charging energy of a quantum dot, seen in the previous quiz. Since the fermi level of the reservoir is biased to be between the spin-down and spin-up states, this allows an even small fluctuation to excite a spin-down electron into the reservoir.
-```
-
-in order to read out the state of a spin qubit in a quantum dot, we move the Fermi level of the reservoir in between the two spin states. Then, only a spin-up electron can tunnel out of the dot to one of the available states in the reservoir. A spin-down electron will remain trapped inside the quantum dot.
-Which could be a limiting factor of this readout protocol?
-
-```{admonition} Explanation
-Explanation We can think of the repeater protocol as being divided into two smaller protocols. First, Alice and the repeater generate shared entanglement. Then, Bob and the repeater generate shared entanglement, which they use to teleport half of the Alice/repeater entangled state to Bob
-
-- [ ] It is not possible to read out a superposition of spin states.
-- [ ] Three quantum dots are required to perform this readout protocol.
-- [ ] Magnetic noise can prevent the spin-up electron to tunnel out, since the Lorentz force accelerates the electron perpendicular to the direction of motion.
-- [x] A spin-down electron can acquire the energy necessary to tunnel out of the dot from thermal fluctuations.
-
+```{admonition} Key idea
+We can think of the repeater protocol as two smaller protocols. First, Alice and the repeater generate shared entanglement. Then Bob and the repeater generate shared entanglement, which they use to teleport half of the Alice–repeater entangled state to Bob.
 ```

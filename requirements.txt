@@ -1,3 +1,13 @@
-jupyter-book
+# Build: jupyter-book build . --all   (Jupyter Book 1; the site is published from gh-pages)
+jupyter-book==1.0.4.post1
+sphinx-book-theme==1.3.0
+sphinx-design==0.7.0
+sphinx-inline-tabs==2025.12.21.14
+sphinx-copybutton==0.5.2
+sphinx-exercise==1.2.1
+sphinx-jupyterbook-latex==1.0.0
+# 1.1.0 renumbers through stale loop variables and fails on the last page (KeyError)
+sphinx-external-toc==1.0.1
+ghp-import==2.1.0
 matplotlib
 numpy
