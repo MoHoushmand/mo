@@ -1,0 +1,1359 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Risk Dashboard &#8212; Mo Houshmand</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/mo-paper.css?v=10f58ce2" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=5a8bd289" />
+    <link rel="stylesheet" type="text/css" href="../_static/plates/plates.css?v=57981c05" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    
+    
+    <script>DOCUMENTATION_OPTIONS.pagename = 'alive/risk_dashboard';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/mo-toggles.js?v=60db9437"></script>
+    <script src="../_static/plates/loader.js?v=5d12304b"></script>
+    <link rel="canonical" href="https://mohoushmand.com/alive/risk_dashboard.html" />
+    <link rel="icon" href="../_static/mo-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Technical Documentation: Alive-Book Visualization System" href="technical_documentation.html" />
+    <link rel="prev" title="Comprehensive Framework for Visualizing Corporate Social Irresponsibility Using Alive Standards" href="alive.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="light">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../_static/mo0.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/mo0.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Mo Houshmand</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Daniel Mo Houshmand
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../about/about.html">About me</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/CV/CV.html">CV</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_mechanics/quantum_mechanics.html">1. Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/qm/qm_0.html">1.1. Entanglement</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_computation/quantum_computation.html">2. Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_computation/qc/qc_0.html">2.1. The gate model in brief</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers/quantum_computers.html">3. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_computers/spin_qubits/spin_qubits.html">4. Spin Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_computers/spin_qubits/spin_qubits_op.html">4.4. Operations on spin qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_computers/superconducting_qubits/superconducting_qubits.html">5. Superconducting qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_computers/superconducting_qubits/superconducting_qubits_op.html">5.5. How to do operations on superconducting qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_computers/nv_center_qubits/nv_center_qubits.html">6. NV Center Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_computers/nv_center_qubits/nv_center_qubits_op.html">6.3. Operations on NV center qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_computers/topological_qubits/topological_qubits.html">7. Topological Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_computers/topological_qubits/topological_qubits_op.html">7.5. Operations on Topological Quantum Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_computers/qubits/topological.html">7.6. Topology, Calabi–Yau manifolds and anyons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_computers/quantum_annealing/quantum_annealing.html">8. Quantum Annealing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_computers/quantum_annealing/quantum_annealing_op.html">8.1. Annealing in practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_computers/qsum.html">9. Summary: the qubit platforms compared</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_machine_learning/quantum_machine_learning.html">10. Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_machine_learning/qml/qml_0.html">10.2. About this series</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">11. Classical and quantum probability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">12. Measurements and mixed states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">13. Evolution in closed and open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">14. Classical and quantum many-body physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">15. Gate-model quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">16. Adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">17. Variational circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">18. Discrete optimisation and ensemble learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">19. Discrete optimisation and unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">20. Kernel methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">21. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">22. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">23. Quantum matrix inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">24. Quantum kernels and support vector machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">25. Variational quantum kernels</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics and Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../applied_mathematics/applied_math.html">26. Computational Fluid Dynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../applied_mathematics/PDEs/NS_eq.html">26.1. The Navier–Stokes equations</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_science/stats/ds.html">27. Data Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/stats/statML.html">27.1. Statistics and Machine Learning</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../computer_science/software_engineering/se.html">28. Software Engineering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computer_science/software_engineering/zipminator.html">28.1. Zipminator</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../art/art.html">29. Art</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../art/fluidart/acp.html">29.1. Acrylic Pouring Intro</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Experiments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ruter/ruter.html">30. Ruter: a travelling-salesperson route on a quantum annealer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/intro.html">Introduction to QDaria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/qdaria-business-plan-25.html">QDaria Business Plan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/qdaria-business-plan-25-cards.html">QDaria Business Plan - Premium Chart Card Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/investor-dashboards.html">QDaria Investor Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/competitive-intelligence-visualizations.html">QDaria Competitive Intelligence Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/qdaria-whitepaper.html"><strong>QDaria Quantum Computing Whitepaper</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/timeline.html">Strategic Plan for QDaria’s Quantum Computer Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/organization/qdaria-coo-job-description.html">Chief Operating Officer (COO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/organization/qdaria-board-resolution.html">BOARD RESOLUTION OF QDARIA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/organization/qdaria-compensation-policy.html">QDARIA EXECUTIVE COMPENSATION POLICY</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alive</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Social Irresponsibility Analysis of WEF Partner Companies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alive.html">Comprehensive Framework for Visualizing Corporate Social Irresponsibility Using Alive Standards</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Risk Dashboard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul><li class="toctree-l2 mo-section"><a class="reference internal" href="#comprehensive-visualization-framework-for-corporate-social-responsibility-metrics">Comprehensive visualization framework for corporate social responsibility metrics</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#imports-and-configuration">Imports and Configuration</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#visual-design-system">Visual Design System</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#sample-data-generator">Sample Data Generator</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#data-loading">Data Loading</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#visualization-components">Visualization Components</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#display-visualizations">Display Visualizations</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#interactive-dashboard-static-preview">Interactive Dashboard (Static Preview)</a></li>
+</ul>
+</li></ul></details></li>
+<li class="toctree-l1"><a class="reference internal" href="technical_documentation.html">Technical Documentation: Alive-Book Visualization System</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria Quantum Book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/index.html">QDaria Quantum Book</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/qm/intro.html">Part I: Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qm/history.html">Historical Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qm/classical_to_quantum.html">From Classical to Quantum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qm/braket_notation.html">Dirac Bra-Ket Notation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qm/key_concepts.html">Key Quantum Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/superposition.html">Superposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/entanglement.html">Entanglement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/interference.html">Quantum Interference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/measurement.html">Quantum Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/no_cloning.html">The No-Cloning Theorem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qm/qubits.html">Qubits: The Quantum Bit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/single_qubit.html">Single-Qubit States and Gates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/multi_qubit.html">Multi-Qubit Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/density_matrices.html">Density Matrices and Mixed States</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qm/experimental.html">Experimental Quantum Mechanics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/intro.html">Part II: Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/gate_model.html">The Gate Model of Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/circuit_notation.html">Circuit Notation and Diagrams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/algorithms.html">Quantum Algorithms Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/deutsch_jozsa.html">Deutsch-Jozsa Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/grover.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/shor.html">Shor’s Factoring Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/qpe.html">Quantum Phase Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/qft.html">Quantum Fourier Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/vqe.html">Variational Quantum Eigensolver (VQE)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/error_correction.html">Quantum Error Correction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/bit_phase_flip.html">Bit-Flip and Phase-Flip Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/surface_codes.html">Surface Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/logical_physical.html">Logical vs. Physical Qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/frameworks.html">Quantum Programming Frameworks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/fw_getting_started.html">Getting Started with Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/fw_circuits.html">Building Circuits Across Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/fw_hardware.html">Running on Real Hardware</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/hw/intro.html">Part III: Quantum Hardware</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/classical_background.html">Classical Computing Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/divincenzo.html">The DiVincenzo Criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/superconducting.html">Superconducting Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/spin.html">Spin Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/nv_center.html">Nitrogen-Vacancy Centers in Diamond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/photonic.html">Photonic Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/trapped_ion.html">Trapped Ion Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/annealing.html">Quantum Annealing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/hw/topological.html">Topological Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/topo_background.html">Topological Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/majorana.html">Majorana Fermions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/topoconductors.html">Topoconductors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/fibonacci_anyons.html">Fibonacci Anyons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/topo_challenges.html">Challenges in Topological QC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/topo_state_of_art.html">State of the Art</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/qml/intro.html">Part IV: Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/classical_quantum_prob.html">Classical and Quantum Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/measurements_mixed.html">Measurements and Mixed States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/evolution_systems.html">Evolution of Quantum Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/many_body.html">Many-Body Quantum Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qml/computation.html">Quantum Models of Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qml/gate_model_qc.html">Gate Model for QML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qml/adiabatic.html">Adiabatic Quantum Computing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/hybrid_algorithms.html">Hybrid Quantum-Classical Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/optimization_ensemble.html">Optimization and Ensemble Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/unsupervised.html">Unsupervised Quantum Learning</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qml/kernel_methods.html">Kernel Methods in QML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qml/quantum_kernels_svm.html">Quantum Kernels and SVMs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/graphical_models.html">Quantum Graphical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/coherent_learning.html">Coherent Quantum Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/qpe_learning.html">QPE-Based Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/matrix_inversion.html">Quantum Matrix Inversion (HHL)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/pqc/intro.html">Part V: Post-Quantum Cryptography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/pqc/nist_standards.html">NIST PQC Standards (FIPS 203/204/205)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/pqc/lattice_crypto.html">Lattice-Based Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/pqc/qrng_vs_prng.html">QRNG vs. PRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/pqc/risk_assessment.html">Quantum Risk Assessment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/products/zipminator/overview.html">Part VI: Zipminator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/products/qm9/intro.html">Part VII: Qm9</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qm9/portfolio_optimization.html">Portfolio Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qm9/risk_assessment.html">Quantum Risk Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qm9/hft_architecture.html">HFT Architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/products/qdiana/intro.html">Part VIII: QDiana</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qdiana/certification.html">Quantum Certification Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qdiana/esg_sustainability.html">ESG &amp; Sustainability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qdiana/green_certification.html">Green Quantum Certification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/products/qmikeai/intro.html">Part IX: QMikeAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qmikeai/cfd.html">Quantum CFD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qmikeai/navier_stokes.html">Quantum Navier-Stokes Solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qmikeai/hpc_integration.html">HPC Integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/products/thqai/intro.html">Part X: THQAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/thqai/quantum_llm.html">Quantum LLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/thqai/quantum_artifacts.html">Quantum Artifacts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/notebooks/01_quickstart.html">Part XI: Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/02_anonymization.html">Anonymization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/03_qrng_entropy.html">QRNG entropy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/04_compliance.html">Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/05_shor_demo.html">Shor demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/06_quantum_capabilities.html">Quantum capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/07_vault_workflow.html">Vault workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/08_qmesh_physical_crypto.html">QMesh physical crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/09_monte_carlo_prng_vs_qrng.html">Monte Carlo, PRNG vs QRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/10_grover_search.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/11_portfolio_optimization.html">Quantum Portfolio Optimization (Qm9)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/12_variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/13_qkd_protocol.html">Quantum Key Distribution (BB84)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/14_cfd_quantum.html">Quantum CFD Simulation (QMikeAI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/15_esg_scoring.html">Quantum ESG Scoring (QDiana)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/appendix/anonymization_techniques.html">Appendix: Anonymization techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/appendix/fips_203.html">Appendix: FIPS 203</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/appendix/glossary.html">Appendix: Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/appendix/awesome_quantum.html">Appendix: Quantum resources</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/MoHoushmand/mo/main?urlpath=tree/alive/risk_dashboard.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/edit/main/alive/risk_dashboard.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/issues/new?title=Issue%20on%20page%20%2Falive/risk_dashboard.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/alive/risk_dashboard.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Risk Dashboard</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensive-visualization-framework-for-corporate-social-responsibility-metrics">Comprehensive visualization framework for corporate social responsibility metrics</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imports-and-configuration">Imports and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-design-system">Visual Design System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-data-generator">Sample Data Generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loading">Data Loading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-components">Visualization Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-visualizations">Display Visualizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-dashboard-static-preview">Interactive Dashboard (Static Preview)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="risk-dashboard">
+<h1>Risk Dashboard<a class="headerlink" href="#risk-dashboard" title="Link to this heading">#</a></h1>
+<section id="comprehensive-visualization-framework-for-corporate-social-responsibility-metrics">
+<h2>Comprehensive visualization framework for corporate social responsibility metrics<a class="headerlink" href="#comprehensive-visualization-framework-for-corporate-social-responsibility-metrics" title="Link to this heading">#</a></h2>
+<section id="imports-and-configuration">
+<h3>Imports and Configuration<a class="headerlink" href="#imports-and-configuration" title="Link to this heading">#</a></h3>
+<p>Importing all required libraries and setting up configuration for the visualization system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Suppress warnings for cleaner notebook output</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visual-design-system">
+<h3>Visual Design System<a class="headerlink" href="#visual-design-system" title="Link to this heading">#</a></h3>
+<p>Establishing a consistent visual design system with carefully selected colors, typography, and layouts for all visualizations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Design system: Color palette</span>
+<span class="n">COLOR_PALETTE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"primary"</span><span class="p">:</span> <span class="s2">"#2E5EAA"</span><span class="p">,</span>      <span class="c1"># Primary blue for main elements</span>
+    <span class="s2">"secondary"</span><span class="p">:</span> <span class="s2">"#5E366E"</span><span class="p">,</span>    <span class="c1"># Secondary purple for accents</span>
+    <span class="s2">"accent"</span><span class="p">:</span> <span class="s2">"#F08B33"</span><span class="p">,</span>       <span class="c1"># Orange accent for highlights</span>
+    <span class="s2">"background"</span><span class="p">:</span> <span class="s2">"#F9F9F9"</span><span class="p">,</span>   <span class="c1"># Light background</span>
+    <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"#333333"</span><span class="p">,</span>         <span class="c1"># Dark text</span>
+    <span class="s2">"success"</span><span class="p">:</span> <span class="s2">"#3AA655"</span><span class="p">,</span>      <span class="c1"># Green for positive metrics</span>
+    <span class="s2">"warning"</span><span class="p">:</span> <span class="s2">"#FFC857"</span><span class="p">,</span>      <span class="c1"># Yellow for medium risk</span>
+    <span class="s2">"danger"</span><span class="p">:</span> <span class="s2">"#D64045"</span><span class="p">,</span>       <span class="c1"># Red for high risk</span>
+    <span class="s2">"neutral"</span><span class="p">:</span> <span class="s2">"#7D8491"</span>       <span class="c1"># Gray for neutral elements</span>
+<span class="p">}</span>
+
+<span class="c1"># Industry-specific colors for consistent visualization</span>
+<span class="n">INDUSTRY_COLORS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Energy"</span><span class="p">:</span> <span class="s2">"#E63946"</span><span class="p">,</span>
+    <span class="s2">"Technology"</span><span class="p">:</span> <span class="s2">"#457B9D"</span><span class="p">,</span>
+    <span class="s2">"Manufacturing"</span><span class="p">:</span> <span class="s2">"#F8961E"</span><span class="p">,</span> 
+    <span class="s2">"Financial Services"</span><span class="p">:</span> <span class="s2">"#43AA8B"</span><span class="p">,</span>
+    <span class="s2">"Healthcare"</span><span class="p">:</span> <span class="s2">"#577590"</span><span class="p">,</span>
+    <span class="s2">"Consumer Goods"</span><span class="p">:</span> <span class="s2">"#90BE6D"</span><span class="p">,</span>
+    <span class="s2">"Others"</span><span class="p">:</span> <span class="s2">"#9D4EDD"</span>
+<span class="p">}</span>
+
+<span class="c1"># Typography settings</span>
+<span class="n">TITLE_FONT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"family"</span><span class="p">:</span> <span class="s2">"Arial, sans-serif"</span><span class="p">,</span>
+    <span class="s2">"size"</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+    <span class="s2">"color"</span><span class="p">:</span> <span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"text"</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">AXIS_FONT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"family"</span><span class="p">:</span> <span class="s2">"Arial, sans-serif"</span><span class="p">,</span>
+    <span class="s2">"size"</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+    <span class="s2">"color"</span><span class="p">:</span> <span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"text"</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sample-data-generator">
+<h3>Sample Data Generator<a class="headerlink" href="#sample-data-generator" title="Link to this heading">#</a></h3>
+<p>Creating a sample data generator to ensure the notebook can run even without access to the original data files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_sample_data</span><span class="p">(</span><span class="n">n_companies</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Generate sample data for demonstration purposes when actual data files are not available.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        n_companies: Number of synthetic companies to generate</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        DataFrame with synthetic data</span>
+<span class="sd">    """</span>
+    <span class="c1"># Set random seed for reproducibility</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    
+    <span class="c1"># Define industries</span>
+    <span class="n">industries</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">INDUSTRY_COLORS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    
+    <span class="c1"># Generate company data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">'Company Name'</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"Company </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_companies</span><span class="p">)],</span>
+        <span class="s1">'Industry'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">industries</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_companies</span><span class="p">),</span>
+        <span class="s1">'CO2_Emissions'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_companies</span><span class="p">),</span>
+        <span class="s1">'Legal_Penalties'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_companies</span><span class="p">),</span>
+        <span class="s1">'Alive_Compliance'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_companies</span><span class="p">),</span>
+        <span class="s1">'Year'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">2024</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">n_companies</span><span class="p">),</span>
+        <span class="s1">'Patterns'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_companies</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># Create DataFrame</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate PSI (Penalty Severity Index)</span>
+    <span class="n">revenue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_companies</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'Revenue'</span><span class="p">]</span> <span class="o">=</span> <span class="n">revenue</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-6</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'PSI'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span> <span class="o">/</span> <span class="n">revenue</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">)</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate SRI (Social Responsibility Index)</span>
+    <span class="n">compliance_weight</span> <span class="o">=</span> <span class="mf">0.4</span>
+    <span class="n">emissions_weight</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="n">penalties_weight</span> <span class="o">=</span> <span class="mf">0.3</span>
+    
+    <span class="c1"># Normalize emissions (higher values are worse, so invert)</span>
+    <span class="n">max_emissions</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'CO2_Emissions'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">emissions_score</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'CO2_Emissions'</span><span class="p">]</span> <span class="o">/</span> <span class="n">max_emissions</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+    
+    <span class="c1"># Normalize penalties (higher values are worse, so invert)</span>
+    <span class="n">max_penalties</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">penalties_score</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span> <span class="o">/</span> <span class="n">max_penalties</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate SRI</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'SRI'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">compliance_weight</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Alive_Compliance'</span><span class="p">]</span> <span class="o">+</span> 
+        <span class="n">emissions_weight</span> <span class="o">*</span> <span class="n">emissions_score</span> <span class="o">+</span> 
+        <span class="n">penalties_weight</span> <span class="o">*</span> <span class="n">penalties_score</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Add anomaly tag to 10% of companies</span>
+    <span class="n">n_anomalies</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_companies</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">anomaly_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">n_companies</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_anomalies</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'Anomaly'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Normal'</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">anomaly_indices</span><span class="p">,</span> <span class="s1">'Anomaly'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Anomaly'</span>
+    
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-loading">
+<h3>Data Loading<a class="headerlink" href="#data-loading" title="Link to this heading">#</a></h3>
+<p>Loading and preparing data with fallback to sample data if actual files are not available.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_data</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load data from files or generate sample data if files are not available</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        DataFrame with data for visualization and PDF insights text</span>
+<span class="sd">    """</span>
+    <span class="n">excel_path</span> <span class="o">=</span> <span class="s2">"Alive Analysis_WEF Partners.xlsx"</span>
+    <span class="n">pdf_path</span> <span class="o">=</span> <span class="s2">"Alive Analysis One-Pager.pdf"</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Try to read actual data from Excel file</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Attempting to load data from </span><span class="si">{</span><span class="n">excel_path</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">excel_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">"WEF Partners"</span><span class="p">)</span>
+        
+        <span class="c1"># Process numeric columns</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">"CO2_Emissions"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"CO2 output per year 2023/24"</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">"Patterns"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Patterns detected numerical 2023/24"</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        
+        <span class="c1"># Extract legal penalties assuming format like "$X.YM"</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">"Legal_Penalties"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"Legal Penalties and Fines in 2023 / 2024"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\$(\d+\.?\d*)M"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        
+        <span class="c1"># Extract Alive compliance score</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">"Alive_Compliance"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Alive Standards Compliance Score"</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"coerce"</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+        
+        <span class="c1"># Add additional derived metrics</span>
+        <span class="c1"># SRI calculation would go here</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">'SRI'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Alive_Compliance'</span><span class="p">]</span>  <span class="c1"># Simplified placeholder</span>
+        
+        <span class="c1"># Try to load PDF insights</span>
+        <span class="n">insights</span> <span class="o">=</span> <span class="s2">"Corporate social responsibility insights"</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">pdf_path</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="kn">from</span><span class="w"> </span><span class="nn">PyPDF2</span><span class="w"> </span><span class="kn">import</span> <span class="n">PdfReader</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pdf_path</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">reader</span> <span class="o">=</span> <span class="n">PdfReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                    <span class="n">insights</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">page</span><span class="o">.</span><span class="n">extract_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">reader</span><span class="o">.</span><span class="n">pages</span><span class="p">[:</span><span class="mi">2</span><span class="p">]])</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error reading PDF: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Using placeholder insights."</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Real data loaded successfully."</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">insights</span>
+        
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error loading real data: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Generating sample data instead..."</span><span class="p">)</span>
+        
+        <span class="c1"># Generate sample data</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">generate_sample_data</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+        
+        <span class="c1"># Sample insights text</span>
+        <span class="n">insights</span> <span class="o">=</span> <span class="s2">"""This analysis shows corporate social responsibility metrics across industries.</span>
+<span class="s2">        The data highlights how various companies perform in terms of environmental impact,</span>
+<span class="s2">        compliance with standards, and legal penalties. Key observations include significant</span>
+<span class="s2">        variations across industries, with Energy showing higher emissions and Technology</span>
+<span class="s2">        demonstrating better compliance rates overall."""</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sample data generated successfully."</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">insights</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data</span>
+<span class="n">df</span><span class="p">,</span> <span class="n">insights</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualization-components">
+<h3>Visualization Components<a class="headerlink" href="#visualization-components" title="Link to this heading">#</a></h3>
+<p>Building visualization functions for different types of analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_risk_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">selected_industries</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2024</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create an interactive risk matrix scatter plot</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        df: Processed dataframe with required columns</span>
+<span class="sd">        selected_industries: List of industries to filter by (None for all)</span>
+<span class="sd">        year: Year to filter data by</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Plotly figure object</span>
+<span class="sd">    """</span>
+    <span class="c1"># Filter data by selected industries and year</span>
+    <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">selected_industries</span><span class="p">:</span>
+        <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Industry'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">selected_industries</span><span class="p">)]</span>
+    
+    <span class="k">if</span> <span class="s1">'Year'</span> <span class="ow">in</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Year'</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>
+    
+    <span class="c1"># Create quadrant boundaries</span>
+    <span class="n">compliance_mid</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="n">penalty_mid</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+    
+    <span class="c1"># Create the scatter plot</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">filtered_df</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="s1">'Alive_Compliance'</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="s1">'Legal_Penalties'</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="s1">'CO2_Emissions'</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">'Industry'</span><span class="p">,</span>
+        <span class="n">color_discrete_map</span><span class="o">=</span><span class="n">INDUSTRY_COLORS</span><span class="p">,</span>
+        <span class="n">hover_name</span><span class="o">=</span><span class="s1">'Company Name'</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">'Social Responsibility Risk Matrix </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">'Alive_Compliance'</span><span class="p">:</span> <span class="s1">'Alive Standards Compliance Score (%)'</span><span class="p">,</span>
+            <span class="s1">'Legal_Penalties'</span><span class="p">:</span> <span class="s1">'Legal Penalties ($ Millions)'</span><span class="p">,</span>
+            <span class="s1">'CO2_Emissions'</span><span class="p">:</span> <span class="s1">'CO₂ Emissions (tons)'</span><span class="p">,</span>
+            <span class="s1">'Industry'</span><span class="p">:</span> <span class="s1">'Industry'</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Add quadrant lines</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_shape</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">"line"</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">"dash"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"neutral"</span><span class="p">]),</span>
+        <span class="n">x0</span><span class="o">=</span><span class="n">compliance_mid</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="n">compliance_mid</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">1.1</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_shape</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">"line"</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">"dash"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"neutral"</span><span class="p">]),</span>
+        <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="n">penalty_mid</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="n">penalty_mid</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Add quadrant labels</span>
+    <span class="n">annotations</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">0.9</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">"Critical Zone (Q4):&lt;br&gt;Low compliance&lt;br&gt;High penalties"</span><span class="p">,</span>
+            <span class="n">showarrow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"danger"</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+        <span class="p">),</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">0.9</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">"Greenwashing Alert (Q2):&lt;br&gt;High compliance&lt;br&gt;High penalties"</span><span class="p">,</span>
+            <span class="n">showarrow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"warning"</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+        <span class="p">),</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">*</span><span class="mf">1.5</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">"Risk Potential (Q3):&lt;br&gt;Low compliance&lt;br&gt;Low penalties"</span><span class="p">,</span>
+            <span class="n">showarrow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"warning"</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+        <span class="p">),</span>
+        <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">*</span><span class="mf">1.5</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">"Leading Zone (Q1):&lt;br&gt;High compliance&lt;br&gt;Low penalties"</span><span class="p">,</span>
+            <span class="n">showarrow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"success"</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">annotations</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span><span class="n">annotation</span><span class="p">)</span>
+    
+    <span class="c1"># Set axes ranges</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Legal_Penalties'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">1.1</span><span class="p">])</span>
+    
+    <span class="c1"># Apply consistent styling</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">template</span><span class="o">=</span><span class="s2">"plotly_white"</span><span class="p">,</span>
+        <span class="n">paper_bgcolor</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"background"</span><span class="p">],</span>
+        <span class="n">plot_bgcolor</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"background"</span><span class="p">],</span>
+        <span class="n">font</span><span class="o">=</span><span class="n">TITLE_FONT</span><span class="p">,</span>
+        <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">orientation</span><span class="o">=</span><span class="s2">"h"</span><span class="p">,</span>
+            <span class="n">yanchor</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">,</span>
+            <span class="n">xanchor</span><span class="o">=</span><span class="s2">"right"</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">),</span>
+        <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">60</span><span class="p">),</span>
+        <span class="n">hoverlabel</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">bgcolor</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span>
+            <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+            <span class="n">font_family</span><span class="o">=</span><span class="s2">"Arial, sans-serif"</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_emissions_chart</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">selected_industries</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create a bar chart comparing CO2 emissions by industry</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        df: Processed dataframe with required columns</span>
+<span class="sd">        selected_industries: List of industries to filter by (None for all)</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Plotly figure object</span>
+<span class="sd">    """</span>
+    <span class="c1"># Filter data by selected industries</span>
+    <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">selected_industries</span><span class="p">:</span>
+        <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="n">filtered_df</span><span class="p">[</span><span class="s1">'Industry'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">selected_industries</span><span class="p">)]</span>
+    
+    <span class="c1"># Group by industry and calculate total emissions</span>
+    <span class="n">industry_emissions</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Industry'</span><span class="p">)[</span><span class="s1">'CO2_Emissions'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">industry_emissions</span> <span class="o">=</span> <span class="n">industry_emissions</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'CO2_Emissions'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate the percentage of total emissions</span>
+    <span class="n">total_emissions</span> <span class="o">=</span> <span class="n">industry_emissions</span><span class="p">[</span><span class="s1">'CO2_Emissions'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">industry_emissions</span><span class="p">[</span><span class="s1">'Percentage'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">industry_emissions</span><span class="p">[</span><span class="s1">'CO2_Emissions'</span><span class="p">]</span> <span class="o">/</span> <span class="n">total_emissions</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Create the bar chart</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+    
+    <span class="c1"># Add bars</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">industry_emissions</span><span class="p">[</span><span class="s1">'Industry'</span><span class="p">],</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">industry_emissions</span><span class="p">[</span><span class="s1">'CO2_Emissions'</span><span class="p">],</span>
+        <span class="n">text</span><span class="o">=</span><span class="n">industry_emissions</span><span class="p">[</span><span class="s1">'Percentage'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">%'</span><span class="o">.</span><span class="n">format</span><span class="p">),</span>
+        <span class="n">textposition</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">,</span>
+        <span class="n">marker_color</span><span class="o">=</span><span class="p">[</span><span class="n">INDUSTRY_COLORS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">industry</span><span class="p">,</span> <span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"neutral"</span><span class="p">])</span> 
+                     <span class="k">for</span> <span class="n">industry</span> <span class="ow">in</span> <span class="n">industry_emissions</span><span class="p">[</span><span class="s1">'Industry'</span><span class="p">]],</span>
+        <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">'&lt;b&gt;%</span><span class="si">{x}</span><span class="s1">&lt;/b&gt;&lt;br&gt;CO₂ Emissions: %</span><span class="si">{y:,.0f}</span><span class="s1"> tons&lt;br&gt;%</span><span class="si">{text}</span><span class="s1"> of total&lt;extra&gt;&lt;/extra&gt;'</span>
+    <span class="p">))</span>
+    
+    <span class="c1"># Update layout</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">'CO₂ Emissions by Industry'</span><span class="p">,</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Industry'</span><span class="p">),</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'CO₂ Emissions (tons)'</span><span class="p">),</span>
+        <span class="n">template</span><span class="o">=</span><span class="s2">"plotly_white"</span><span class="p">,</span>
+        <span class="n">paper_bgcolor</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"background"</span><span class="p">],</span>
+        <span class="n">plot_bgcolor</span><span class="o">=</span><span class="n">COLOR_PALETTE</span><span class="p">[</span><span class="s2">"background"</span><span class="p">],</span>
+        <span class="n">font</span><span class="o">=</span><span class="n">TITLE_FONT</span><span class="p">,</span>
+        <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">120</span><span class="p">),</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Rotate x-axis labels for better readability</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">tickangle</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="display-visualizations">
+<h3>Display Visualizations<a class="headerlink" href="#display-visualizations" title="Link to this heading">#</a></h3>
+<p>Creating and displaying the visualizations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create risk matrix figure</span>
+<span class="n">risk_matrix_fig</span> <span class="o">=</span> <span class="n">create_risk_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Display figure inline</span>
+<span class="n">risk_matrix_fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create emissions chart</span>
+<span class="n">emissions_fig</span> <span class="o">=</span> <span class="n">create_emissions_chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Display figure inline</span>
+<span class="n">emissions_fig</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="interactive-dashboard-static-preview">
+<h3>Interactive Dashboard (Static Preview)<a class="headerlink" href="#interactive-dashboard-static-preview" title="Link to this heading">#</a></h3>
+<p>A preview of the dashboard that would be interactive when run in JupyterDash.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create interactive dashboard (static preview in the notebook)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"""Interactive Dashboard Preview</span>
+
+<span class="s2">This dashboard provides:</span>
+<span class="s2">- Interactive filtering by industry and year</span>
+<span class="s2">- Dynamic visualization updates</span>
+<span class="s2">- Hover information for detailed data exploration</span>
+<span class="s2">- Coordinated views across multiple visualizations</span>
+
+<span class="s2">To run the interactive version, execute this notebook in an interactive Jupyter session or JupyterLab environment.</span>
+<span class="s2">"""</span><span class="p">)</span>
+
+<span class="c1"># Filter by Energy and Technology sectors only</span>
+<span class="n">filtered_risk_matrix</span> <span class="o">=</span> <span class="n">create_risk_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">selected_industries</span><span class="o">=</span><span class="p">[</span><span class="s1">'Energy'</span><span class="p">,</span> <span class="s1">'Technology'</span><span class="p">])</span>
+<span class="n">filtered_risk_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "MoHoushmand/mo",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./alive"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="alive.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Comprehensive Framework for Visualizing Corporate Social Irresponsibility Using Alive Standards</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="technical_documentation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Technical Documentation: Alive-Book Visualization System</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensive-visualization-framework-for-corporate-social-responsibility-metrics">Comprehensive visualization framework for corporate social responsibility metrics</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imports-and-configuration">Imports and Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-design-system">Visual Design System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-data-generator">Sample Data Generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loading">Data Loading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-components">Visualization Components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-visualizations">Display Visualizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-dashboard-static-preview">Interactive Dashboard (Static Preview)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Mo Houshmand
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

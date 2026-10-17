@@ -1,289 +1,827 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>28. Classical and Quantum Probability Theory &mdash; Daniel Mo Houshmand</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mo_addmination.css" type="text/css" />
-    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11. Classical and Quantum Probability Theory &#8212; Mo Houshmand</title>
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
-        <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-        <script src="../../_static/tabs.js"></script>
-        <script>let toggleHintShow = 'Click to show';</script>
-        <script>let toggleHintHide = 'Click to hide';</script>
-        <script>let toggleOpenOnPrint = 'true';</script>
-        <script src="../../_static/togglebutton.js"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script src="../../_static/design-tabs.js"></script>
-        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-        <script async="async" src="../../_static/sphinx-thebe.js"></script>
-        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../../_static/js/theme.js"></script>
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mo-paper.css?v=10f58ce2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=5a8bd289" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plates/plates.css?v=57981c05" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    
+    
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../_static/mo-toggles.js?v=60db9437"></script>
+    <script src="../../_static/plates/loader.js?v=5d12304b"></script>
+    <link rel="canonical" href="https://mohoushmand.com/quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html" />
+    <link rel="icon" href="../../_static/mo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="41. Measurements revisited" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html" />
-    <link rel="prev" title="23. Quantum Machine Learning Intro" href="../quantum_machine_learning.html" /> 
-</head>
+    <link rel="next" title="12. Measurements revisited" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html" />
+    <link rel="prev" title="10.2. About this series" href="qml_0.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="light">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
 
-          
-          
-          <a href="../../index.html">
-            
-              <img src="../../_static/mo0.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">About</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../about/about.html">About</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Art</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../data_science/stats/ds.html">Data Science</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../computer_science/software_engineering/se.html">Software Engineering</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">4. The Hardware of Quantum Computers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#quantum-materials">5. Quantum materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#introduction-to-topological-qubits">19. Introduction to Topological Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html#classical-vs-quantum">24. Classical vs. Quantum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html#quantum-advantage">25. Quantum Advantage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html#challenges">26. Challenges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning.html#what-are-the-elements-of-a-quantum-circuit">27. What are the elements of a quantum circuit?</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">28. Classical and Quantum Probability Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#quantum-machine-learning-is-a-rocket-emerging">29. Quantum Machine Learning is a rocket emerging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#classical-probability-distributions">30. Classical probability distributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#the-geometry-of-probability-distribution">31. The Geometry of Probability Distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#stochastic-matrix">32. Stochastic Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#quantum-states">33. Quantum states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#qubits-revisited">34. Qubits revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#superposition-revisited">35. Superposition revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#bloch-sphere-revisited">36. Bloch Sphere revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#interference">37. Interference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#more-qubits-and-entanglement">38. More qubits and entanglement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#multiple-qubits-revisited">39. Multiple Qubits revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#further-reading">40. Further reading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">41. Measurements revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#bra-ket-notation">42. Bra-Ket Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#dot-product">43. Dot product</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#ket-bra">44. Ket-Bra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-the-bra-ket-notation">45. More on the bra-ket notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">46. More on Measurements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">47. Collapse of the Wave Function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">48. The Born Rule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">49. Measuring multiqubit systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#mixed-states">50. Mixed States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#density-matrix">51. Density Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">52. Evolution in Closed Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#unitary-evolution">53. Unitary evolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#more-on-the-unitary-evolution">54. More on the Unitary evolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#open-quantum-systems">55. Open Quantum Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">56. Interaction with the environment: open systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">57. Classical Ising Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#hamiltonian">58. Hamiltonian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-ising-model">59. The Ising model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">60. The transverse-field Ising model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#commuting-hamiltonian">61. Commuting Hamiltonian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">62. Gate-Model Quantum Computing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-approximate-optimization-algorithm">63. Quantum Approximate Optimization Algorithm.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#solovay-kitaev-theorem">64. Solovay-Kitaev theorem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-circuits">65. Quantum Circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#hadamard-gate">66. Hadamard gate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#the-cnot-gate">67. The CNOT gate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">68. Defining circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">69. Compilation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">70. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">71. Adiabatic Quantum Computing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#adiabatic-theorem">72. Adiabatic Theorem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">73. Unitary evolution and the Hamiltonian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">74. The adiabatic theorem and adiabatic quantum computing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">75. Quantum Annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">76. Chimera Graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#id1">77. Quantum annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">78. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#implementations">79. Implementations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#superconducting-architectures">80. Superconducting Architectures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#dissadvantages">81. Dissadvantages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#trapped-ions">82. Trapped ions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#photonic-systems">83. Photonic Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">84. Quantum Approximate Optimization Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#id1">85. Quantum approximate optimization algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">86. Analysis of the results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">87. Encoding Classical Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">88. Loss Functions and Regularization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">89. Ensemble Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">90. Ensemble methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">91. Qboost</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#more-qboost">92. More QBoost</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">93. Solving by QAOA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">94. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">95. Clustering by Quantum Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#mapping-clustering-to-discrete-optimization">96. Mapping clustering to discrete optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">97. Solving the max-cut problem by QAOA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">98. Solving the max-cut problem by annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">99. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">100. Kernel Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#an-inference">101. An Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#thinking-backward-learning-methods-based-on-what-the-hardware-can-do">102. Thinking backward: learning methods based on what the hardware can do</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">103. A natural kernel on a shallow circuit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">104. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">105. An Inference Circuit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#tror-ikke-skal-vaere-her-men-i-11">106. (Tror ikke skal være her men i (11))</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probalistic-graphical-model">107. Probalistic Graphical Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#gfx">108. GFX!!!??</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">109. Probabilistic graphical models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#optimization-and-sampling-pgms">110. Optimization and Sampling PGMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-igjen-i-lyx-husk-implementering-og-plots">111. Se igjen i lyx (Husk implementering og plots)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">112. Se bildet grafen på lyx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">113. Boltzmann machines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">114. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">115. SE EKSAMEN!!!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">116. Quantum Fourier Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#introduction">117. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#id1">118. Quantum Fourier Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#even-more-quantum-phase-estimation">119. Even more Quantum Phase Estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">120. Quantum phase estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">121. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">122. Overview of the Harrow-Hassidim-Lloyd Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#introduction">123. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">124. Setting up the problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-matrix-inversion">125. Quantum Matrix Inversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">126. Quantum phase estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#using-quantum-linear-algebra-for-learning">127. Using Quantum Linear Algebra for Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">128. Conditional rotation of ancilla</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">129. Uncomputing the eigenvalue register</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">130. Rejection sampling on the ancilla register and a swap test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-assisted-gaussian-processes">131. Quantum-Assisted Gaussian Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">132. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">133. Integrating quantum kernels into scikit-learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#preliminaries">134. Preliminaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#data-preparation">135. Data preparation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#training">136. Training</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">137. Creating a variational classifier with PennyLane</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#the-variational-circuit">138. The variational circuit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#importing-libraries">139. Importing libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#implementing-the-circuit">140. Implementing the circuit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#loading-data">141. Loading data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#visualising-the-decision-boundary">142. Visualising the decision boundary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#more-training">143. More Training</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Ruter</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../ruter/ruter.html">Ruter</a></li>
-</ul>
 
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
-      </div>
-    </nav>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Python</a>
-      </nav>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">28. </span>Classical and Quantum Probability Theory</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.ipynb" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/mo0.png" class="logo__image only-light" alt=""/>
+    <img src="../../_static/mo0.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Mo Houshmand</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Daniel Mo Houshmand
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../about/about.html">About me</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/CV/CV.html">CV</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">1. Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_mechanics/qm/qm_0.html">1.1. Entanglement</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">2. Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computation/qc/qc_0.html">2.1. The gate model in brief</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">3. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">4. Spin Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits_op.html">4.4. Operations on spin qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">5. Superconducting qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits_op.html">5.5. How to do operations on superconducting qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">6. NV Center Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits_op.html">6.3. Operations on NV center qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">7. Topological Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits_op.html">7.5. Operations on Topological Quantum Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/qubits/topological.html">7.6. Topology, Calabi–Yau manifolds and anyons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">8. Quantum Annealing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing_op.html">8.1. Annealing in practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/qsum.html">9. Summary: the qubit platforms compared</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_machine_learning.html">10. Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="qml_0.html">10.2. About this series</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">11. Classical and quantum probability</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul><li class="toctree-l2 mo-section"><a class="reference internal" href="#what-are-the-elements-of-a-quantum-circuit">11.1. What are the elements of a quantum circuit?</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#about-qutip">11.2. About QuTiP</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#quantum-machine-learning-is-a-rocket-emerging">11.3. Quantum Machine Learning is a rocket emerging</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#classical-probability-distributions">11.4. Classical probability distributions</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#the-geometry-of-probability-distribution">11.5. The Geometry of Probability Distribution</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#stochastic-matrix">11.6. Stochastic Matrix</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#quiz-classical-probability-distribution">11.6.1. Quiz Classical Probability Distribution</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#entropy">11.6.2. Entropy</a></li>
+</ul>
+</li><li class="toctree-l2 mo-section"><a class="reference internal" href="#quantum-states">11.7. Quantum states</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#qubits-revisited">11.8. Qubits revisited</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#superposition-revisited">11.9. Superposition revisited</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#bloch-sphere-revisited">11.10. Bloch Sphere revisited</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#interference">11.11. Interference</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#quiz-quantum-states">11.11.1. Quiz Quantum States</a></li>
+</ul>
+</li><li class="toctree-l2 mo-section"><a class="reference internal" href="#more-qubits-and-entanglement">11.12. More qubits and entanglement</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#multiple-qubits-revisited">11.13. Multiple Qubits revisited</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#quiz">11.13.1. Quiz</a></li>
+</ul>
+</li><li class="toctree-l2 mo-section"><a class="reference internal" href="#further-reading">11.14. Further reading</a></li></ul></details></li>
+<li class="toctree-l1"><a class="reference internal" href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">12. Measurements and mixed states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">13. Evolution in closed and open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">14. Classical and quantum many-body physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">15. Gate-model quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">16. Adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">17. Variational circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">18. Discrete optimisation and ensemble learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">19. Discrete optimisation and unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">20. Kernel methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">21. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">22. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">23. Quantum matrix inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">24. Quantum kernels and support vector machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">25. Variational quantum kernels</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics and Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../applied_mathematics/applied_math.html">26. Computational Fluid Dynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applied_mathematics/PDEs/NS_eq.html">26.1. The Navier–Stokes equations</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../data_science/stats/ds.html">27. Data Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../data_science/stats/statML.html">27.1. Statistics and Machine Learning</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../computer_science/software_engineering/se.html">28. Software Engineering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../computer_science/software_engineering/zipminator.html">28.1. Zipminator</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../art/art.html">29. Art</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../art/fluidart/acp.html">29.1. Acrylic Pouring Intro</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Experiments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ruter/ruter.html">30. Ruter: a travelling-salesperson route on a quantum annealer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/intro.html">Introduction to QDaria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/qdaria-business-plan-25.html">QDaria Business Plan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/qdaria-business-plan-25-cards.html">QDaria Business Plan - Premium Chart Card Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/investor-dashboards.html">QDaria Investor Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/competitive-intelligence-visualizations.html">QDaria Competitive Intelligence Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/qdaria-whitepaper.html"><strong>QDaria Quantum Computing Whitepaper</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/timeline.html">Strategic Plan for QDaria’s Quantum Computer Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/organization/qdaria-coo-job-description.html">Chief Operating Officer (COO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/organization/qdaria-board-resolution.html">BOARD RESOLUTION OF QDARIA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/organization/qdaria-compensation-policy.html">QDARIA EXECUTIVE COMPENSATION POLICY</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alive</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../alive/intro.html">Social Irresponsibility Analysis of WEF Partner Companies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../alive/alive.html">Comprehensive Framework for Visualizing Corporate Social Irresponsibility Using Alive Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../alive/risk_dashboard.html">Risk Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../alive/technical_documentation.html">Technical Documentation: Alive-Book Visualization System</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria Quantum Book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/index.html">QDaria Quantum Book</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/qm/intro.html">Part I: Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qm/history.html">Historical Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qm/classical_to_quantum.html">From Classical to Quantum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qm/braket_notation.html">Dirac Bra-Ket Notation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qm/key_concepts.html">Key Quantum Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/superposition.html">Superposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/entanglement.html">Entanglement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/interference.html">Quantum Interference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/measurement.html">Quantum Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/no_cloning.html">The No-Cloning Theorem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qm/qubits.html">Qubits: The Quantum Bit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/single_qubit.html">Single-Qubit States and Gates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/multi_qubit.html">Multi-Qubit Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/density_matrices.html">Density Matrices and Mixed States</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qm/experimental.html">Experimental Quantum Mechanics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/intro.html">Part II: Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/gate_model.html">The Gate Model of Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/circuit_notation.html">Circuit Notation and Diagrams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/algorithms.html">Quantum Algorithms Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/deutsch_jozsa.html">Deutsch-Jozsa Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/grover.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/shor.html">Shor’s Factoring Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/qpe.html">Quantum Phase Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/qft.html">Quantum Fourier Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/vqe.html">Variational Quantum Eigensolver (VQE)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/error_correction.html">Quantum Error Correction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/bit_phase_flip.html">Bit-Flip and Phase-Flip Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/surface_codes.html">Surface Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/logical_physical.html">Logical vs. Physical Qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/frameworks.html">Quantum Programming Frameworks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/fw_getting_started.html">Getting Started with Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/fw_circuits.html">Building Circuits Across Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/fw_hardware.html">Running on Real Hardware</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/hw/intro.html">Part III: Quantum Hardware</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/classical_background.html">Classical Computing Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/divincenzo.html">The DiVincenzo Criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/superconducting.html">Superconducting Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/spin.html">Spin Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/nv_center.html">Nitrogen-Vacancy Centers in Diamond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/photonic.html">Photonic Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/trapped_ion.html">Trapped Ion Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/annealing.html">Quantum Annealing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/hw/topological.html">Topological Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/topo_background.html">Topological Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/majorana.html">Majorana Fermions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/topoconductors.html">Topoconductors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/fibonacci_anyons.html">Fibonacci Anyons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/topo_challenges.html">Challenges in Topological QC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/topo_state_of_art.html">State of the Art</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/qml/intro.html">Part IV: Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/classical_quantum_prob.html">Classical and Quantum Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/measurements_mixed.html">Measurements and Mixed States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/evolution_systems.html">Evolution of Quantum Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/many_body.html">Many-Body Quantum Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qml/computation.html">Quantum Models of Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qml/gate_model_qc.html">Gate Model for QML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qml/adiabatic.html">Adiabatic Quantum Computing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/hybrid_algorithms.html">Hybrid Quantum-Classical Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/optimization_ensemble.html">Optimization and Ensemble Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/unsupervised.html">Unsupervised Quantum Learning</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qml/kernel_methods.html">Kernel Methods in QML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qml/quantum_kernels_svm.html">Quantum Kernels and SVMs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/graphical_models.html">Quantum Graphical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/coherent_learning.html">Coherent Quantum Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/qpe_learning.html">QPE-Based Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/matrix_inversion.html">Quantum Matrix Inversion (HHL)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/pqc/intro.html">Part V: Post-Quantum Cryptography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/pqc/nist_standards.html">NIST PQC Standards (FIPS 203/204/205)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/pqc/lattice_crypto.html">Lattice-Based Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/pqc/qrng_vs_prng.html">QRNG vs. PRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/pqc/risk_assessment.html">Quantum Risk Assessment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/products/zipminator/overview.html">Part VI: Zipminator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/products/qm9/intro.html">Part VII: Qm9</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qm9/portfolio_optimization.html">Portfolio Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qm9/risk_assessment.html">Quantum Risk Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qm9/hft_architecture.html">HFT Architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/products/qdiana/intro.html">Part VIII: QDiana</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qdiana/certification.html">Quantum Certification Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qdiana/esg_sustainability.html">ESG &amp; Sustainability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qdiana/green_certification.html">Green Quantum Certification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/products/qmikeai/intro.html">Part IX: QMikeAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qmikeai/cfd.html">Quantum CFD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qmikeai/navier_stokes.html">Quantum Navier-Stokes Solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qmikeai/hpc_integration.html">HPC Integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/products/thqai/intro.html">Part X: THQAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/thqai/quantum_llm.html">Quantum LLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/thqai/quantum_artifacts.html">Quantum Artifacts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/notebooks/01_quickstart.html">Part XI: Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/02_anonymization.html">Anonymization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/03_qrng_entropy.html">QRNG entropy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/04_compliance.html">Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/05_shor_demo.html">Shor demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/06_quantum_capabilities.html">Quantum capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/07_vault_workflow.html">Vault workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/08_qmesh_physical_crypto.html">QMesh physical crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/09_monte_carlo_prng_vs_qrng.html">Monte Carlo, PRNG vs QRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/10_grover_search.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/11_portfolio_optimization.html">Quantum Portfolio Optimization (Qm9)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/12_variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/13_qkd_protocol.html">Quantum Key Distribution (BB84)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/14_cfd_quantum.html">Quantum CFD Simulation (QMikeAI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/15_esg_scoring.html">Quantum ESG Scoring (QDiana)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/appendix/anonymization_techniques.html">Appendix: Anonymization techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/appendix/fips_203.html">Appendix: FIPS 203</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/appendix/glossary.html">Appendix: Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/appendix/awesome_quantum.html">Appendix: Quantum resources</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/MoHoushmand/mo/main?urlpath=tree/quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/edit/main/quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/issues/new?title=Issue%20on%20page%20%2Fquantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Classical and Quantum Probability Theory</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-elements-of-a-quantum-circuit">11.1. What are the elements of a quantum circuit?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-qutip">11.2. About QuTiP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-machine-learning-is-a-rocket-emerging">11.3. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-probability-distributions">11.4. Classical probability distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometry-of-probability-distribution">11.5. The Geometry of Probability Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-matrix">11.6. Stochastic Matrix</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-classical-probability-distribution">11.6.1. Quiz Classical Probability Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">11.6.2. Entropy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-states">11.7. Quantum states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-revisited">11.8. Qubits revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#superposition-revisited">11.9. Superposition revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloch-sphere-revisited">11.10. Bloch Sphere revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interference">11.11. Interference</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-quantum-states">11.11.1. Quiz Quantum States</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-qubits-and-entanglement">11.12. More qubits and entanglement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-qubits-revisited">11.13. Multiple Qubits revisited</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">11.13.1. Quiz</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">11.14. Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="classical-and-quantum-probability-theory">
-<h1><span class="section-number">28. </span>Classical and Quantum Probability Theory<a class="headerlink" href="#classical-and-quantum-probability-theory" title="Permalink to this headline"></a></h1>
-<p>While a classical bit which is binary can thought of as a an unbiased coinflip Heads <span class="math notranslate nohighlight">\((H)\)</span> or Tails <span class="math notranslate nohighlight">\((T)\)</span> with</p>
-<div class="math notranslate nohighlight">
-\[P(H)=P(T)=0.5\]</div>
-<p>A quantum bit on the other hand, or more famously a qubit, could be visualised as a spinning coin that hasn’t decided yet. While it’s spinning, from the naked eyes it looks like a sphere</p>
+<h1><span class="section-number">11. </span>Classical and Quantum Probability Theory<a class="headerlink" href="#classical-and-quantum-probability-theory" title="Link to this heading">#</a></h1>
+<section id="what-are-the-elements-of-a-quantum-circuit">
+<h2><span class="section-number">11.1. </span>What are the elements of a quantum circuit?<a class="headerlink" href="#what-are-the-elements-of-a-quantum-circuit" title="Link to this heading">#</a></h2>
+<p>Every computation has three elements: Data, operations and result</p>
+<p>In quantum circuits:</p>
+<ul class="simple">
+<li><p>Data = Qubits</p></li>
+<li><p>Operations = Quantum Gates (Unitary Transformation)</p></li>
+<li><p>Result = Measurements</p></li>
+</ul>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="quantum-machine-learning-is-a-rocket-emerging">
-<h1><span class="section-number">29. </span>Quantum Machine Learning is a rocket emerging<a class="headerlink" href="#quantum-machine-learning-is-a-rocket-emerging" title="Permalink to this headline"></a></h1>
+<section id="about-qutip">
+<h2><span class="section-number">11.2. </span>About QuTiP<a class="headerlink" href="#about-qutip" title="Link to this heading">#</a></h2>
+<p>Every quantum system encountered in the real world is an open quantum system. For although much care is taken experimentally to eliminate the unwanted influence of external interactions, there remains, if ever so slight, a coupling between the system of interest and the external world. <br></p>
+<p>In addition, any measurement performed on the system necessarily involves coupling to the measuring device, therefore introducing an additional source of external influence. Consequently, developing the necessary tools, both theoretical and numerical, to account for the interactions between a system and its environment is an essential step in understanding the dynamics of practical quantum systems.</p>
+<p>While a classical bit which is binary can thought of as a an unbiased coinflip Heads <span class="math notranslate nohighlight">\((H)\)</span> or Tails <span class="math notranslate nohighlight">\((T)\)</span> with
+$<span class="math notranslate nohighlight">\(P(H)=P(T)=0.5\)</span>$
+A quantum bit on the other hand, or more famously a qubit, could be visualised as a spinning coin that hasn’t decided yet. While it’s spinning, from the naked eyes it looks like a sphere</p>
+</section>
+<section id="quantum-machine-learning-is-a-rocket-emerging">
+<h2><span class="section-number">11.3. </span>Quantum Machine Learning is a rocket emerging<a class="headerlink" href="#quantum-machine-learning-is-a-rocket-emerging" title="Link to this heading">#</a></h2>
 <p>While Machine learning is how classical computers learn patterns in data. Quantum machine learning on the other hand is about how Quantum Computers and other quantum information processors can learn patterns in data that is impossible for classical machine learning algorithms to learne.</p>
 <p>The notions and properties of calssical probability distributions can be distinguished from Quantum states. can be thought of as  with certain properties that can be distinguished from our classical notion of probabilities. By contrasting these two properties, we can straightforwardly and easily formulate some of the most basic concepts needed in quantum computing.</p>
 <p>Alongside probability theory, linear algebra is also crucially important for many learning protocols. In quantum computing is in general all about linear algebra. We will demonstrate how intrinsically linked quantum computing, geometry and probabilities are. Geometric notions are also familiarity in dealing with classical probability distributions. This notebook first talks about classical probabilities and stochastic vectors, and introduces quantum states as a natural generalization.</p>
@@ -295,12 +833,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Apart from probability theory, linear algebra is also critical for many learning protocols. As we will see, geometry and probabilities are intrinsically linked in quantum computing, but geometric notions are also familiar in dealing with classical probability distributions. This notebook first talks about classical probabilities and stochastic vectors, and introduces quantum states as a natural generalization.</p>
 <p>Throughout this course, we will assume finite probability distributions and finite dimensional spaces. This significantly simplifies notation and most quantum computers operate over finite dimensional spaces, so we do not lose much in generality.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="classical-probability-distributions">
-<h1><span class="section-number">30. </span>Classical probability distributions<a class="headerlink" href="#classical-probability-distributions" title="Permalink to this headline"></a></h1>
+<section id="classical-probability-distributions">
+<h2><span class="section-number">11.4. </span>Classical probability distributions<a class="headerlink" href="#classical-probability-distributions" title="Link to this heading">#</a></h2>
 <p>Let us toss a biased coin. Without getting too technical, we can associate a random variable <span class="math notranslate nohighlight">\(X\)</span> with the output: it takes the value 0 for heads and the value 1 for tails. We get heads with probability <span class="math notranslate nohighlight">\(P(X=0) = p_0\)</span> and tails with <span class="math notranslate nohighlight">\(P(X=1) = p_1\)</span> for each toss of the coin. In classical, Kolmogorovian probability theory, <span class="math notranslate nohighlight">\(p_i\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>, and the probabilities sum to one: <span class="math notranslate nohighlight">\(\sum_i p_i = 1\)</span>. Let’s sample this distribution</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">p_1</span> <span class="o">=</span> <span class="mf">0.2</span>
 <span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p_1</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,))</span>
@@ -309,9 +847,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 1 0 0 0
- 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1
- 0 0 0 0 0 0 0 0 0 1 0 0 1 1 1 1 0 0 0 1 0 0 0 0 0 0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 0 0 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0
+ 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0]
 </pre></div>
 </div>
 </div>
@@ -335,28 +873,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;H&#39;</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">p</span> <span class="k">else</span> <span class="s1">&#39;T&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flips</span> <span class="o">=</span> <span class="p">[</span><span class="n">flip</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-<span class="nb">float</span><span class="p">(</span><span class="n">flips</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">))</span><span class="o">/</span><span class="n">N</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.45
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">flip</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">'H'</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">p</span> <span class="k">else</span> <span class="s1">'T'</span>
 </pre></div>
 </div>
 </div>
@@ -364,12 +889,25 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flips</span> <span class="o">=</span> <span class="p">[</span><span class="n">flip</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-<span class="nb">float</span><span class="p">(</span><span class="n">flips</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">))</span><span class="o">/</span><span class="n">N</span>
+<span class="nb">float</span><span class="p">(</span><span class="n">flips</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'H'</span><span class="p">))</span><span class="o">/</span><span class="n">N</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.57
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flips</span> <span class="o">=</span> <span class="p">[</span><span class="n">flip</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="nb">float</span><span class="p">(</span><span class="n">flips</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'H'</span><span class="p">))</span><span class="o">/</span><span class="n">N</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.49
 </pre></div>
 </div>
 </div>
@@ -393,45 +931,45 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;T&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'T'
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">string</span><span class="p">):</span> 
-    <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">string</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
 
-<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;i&#39;</span><span class="p">:</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;j&#39;</span><span class="p">:</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;m&#39;</span><span class="p">:</span> <span class="s1">&#39;13&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;14&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="s1">&#39;15&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="s1">&#39;16&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;19&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;u&#39;</span><span class="p">:</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="s1">&#39;22&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;24&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="s1">&#39;25&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span>
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span> 
+    <span class="s1">'b'</span><span class="p">:</span> <span class="s1">'2'</span><span class="p">,</span>
+    <span class="s1">'c'</span><span class="p">:</span> <span class="s1">'3'</span><span class="p">,</span>
+    <span class="s1">'d'</span><span class="p">:</span> <span class="s1">'4'</span><span class="p">,</span>
+    <span class="s1">'e'</span><span class="p">:</span> <span class="s1">'5'</span><span class="p">,</span>
+    <span class="s1">'f'</span><span class="p">:</span> <span class="s1">'6'</span><span class="p">,</span>
+    <span class="s1">'g'</span><span class="p">:</span> <span class="s1">'7'</span><span class="p">,</span>
+    <span class="s1">'h'</span><span class="p">:</span> <span class="s1">'8'</span><span class="p">,</span>
+    <span class="s1">'i'</span><span class="p">:</span> <span class="s1">'9'</span><span class="p">,</span>
+    <span class="s1">'j'</span><span class="p">:</span> <span class="s1">'10'</span><span class="p">,</span>
+    <span class="s1">'k'</span><span class="p">:</span> <span class="s1">'11'</span><span class="p">,</span>
+    <span class="s1">'l'</span><span class="p">:</span> <span class="s1">'12'</span><span class="p">,</span>
+    <span class="s1">'m'</span><span class="p">:</span> <span class="s1">'13'</span><span class="p">,</span>
+    <span class="s1">'n'</span><span class="p">:</span> <span class="s1">'14'</span><span class="p">,</span>
+    <span class="s1">'o'</span><span class="p">:</span> <span class="s1">'15'</span><span class="p">,</span>
+    <span class="s1">'p'</span><span class="p">:</span> <span class="s1">'16'</span><span class="p">,</span>
+    <span class="s1">'q'</span><span class="p">:</span> <span class="s1">'17'</span><span class="p">,</span>
+    <span class="s1">'r'</span><span class="p">:</span> <span class="s1">'18'</span><span class="p">,</span>
+    <span class="s1">'s'</span><span class="p">:</span> <span class="s1">'19'</span><span class="p">,</span>
+    <span class="s1">'t'</span><span class="p">:</span> <span class="s1">'20'</span><span class="p">,</span>
+    <span class="s1">'u'</span><span class="p">:</span> <span class="s1">'21'</span><span class="p">,</span>
+    <span class="s1">'v'</span><span class="p">:</span> <span class="s1">'22'</span><span class="p">,</span>
+    <span class="s1">'w'</span><span class="p">:</span> <span class="s1">'23'</span><span class="p">,</span>
+    <span class="s1">'x'</span><span class="p">:</span> <span class="s1">'24'</span><span class="p">,</span>
+    <span class="s1">'y'</span><span class="p">:</span> <span class="s1">'25'</span><span class="p">,</span>
+    <span class="s1">'z'</span><span class="p">:</span> <span class="s1">'26'</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="n">word</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
+<span class="n">word</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">''</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
@@ -439,32 +977,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">32</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="p">}</span>
-<span class="ne">---&gt; </span><span class="mi">32</span> <span class="n">word</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
-
-<span class="nn">File ~/micromamba/envs/mom1env/lib/python3.8/site-packages/ipykernel/kernelbase.py:1190,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1188</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1189</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1190</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1191</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1192</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1193</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">   </span><span class="mi">1194</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1195</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1196</span> <span class="p">)</span>
-
-<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> w
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23
 </pre></div>
 </div>
 </div>
@@ -486,7 +1002,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -496,24 +1012,24 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for inline plots in jupyter</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="c1"># import matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="c1"># for latex equations</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span>
 <span class="c1"># for displaying images</span>
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 <span class="c1"># import seaborn</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="c1"># settings for seaborn plotting style</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># settings for seaborn plot sizes</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">'figure.figsize'</span><span class="p">:(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)})</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
 <span class="c1"># generate random numbers from N(0,1)</span>
 <span class="n">data_normal</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -525,9 +1041,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">data_normal</span><span class="p">,</span>
                   <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
                   <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span>
-                  <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;linewidth&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Normal Distribution&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+                  <span class="n">color</span><span class="o">=</span><span class="s1">'skyblue'</span><span class="p">,</span>
+                  <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">"linewidth"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span><span class="s1">'alpha'</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Normal Distribution'</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">'Frequency'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -536,15 +1052,15 @@ const thebe_selector_output = ".output, .cell_output"
   warnings.warn(msg, FutureWarning)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5, 0, &#39;Normal Distribution&#39;), Text(0, 0.5, &#39;Frequency&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5, 0, 'Normal Distribution'), Text(0, 0.5, 'Frequency')]
 </pre></div>
 </div>
-<img alt="../../_images/ca6dc1bc47cbd8ade4577ec615f1042acef3fc36f28bad4ef4a0e3d4208254db.png" src="../../_images/ca6dc1bc47cbd8ade4577ec615f1042acef3fc36f28bad4ef4a0e3d4208254db.png" />
+<img alt="Output of the code cell above" src="../../_images/ca6dc1bc47cbd8ade4577ec615f1042acef3fc36f28bad4ef4a0e3d4208254db.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#[Text(0,0.5,u&#39;Frequency&#39;), Text(0.5,0,u&#39;Normal Distribution&#39;)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#[Text(0,0.5,u'Frequency'), Text(0.5,0,u'Normal Distribution')]</span>
 </pre></div>
 </div>
 </div>
@@ -552,7 +1068,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>https://www.kaggle.com/nowke9/statistics-2-distributions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bernoulli</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">bernoulli</span>
 <span class="n">data_bern</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -562,9 +1078,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">data_bern</span><span class="p">,</span>
                  <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1">#False</span>
-                 <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span>
-                 <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;linewidth&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Bernoulli Distribution&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+                 <span class="n">color</span><span class="o">=</span><span class="s2">"skyblue"</span><span class="p">,</span>
+                 <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">"linewidth"</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span><span class="s1">'alpha'</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">'Bernoulli Distribution'</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">'Frequency'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -573,10 +1089,10 @@ const thebe_selector_output = ".output, .cell_output"
   warnings.warn(msg, FutureWarning)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5, 0, &#39;Bernoulli Distribution&#39;), Text(0, 0.5, &#39;Frequency&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5, 0, 'Bernoulli Distribution'), Text(0, 0.5, 'Frequency')]
 </pre></div>
 </div>
-<img alt="../../_images/2e1fdc2dd5d443b425ab5465e5744b332cf3db0dac0a01903b11beb30a71b7b1.png" src="../../_images/2e1fdc2dd5d443b425ab5465e5744b332cf3db0dac0a01903b11beb30a71b7b1.png" />
+<img alt="Output of the code cell above" src="../../_images/2e1fdc2dd5d443b425ab5465e5744b332cf3db0dac0a01903b11beb30a71b7b1.png" />
 </div>
 </div>
 <p>https://www.datacamp.com/community/tutorials/probability-distributions-python</p>
@@ -603,20 +1119,20 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Since <span class="math notranslate nohighlight">\(p_0\)</span> and <span class="math notranslate nohighlight">\(p_1\)</span> must be non-negative, all possible probability distributions are restricted to the positive orthant. The normalization constraint puts every possible distribution on a straight line. This plot describes all possible probability distributions by biased and unbiased coins.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">p_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">p_1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">p_0</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$p_0$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'left'</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">'center'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'bottom'</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">'center'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'right'</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">'none'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'top'</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">'none'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"$p_0$"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$p_1$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"$p_1$"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_0</span><span class="p">,</span> <span class="n">p_1</span><span class="p">)</span>
 </pre></div>
@@ -626,12 +1142,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x287e01c90&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/4017629a3f3aca2381b4da6387b9d6f6b8ee38174fd7df21692d7595e6c394f9.png" src="../../_images/4017629a3f3aca2381b4da6387b9d6f6b8ee38174fd7df21692d7595e6c394f9.png" />
+<img alt="Output of the code cell above" src="../../_images/4017629a3f3aca2381b4da6387b9d6f6b8ee38174fd7df21692d7595e6c394f9.png" />
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="the-geometry-of-probability-distribution">
-<h1><span class="section-number">31. </span>The Geometry of Probability Distribution<a class="headerlink" href="#the-geometry-of-probability-distribution" title="Permalink to this headline"></a></h1>
+<section id="the-geometry-of-probability-distribution">
+<h2><span class="section-number">11.5. </span>The Geometry of Probability Distribution<a class="headerlink" href="#the-geometry-of-probability-distribution" title="Link to this heading">#</a></h2>
 <p>Now, let’s take a look at the bit of the geometry of that probability distribution. So if you have a probability distribution like this, you can also write it as a vector.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\boldsymbol{p}=\left[\begin{array}{c}
@@ -646,8 +1162,8 @@ p_{1}
 <p>This is, again, very important, because in quantum states the normalization is going to be in a different norm.</p>
 <p><strong>finish</strong></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="stochastic-matrix">
-<h1><span class="section-number">32. </span>Stochastic Matrix<a class="headerlink" href="#stochastic-matrix" title="Permalink to this headline"></a></h1>
+<section id="stochastic-matrix">
+<h2><span class="section-number">11.6. </span>Stochastic Matrix<a class="headerlink" href="#stochastic-matrix" title="Link to this heading">#</a></h2>
 <p>Lastly, let’s take a look at how we transform probability distributions. So now we can take this stochastic vector, and we want to end up with another stochastic vector– another probability distribution. To ensure this, the transformation that we apply on this vector must fulfill certain requirements.</p>
 <div class="math notranslate nohighlight">
 \[M\boldsymbol{p}=\boldsymbol{p}'\]</div>
@@ -656,7 +1172,7 @@ p_{1}
 \[\mid\mid\boldsymbol{p}\mid\mid_{1}=1\]</div>
 <p>In the case of a left stochastic matrix, which means that we apply from the left of the stochastic vector, this means that the columns must add up to 1. Quantum calculations will also be some kind of matrix operations which will fulfill certain mathematical properties. They are going to be unitary operations, and they will transform quantum states or quantum probabilities into other quantum states.</p>
 <section id="quiz-classical-probability-distribution">
-<h2><span class="section-number">32.1. </span>Quiz Classical Probability Distribution<a class="headerlink" href="#quiz-classical-probability-distribution" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">11.6.1. </span>Quiz Classical Probability Distribution<a class="headerlink" href="#quiz-classical-probability-distribution" title="Link to this heading">#</a></h3>
 <p><strong>All classical probability distributions of coin flipping lie on…</strong></p>
 <p>– The unit circle in the <span class="math notranslate nohighlight">\(l_{1}\)</span> norm restricted to the positive orthant.</p>
 <p><strong>You are given a biased 6-sided dice where side 1 has a higher probability than all the other sides. The entropy is…</strong></p>
@@ -668,10 +1184,9 @@ p_{1}
 <div class="math notranslate nohighlight">
 \[\begin{split}\vec{p} = \begin{bmatrix} p_0 \\ p_1 \end{bmatrix}\end{split}\]</div>
 <p>Here, for notational convenience, we put an arrow above the variable representing the vector, to distinguish it from scalars. You will see that quantum states also have a standard notation that provides convenience, but goes much further in usefulness than the humble arrow here.</p>
-<p>A vector representing a probability distribution is called a <em>stochastic vector</em>. The normalization constraint essentially says that the norm of the vector is restricted to one in the <span class="math notranslate nohighlight">\(l_1\)</span> norm. In other words,</p>
-<div class="math notranslate nohighlight">
-\[\mid \mid \vec{p}\mid \mid_{1} = \sum_i |p_i| = 1\]</div>
-<p>This would be the unit circle in the <span class="math notranslate nohighlight">\(l_1\)</span> norm, but since <span class="math notranslate nohighlight">\(p_i\geq 0\)</span>, we are restricted to a quarter of the unit circle, just as we plotted above. We can easily verify this with numpy’s norm function:</p>
+<p>A vector representing a probability distribution is called a <em>stochastic vector</em>. The normalization constraint essentially says that the norm of the vector is restricted to one in the <span class="math notranslate nohighlight">\(l_1\)</span> norm. In other words,
+$<span class="math notranslate nohighlight">\(\mid \mid \vec{p}\mid \mid_{1} = \sum_i |p_i| = 1\)</span><span class="math notranslate nohighlight">\(. 
+This would be the unit circle in the \)</span>l_1<span class="math notranslate nohighlight">\( norm, but since \)</span>p_i\geq 0$, we are restricted to a quarter of the unit circle, just as we plotted above. We can easily verify this with numpy’s norm function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.8</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">]])</span>
@@ -736,7 +1251,7 @@ $<span class="math notranslate nohighlight">\(H(p) = - \sum_i p_i \log_2 p_i\)</
 <p>And the plot over all possible probability distributions of coin tosses:</p>
 </section>
 <section id="entropy">
-<h2><span class="section-number">32.2. </span>Entropy<a class="headerlink" href="#entropy" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">11.6.2. </span>Entropy<a class="headerlink" href="#entropy" title="Link to this heading">#</a></h3>
 <p>Now let’s pay attention to another concept called <strong>entropy</strong>. Entropy is a characterization of a probability distribution, and tells something about its unpredictability. It peaks at the unbiased coin, which is the uniform distribution and we’ll get all outcomes with the same probability. This is the most unpredictable case where in this case, we flip the coin, we have absolutely no predictive power of what the next coin flip is going to give us. Whereas if the coin is biased either way, it has a lower complexity and it becomes easier to make probabilistic predictions about the future outcome.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -747,10 +1262,10 @@ $<span class="math notranslate nohighlight">\(H(p) = - \sum_i p_i \log_2 p_i\)</
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$p_0$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$H$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"$p_0$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"$H$"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_0</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -758,17 +1273,17 @@ $<span class="math notranslate nohighlight">\(H(p) = - \sum_i p_i \log_2 p_i\)</
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x287de3e20&gt;
 </pre></div>
 </div>
-<img alt="../../_images/c1cd51a214bf61909431df7117b1b2cb1b259fb6c542398c261a34b51f4c1e2c.png" src="../../_images/c1cd51a214bf61909431df7117b1b2cb1b259fb6c542398c261a34b51f4c1e2c.png" />
+<img alt="Output of the code cell above" src="../../_images/c1cd51a214bf61909431df7117b1b2cb1b259fb6c542398c261a34b51f4c1e2c.png" />
 </div>
 </div>
 <p>Here we can see that the entropy is maximal for the unbiased coin. This is true in general: the entropy peaks for the uniform distribution. In a sense, this is the most unpredictable distribution: if we get heads with probability 0.2, betting tails is a great idea. On the other hand, if the coin is unbiased, then a deterministic strategy is of little help in winning. Entropy quantifies this notion of surprise and unpredictability.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="quantum-states">
-<h1><span class="section-number">33. </span>Quantum states<a class="headerlink" href="#quantum-states" title="Permalink to this headline"></a></h1>
+<section id="quantum-states">
+<h2><span class="section-number">11.7. </span>Quantum states<a class="headerlink" href="#quantum-states" title="Link to this heading">#</a></h2>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="qubits-revisited">
-<h1><span class="section-number">34. </span>Qubits revisited<a class="headerlink" href="#qubits-revisited" title="Permalink to this headline"></a></h1>
+<section id="qubits-revisited">
+<h2><span class="section-number">11.8. </span>Qubits revisited<a class="headerlink" href="#qubits-revisited" title="Link to this heading">#</a></h2>
 <p>In the previous we introduced classical probability theories and the stochastic vector, which describes a probability distribution. So, based on that, we can easily introduce quantum states. So a quantum state is just like stochastic vector. You can write it as a column vector.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{\mid\psi\rangle=\left[\begin{array}{c}a_{0}\\a_{1}\end{array}\right]\qquad}a\in\mathbb{C}\end{split}\]</div>
@@ -791,8 +1306,8 @@ $<span class="math notranslate nohighlight">\(H(p) = - \sum_i p_i \log_2 p_i\)</
 $<span class="math notranslate nohighlight">\(a_0, a_1\in \mathbb{C}\)</span>$</p>
 <p>In other words, we are normalizing in the <span class="math notranslate nohighlight">\(l_2\)</span> norm instead of the <span class="math notranslate nohighlight">\(l_1\)</span> norm. Furthermore, we are no longer restricted to the positive orthant: the components of the quantum state vector, which we call <em>probability amplitudes</em>, are complex valued.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="superposition-revisited">
-<h1><span class="section-number">35. </span>Superposition revisited<a class="headerlink" href="#superposition-revisited" title="Permalink to this headline"></a></h1>
+<section id="superposition-revisited">
+<h2><span class="section-number">11.9. </span>Superposition revisited<a class="headerlink" href="#superposition-revisited" title="Link to this heading">#</a></h2>
 <p>And a superposition is just the expansion of this vector in a basis. For instance, if it expanded in the canonical basis, like this, then we can introduce a notation for the <span class="math notranslate nohighlight">\(1 0\)</span> vector and the <span class="math notranslate nohighlight">\(0 1\)</span> vector.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mid\psi\rangle=\left[\begin{array}{c}a_{0}\\a_{1}\end{array}\right]=a_{0}\left[\begin{array}{c}1\\0\end{array}\right]+a_{1}\left[\begin{array}{c}0\\1\end{array}\right]=a_{0}\mid0\rangle+a_{1}\mid1\rangle\end{split}\]</div>
@@ -831,15 +1346,15 @@ and
 <p>For now, let’s take a look at how we can simulate classical coin tossing on a quantum computer. Let’s start with a completely biased case where we get heads with probability 1. This means that our qubit <span class="math notranslate nohighlight">\(|\psi\rangle=|0\rangle\)</span>. We create a circuit of a single qubit and a single classical register where the results of the sampling (measurements) go.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span> <span class="n">QuantumRegister</span>
-<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">execute</span>
-<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">BasicAer</span>
-<span class="kn">from</span> <span class="nn">qiskit.tools.visualization</span> <span class="kn">import</span> <span class="n">plot_histogram</span><span class="p">,</span> <span class="n">plot_bloch_multivector</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qiskit</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">ClassicalRegister</span><span class="p">,</span> <span class="n">QuantumRegister</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qiskit</span><span class="w"> </span><span class="kn">import</span> <span class="n">execute</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qiskit</span><span class="w"> </span><span class="kn">import</span> <span class="n">BasicAer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qiskit.tools.visualization</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_histogram</span><span class="p">,</span> <span class="n">plot_bloch_multivector</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">π</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
 
-<span class="n">backend</span> <span class="o">=</span> <span class="n">BasicAer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;qasm_simulator&#39;</span><span class="p">)</span>
+<span class="n">backend</span> <span class="o">=</span> <span class="n">BasicAer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">'qasm_simulator'</span><span class="p">)</span>
 
 <span class="n">q</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -877,15 +1392,15 @@ and
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;0&#39;: 100}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'0': 100}
 </pre></div>
 </div>
 </div>
 </div>
 <p>As expected, all of our outcomes are 0.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="bloch-sphere-revisited">
-<h1><span class="section-number">36. </span>Bloch Sphere revisited<a class="headerlink" href="#bloch-sphere-revisited" title="Permalink to this headline"></a></h1>
+<section id="bloch-sphere-revisited">
+<h2><span class="section-number">11.10. </span>Bloch Sphere revisited<a class="headerlink" href="#bloch-sphere-revisited" title="Link to this heading">#</a></h2>
 <p>So this is where the Bloch sphere helps us. So Bloch sphere is this three-dimensional sphere, but with a slightly different geometry than a normal sphere. So here the north pole is identified with the 0 ket, and the south pole is identified with the 1 ket.</p>
 <p>It’s a little bit unusual, because these two basis vectors are actually orthogonal. And it gives an illusion as if they’re relying on the same line. So just keep in mind that orthogonality is a little bit different in this sphere. And now every single point on the surface of the sphere is a qubit state</p>
 <div class="math notranslate nohighlight">
@@ -899,7 +1414,7 @@ $<span class="math notranslate nohighlight">\(\mid 0\rangle\)</span>$
 on the Bloch sphere:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend_statevector</span> <span class="o">=</span> <span class="n">BasicAer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;statevector_simulator&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">backend_statevector</span> <span class="o">=</span> <span class="n">BasicAer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">'statevector_simulator'</span><span class="p">)</span>
 <span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
 <span class="c1">#circuit.iden(q[0])</span>
 <span class="c1">#QuantumCircuit.iden(q[0])</span>
@@ -910,7 +1425,7 @@ on the Bloch sphere:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/34da282e5c7ce041060e209d91c05150d0eab09c93848a75db7f726ebb5087be.png" src="../../_images/34da282e5c7ce041060e209d91c05150d0eab09c93848a75db7f726ebb5087be.png" />
+<img alt="Output of the code cell above" src="../../_images/34da282e5c7ce041060e209d91c05150d0eab09c93848a75db7f726ebb5087be.png" />
 </div>
 </div>
 <p>Compare this sphere with the straight line in the positive orthant that describes all classical probability distributions of coin tosses. You can already see that there is a much richer structure in the quantum probability space.</p>
@@ -933,7 +1448,7 @@ and the other way around. There are many ways to do this transformation. We pick
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aca988e296a3559e4d15666e69088ec8c24d2a68e146b066f7f0e03a6ee65f35.png" src="../../_images/aca988e296a3559e4d15666e69088ec8c24d2a68e146b066f7f0e03a6ee65f35.png" />
+<img alt="Output of the code cell above" src="../../_images/aca988e296a3559e4d15666e69088ec8c24d2a68e146b066f7f0e03a6ee65f35.png" />
 </div>
 </div>
 <p>To get an intuition why it is called a rotation around the Y axis, let’s plot it on the Bloch sphere:</p>
@@ -947,7 +1462,7 @@ and the other way around. There are many ways to do this transformation. We pick
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7d07ea3a57fbe73167f27f412b2c4676b7c242e7309a59abc7220dfe7d5bee6c.png" src="../../_images/7d07ea3a57fbe73167f27f412b2c4676b7c242e7309a59abc7220dfe7d5bee6c.png" />
+<img alt="Output of the code cell above" src="../../_images/7d07ea3a57fbe73167f27f412b2c4676b7c242e7309a59abc7220dfe7d5bee6c.png" />
 </div>
 </div>
 <p>It does exactly what it says: it rotates from the north pole of the Bloch sphere.</p>
@@ -963,7 +1478,7 @@ and the other way around. There are many ways to do this transformation. We pick
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/055ff131c382ea1ed8ddefed674753e8799bb1907585f14a695136793f1c8b80.png" src="../../_images/055ff131c382ea1ed8ddefed674753e8799bb1907585f14a695136793f1c8b80.png" />
+<img alt="Output of the code cell above" src="../../_images/055ff131c382ea1ed8ddefed674753e8799bb1907585f14a695136793f1c8b80.png" />
 </div>
 </div>
 <p>We can verify that the result is
@@ -978,12 +1493,12 @@ That is, the exact same state as before, except that the first term got a minus 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/86144182a1afcde982fa6c7a27347c20165e38bb141c4e5219766d1c80b72683.png" src="../../_images/86144182a1afcde982fa6c7a27347c20165e38bb141c4e5219766d1c80b72683.png" />
+<img alt="Output of the code cell above" src="../../_images/86144182a1afcde982fa6c7a27347c20165e38bb141c4e5219766d1c80b72683.png" />
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="interference">
-<h1><span class="section-number">37. </span>Interference<a class="headerlink" href="#interference" title="Permalink to this headline"></a></h1>
+<section id="interference">
+<h2><span class="section-number">11.11. </span>Interference<a class="headerlink" href="#interference" title="Link to this heading">#</a></h2>
 <p>Interference is a strange phenomenon where the different basis vectors and the coefficients interact in your calculations.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\frac{1}{\sqrt{2}}\left[\begin{array}{cc}1 &amp; -1\\1 &amp; 1\end{array}\right]\mid0\rangle=\frac{1}{\sqrt{2}}\left[\begin{array}{cc}1 &amp; -1\\1 &amp; 1\end{array}\right]\left[\begin{array}{c} 1\\1\end{array}\right]=\frac{1}{\sqrt{2}}(\mid0\rangle+\mid1\rangle)\end{split}\]</div>
@@ -1002,7 +1517,7 @@ and we apply the same operation on it– that’s what we are doing here– so I
 \[\frac{1}{2}\left(\cancel{\mid0\rangle}+\mid1\rangle-\cancel{\mid0\rangle}+\mid1\rangle\right)\]</div>
 <p>Which means that we get a deterministic outcome by applying the operator again. So this is an example of interference. So t he probability amplitudes of the 0 ket destructive interfere, they vanish from the superposition, and you get the deterministic 1 outcome.</p>
 <section id="quiz-quantum-states">
-<h2><span class="section-number">37.1. </span>Quiz Quantum States<a class="headerlink" href="#quiz-quantum-states" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">11.11.1. </span>Quiz Quantum States<a class="headerlink" href="#quiz-quantum-states" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Is
 $<span class="math notranslate nohighlight">\(\frac{1}{3}\mid0\rangle+\sqrt{\frac{2}{3}}\mid1\rangle\)</span>$
@@ -1034,17 +1549,17 @@ although in between the two, it was some superposition.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d20567d853f2cdeba09477e546dae46b177d0ea20645be32af9e539b973d6212.png" src="../../_images/d20567d853f2cdeba09477e546dae46b177d0ea20645be32af9e539b973d6212.png" />
+<img alt="Output of the code cell above" src="../../_images/d20567d853f2cdeba09477e546dae46b177d0ea20645be32af9e539b973d6212.png" />
 </div>
 </div>
 <p>Many quantum algorithms exploit interference, for instance, the seminal <a class="reference external" href="https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm">Deutsch-Josza algorithm</a>, which is among the simplest to understand its significance.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="more-qubits-and-entanglement">
-<h1><span class="section-number">38. </span>More qubits and entanglement<a class="headerlink" href="#more-qubits-and-entanglement" title="Permalink to this headline"></a></h1>
+<section id="more-qubits-and-entanglement">
+<h2><span class="section-number">11.12. </span>More qubits and entanglement<a class="headerlink" href="#more-qubits-and-entanglement" title="Link to this heading">#</a></h2>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="multiple-qubits-revisited">
-<h1><span class="section-number">39. </span>Multiple Qubits revisited<a class="headerlink" href="#multiple-qubits-revisited" title="Permalink to this headline"></a></h1>
+<section id="multiple-qubits-revisited">
+<h2><span class="section-number">11.13. </span>Multiple Qubits revisited<a class="headerlink" href="#multiple-qubits-revisited" title="Link to this heading">#</a></h2>
 <p>Starting with the simplest possible quantum system, a qubit state and try to construct larger probability distributions, or larger states, which are composed of several qubits. Before we go there, we have to introduce a new mathematical operation, a tensor product. Imagine that you have two quantum states, two kets. One has a probability amplitudes a0 a1, and the second one has b0 and b1.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mid\psi\rangle=\left[\begin{array}{c}a_{0}\\a_{1}\end{array}\right]\end{split}\]</div>
@@ -1088,7 +1603,7 @@ This is the same order of representing binary values as you would have in most d
 \[\underbrace{a_{0}b_{0}=\frac{1}{\sqrt{2}}}_{\text{Entangled state}}\qquad a_{1}b_{0}=0\]</div>
 <p>Similarly, we have the <span class="math notranslate nohighlight">\(1 1\)</span> ket with the same coefficient. This condition must be fulfilled. And we also see that there is no 0 1 and 1 0, so the corresponding coefficient must be 0. But now, it means that either a0 or b1 must be 0. a0 cannot be 0, because it multiplies to some known nonzero value, but the same is true for b1. Therefore the state, although it lives in the same space, cannot be written as a product state. Such states are called “entangled states,” and they play a very important role in quantum computing, together with interference. So these are the main quantum-mechanical properties that we exploit in quantum calculations, as you will see in subsequent lectures.</p>
 <section id="quiz">
-<h2><span class="section-number">39.1. </span>Quiz<a class="headerlink" href="#quiz" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">11.13.1. </span>Quiz<a class="headerlink" href="#quiz" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The <span class="math notranslate nohighlight">\(\mid00\rangle\)</span> state is the same as…
 $<span class="math notranslate nohighlight">\(\mid0\rangle\otimes\mid0\rangle\)</span>$</p></li>
@@ -1153,23 +1668,24 @@ Then this composite state would be described by according to this product rule a
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ff590da60f36d6fad0a21a3f7eb04b9a02daa1db1555fd000bc899037dd97702.png" src="../../_images/ff590da60f36d6fad0a21a3f7eb04b9a02daa1db1555fd000bc899037dd97702.png" />
+<img alt="Output of the code cell above" src="../../_images/ff590da60f36d6fad0a21a3f7eb04b9a02daa1db1555fd000bc899037dd97702.png" />
 </div>
 </div>
 <p>Notice that 01 or 10 never appear in the measurement statistics.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="further-reading">
-<h1><span class="section-number">40. </span>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline"></a></h1>
+<section id="further-reading">
+<h2><span class="section-number">11.14. </span>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <p>Chapter 9 in Quantum Computing since Democritus by Scott Aaronson describes a similar approach to understanding quantum states – in fact, the interference example was lifted from there.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "MoHoushmand/mo",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1184,34 +1700,128 @@ Then this composite state would be described by according to this product rule a
     </script>
     <script>kernelName = 'python3'</script>
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../quantum_machine_learning.html" class="btn btn-neutral float-left" title="23. Quantum Machine Learning Intro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html" class="btn btn-neutral float-right" title="41. Measurements revisited" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="qml_0.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10.2. </span>About this series</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Measurements revisited</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-elements-of-a-quantum-circuit">11.1. What are the elements of a quantum circuit?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-qutip">11.2. About QuTiP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-machine-learning-is-a-rocket-emerging">11.3. Quantum Machine Learning is a rocket emerging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-probability-distributions">11.4. Classical probability distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometry-of-probability-distribution">11.5. The Geometry of Probability Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-matrix">11.6. Stochastic Matrix</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-classical-probability-distribution">11.6.1. Quiz Classical Probability Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">11.6.2. Entropy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-states">11.7. Quantum states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qubits-revisited">11.8. Qubits revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#superposition-revisited">11.9. Superposition revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloch-sphere-revisited">11.10. Bloch Sphere revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interference">11.11. Interference</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-quantum-states">11.11.1. Quiz Quantum States</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-qubits-and-entanglement">11.12. More qubits and entanglement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-qubits-revisited">11.13. Multiple Qubits revisited</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz">11.13.1. Quiz</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">11.14. Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Mo Houshmand
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

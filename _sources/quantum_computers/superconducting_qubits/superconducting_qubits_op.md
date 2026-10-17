@@ -6,9 +6,9 @@ In this lecture I will explain how we can perform measurement of superconducting
 At the end of every quantum algorithm, the computation result has to be obtained by performing measurement of the qubits. And, as dictated by the laws of quantum mechanics, any superposition states are projected into well-defined zeros and ones. A transmon qubit, as depicted here,
 can be measured via a readout resonator that is coupled to it. The resonance frequency of the resonator is quite far away from the qubit transition frequency, on the order of GHz.
 
-```{figure} /gfx/gfx4/m4d1.png
+```{figure} /quantum_computers/qc_img/gfx4/m4d1.png
+:alt: Lecture slide: Measurement
 :name: d1
-d1
 ```
 
 However, due to the coupling, there is a shift in the resonator’s frequency
@@ -26,9 +26,9 @@ which clearly look different.
 Hence, we are able to distinguish and measure the two different qubit states. The traces I’ve just shown you, look very clean and distinguishable
 as they are averaged over thousands of measurements.
 
-```{figure} /gfx/gfx4/m4d2.png
+```{figure} /quantum_computers/qc_img/gfx4/m4d2.png
+:alt: Lecture slide: Measurement
 :name: d2
-d2
 ```
 
 However, for most real quantum protocols, we require to discern the qubit state in a just single run.
@@ -57,9 +57,9 @@ Here, we show the readout results for qubit 1 for each of the four possible two-
 indicating that the signal practically only depends on the state of the targeted qubit,
 separating 00 and 10 from 00 and 11.
 
-```{figure} /gfx/gfx4/m4d3.png
+```{figure} /quantum_computers/qc_img/gfx4/m4d3.png
+:alt: Lecture slide: Measurement
 :name: d3
-d3
 ```
 
 Dually, we here show the readout results for the other qubit,
@@ -70,9 +70,9 @@ to measure ever increasing numbers of qubits.
 Here, we depicted a seventeen-qubit device where we play the simultaneous readout trick
 using seventeen readout resonators divided over three different input and output lines.
 
-```{figure} /gfx/gfx4/m4d4.png
+```{figure} /quantum_computers/qc_img/gfx4/m4d4.png
+:alt: Lecture slide: Measurement
 :name: d4
-d4
 ```
 
 This might sound to like a finished story.
@@ -97,18 +97,18 @@ The state of a single qubit can be visualized on the Bloch sphere,
 with the ground and excited state on the poles
 and the other points on the surface corresponding to quantum superpositions.
 
-```{figure} /gfx/gfx4/m4e1.png
+```{figure} /quantum_computers/qc_img/gfx4/m4e1.png
+:alt: Lecture slide: Single qubit gates
 :name: e1
-e1
 ```
 
 Single-qubit gates are then rotations of the Bloch sphere,
 for instance, here the X90 gate, which converts the ground and excited states into superpositions.
 We use the physical effect called Rabi oscillation:
 
-```{figure} /gfx/gfx4/m4e2.png
+```{figure} /quantum_computers/qc_img/gfx4/m4e2.png
+:alt: Lecture slide: Single qubit gates
 :name: e2
-e2
 ```
 
 We change the qubit state by applying an external oscillating electric field at the qubit frequency,
@@ -123,9 +123,9 @@ With this, we can generate the electric field close to only one selected qubit.
 Let’s see how the oscillating field affects the qubit state.
 When we apply it, it drives the qubit from the ground to the first excited state and back.
 
-```{figure} /gfx/gfx4/m4e3.png
+```{figure} /quantum_computers/qc_img/gfx4/m4e3.png
+:alt: Lecture slide: Single qubit gates
 :name: e3
-e3
 ```
 
 On the Bloch sphere, this looks like a rotation with constant speed.
@@ -133,9 +133,9 @@ The axis of rotation always lies in the x-y plane.
 We can control where exactly it lies by changing the phase of the applied field: A sine wave leads to a rotation around the x-axis,
 while a cosine with 90 degrees phase offset will induce a rotation around the y-axis. On the other hand, the speed of the rotation is proportional to the amplitude of the electric field. In order to perform a desired gate, for instance a rotation by 90 degrees around the x-axis, we thus need to apply a short pulse with the correct phase, amplitude and length.
 
-```{figure} /gfx/gfx4/m4e4.png
+```{figure} /quantum_computers/qc_img/gfx4/m4e4.png
+:alt: Lecture slide: Single qubit gates
 :name: e4
-e4
 ```
 
 The rotation angle is determined by the product of length and amplitude,
@@ -149,17 +149,17 @@ using no more than three microwave pulses in sequence.
 Of course, we want to make the pulses as short and strong as possible,
 to be able to do quantum computations quickly.
 
-```{figure} /gfx/gfx4/m4e5.png
+```{figure} /quantum_computers/qc_img/gfx4/m4e5.png
+:alt: Lecture slide: Single qubit gates
 :name: e5
-e5
 ```
 
 However, the shorter the pulse,
 the more frequency components it has besides the transition frequency f01. We can see this by looking at the spectral decomposition of the pulse. Unfortunately, that means that if we make the pulses shorter and shorter, at some point, the spectrum is so broadthat the pulse drives oscillations not only between the states 0 and 1, but also 1 and 2! Then, the transmon does not work as a qubit anymore, since three transmon states are involved, and the nice Bloch sphere rotation picture breaks down. We must avoid this situation, and this limits us in making the pulses too short. To push the limit of how short we can make the pulse, instead of a square pulse, we need a pulse which is well localized in time and also frequency.
 
-```{figure} /gfx/gfx4/m4e6.png
+```{figure} /quantum_computers/qc_img/gfx4/m4e6.png
+:alt: Lecture slide: Single qubit gates
 :name: e6
-e6
 ```
 
 A much better choice is a pulse with a Gaussian shaped envelope.
@@ -167,9 +167,9 @@ It has the same area, but affects the 1-2 transition much, much less.
 Using a technique called derivative removal by adiabatic gate, or DRAG,
 we can push the limit further:
 
-```{figure} /gfx/gfx4/m4e7.png
+```{figure} /quantum_computers/qc_img/gfx4/m4e7.png
+:alt: Lecture slide: Single qubit gates
 :name: e7
-e7
 ```
 
 By superimposing a fine-tuned out-of-phase component with an envelope proportional to the derivative of the original pulse, the rotation angle is unchanged, but the transitions to the 2 state are actively suppressed. Using this technique, pulse lengths can be reduced to well below 5 ns without the second transmon state being a concern. This concludes our quick look at how we control the state of individual transmon qubits using microwave pulses. In the next videos, Niels and Adriaan will show you how we measure the transmon state, and how we change the state of a transmon depending on the state of another transmon, to perform larger calculations.
@@ -187,9 +187,9 @@ Main takeaways
 Interactions between qubits are controlled using two qubit gates.
 In transmen qubits the two qubit gate that is used to form a universal gate set. It's the conditional phase gate also known as the C phase or C's at gate.
 
-```{figure} /gfx/gfx4/m4f1.png
+```{figure} /quantum_computers/qc_img/gfx4/m4f1.png
+:alt: Lecture slide: Two qubit gates
 :name: f1
-f1
 ```
 
 Applying a conditional phase gate to two qubits causes the target qubit to acquir by a radiance of phase based on the state of the control qubit. As an example let us consider two qubits. A control qubit QC starting in either the ground or the excited state and a target qubit QT starting in the plus state. When the control qubit is in the ground state and we apply the C phase gate, there is no effect on the target qubit. However, when the control qubit is in the excited state,
@@ -199,9 +199,9 @@ To understand how to perform such C phase gate we will look at what mediates the
 how qubits can be tuned in and out of resonance, wooden interaction,
 and why this causes the qubits to accumulate phase.
 
-```{figure} /gfx/gfx4/m4f2.png
+```{figure} /quantum_computers/qc_img/gfx4/m4f2.png
+:alt: Lecture slide: Two qubit gates
 :name: f2
-f2
 ```
 
 How to use this interaction to perform a C phase gate
@@ -209,9 +209,9 @@ while minimizing leakage out of computational subspace.
 And finally what the experimental challenges are when implementing high fidelity gates.
 In superconducting transmen qubits to qubit gates are based on a transversal cubed cubed coupling.
 
-```{figure} /gfx/gfx4/m4f3.png
+```{figure} /quantum_computers/qc_img/gfx4/m4f3.png
+:alt: Lecture slide: Two qubit gates
 :name: f3
-f3
 ```
 
 This coupling is mediated through a coupling resonator.
@@ -221,9 +221,9 @@ such as readout resonators.
 To be able to tune in and out of resonance with the interaction,
 the transition frequency of a transplant qubit must be controlled.
 
-```{figure} /gfx/gfx4/m4f4.png
+```{figure} /quantum_computers/qc_img/gfx4/m4f4.png
+:alt: Lecture slide: Two qubit gates
 :name: f4
-f4
 ```
 
 By applying a current to the flux bias line,
@@ -233,9 +233,9 @@ When a pulse is applied to the Flex bias line, the cubit is detuned from its ope
 While the cubit is detuned face accumulates. To understand how this flux control can be used to perform a C phase case,
 let us take a look at the level diagram...
 
-```{figure} /gfx/gfx4/m4f5.png
+```{figure} /quantum_computers/qc_img/gfx4/m4f5.png
+:alt: Lecture slide: Two qubit gates
 :name: f5
-f5
 ```
 
 ...of two transport cubit as a function of the flux through the target qubit.
@@ -246,9 +246,9 @@ The amount of face that a target cute picks up is most evident when the 1-1 and 
 By detuning the qubits into the red region, it is possible to make the target qubit acquire a face conditional instead of control qubit.
 However, the interaction we are using, is an interaction between the 1-1 and the 0-2 state.
 
-```{figure} /gfx/gfx4/m4f6.png
+```{figure} /quantum_computers/qc_img/gfx4/m4f6.png
+:alt: Lecture slide: Two qubit gates
 :name: f6
-f6
 ```
 
 As the 0-2 state is not part of the computational subspace, we want to avoid any energy transfer to the state.
@@ -258,9 +258,9 @@ This pulse shape can be expressed as a Fourier series in the frame of the intera
 Distortions can be caused by electrical components in the signal path
 between the waveform generator and the qubit, such as filters and cables.
 
-```{figure} /gfx/gfx4/m4f7.png
+```{figure} /quantum_computers/qc_img/gfx4/m4f7.png
+:alt: Lecture slide: Two qubit gates
 :name: f7
-f7
 ```
 
 But even the own chip response causes distortions on the signal to qubit experiences.
@@ -285,9 +285,9 @@ Main takeaways
 
 ### Question 1
 
-```{figure} /gfx/gfx4/general_bloch_sphere.jpg
-:name: f7
-f7
+```{figure} /quantum_computers/qc_img/gfx4/general_bloch_sphere.jpg
+:alt: Lecture slide: Question 1
+:name: f7-2
 ```
 
 The Bloch sphere is a useful tool to visualize the state of qubit and the effect of single-qubit operations. What state ket $\{\mid psi\} \mid$ corresponds to the state shown on the Bloch sphere below?
@@ -531,7 +531,7 @@ Correct: This is essentially the same as you're doing in the previous question, 
 Explanation
 Just as we could couple the readout cavities to different frequencies than the ones we use for operations, we can also couple the different qubits readout cavities to different frequencies from each other. Problem solved!
 
-# Learn More
+## Learn More
 
 To go more in depth into the working principles of transmon qubits, we invite you to read the following references:
 
@@ -559,5 +559,3 @@ A. G. Fowler, M. Mariantoni, J. M. Martinis, and A. N. Cleland, Surface codes: T
 
 For further details into the approach used in Professor Dicarlo's lab for building surface-code quantum harware using an 8-qubit unit cell
 R. Versluis, S. Poletto, N. Khammassi, B. Tarasinski, N. Haider, D. J. Michalak, A. Bruno, K. Bertels, and L. DiCarlo, Scalable quantum circuit and control for a superconducting surface code, Physical Review Applied 8, 034021 (2017). https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.8.034021
-
----

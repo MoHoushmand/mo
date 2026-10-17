@@ -1,0 +1,1852 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>QDaria Investor Dashboards &#8212; Mo Houshmand</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mo-paper.css?v=10f58ce2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=5a8bd289" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plates/plates.css?v=57981c05" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    
+    
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'qdaria/business/investor-dashboards';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../_static/mo-toggles.js?v=60db9437"></script>
+    <script src="../../_static/plates/loader.js?v=5d12304b"></script>
+    <link rel="canonical" href="https://mohoushmand.com/qdaria/business/investor-dashboards.html" />
+    <link rel="icon" href="../../_static/mo-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="QDaria Competitive Intelligence Visualizations" href="competitive-intelligence-visualizations.html" />
+    <link rel="prev" title="QDaria Business Plan - Premium Chart Card Implementation" href="qdaria-business-plan-25-cards.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="light">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/mo0.png" class="logo__image only-light" alt=""/>
+    <img src="../../_static/mo0.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Mo Houshmand</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Daniel Mo Houshmand
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../about/about.html">About me</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/CV/CV.html">CV</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">1. Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_mechanics/qm/qm_0.html">1.1. Entanglement</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">2. Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computation/qc/qc_0.html">2.1. The gate model in brief</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">3. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">4. Spin Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits_op.html">4.4. Operations on spin qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">5. Superconducting qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits_op.html">5.5. How to do operations on superconducting qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">6. NV Center Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits_op.html">6.3. Operations on NV center qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">7. Topological Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits_op.html">7.5. Operations on Topological Quantum Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/qubits/topological.html">7.6. Topology, Calabi–Yau manifolds and anyons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">8. Quantum Annealing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing_op.html">8.1. Annealing in practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/qsum.html">9. Summary: the qubit platforms compared</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_machine_learning/quantum_machine_learning.html">10. Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_machine_learning/qml/qml_0.html">10.2. About this series</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">11. Classical and quantum probability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">12. Measurements and mixed states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">13. Evolution in closed and open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">14. Classical and quantum many-body physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">15. Gate-model quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">16. Adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">17. Variational circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">18. Discrete optimisation and ensemble learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">19. Discrete optimisation and unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">20. Kernel methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">21. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">22. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">23. Quantum matrix inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">24. Quantum kernels and support vector machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">25. Variational quantum kernels</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics and Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../applied_mathematics/applied_math.html">26. Computational Fluid Dynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applied_mathematics/PDEs/NS_eq.html">26.1. The Navier–Stokes equations</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../data_science/stats/ds.html">27. Data Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../data_science/stats/statML.html">27.1. Statistics and Machine Learning</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../computer_science/software_engineering/se.html">28. Software Engineering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../computer_science/software_engineering/zipminator.html">28.1. Zipminator</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../art/art.html">29. Art</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../art/fluidart/acp.html">29.1. Acrylic Pouring Intro</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Experiments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ruter/ruter.html">30. Ruter: a travelling-salesperson route on a quantum annealer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to QDaria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qdaria-business-plan-25.html">QDaria Business Plan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qdaria-business-plan-25-cards.html">QDaria Business Plan - Premium Chart Card Implementation</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">QDaria Investor Dashboards</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul><li class="toctree-l2 mo-section"><a class="reference internal" href="#geographic-expansion-map">Geographic Expansion Map</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#investor-metrics-dashboard">Investor Metrics Dashboard</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#key-performance-insights">Key Performance Insights</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#growth-trajectory">Growth Trajectory</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#financial-health-indicators">Financial Health Indicators</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#revenue-diversification">Revenue Diversification</a></li>
+</ul>
+</li></ul></details></li>
+<li class="toctree-l1"><a class="reference internal" href="competitive-intelligence-visualizations.html">QDaria Competitive Intelligence Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qdaria-whitepaper.html"><strong>QDaria Quantum Computing Whitepaper</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="timeline.html">Strategic Plan for QDaria’s Quantum Computer Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organization/qdaria-coo-job-description.html">Chief Operating Officer (COO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organization/qdaria-board-resolution.html">BOARD RESOLUTION OF QDARIA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organization/qdaria-compensation-policy.html">QDARIA EXECUTIVE COMPENSATION POLICY</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alive</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../alive/intro.html">Social Irresponsibility Analysis of WEF Partner Companies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../alive/alive.html">Comprehensive Framework for Visualizing Corporate Social Irresponsibility Using Alive Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../alive/risk_dashboard.html">Risk Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../alive/technical_documentation.html">Technical Documentation: Alive-Book Visualization System</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria Quantum Book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/index.html">QDaria Quantum Book</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/qm/intro.html">Part I: Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qm/history.html">Historical Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qm/classical_to_quantum.html">From Classical to Quantum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qm/braket_notation.html">Dirac Bra-Ket Notation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qm/key_concepts.html">Key Quantum Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/superposition.html">Superposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/entanglement.html">Entanglement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/interference.html">Quantum Interference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/measurement.html">Quantum Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/no_cloning.html">The No-Cloning Theorem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qm/qubits.html">Qubits: The Quantum Bit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/single_qubit.html">Single-Qubit States and Gates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/multi_qubit.html">Multi-Qubit Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qm/density_matrices.html">Density Matrices and Mixed States</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qm/experimental.html">Experimental Quantum Mechanics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/intro.html">Part II: Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/gate_model.html">The Gate Model of Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/circuit_notation.html">Circuit Notation and Diagrams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/algorithms.html">Quantum Algorithms Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/deutsch_jozsa.html">Deutsch-Jozsa Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/grover.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/shor.html">Shor’s Factoring Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/qpe.html">Quantum Phase Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/qft.html">Quantum Fourier Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/vqe.html">Variational Quantum Eigensolver (VQE)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/error_correction.html">Quantum Error Correction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/bit_phase_flip.html">Bit-Flip and Phase-Flip Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/surface_codes.html">Surface Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/logical_physical.html">Logical vs. Physical Qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qc/frameworks.html">Quantum Programming Frameworks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/fw_getting_started.html">Getting Started with Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/fw_circuits.html">Building Circuits Across Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qc/fw_hardware.html">Running on Real Hardware</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/hw/intro.html">Part III: Quantum Hardware</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/classical_background.html">Classical Computing Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/divincenzo.html">The DiVincenzo Criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/superconducting.html">Superconducting Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/spin.html">Spin Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/nv_center.html">Nitrogen-Vacancy Centers in Diamond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/photonic.html">Photonic Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/trapped_ion.html">Trapped Ion Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/hw/annealing.html">Quantum Annealing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/hw/topological.html">Topological Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/topo_background.html">Topological Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/majorana.html">Majorana Fermions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/topoconductors.html">Topoconductors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/fibonacci_anyons.html">Fibonacci Anyons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/topo_challenges.html">Challenges in Topological QC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/hw/topo_state_of_art.html">State of the Art</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/qml/intro.html">Part IV: Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/classical_quantum_prob.html">Classical and Quantum Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/measurements_mixed.html">Measurements and Mixed States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/evolution_systems.html">Evolution of Quantum Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/many_body.html">Many-Body Quantum Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qml/computation.html">Quantum Models of Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qml/gate_model_qc.html">Gate Model for QML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qml/adiabatic.html">Adiabatic Quantum Computing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/hybrid_algorithms.html">Hybrid Quantum-Classical Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/optimization_ensemble.html">Optimization and Ensemble Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/unsupervised.html">Unsupervised Quantum Learning</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../quantum_book/foundations/qml/kernel_methods.html">Kernel Methods in QML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quantum_book/foundations/qml/quantum_kernels_svm.html">Quantum Kernels and SVMs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/graphical_models.html">Quantum Graphical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/coherent_learning.html">Coherent Quantum Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/qpe_learning.html">QPE-Based Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/qml/matrix_inversion.html">Quantum Matrix Inversion (HHL)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/foundations/pqc/intro.html">Part V: Post-Quantum Cryptography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/pqc/nist_standards.html">NIST PQC Standards (FIPS 203/204/205)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/pqc/lattice_crypto.html">Lattice-Based Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/pqc/qrng_vs_prng.html">QRNG vs. PRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/foundations/pqc/risk_assessment.html">Quantum Risk Assessment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/products/zipminator/overview.html">Part VI: Zipminator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/products/qm9/intro.html">Part VII: Qm9</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qm9/portfolio_optimization.html">Portfolio Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qm9/risk_assessment.html">Quantum Risk Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qm9/hft_architecture.html">HFT Architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/products/qdiana/intro.html">Part VIII: QDiana</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qdiana/certification.html">Quantum Certification Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qdiana/esg_sustainability.html">ESG &amp; Sustainability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qdiana/green_certification.html">Green Quantum Certification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/products/qmikeai/intro.html">Part IX: QMikeAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qmikeai/cfd.html">Quantum CFD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qmikeai/navier_stokes.html">Quantum Navier-Stokes Solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/qmikeai/hpc_integration.html">HPC Integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/products/thqai/intro.html">Part X: THQAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/thqai/quantum_llm.html">Quantum LLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/products/thqai/quantum_artifacts.html">Quantum Artifacts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_book/notebooks/01_quickstart.html">Part XI: Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/02_anonymization.html">Anonymization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/03_qrng_entropy.html">QRNG entropy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/04_compliance.html">Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/05_shor_demo.html">Shor demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/06_quantum_capabilities.html">Quantum capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/07_vault_workflow.html">Vault workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/08_qmesh_physical_crypto.html">QMesh physical crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/09_monte_carlo_prng_vs_qrng.html">Monte Carlo, PRNG vs QRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/10_grover_search.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/11_portfolio_optimization.html">Quantum Portfolio Optimization (Qm9)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/12_variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/13_qkd_protocol.html">Quantum Key Distribution (BB84)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/14_cfd_quantum.html">Quantum CFD Simulation (QMikeAI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_book/notebooks/15_esg_scoring.html">Quantum ESG Scoring (QDiana)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/appendix/anonymization_techniques.html">Appendix: Anonymization techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/appendix/fips_203.html">Appendix: FIPS 203</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/appendix/glossary.html">Appendix: Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_book/appendix/awesome_quantum.html">Appendix: Quantum resources</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/edit/main/qdaria/business/investor-dashboards.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/issues/new?title=Issue%20on%20page%20%2Fqdaria/business/investor-dashboards.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/qdaria/business/investor-dashboards.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>QDaria Investor Dashboards</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geographic-expansion-map">Geographic Expansion Map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#investor-metrics-dashboard">Investor Metrics Dashboard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-performance-insights">Key Performance Insights</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#growth-trajectory">Growth Trajectory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-health-indicators">Financial Health Indicators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#revenue-diversification">Revenue Diversification</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="qdaria-investor-dashboards">
+<h1>QDaria Investor Dashboards<a class="headerlink" href="#qdaria-investor-dashboards" title="Link to this heading">#</a></h1>
+<!-- Shared by the four chart pages: the Plotly width/theme script (a .mjs so Jupyter Book does not
+     add it to every page of the site) and the chart layout rules from investor-jb. -->
+<script src="../../_static/qdaria-chart-config.mjs"></script>
+<style>
+/* Chart Positioning Fixes for QDaria Business Plan */
+/* Fixes chart overflow issues by ensuring proper left alignment and constraints */
+
+/* =================================================================
+   MAIN CHART CONTAINER FIXES
+   ================================================================= */
+
+/* Target all Plotly chart containers */
+div[id$="Chart"],
+div[id*="chart"],
+div[id*="Chart"],
+#competitorFundingChart,
+#revenueProjectionChart,
+#executionTimelineChart,
+#teamStructureChart,
+#marketSizeChart,
+#customerAcquisitionChart,
+#riskMatrixChart,
+#financialMetricsChart,
+#marketGrowthChart,
+#financialProjectionsChart,
+#executionRoadmapChart,
+#fundingAllocationChart,
+#organizationalChart,
+#marketSegmentationChart,
+#productPortfolioMatrix,
+#techStackArchitecture {
+    /* Reset positioning to prevent overflow */
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    
+    /* Left-align charts with controlled margins */
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    
+    /* Constrain width to prevent overflow */
+    max-width: calc(100% - 2rem) !important;
+    width: calc(100% - 2rem) !important;
+    
+    /* Ensure proper box model */
+    box-sizing: border-box !important;
+    
+    /* Add subtle padding for breathing room */
+    padding: 0 1rem !important;
+    
+    /* Override any transform or translate */
+    transform: none !important;
+}
+
+/* Override the problematic full-width viewport styles from custom.css */
+.chart-placeholder {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+}
+
+/* =================================================================
+   PLOTLY-SPECIFIC ADJUSTMENTS
+   ================================================================= */
+
+/* Plotly graph div corrections */
+.js-plotly-plot,
+.plotly-graph-div {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+/* SVG container within Plotly */
+.main-svg,
+.svg-container {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Plotly plot container */
+.plot-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* =================================================================
+   JUPYTER BOOK SPECIFIC FIXES
+   ================================================================= */
+
+/* Fix overflow in Jupyter Book content area */
+.bd-content .bd-article-container {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+
+/* Ensure charts don't break the article layout */
+.bd-article-container .section {
+    overflow-x: hidden !important;
+}
+
+/* Content wrapper adjustments */
+.wy-nav-content {
+    overflow-x: hidden !important;
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN
+   ================================================================= */
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    div[id$="Chart"],
+    div[id*="chart"],
+    div[id*="Chart"],
+    .chart-placeholder {
+        /* Full width on mobile with minimal padding */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 0.5rem !important;
+        
+        /* Adjust margins for mobile */
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Force Plotly responsive layout on mobile */
+    .plotly-graph-div {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Adjust modebar for mobile */
+    .modebar {
+        right: 5px !important;
+        top: 5px !important;
+        transform: scale(0.9);
+    }
+    
+    /* Reduce chart heights on mobile */
+    div[id*="Chart"],
+    div[id*="chart"] {
+        min-height: 300px !important;
+        height: auto !important;
+    }
+}
+
+/* Tablet devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    div[id$="Chart"],
+    div[id*="chart"],
+    div[id*="Chart"],
+    .chart-placeholder {
+        /* Slightly more padding on tablets */
+        padding: 0 1rem !important;
+        max-width: calc(100% - 2rem) !important;
+    }
+}
+
+/* Desktop with sidebar (min-width: 1025px) */
+@media (min-width: 1025px) {
+    div[id$="Chart"],
+    div[id*="chart"],
+    div[id*="Chart"],
+    .chart-placeholder {
+        /* Account for sidebar on desktop */
+        max-width: calc(100% - 3rem) !important;
+        padding: 0 1.5rem !important;
+    }
+    
+    /* Limit max width for readability on large screens */
+    .js-plotly-plot {
+        max-width: 1200px !important;
+    }
+}
+
+/* Very large screens (min-width: 1920px) */
+@media (min-width: 1920px) {
+    div[id$="Chart"],
+    div[id*="chart"],
+    div[id*="Chart"],
+    .chart-placeholder {
+        /* Center charts on very large screens */
+        max-width: 1400px !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+}
+
+/* =================================================================
+   ACCESSIBILITY & UX IMPROVEMENTS
+   ================================================================= */
+
+/* Ensure modebar is always accessible */
+.modebar {
+    position: absolute !important;
+    z-index: 1001 !important;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.modebar:hover {
+    opacity: 1;
+}
+
+/* Focus styles for keyboard navigation */
+div[id$="Chart"]:focus,
+div[id*="chart"]:focus,
+.js-plotly-plot:focus {
+    outline: 3px solid #00CED1;
+    outline-offset: 2px;
+}
+
+/* =================================================================
+   PRINT STYLES
+   ================================================================= */
+
+@media print {
+    div[id$="Chart"],
+    div[id*="chart"],
+    div[id*="Chart"],
+    .chart-placeholder {
+        /* Ensure charts fit on printed page */
+        page-break-inside: avoid;
+        margin: 1rem 0 !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+    
+    /* Hide interactive elements when printing */
+    .modebar {
+        display: none !important;
+    }
+}
+
+/* =================================================================
+   SPECIFIC CHART OVERRIDES (if needed)
+   ================================================================= */
+
+/* Example: If specific charts need different positioning */
+#executionTimelineChart {
+    /* Timeline charts might need more horizontal space */
+    max-width: calc(100% - 1rem) !important;
+}
+
+#organizationalChart {
+    /* Org charts might need centering */
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* =================================================================
+   FALLBACK STYLES
+   ================================================================= */
+
+/* Ensure no horizontal scrolling at document level */
+html, body {
+    overflow-x: hidden !important;
+}
+
+/* Final catch-all to prevent any overflow */
+.rst-content {
+    overflow-x: hidden !important;
+}
+</style>
+<p><em>Interactive visualizations showcasing QDaria’s global expansion strategy and key performance metrics</em></p>
+<section id="geographic-expansion-map">
+<h2>Geographic Expansion Map<a class="headerlink" href="#geographic-expansion-map" title="Link to this heading">#</a></h2>
+<div id="expansionMap" style="width: 100%; height: 600px;"></div>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Geographic expansion data
+    const expansionPhases = [
+        {
+            year: 2025,
+            phase: 'Phase 1: North America',
+            regions: ['USA', 'Canada'],
+            color: '#00CED1',
+            opacity: 1,
+            marketSize: [450, 35], // Billions USD
+            partnerships: [
+                {name: 'Rigetti Computing', lat: 37.7749, lon: -122.4194, size: 25},
+                {name: 'IBM Research', lat: 40.7128, lon: -74.0060, size: 20},
+                {name: 'University of Toronto', lat: 43.6532, lon: -79.3832, size: 15}
+            ]
+        },
+        {
+            year: 2026,
+            phase: 'Phase 2: Europe Launch',
+            regions: ['Norway', 'Germany', 'United Kingdom', 'France', 'Netherlands'],
+            color: '#20B2AA',
+            opacity: 0.8,
+            marketSize: [15, 85, 75, 65, 25],
+            partnerships: [
+                {name: 'QDaria HQ Oslo', lat: 59.9139, lon: 10.7522, size: 30},
+                {name: 'CERN', lat: 46.2044, lon: 6.1432, size: 20},
+                {name: 'Oxford Quantum', lat: 51.7520, lon: -1.2577, size: 18}
+            ]
+        },
+        {
+            year: 2027,
+            phase: 'Phase 2: Europe Expansion',
+            regions: ['Switzerland', 'Sweden', 'Denmark', 'Finland', 'Belgium'],
+            color: '#48D1CC',
+            opacity: 0.7,
+            marketSize: [30, 20, 15, 12, 18],
+            partnerships: [
+                {name: 'ETH Zurich', lat: 47.3769, lon: 8.5417, size: 22},
+                {name: 'Nordic Quantum Hub', lat: 55.6761, lon: 12.5683, size: 16}
+            ]
+        },
+        {
+            year: 2028,
+            phase: 'Phase 3: Asia-Pacific Entry',
+            regions: ['Japan', 'Singapore', 'Australia', 'South Korea'],
+            color: '#40E0D0',
+            opacity: 0.6,
+            marketSize: [120, 25, 45, 55],
+            partnerships: [
+                {name: 'RIKEN', lat: 35.6762, lon: 139.6503, size: 24},
+                {name: 'NUS Quantum', lat: 1.3521, lon: 103.8198, size: 18},
+                {name: 'Melbourne Quantum', lat: -37.8136, lon: 144.9631, size: 16}
+            ]
+        },
+        {
+            year: 2029,
+            phase: 'Phase 3: Asia-Pacific Expansion',
+            regions: ['China', 'India', 'Taiwan', 'New Zealand'],
+            color: '#7FFFD4',
+            opacity: 0.5,
+            marketSize: [180, 95, 35, 15],
+            partnerships: [
+                {name: 'CAS Quantum', lat: 39.9042, lon: 116.4074, size: 26},
+                {name: 'IIT Bombay', lat: 19.0760, lon: 72.8777, size: 20}
+            ]
+        },
+        {
+            year: 2030,
+            phase: 'Phase 4: Global Coverage',
+            regions: ['Brazil', 'Mexico', 'South Africa', 'UAE', 'Israel'],
+            color: '#AFEEEE',
+            opacity: 0.4,
+            marketSize: [65, 45, 25, 35, 40],
+            partnerships: [
+                {name: 'São Paulo Quantum', lat: -23.5505, lon: -46.6333, size: 18},
+                {name: 'Tel Aviv Quantum', lat: 32.0853, lon: 34.7818, size: 20}
+            ]
+        }
+    ];
+
+    // Create animated map
+    let frames = [];
+    let sliderSteps = [];
+    
+    // Initial frame (2024 - pre-expansion)
+    let initialData = [{
+        type: 'choropleth',
+        locationmode: 'country names',
+        locations: ['Norway'],
+        z: [10],
+        text: ['QDaria Headquarters'],
+        colorscale: [[0, '#E0E0E0'], [1, '#00CED1']],
+        autocolorscale: false,
+        reversescale: false,
+        marker: {line: {color: 'rgb(180,180,180)', width: 0.5}},
+        colorbar: {
+            title: 'Market Size ($B)',
+            thickness: 15,
+            len: 0.5,
+            x: 1.02
+        }
+    }, {
+        type: 'scattergeo',
+        mode: 'markers+text',
+        lat: [59.9139],
+        lon: [10.7522],
+        marker: {
+            size: 30,
+            color: '#FF6347',
+            line: {width: 2, color: '#FFFFFF'}
+        },
+        text: ['QDaria HQ'],
+        textposition: 'top center',
+        textfont: {size: 12, color: '#333', family: 'Arial Black'}
+    }];
+
+    // Create frames for each expansion phase
+    expansionPhases.forEach((phase, index) => {
+        let allRegions = [];
+        let allMarketSizes = [];
+        let allColors = [];
+        let partnerLats = [];
+        let partnerLons = [];
+        let partnerNames = [];
+        let partnerSizes = [];
+        
+        // Accumulate all regions up to current phase
+        for (let i = 0; i <= index; i++) {
+            allRegions = allRegions.concat(expansionPhases[i].regions);
+            allMarketSizes = allMarketSizes.concat(expansionPhases[i].marketSize);
+            
+            // Color gradient based on phase
+            expansionPhases[i].regions.forEach(() => {
+                allColors.push(expansionPhases[i].color);
+            });
+            
+            // Accumulate partnerships
+            expansionPhases[i].partnerships.forEach(p => {
+                partnerLats.push(p.lat);
+                partnerLons.push(p.lon);
+                partnerNames.push(p.name);
+                partnerSizes.push(p.size);
+            });
+        }
+        
+        frames.push({
+            name: phase.year.toString(),
+            data: [{
+                type: 'choropleth',
+                locationmode: 'country names',
+                locations: allRegions,
+                z: allMarketSizes,
+                text: allRegions.map((r, i) => `${r}: $${allMarketSizes[i]}B`),
+                colorscale: [
+                    [0, '#E0E0E0'],
+                    [0.2, '#AFEEEE'],
+                    [0.4, '#7FFFD4'],
+                    [0.6, '#40E0D0'],
+                    [0.8, '#20B2AA'],
+                    [1, '#00CED1']
+                ],
+                autocolorscale: false,
+                reversescale: false,
+                marker: {line: {color: 'rgb(180,180,180)', width: 0.5}},
+                colorbar: {
+                    title: 'Market Size ($B)',
+                    thickness: 15,
+                    len: 0.5,
+                    x: 1.02
+                }
+            }, {
+                type: 'scattergeo',
+                mode: 'markers+text',
+                lat: partnerLats,
+                lon: partnerLons,
+                marker: {
+                    size: partnerSizes,
+                    color: partnerSizes.map((s, i) => i === 0 ? '#FF6347' : '#FFD700'),
+                    line: {width: 2, color: '#FFFFFF'},
+                    sizemode: 'diameter',
+                    sizeref: 0.5
+                },
+                text: partnerNames,
+                textposition: 'top center',
+                textfont: {size: 10, color: '#333'}
+            }]
+        });
+        
+        sliderSteps.push({
+            args: [[phase.year.toString()], {
+                frame: {duration: 500, redraw: true},
+                mode: 'immediate',
+                transition: {duration: 500}
+            }],
+            label: phase.year.toString(),
+            method: 'animate'
+        });
+    });
+
+    const layout = {
+        title: {
+            text: '<b>QDaria Global Expansion Strategy 2025-2030</b>',
+            font: {size: 28, color: '#2c3e50'},
+            x: 0.5,
+            xanchor: 'center'
+        },
+        geo: {
+            projection: {type: 'natural earth'},
+            showframe: false,
+            showcoastlines: true,
+            coastlinecolor: 'rgb(200,200,200)',
+            showcountries: true,
+            countrycolor: 'rgb(200,200,200)',
+            showland: true,
+            landcolor: 'rgb(243,243,243)',
+            bgcolor: 'rgba(0,0,0,0)'
+        },
+        updatemenus: [{
+            x: 0.1,
+            y: 0,
+            yanchor: 'top',
+            xanchor: 'left',
+            showactive: false,
+            direction: 'left',
+            type: 'buttons',
+            pad: {t: 87, b: 10},
+            buttons: [{
+                method: 'animate',
+                args: [null, {
+                    mode: 'immediate',
+                    fromcurrent: true,
+                    transition: {duration: 500},
+                    frame: {duration: 1000, redraw: true}
+                }],
+                label: 'Play'
+            }, {
+                method: 'animate',
+                args: [[null], {
+                    mode: 'immediate',
+                    transition: {duration: 0},
+                    frame: {duration: 0, redraw: true}
+                }],
+                label: 'Pause'
+            }]
+        }],
+        sliders: [{
+            active: 0,
+            yanchor: 'top',
+            xanchor: 'left',
+            currentvalue: {
+                font: {size: 20},
+                prefix: 'Year: ',
+                visible: true,
+                xanchor: 'right'
+            },
+            transition: {duration: 500},
+            pad: {b: 10, t: 50},
+            len: 0.9,
+            x: 0.1,
+            y: 0,
+            steps: sliderSteps
+        }],
+        annotations: [{
+            text: 'Market size bubbles represent quantum computing market opportunity<br>Gold markers indicate key partnerships and facilities',
+            showarrow: false,
+            xref: 'paper',
+            yref: 'paper',
+            x: 0.5,
+            y: -0.1,
+            xanchor: 'center',
+            yanchor: 'top',
+            font: {size: 12, color: '#666'}
+        }]
+    };
+
+    const config = {
+        responsive: true,
+        displayModeBar: true,
+        displaylogo: false,
+        modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d', 'zoomIn2d', 'zoomOut2d'],
+        toImageButtonOptions: {
+            format: 'png',
+            filename: 'qdaria_global_expansion',
+            height: 800,
+            width: 1400,
+            scale: 2
+        }
+    };
+
+    Plotly.newPlot('expansionMap', initialData, layout, config).then(function() {
+        Plotly.addFrames('expansionMap', frames);
+    });
+});
+</script>
+</section>
+<section id="investor-metrics-dashboard">
+<h2>Investor Metrics Dashboard<a class="headerlink" href="#investor-metrics-dashboard" title="Link to this heading">#</a></h2>
+<div id="metricsContainer" style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+    <!-- KPI Cards Row -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        <div id="cacCard" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+        <div id="ltvCard" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+        <div id="mrrCard" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+        <div id="runwayCard" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+    </div>
+    <!-- Charts Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px;">
+        <div id="cacTrendChart" style="background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+        <div id="ltvCacRatioChart" style="background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+        <div id="mrrGrowthChart" style="background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+        <div id="burnRateChart" style="background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+    </div>
+    <!-- Revenue Mix -->
+    <div id="revenueMixChart" style="background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: 20px;"></div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // QDaria brand colors
+    const brandColors = {
+        primary: '#00CED1',    // Dark Turquoise
+        secondary: '#20B2AA',  // Light Sea Green
+        accent: '#48D1CC',     // Medium Turquoise
+        success: '#3CB371',    // Medium Sea Green
+        warning: '#FF6347',    // Tomato
+        info: '#4682B4',       // Steel Blue
+        light: '#E0FFFF',      // Light Cyan
+        dark: '#2F4F4F'        // Dark Slate Gray
+    };
+    
+    // KPI Card Data
+    const kpiData = {
+        cac: {
+            current: 2500,
+            target: 2000,
+            trend: -15,
+            unit: '$'
+        },
+        ltv: {
+            current: 45000,
+            target: 50000,
+            trend: 8,
+            unit: '$'
+        },
+        mrr: {
+            current: 125000,
+            target: 200000,
+            trend: 25,
+            unit: '$'
+        },
+        runway: {
+            current: 18,
+            target: 24,
+            trend: 0,
+            unit: 'months'
+        }
+    };
+    
+    // Create KPI Cards with gauge indicators
+    function createKPICard(elementId, title, data) {
+        const percentage = (data.current / data.target) * 100;
+        const trendColor = data.trend > 0 ? brandColors.success : data.trend < 0 ? brandColors.warning : brandColors.info;
+        const trendIcon = data.trend > 0 ? '↑' : data.trend < 0 ? '↓' : '→';
+        
+        const gaugeData = [{
+            type: 'indicator',
+            mode: 'gauge+number+delta',
+            value: data.current,
+            delta: {
+                reference: data.target,
+                increasing: {color: brandColors.success},
+                decreasing: {color: brandColors.warning}
+            },
+            gauge: {
+                axis: {range: [null, data.target * 1.2]},
+                bar: {color: brandColors.primary},
+                steps: [
+                    {range: [0, data.target * 0.5], color: brandColors.light},
+                    {range: [data.target * 0.5, data.target], color: '#B0E0E6'},
+                    {range: [data.target, data.target * 1.2], color: '#87CEEB'}
+                ],
+                threshold: {
+                    line: {color: brandColors.dark, width: 4},
+                    thickness: 0.75,
+                    value: data.target
+                }
+            },
+            number: {
+                prefix: data.unit === '$' ? '$' : '',
+                suffix: data.unit === 'months' ? ' mo' : '',
+                font: {size: 24}
+            },
+            title: {
+                text: `<b>${title}</b><br><span style='color: ${trendColor}'>${trendIcon} ${Math.abs(data.trend)}%</span>`,
+                font: {size: 16}
+            }
+        }];
+        
+        const layout = {
+            width: 250,
+            height: 200,
+            margin: {t: 50, r: 25, l: 25, b: 25},
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            font: {color: brandColors.dark}
+        };
+        
+        const config = {
+            responsive: true,
+            displayModeBar: false
+        };
+        
+        Plotly.newPlot(elementId, gaugeData, layout, config);
+    }
+    
+    // Create all KPI cards
+    createKPICard('cacCard', 'Customer Acquisition Cost', kpiData.cac);
+    createKPICard('ltvCard', 'Lifetime Value', kpiData.ltv);
+    createKPICard('mrrCard', 'Monthly Recurring Revenue', kpiData.mrr);
+    createKPICard('runwayCard', 'Cash Runway', kpiData.runway);
+    
+    // CAC Trend Chart
+    const cacTrendData = [{
+        x: ['Jan 2025', 'Feb 2025', 'Mar 2025', 'Apr 2025', 'May 2025', 'Jun 2025', 
+            'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025'],
+        y: [3500, 3400, 3200, 3000, 2900, 2800, 2700, 2600, 2500, 2400, 2300, 2200],
+        type: 'scatter',
+        mode: 'lines+markers',
+        name: 'Actual CAC',
+        line: {
+            color: brandColors.primary,
+            width: 3,
+            shape: 'spline'
+        },
+        marker: {
+            size: 8,
+            color: brandColors.primary
+        },
+        fill: 'tonexty',
+        fillcolor: 'rgba(0, 206, 209, 0.1)'
+    }, {
+        x: ['Jan 2025', 'Feb 2025', 'Mar 2025', 'Apr 2025', 'May 2025', 'Jun 2025', 
+            'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025'],
+        y: [2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000],
+        type: 'scatter',
+        mode: 'lines',
+        name: 'Target CAC',
+        line: {
+            color: brandColors.warning,
+            width: 2,
+            dash: 'dash'
+        }
+    }];
+    
+    const cacTrendLayout = {
+        title: '<b>Customer Acquisition Cost Trend</b>',
+        xaxis: {title: 'Month'},
+        yaxis: {title: 'CAC ($)', rangemode: 'tozero'},
+        height: 300,
+        margin: {t: 50, r: 30, l: 60, b: 50},
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        font: {family: 'Arial, sans-serif'},
+        hovermode: 'x unified'
+    };
+    
+    Plotly.newPlot('cacTrendChart', cacTrendData, cacTrendLayout, {responsive: true, displayModeBar: false});
+    
+    // LTV:CAC Ratio Chart
+    const ltvCacData = [{
+        x: ['Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026', 'Q2 2026'],
+        y: [12.8, 14.2, 15.6, 18.0, 20.5, 22.7],
+        type: 'bar',
+        marker: {
+            color: [12.8, 14.2, 15.6, 18.0, 20.5, 22.7],
+            colorscale: [
+                [0, brandColors.warning],
+                [0.5, brandColors.accent],
+                [1, brandColors.success]
+            ],
+            line: {width: 2, color: brandColors.dark}
+        },
+        text: ['12.8x', '14.2x', '15.6x', '18.0x', '20.5x', '22.7x'],
+        textposition: 'outside',
+        hovertemplate: 'LTV:CAC Ratio: %{y:.1f}x<extra></extra>'
+    }];
+    
+    const ltvCacLayout = {
+        title: '<b>LTV:CAC Ratio Progression</b>',
+        xaxis: {title: 'Quarter'},
+        yaxis: {title: 'LTV:CAC Ratio', rangemode: 'tozero'},
+        height: 300,
+        shapes: [{
+            type: 'line',
+            x0: 0,
+            y0: 3,
+            x1: 1,
+            y1: 3,
+            xref: 'paper',
+            line: {
+                color: brandColors.warning,
+                width: 2,
+                dash: 'dot'
+            }
+        }],
+        annotations: [{
+            x: 0.5,
+            y: 3.5,
+            xref: 'paper',
+            text: 'Industry Minimum (3:1)',
+            showarrow: false,
+            font: {size: 12, color: brandColors.warning}
+        }],
+        margin: {t: 50, r: 30, l: 60, b: 50},
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)'
+    };
+    
+    Plotly.newPlot('ltvCacRatioChart', ltvCacData, ltvCacLayout, {responsive: true, displayModeBar: false});
+    
+    // MRR Growth Chart with projections
+    const months = [];
+    const mrrActual = [];
+    const mrrProjected = [];
+    const baseDate = new Date(2025, 0);
+    
+    for (let i = 0; i < 36; i++) {
+        const date = new Date(baseDate);
+        date.setMonth(date.getMonth() + i);
+        months.push(date.toLocaleDateString('en-US', {year: 'numeric', month: 'short'}));
+        
+        if (i < 12) {
+            mrrActual.push(50000 * Math.pow(1.25, i/12));
+            mrrProjected.push(null);
+        } else {
+            mrrActual.push(null);
+            mrrProjected.push(50000 * Math.pow(1.25, i/12));
+        }
+    }
+    
+    const mrrData = [{
+        x: months,
+        y: mrrActual,
+        type: 'scatter',
+        mode: 'lines',
+        name: 'Actual MRR',
+        line: {color: brandColors.primary, width: 3},
+        connectgaps: false
+    }, {
+        x: months,
+        y: mrrProjected,
+        type: 'scatter',
+        mode: 'lines',
+        name: 'Projected MRR',
+        line: {color: brandColors.primary, width: 3, dash: 'dash'},
+        connectgaps: false
+    }];
+    
+    const mrrLayout = {
+        title: '<b>Monthly Recurring Revenue Growth</b>',
+        xaxis: {title: 'Month', showgrid: false},
+        yaxis: {
+            title: 'MRR ($)',
+            rangemode: 'tozero',
+            tickformat: '$,.0f'
+        },
+        height: 300,
+        margin: {t: 50, r: 30, l: 80, b: 50},
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        hovermode: 'x unified'
+    };
+    
+    Plotly.newPlot('mrrGrowthChart', mrrData, mrrLayout, {responsive: true, displayModeBar: false});
+    
+    // Burn Rate & Runway Chart
+    const burnRateData = [{
+        x: ['Jan 2025', 'Feb 2025', 'Mar 2025', 'Apr 2025', 'May 2025', 'Jun 2025'],
+        y: [450000, 425000, 400000, 380000, 360000, 340000],
+        name: 'Monthly Burn',
+        type: 'bar',
+        marker: {color: brandColors.warning},
+        yaxis: 'y'
+    }, {
+        x: ['Jan 2025', 'Feb 2025', 'Mar 2025', 'Apr 2025', 'May 2025', 'Jun 2025'],
+        y: [12, 13.5, 15, 16.8, 18, 19.5],
+        name: 'Runway (months)',
+        type: 'scatter',
+        mode: 'lines+markers',
+        line: {color: brandColors.success, width: 3},
+        marker: {size: 10},
+        yaxis: 'y2'
+    }];
+    
+    const burnRateLayout = {
+        title: '<b>Burn Rate vs Cash Runway</b>',
+        xaxis: {title: 'Month'},
+        yaxis: {
+            title: 'Monthly Burn ($)',
+            tickformat: '$,.0f',
+            side: 'left'
+        },
+        yaxis2: {
+            title: 'Runway (months)',
+            overlaying: 'y',
+            side: 'right',
+            showgrid: false
+        },
+        height: 300,
+        margin: {t: 50, r: 80, l: 80, b: 50},
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        hovermode: 'x unified',
+        legend: {x: 0.1, y: 0.9}
+    };
+    
+    Plotly.newPlot('burnRateChart', burnRateData, burnRateLayout, {responsive: true, displayModeBar: false});
+    
+    // Revenue Mix Sunburst
+    const revenueMixData = [{
+        type: 'sunburst',
+        labels: [
+            'Total Revenue',
+            'Software', 'Hardware', 'Services',
+            'Zipminator', 'Qm9', 'QDiana', 'TeHaA',
+            'Kit Rentals', 'QPU Access',
+            'Consulting', 'Training', 'Support'
+        ],
+        parents: [
+            '',
+            'Total Revenue', 'Total Revenue', 'Total Revenue',
+            'Software', 'Software', 'Software', 'Software',
+            'Hardware', 'Hardware',
+            'Services', 'Services', 'Services'
+        ],
+        values: [
+            1250000,
+            625000, 375000, 250000,
+            200000, 275000, 100000, 50000,
+            250000, 125000,
+            100000, 100000, 50000
+        ],
+        text: [
+            '$1.25M',
+            '$625K', '$375K', '$250K',
+            '$200K', '$275K', '$100K', '$50K',
+            '$250K', '$125K',
+            '$100K', '$100K', '$50K'
+        ],
+        textinfo: 'label+text+percent parent',
+        marker: {
+            colors: [
+                brandColors.primary,
+                brandColors.secondary, brandColors.accent, brandColors.info,
+                '#5F9EA0', '#4682B4', '#6495ED', '#00BFFF',
+                '#3CB371', '#2E8B57',
+                '#FF6347', '#FF7F50', '#FFA07A'
+            ],
+            line: {width: 2, color: '#fff'}
+        },
+        hovertemplate: '<b>%{label}</b><br>Revenue: %{text}<br>%{percentParent} of %{parent}<extra></extra>',
+        branchvalues: 'total'
+    }];
+    
+    const revenueMixLayout = {
+        title: '<b>Revenue Mix Breakdown - 2025 Projection</b>',
+        height: 500,
+        margin: {t: 50, r: 0, l: 0, b: 0},
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        font: {size: 14}
+    };
+    
+    Plotly.newPlot('revenueMixChart', revenueMixData, revenueMixLayout, {responsive: true, displayModeBar: false});
+});
+</script>
+</section>
+<section id="key-performance-insights">
+<h2>Key Performance Insights<a class="headerlink" href="#key-performance-insights" title="Link to this heading">#</a></h2>
+<section id="growth-trajectory">
+<h3>Growth Trajectory<a class="headerlink" href="#growth-trajectory" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Geographic Expansion</strong>: Strategic phased rollout starting with North America (2025), expanding to Europe (2026-2027), Asia-Pacific (2028-2029), and achieving global coverage by 2030</p></li>
+<li><p><strong>Market Opportunity</strong>: Total addressable market of $1.8T across all regions by 2030</p></li>
+<li><p><strong>Partnership Network</strong>: 15+ strategic partnerships across quantum hardware providers, research institutions, and enterprise clients</p></li>
+</ul>
+</section>
+<section id="financial-health-indicators">
+<h3>Financial Health Indicators<a class="headerlink" href="#financial-health-indicators" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>CAC Optimization</strong>: Customer Acquisition Cost decreasing from <span class="math notranslate nohighlight">\(3,500 to target \)</span>2,000 by end of 2025 (43% reduction)</p></li>
+<li><p><strong>LTV:CAC Ratio</strong>: Improving from 12.8x to 22.7x by Q2 2026, well above industry benchmark of 3:1</p></li>
+<li><p><strong>MRR Growth</strong>: Projected 25% monthly growth rate, reaching $1M+ MRR by 2027</p></li>
+<li><p><strong>Cash Efficiency</strong>: Burn rate decreasing while runway extends from 12 to 19.5 months through operational improvements</p></li>
+</ul>
+</section>
+<section id="revenue-diversification">
+<h3>Revenue Diversification<a class="headerlink" href="#revenue-diversification" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Software Revenue</strong> (50%): Led by Qm9 financial platform and Zipminator cybersecurity</p></li>
+<li><p><strong>Hardware Revenue</strong> (30%): Quantum kit rentals and QPU access fees</p></li>
+<li><p><strong>Services Revenue</strong> (20%): Enterprise consulting, training, and support contracts</p></li>
+</ul>
+<p><em>These dashboards update automatically with real-time data to provide investors with continuous visibility into QDaria’s performance and growth metrics.</em></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "MoHoushmand/mo",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./qdaria/business"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="qdaria-business-plan-25-cards.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">QDaria Business Plan - Premium Chart Card Implementation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="competitive-intelligence-visualizations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">QDaria Competitive Intelligence Visualizations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geographic-expansion-map">Geographic Expansion Map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#investor-metrics-dashboard">Investor Metrics Dashboard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-performance-insights">Key Performance Insights</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#growth-trajectory">Growth Trajectory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-health-indicators">Financial Health Indicators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#revenue-diversification">Revenue Diversification</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Mo Houshmand
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

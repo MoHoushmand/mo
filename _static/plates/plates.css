@@ -1,0 +1,84 @@
+/* Mo Paper plates: interactive figures (see engine.js). Square, hairline, ink on paper; no shadows. */
+.mo-live { display: block; margin: 0; font-variant-numeric: tabular-nums; }
+.mo-live:focus-visible { outline: 2px solid var(--mo-focus); outline-offset: 4px; }
+.mo-live-stage { display: grid; grid-template-columns: minmax(0, 3fr) minmax(12rem, 2fr); gap: 1rem 1.5rem; align-items: center; }
+.mo-live-stage svg { width: 100%; height: auto; display: block; }
+.mo-live-readouts { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 0.9rem; font-size: var(--mo-caption); }
+.mo-live-readouts dt { color: var(--mo-muted); font-variant-caps: all-small-caps; letter-spacing: 0.1em; }
+.mo-live-readouts dd { margin: 0; color: var(--mo-ink); font-family: var(--mo-font-math); }
+.mo-live-caption { border-top: 0.5px solid var(--mo-rule); margin-top: 0.75rem; padding-top: 0.75rem; min-height: 7.5rem; }
+.mo-live-caption p { margin: 0 0 0.4rem; max-width: none; }
+.mo-live-step { font-weight: 700; }
+.mo-live-step span { display: inline-block; min-width: 1.6em; color: var(--mo-saffron-text); font-variant-numeric: tabular-nums; }
+.mo-live-cite { font-size: var(--mo-label); color: var(--mo-muted); }
+.mo-live-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+.mo-live-btn {
+  font: inherit; font-size: var(--mo-label); font-variant-caps: all-small-caps; letter-spacing: 0.12em;
+  color: var(--mo-ink); background: transparent; border: 0.5px solid var(--mo-ink); border-radius: 0;
+  padding: 0.3rem 0.8rem; cursor: pointer;
+}
+.mo-live-btn:hover:not(:disabled) { background: var(--mo-ink); color: var(--mo-paper); }
+.mo-live-btn:disabled { opacity: 0.35; cursor: default; }
+.mo-live-btn:focus-visible { outline: 2px solid var(--mo-focus); outline-offset: 2px; }
+.mo-live-cue { border-color: var(--mo-saffron); border-bottom-width: 2px; }
+.mo-live-count { margin-left: auto; font-size: var(--mo-label); color: var(--mo-muted); }
+.mo-live--failed { color: var(--mo-muted); font-style: italic; }
+@media (max-width: 640px) { .mo-live-stage { grid-template-columns: 1fr; } }
+
+/* Figure tones: solid, lit, in both themes (gold, teal, lilac, blue as in the QDiana explorer; paper for glass). */
+.mo-live {
+  --pl-gold-hi: #F6DC9C; --pl-gold-mid: #D2A24A; --pl-gold-lo: #6B4C17;
+  --pl-teal-hi: #7FE6DB; --pl-teal-mid: #12A79B; --pl-teal-lo: #0A5A54;
+  --pl-lilac-hi: #E3D8FF; --pl-lilac-mid: #9F86F0; --pl-lilac-lo: #4E36A8;
+  --pl-blue-hi: #A9C8FF; --pl-blue-mid: #2F6FD8; --pl-blue-lo: #0D3A8A;
+  --pl-paper-hi: #FFFFFF; --pl-paper-mid: #F7EBD0; --pl-paper-lo: #D9C49A;
+}
+html[data-theme="dark"] .mo-live {
+  --pl-gold-hi: #F4E2A2; --pl-gold-mid: #E6B850; --pl-gold-lo: #7A5A1C;
+  --pl-teal-hi: #8CF0E6; --pl-teal-mid: #2FD3C4; --pl-teal-lo: #0B5D57;
+  --pl-lilac-hi: #E6DCFF; --pl-lilac-mid: #B9A4F8; --pl-lilac-lo: #4B3A8F;
+  --pl-blue-hi: #B9D3FF; --pl-blue-mid: #5A98F3; --pl-blue-lo: #1C3E7A;
+  --pl-paper-hi: #3A4A52; --pl-paper-mid: #1D272C; --pl-paper-lo: #0B1317;
+}
+.pl-stop-gold-hi { stop-color: var(--pl-gold-hi); }
+.pl-stop-gold-mid { stop-color: var(--pl-gold-mid); }
+.pl-stop-gold-lo { stop-color: var(--pl-gold-lo); }
+.pl-stop-teal-hi { stop-color: var(--pl-teal-hi); }
+.pl-stop-teal-mid { stop-color: var(--pl-teal-mid); }
+.pl-stop-teal-lo { stop-color: var(--pl-teal-lo); }
+.pl-stop-lilac-hi { stop-color: var(--pl-lilac-hi); }
+.pl-stop-lilac-mid { stop-color: var(--pl-lilac-mid); }
+.pl-stop-lilac-lo { stop-color: var(--pl-lilac-lo); }
+.pl-stop-blue-hi { stop-color: var(--pl-blue-hi); }
+.pl-stop-blue-mid { stop-color: var(--pl-blue-mid); }
+.pl-stop-blue-lo { stop-color: var(--pl-blue-lo); }
+.pl-stop-paper-hi { stop-color: var(--pl-paper-hi); }
+.pl-stop-paper-mid { stop-color: var(--pl-paper-mid); }
+.pl-stop-paper-lo { stop-color: var(--pl-paper-lo); }
+
+/* Shared SVG vocabulary for the plates. */
+.mo-live svg { color: var(--mo-ink); }
+.pl-outline { fill: none; stroke: var(--mo-ink); stroke-width: 1.2; }
+.pl-ring { fill: none; stroke: var(--mo-ink); stroke-width: 0.8; }
+.pl-faint { opacity: 0.45; }
+.pl-back { stroke-dasharray: 3 4; opacity: 0.4; }
+.pl-axis { stroke: var(--mo-muted); stroke-width: 0.8; }
+.pl-label { fill: var(--mo-ink); font-family: var(--mo-font-math); font-size: 15px; }
+.pl-rotaxis { stroke: var(--mo-saffron); stroke-width: 1.5; stroke-dasharray: 6 5; }
+.pl-trail { fill: none; stroke: var(--mo-violet); stroke-width: 2; opacity: 0.6; }
+.pl-state { stroke: var(--mo-blue); stroke-width: 3; stroke-linecap: round; }
+.pl-tip { fill: var(--mo-blue); stroke: var(--mo-paper); stroke-width: 2; }
+.pl-tip.pl-behind { fill: var(--mo-paper); stroke: var(--mo-blue); }
+
+/* Solid parts (Bloch sphere and the plates that follow it). */
+.pl-body { stroke: var(--pl-paper-lo); stroke-width: 1; opacity: 0.95; }
+.pl-disc { opacity: 0.32; }
+.pl-rim { fill: none; stroke: var(--pl-lilac-mid); stroke-width: 1.6; }
+.pl-node { fill: var(--mo-muted); }
+.pl-gold-rod { stroke: var(--pl-gold-mid); stroke-width: 4; stroke-linecap: round; }
+.pl-stem { stroke: var(--pl-blue-mid); stroke-width: 5; stroke-linecap: round; }
+.pl-ball { stroke: var(--pl-blue-lo); stroke-width: 0.8; }
+.pl-shadow { fill: var(--pl-blue-lo); opacity: 0.35; }
+.pl-drop { stroke: var(--pl-blue-mid); stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.7; }
+.mo-live .pl-trail { stroke: var(--pl-lilac-mid); stroke-width: 3; opacity: 0.85; stroke-linecap: round; }
+.pl-is-behind .pl-ball, .pl-is-behind .pl-stem { opacity: 0.55; }

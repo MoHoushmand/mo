@@ -172,7 +172,7 @@ Mark the 2 answers that apply.
 Silicon-28 has zero nuclear spin. This reduces the magnetic noise in the substrate, giving the spins long coherence times. Fabrication of large-scale silicon quantum chips can in principle be more accessible than other platforms because of the similarties with conventional manufacturing technol- ogy.
 ```
 
-# Question 4: Single-qubit gates with spin qubits
+## Question 4: Single-qubit gates with spin qubits
 
 ```{exercise} More about spin readout
 :label: q5q4
@@ -256,7 +256,7 @@ Electron spins can interact with each other when they are sufficiently close tog
 By applying a voltage on the gate controlling the tunnel coupling between the two dots, or by shifting the energy levels of the dots we can bring the electrons close together and make them interact.
 ```
 
-### 2.6 Question 6: Strengths of spin qubits
+### Question 6: Strengths of spin qubits
 
 ```{exercise} More about spin readout
 :label: q5q6

@@ -1,8 +1,8 @@
-# Topological Qubits
+# Topology, Calabi–Yau manifolds and anyons
 
 ## Calabi-Yau manifold
 
-A Calabi-Yau manifold is a complex, compact Kähler manifold with a vanishing first Chern class. One of the simplest Calabi-Yau manifolds is the quintic threefold, a five-dimensional hypersurface embedded in four-dimensional complex projective space. The equation for a generic quintic threefold is given by:
+A Calabi-Yau manifold is a complex, compact Kähler manifold with a vanishing first Chern class. One of the simplest Calabi-Yau manifolds is the quintic threefold, a hypersurface of complex dimension three (real dimension six) embedded in four-dimensional complex projective space, $\mathbb{CP}^4$. The equation for a generic quintic threefold is given by:
 
 Σ(a_i * z_i^5) = 0, where a_i are complex coefficients, and z_i are homogeneous coordinates.
 
@@ -31,7 +31,7 @@ print(simplified_quintic)
 This code will output the following equation:
 
 ```python
-# Quintic threefold equation:
+### The quintic threefold equation
 a_1*z_1**5 + a_2*z_2**5 + a_3*z_3**5 + a_4*z_4**5 + a_5*z_5**5
 ```
 
@@ -39,7 +39,7 @@ While this example only scratches the surface of the complex mathematics involve
 
 Further exploration using SymPy could involve working with more advanced topics like differential forms, curvature tensors, or Lie algebras, which are fundamental to the understanding of string theory and M-theory.
 
-# Anyons
+## Anyons
 
 Anyons are exotic, quasi-particle excitations that can occur in two-dimensional systems, particularly in the context of condensed matter physics and topological quantum computing. Unlike fermions and bosons, which are the two fundamental types of particles in quantum mechanics, anyons have unusual statistical properties that fall between those of fermions and bosons.
 
@@ -57,7 +57,7 @@ The existence of anyons is closely related to the concept of topological order, 
 
 The unique braiding properties of anyons make them a promising candidate for applications in topological quantum computing, where information is stored and processed in a highly robust and fault-tolerant manner. In these systems, the quantum information is encoded in the topological properties of the anyonic states, which can be manipulated through braiding operations. Since the information is protected by the topological properties of the system, topological quantum computers are expected to be more resilient to errors than traditional quantum computing architectures.
 
-## Exchange statistics
+### Exchange statistics
 
 To understand anyons more deeply, let's explore some of the mathematical concepts underlying their properties. The key features that distinguish anyons from fermions and bosons are their exchange statistics and braiding properties. We'll first consider exchange statistics, and then move on to braiding.
 
@@ -79,7 +79,7 @@ Here, P is the exchange operator. For anyons, the exchange operator yields a com
 
 Exchange of anyons: $$P|ψ_AB⟩ = |ψ_BA⟩ = eiθ|ψ_AB⟩$$
 
-## Braiding
+### Braiding
 
 Braiding statistics are related to the paths that anyons take when they are moved around each other in a 2D space. To understand this, consider three anyons: A, B, and C. We can represent paths in which anyon A moves around anyon B in a counter-clockwise direction as a braiding operator σ_A,B:
 
@@ -99,7 +99,7 @@ This non-commutative nature of the braiding operators is the key feature of anyo
 
 In summary, anyons are characterized by their distinct exchange statistics, which result in complex phase factors upon exchanging particles, and their braiding statistics, which involve non-commuting operators that depend on anyon trajectories. These unique properties, stemming from the topological order of 2D systems, make anyons an interesting and promising subject of study in condensed matter physics and quantum computing.
 
-# Anyonic Quantum Computer
+## An anyonic quantum computer
 
 Developing a large-scale topological quantum computer using anyons is a challenging task, as it requires creating, manipulating, and detecting anyons in a controlled, scalable fashion. Here, we outline a general approach to build a topological quantum computer using anyons:
 

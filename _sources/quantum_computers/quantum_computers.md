@@ -1,5 +1,12 @@
 # The Hardware of Quantum Computers
 
+```{admonition} Source
+:class: mo-source
+This chapter follows TU Delft's QTM2x course on edX closely, with its figures and quizzes, and adds my
+own notes. Where the text says *we*, the course's lecturers are speaking. I am grateful to TU Delft for
+teaching this openly.
+```
+
 Constructing quantum computers is an extremely daunting task. In the sections that follow, we will discuss the various components of a quantum computer and explain how we can build one by integrating different technologies that interact with the machine.
 
 First, we will give an overview of the entire system and briefly touch upon all layers. Over the subsequent 4-6 chapters, we will delve deeper into the quantum chip (qubits) layer.
@@ -12,11 +19,12 @@ Generally speaking, the 'building blocks' of a quantum computer include componen
 
 In the following segments, we will discuss the broader aspects of a quantum computer: from programming it to interpreting the results. The first term we want to emphasize is *compute*. In reality, we are not merely building a quantum computer; we are developing a quantum accelerator. Specifically, we are creating a computational device that can be connected to a classical processor, which will then provide the performance required for various applications that are beyond the reach of classical computing. The concept of a heterogeneous multicore architecture offers a global view of our current understanding in this domain.
 
-```{grid-item-card}
-:shadow: md
-
-![alt text](../quantum_computers/qc_img/gfx1/scs0.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: The Hardware of Quantum Computers](../quantum_computers/qc_img/gfx1/scs0.png)
+:::
+::::
 
 Heterogeneous because we have different kind of accelerator technologies. We have an
 
@@ -31,11 +39,12 @@ That also means that when you write any application, you will most likely end up
 3. GPU instruction set, and also the
 4. quantum instruction set.
 
-```{grid-item-card}
-:shadow: md
-
-![alt text](../quantum_computers/qc_img/gfx1/scs1.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: The Hardware of Quantum Computers](../quantum_computers/qc_img/gfx1/scs1.png)
+:::
+::::
 
 That is very important to understand, so whatever we are going to discuss in the following talks is only going to focus on the quantum accelerator device or the application processes that we need classically as well as quantumly to be provided
 
@@ -177,7 +186,7 @@ Without the compiler, the computer doesn't understand the instructions. So, a co
 
 In the following, we will see multiple designs of a quantum chip.
 
-# Quantum materials
+## Quantum materials
 
 Quantum materials are an essential feature if one would like to build a quantum computer or use the quantum internet. On a daily basis, Giordano Scappucci is working on optimizing quantum materials at QuTech. He will introduce you to this field of quantum mechanics.
 
@@ -210,7 +219,7 @@ Take, for example, the Si heterostructure mentioned earlier. If we cool it to th
 
 By studying how the electrical resistance of such channel responds to a magnetic field, we are able to measure the number of electrons in the channel and their mobility. The mobility tells us how fast electrons can travel in such channel, and is an indication of the disorder in the system. The higher the mobility, the lower the disorder, and there will be a better chance of fabricating many qubits with similar properties. Materials homogeneity is one requirement to scale up the number of qubits into a quantum computer. Think of the billions of transistors in your laptop, if they were all behaving differently, there would be no chance of having them to work for you. And while we are currently optimizing quantum materials to build a quantum computer, ultimately, the hope is that when such a machine will exist, one of the first uses will be to efficiently simulate quantum systems, fulfilling the vision put forward by Richard Feynmann more than 30 years ago. In turn, this will help us understand and build even more complex quantum materials with extraordinary properties that today we cannot even predict.
 
-## Main takeaways
+### Main takeaways
 
 - Quantum materials provide the environment where qubits, the elemental unit of quantum information processing, are defined and live.
 -  Precision in material uniformity, chemical composition and electrical properties are crucial for the requirements of having both many qubits and long decoherence times.
@@ -218,7 +227,7 @@ By studying how the electrical resistance of such channel responds to a magnetic
 - Transmission electron microscopy is a process to inspect the fabricated heterostructures with high resolution.
 - Temperature, electric fields and magnetic fields are useful parameters to determine properties of quantum materials such as mobility and electron density.
 
-### Material Criteria test quizz
+#### Material Criteria test quizz
 
 A quantum computer should have some necessary properties to be called a quantum computer. These are called the DiVincenzo criteria:
 
@@ -248,7 +257,7 @@ It should be avoided that the material the qubit live in interacts with the qubi
 - **Hint (2 of 2):** Qubits decohere when they interact with the environment Next Hint
 ```
 
-### Question 1: The usefulness of Cooper pairs
+#### Question 1: The usefulness of Cooper pairs
 
 Cooper pairs can, unlike single electrons or other fermions, be in the same quantum state.
 
@@ -261,7 +270,7 @@ The invididual particles in the pair are fermions (both spin-1/2 particles), but
 - [ ] Since Cooper pairs are bosons, bringing any two photons (or other bosons) together also is a boson, which is a Cooper pair. 
 ```
 
-### Question 2
+#### Question 2
 
 $$\lambda=\frac{h}{m*v}$$
 Where
@@ -288,7 +297,7 @@ Where
 Explanation A higher temperature means more particles are moving around in the semiconducter, bumping into the electrons, slowing them down. Changing the electric field doesn't change the mobility, only the (drift) velocity. 
 ```
 
-### Question 3: Mobility
+#### Question 3: Mobility
 
 The higher the mobility in a semiconductor, the smaller the disorder.
 
@@ -307,7 +316,7 @@ The higher the mobility in a semiconductor, the smaller the disorder.
 
 ---
 
-# Introduction to Ket notation
+## Introduction to Ket notation
 
 Before we dive deeper into the different layers of a quantum computer, we first want to introduce you to ket notation. Ket notation is a specific quantum method used to perform operations and measurements and will introduce the basics of ket notation.
 
@@ -395,11 +404,12 @@ $$\mid\pm\rangle=\frac{\mid0\rangle\pm\mid1\rangle}{\sqrt{2}}\,\,\,\alpha\mid0\r
 
 This leaves us with a small question: if any basis is just as good as any other, is there a basis that we should use as the default? Fortunately, the devices that we use to store and manipulate qubit states provide us with just such a default basis.
 
-```{grid-item-card}
-:shadow: md
-
-![alt text](../quantum_computers/qc_img/gfx1/scs2.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: Introduction to Ket notation](../quantum_computers/qc_img/gfx1/scs2.png)
+:::
+::::
 
 One such device, which we see quite frequently in quantum mechanics, is the harmonic oscillator, shown on the left. These devices are described by a Hamiltonian, which is a matrix that assigns an energy E_k to each of its eigenstates, or preferred basis states, psi_k.
 
@@ -421,13 +431,14 @@ $\mid\psi_{k}\rangle\mapsto\mid k\rangle$
 
 Some devices have finite-dimensional state spaces, unlike the harmonic oscillator.
 
-```{grid-item-card}
-:shadow: md
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: Introduction to Ket notation](../quantum_computers/qc_img/gfx1/scs3.png)
+:::
+::::
 
-![alt text](../quantum_computers/qc_img/gfx1/scs3.png)
-```
-
-## Operations & Observables
+### Operations & Observables
 
 **Logic gates \equiv unitary matrices** $\equiv$ changes of basis
 
@@ -447,7 +458,7 @@ The expected value for this measurement is given by sandwiching the measurement 
 
 $$\langle\phi\mid A\mid\phi\rangle=\sum_{k}r_{k}\langle\phi\mid\psi_{k}\rangle\langle\psi_{k}\mid\phi\rangle=\sum_{k}r_{k}\mid\langle\phi\mid\psi_{k}\rangle\mid^{2}$$
 
-### Unitary operations
+#### Unitary operations
 
 That's probably a lot to take in all at once, so let's take a look at a few examples. Here, we have a unitary operation that exchanges states in the computational basis, which we call X, or the Pauli X if you're already familiar with Pauli matrices.
 $$
@@ -509,7 +520,7 @@ $$
 
 We can note that the identity doesn't change the basis at all, so that indeed it can be expressed in any basis. Also when used as a measurement operator, it always returns 1, no matter what state is input.
 
-### The Bloch Sphere
+#### The Bloch Sphere
 
 Coefficient in polar co-ordinates:
 
@@ -553,11 +564,12 @@ This implies that we can express them as the cosine and sine of an angle theta, 
 
 This family of angles theta and phi also describes the set of points on the surface of a sphere of unit radius in 3d space.
 
-```{grid-item-card}
-:shadow: md
-
-![alt text](../quantum_computers/qc_img/gfx1/scs4.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: The Bloch Sphere](../quantum_computers/qc_img/gfx1/scs4.png)
+:::
+::::
 
 $$\mid\psi\rangle=\cos(\theta)|0\rangle+e^{i\phi}\sin(\theta)|1\rangle$$ anti-parallel on the Bloch sphere
 
@@ -591,7 +603,7 @@ $$(A\otimes B)(C\otimes D)=(AC)\otimes(BD)$$
 
 That is to say if I take the matrix product of two tensor products, I get the same matrix as if I took the matrix products first, then evaluated the tensor product. This is also easier to understand if we take a look at a few examples.
 
-# Multi-Qubit States & Operations
+## Multi-Qubit States & Operations
 
 Here we see the tensor product of two states, + and 0, resulting in a state which we often call +0. Each 2-by-1 block of the state vector we're calculating is proportional to the vector for the zero state, and it's multiplied by one of the elements of the plus state.
 
@@ -635,7 +647,7 @@ $$X\otimes I=\left[\begin{array}{ll}
 0 & 1 & 0 & 0
 \end{array}\right]$$
 
-## Example: Bell State Preparation
+### Example: Bell State Preparation
 
 Now that we have seen the basic formalism and notation, we're ready to calculate the results of a small sequence of quantum operations, which prepares a Bell state. First, we introduce a two-qubit gate which cannot be written as a tensor product of one-qubit gates, the controlled not, or cnot for short.
 
@@ -664,7 +676,7 @@ $$
 
 We can write it out using either ket notation, or as a column vector.
 
-## Example: Bell State Preparation
+### Example: Bell State Preparation
 
 Note that the Bell state, just like the cnot, cannot be written as a tensor product. The first step in preparing the Bell state is to perform a Hadamard operation on the first qubit, which has been initiliazed in the zero state. So we calculate the tensor product of the Hadamard with the identity, since we're not going to do anything to the second qubit immediately.
 
@@ -734,7 +746,7 @@ $$
 $$
 These terms are exactly the 00 and 11 terms that we were after. And that's how ket notation van help us to describe the effects of operations and measurements on quantum states.
 
-### Main takeaways
+#### Main takeaways
 
 - In ket notation, a quantum state is expressed using a column vector with complex coefficients. The squared magnitudes of these coefficients are the probabilities of measuring that particular outcome.
 - Devices used for storing and manipulating qubit states are described by a Hamiltonian, which is a matrix that assigns energies to each of its eigenstates or preferred basis states.
@@ -745,7 +757,7 @@ These terms are exactly the 00 and 11 terms that we were after. And that's how k
 
 ---
 
-# Advantages and dissadvantages of Ket notation
+## Advantages and dissadvantages of Ket notation
 
 In the previous ket notation we discussed three ways to represent quantum states: 
 1. column vectors with complex coefficients, 
@@ -773,7 +785,7 @@ $$
 
 And in some other times, especially if you’re considering operations - transformations on the set of states – it can be beneficial to consider the Bloch sphere, where you have the reference state zero, some other states one, plus, minus and like so...
 
-## Synthesising rotations
+### Synthesising rotations
 
 In some setups, experimentalists can only rotate along two axes of the Bloch sphere. In this video Ben will show you an example of how you can use these two rotation axes to achieve rotations around a third axis. He will do it both in vector form and in the Bloch sphere representation. Which do you think is the most convenient?
 
@@ -890,7 +902,7 @@ So by using a little bit of ket notation and some trigonometric identities, we c
 
 But this is not that simple as it could be. There is a far easier way to see this, which we can do using the Bloch sphere. The action of this sequence of unitary operations. Y 90, x around some angle theta and then y minus 90 can be expressed in terms of matrices. But it’s much easier to see using the Bloch sphere. If we write down the Bloch sphere with the x axis pointing out of the board, we can see the effect of a y 90, a rotation around 90 degrees of the y axis, is just turning the sphere sort of like a steering wheel, so that the x axis now faces down and the z axis is where the x axis used to be. If we now apply a rotation around the x axis, that is giving us a rotation around our old z axis. And once we have that done, all we have to do is reverse the y 90 with a y minus 90 to restore the orientation of our original axes, having picked up a phase on the z. And that’s how we can synthesize a diagonal unitary. e^{itheta/2}, e^{-i*theta/2} out of the operations to which the experimentalists have access. A little bit of notations saves you a lot of hardware design.
 
-## State decomposition
+### State decomposition
 
 Often in quantum computing , it is necessary to express one state in terms of a basis of some other states. I am going to go ahead and call this state decomposition, although you can see it under a variety of names and usually it’s clear from the context that they mean expressing one state in terms of a basis that is more familiar or convenient to. Now the rule of state decomposition is that any state phi can be expressed as a sum over k terms, where each term consists of an inner product of phi - the trial state - with one of the basis states phi_k, and the states phi_k. Number times vector. And this is the same as decomposing a vector in a basis if you are already familiar with linear algebra.
 
@@ -922,7 +934,7 @@ $$
 \therefore\mid0\rangle=\frac{1}{\sqrt{2}}\left(\mid+\rangle+\mid-\rangle\right)=\frac{1}{\sqrt{2}}
 $$
 
-## Performing arbitrary measurements
+### Performing arbitrary measurements
 
 It could be that your measurement device is only capable of measuring in one basis. Ket notations helps us to show that it will not be difficult to let this simple measurement device measure in any basis. In this example Ben will show you how this works.
 
@@ -989,7 +1001,7 @@ $$
 
 So, it’s as if we had our original state psi, and instead of measuring Z, we measured U-dagger-Z-U. Now, U-dagger-Z-U we can write out like so. And if we label the state U-dagger-0 as psi, then U-dagger-Z-U is equal to psi-psi minus psi-perp-psi-perp. This is a measurement that will return 1 if the state is psi, and -1 if the state is psi-perp, giving us an arbitrary basis to measure in.
 
-# A fact about maximally entangled states
+## A fact about maximally entangled states
 
 Ket notation is not always the best approach to find an answer or solve an equation. Ben will give you an example about entangled states where it would be a lot of work to use ket notation.
 
@@ -1050,15 +1062,15 @@ $$
 
 But we have here alpha-star-alpha, alpha-star-beta, beta-star-alpha and beta-star-beta. And we’re going to add to that: beta-beta-star, minus beta-alpha-star, minus alpha-beta-star and alpha-alpha-star. Now, beta-star-beta plus alpha-alpha-star is just the magnitude of alpha squared plus the magnitude of beta squared, which is 1. And we see that same thing in the top term here, alpha-star-alpha plus beta-beta-star, that’s 1. And then these inner terms cancel. Because you have alpha-star-beta minus beta-alpha-star, that has just been flipped here. And a beta-star-alpha minus alpha-beta-star, if I flipped these two, it becomes obvious that they are equal and opposite, so they cancel. This implies for example, that for example if Alice and Bob share a Bell state, and Alice measure in a 0-1 basis, she can get a state 0 or 1 and she can tell that Bob has the same state. Now she measures instead in the basis psi-star psi-star-perp, she can tell that Bob has the state psi or psi-perp depending on her measurement result.
 
-# Experimental and theoretical measurements
+## Experimental and theoretical measurements
 
 In this section we will explain the difference between measurements that occur in a laboratory and measurements that are described in theory. What are the differences and how are those similar?
 
 Let's take this opportunity to clarify something that confuses a lot when first learning about quantum mechanics, which is the difference between measurements that occur in a laboratory and measurements that we describe in theory. And also point out hopefully the ways in which these things are similar. So, you may have already seen a picture like this one. But, in the laboratories we can measure some currents in nanoamperes, and if there’s a spin in the down state pointing parallel to the field, there will be no bump in the current. And if it’s in the up state, there will be a bump. And this is a large macroscopic classical signal that they can detect. And this relates to a measurement operator. You can imagine that we take the total area under this curve; the total amount of current, in the case that there’s no bump, and that corresponds to the spin down state. And the total current in the case that there is a bump will be slightly higher, and that corresponds to the spin up state. So, that real number: the amount of current times the projector on to the down state plus the total amount of current in the case that there is bump times the projector on to the up state gives us our measurement operator. Now, the important thing about these two signals being distinguishable, but there being a large difference between them, is that if they’re equal, we end up with some number times down-down plus some number which is identical, times up-up. So, the measurement operator becomes the identity, which doesn’t discern between the up and down states. So as useless is the measurement. But if these numbers are discernably different, then down-down and up-up receive different measurement outcomes, and out measurement operator is \mathbf{1}more like a Z, which is one we could use to accurately distinguish between the computational basis states in quantum computing.
 
-## Practice Quiz 3
+### Practice Quiz 3
 
-### Question 1:
+#### Question 1:
 
 Suppose we are given a pure, two-qubit state 
 $$\psi\rangle_{AB}=\alpha_{00}|00\rangle+\alpha_{01}|01\rangle+\alpha_{10}|10\rangle+\alpha_{11}|11\rangle, where \left|\alpha_{00}\right|^{2}+\left|\alpha_{01}\right|^{2}+\left|\alpha_{10}\right|^{2}+\left|\alpha_{11}\right|^{2}=1 $$. 
@@ -1078,9 +1090,9 @@ Without a programming language, every input into the computer would need to be a
 0 points possible (ungraded)
 
 
-## Quiz 3: Ket notation
+### Quiz 3: Ket notation
 
-### Question 1: Expectation values
+#### Question 1: Expectation values
 
 The expectation value $\langle A\rangle$ of an operator $A$ upon a state $\mid\psi\rangle$ is, as mentioned, the average of very many outcomes of measurements of that operator. Mathematically speaking, it is the inner product of the state with itself, with the operator 'sandwiched' inbetween: $\langle\psi|A|\psi\rangle$.
 
@@ -1103,7 +1115,7 @@ A = \left[\begin{array}{ccc}
 
 calculate the expectation value of the following operators:
 
-#### Hadamard matrix:
+##### Hadamard matrix:
 
 $$
 H=\sqrt{\frac{1}{2}}\left[\begin{array}{cc}
@@ -1162,7 +1174,7 @@ $$
 $$
 
 
-#### Pauli X
+##### Pauli X
 
 $$
 X=\left[\begin{array}{cc}
@@ -1190,7 +1202,7 @@ $$
  =0
 $$
 
-#### Pauli Y matrix
+##### Pauli Y matrix
 
 $$
 Y=\left[\begin{array}{cc}
@@ -1219,7 +1231,7 @@ i & 0
 $$
 
 
-#### Pauli Z matrix:
+##### Pauli Z matrix:
 
 $$
 Z=\left[\begin{array}{cc}
@@ -1246,7 +1258,7 @@ $$
 $$
 
 
-#### Question 2: Entanglement between qubits
+##### Question 2: Entanglement between qubits
 
 An entangled state is a multi-qubit quantum state that can not be written as a Kronecker product of single-qubit states.
 
@@ -1342,7 +1354,7 @@ as a kronecker product, we see that $\alpha^{*}\delta=0$, but that $\alpha^{*}\g
 ```
 
 
-#### Question 3: Two-qubit operations
+##### Question 3: Two-qubit operations
 
 2 qubit operations are operations that involve, as expected, 2 qubits. Just as 1 qubit operations they can be written in matrix form. However, since 2 qubits are now involved, these matrices are now 4\times4 unitaries. For the following 2 qubit operations, click the appropiate matrix that corresponds with the operation. - The 2 qubit operation that applies a bit flip on the second qubit, conditioned on the first qubit being in the $\mid1\rangle$ state. So, a bit flip is applied to the second qubit if the first qubit is in the $\mid1\rangle$ state, and no flip is applied if the first qubit is in the $\mid0\rangle$ state. A bit flip (or X ) turns a 0 into a 1 and a 1 into a 0 . so 
 
@@ -1418,7 +1430,7 @@ $$\left[\begin{array}{cccc}
 Calculating this product results in the desired matrix.
 ```
 
-### Question 4: Unitaries, or mapping one basis to another
+#### Question 4: Unitaries, or mapping one basis to another
 
 Let the basis 
 

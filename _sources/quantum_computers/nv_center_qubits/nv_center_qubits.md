@@ -1,25 +1,34 @@
 # NV Center Qubits
 
+```{admonition} Source
+:class: mo-source
+This chapter follows TU Delft's QTM2x course on edX closely, with its figures and quizzes, and adds my
+own notes. Where the text says *we*, the course's lecturers are speaking. I am grateful to TU Delft for
+teaching this openly.
+```
+
 In the following we are going to learn about a very promising type of quantum bit,
 spins associated to the nitrogen vacancy or NV center in diamond.
 
 This NV center consists of a substitutional nitrogen atom in the diamond lattice,
 next to a missing carbon atom, a vacancy. At this vacancy, some electrons are trapped, that form an electron spin that we can use as a quantum bit.
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p2.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p2.png)
+:::
+::::
 
 These NV centers have several unique features that make them promising for quantum information systems. First, the electron spin has a very long coherence time, even up to seconds; which means that we can control it as a good qubit. Quite remarkably, this qubit can even work in a large range of temperatures, all the way up to room temperature.
 Second, this electron spin is not the only qubit we have in the system. It couples to nuclear spins in the environment, which gives us extra qubits to store and process quantum information. Additionally, the electron spin also interacts with photons, elementary particles of light. This makes it possible to send quantum states far away and to connect and entangle NV centers over a distance. With such a hybrid system of photons and spins we can create quantum networks. In a quantum network we have nodes consisting of multiple spins or qubits that can store and process quantum states and we can then link these together using optics into a network.
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p3.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p3.png)
+:::
+::::
 
 
 This is a very exciting approach. In this way we can make a large quantum computer by just connecting many copies of small and simple quantum processors together. This avoids the challenges of making a single chip of ever-increasing complexity. Because these optical connections can also go over long distances, we can use these networks for quantum cryptography as well which will enable fundamentally secure communication.
@@ -27,43 +36,47 @@ Finally, one can even combine these two ideas and use the network to access a qu
 what computation you are performing or what the outcome is. How does such a computation work in a network? The logical qubits, which actually hold the information of the computation, are spread out over the entire network.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p4.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p4.png)
+:::
+::::
 
 We use optical links to distribute quantum entanglement and we store and process
 that entanglement in the rest of the qubits. These entangled states are then used as a resource to perform error correction and the quantum computation, and these are also spread out over the entire network. What kind of samples do we use for this? Here you see an image of a little diamond wired up in a chip in a cryostat, which we bring to 4 Kelvin.
 
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p5.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p5.png)
+:::
+::::
 
 This is quite a bit a higher temperature than you will typically see for other qubits.
 If we zoom in, you see here a diamond which is just a few mm big.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p6.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p6.png)
+:::
+::::
 
 
 And if we zoom in even further with an electron microscope, we can see these structures.
 The grey background here is the surface of the diamond.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p7.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p7.png)
+:::
+::::
 
 
 The electrodes are used to apply electric fields to control the emission wavelength of the NV center, the colour it emits. And the microwave line is used to apply microwave fields that control the spin state. The half sphere is a lens that has been sculptured out of the diamond; we do this to get the photons effectively out of the diamond.
@@ -72,19 +85,21 @@ But it also means that if we have flat surface we get a lot of total internal re
 By curving the surface we can get about 10 to 20 times more light out. In this fluorescence image you can see that we indeed have exactly one single NV center at the middle of the lens.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p8.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p8.png)
+:::
+::::
 
 The electronic spin of the NV is actually a spin 1.
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p9.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p9.png)
+:::
+::::
 
 
 To use it as a qubit we just select two levels. We can control this spin by applying microwave pulses. If we start with the spin pointing upwards and we apply a microwave pulse of variable length, we can see that the spin rotates from up to down and then back up again in a coherent fashion.
@@ -92,11 +107,12 @@ To use it as a qubit we just select two levels. We can control this spin by appl
 Exactly halfway in that rotation you have created quantum superposition of spin-up and down. How can we measure what the state of the spin is? For that, we use optics.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p10.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p10.png)
+:::
+::::
 
 
 The idea is really quite simple. There are different optical transitions in the NV center, which are associated to different spin states. So, if we apply a laser pulse that is only resonant with a transition for spin up, then only when the spin is up we excite the NV center and we detect photons. If the spin is down, it stays dark. So in this way we can read out what the spin state is. This is not perfect, because the game is to catch at least one photon before the spin flips for some other reason. And that is why these solid immersion lenses on the sample that improve the light extractionare so important.
@@ -104,22 +120,24 @@ Ok, that concludes the basic controls and measurement the electron spin of the N
 This is what it looks like in an actual laboratory.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p11.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p11.png)
+:::
+::::
 
 
 The tube that you see is a cryostat that contains the diamonds cooled down to 4 Kelvin.
 And you can also see a lot of optics and lasers to measure the spin and microwave electronics to control it. Of course in reality, when the system is running, it is dark, like this.
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p12.png)
-```
+::::{grid} 1
+:::{grid-item-card}
+:class-card: mo-plate
+![Lecture slide: NV Center Qubits](../qc_img/gfx3/m3p12.png)
+:::
+::::
 
 That is because we have to detect single photons coming from the NV centers. In the following we will learn how we can control multiple qubits by using the NV center to control nuclear spins in the environment and also how we can use photons to link up NV centers into a quantum network. 
 
@@ -133,15 +151,9 @@ That is because we have to detect single photons coming from the NV centers. In 
 ## Practice Quiz 6
 
 
-```{grid-item-card}
-:shadow: md
-
-![Quantum Ne](../qc_img/gfx3/m3p13.png)
-```
-
 ### Question 1
 
-Shown in the picture above is a Nitrogen-vacancy center diamond that contains a qubit. Why is the diamond made in the shape of the half-sphere?
+A nitrogen-vacancy centre qubit sits at the centre of a diamond that has been cut into a half-sphere. Why is the diamond made in the shape of a half-sphere?
 
 - **So that it acts as a lens: its purpose is to counter the effect of total internal reflection and allow more photons to escape the qubit during readout.**
 

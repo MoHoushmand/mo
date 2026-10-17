@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>04_compliance &#8212; Mo Houshmand</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mo-paper.css?v=10f58ce2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=5a8bd289" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plates/plates.css?v=57981c05" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    
+    
+    <script>DOCUMENTATION_OPTIONS.pagename = 'quantum_book/notebooks/04_compliance';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../_static/mo-toggles.js?v=60db9437"></script>
+    <script src="../../_static/plates/loader.js?v=5d12304b"></script>
+    <link rel="canonical" href="https://mohoushmand.com/quantum_book/notebooks/04_compliance.html" />
+    <link rel="icon" href="../../_static/mo-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="05_shor_demo" href="05_shor_demo.html" />
+    <link rel="prev" title="03_qrng_entropy" href="03_qrng_entropy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="light">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/mo0.png" class="logo__image only-light" alt=""/>
+    <img src="../../_static/mo0.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Mo Houshmand</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Daniel Mo Houshmand
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../about/about.html">About me</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/CV/CV.html">CV</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_mechanics/quantum_mechanics.html">1. Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_mechanics/qm/qm_0.html">1.1. Entanglement</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computation/quantum_computation.html">2. Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computation/qc/qc_0.html">2.1. The gate model in brief</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/quantum_computers.html">3. The Hardware of Quantum Computers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits.html">4. Spin Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/spin_qubits/spin_qubits_op.html">4.4. Operations on spin qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits.html">5. Superconducting qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/superconducting_qubits/superconducting_qubits_op.html">5.5. How to do operations on superconducting qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits.html">6. NV Center Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/nv_center_qubits/nv_center_qubits_op.html">6.3. Operations on NV center qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits.html">7. Topological Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/topological_qubits/topological_qubits_op.html">7.5. Operations on Topological Quantum Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/qubits/topological.html">7.6. Topology, Calabi–Yau manifolds and anyons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing.html">8. Quantum Annealing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_computers/quantum_annealing/quantum_annealing_op.html">8.1. Annealing in practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_computers/qsum.html">9. Summary: the qubit platforms compared</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../quantum_machine_learning/quantum_machine_learning.html">10. Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quantum_machine_learning/qml/qml_0.html">10.2. About this series</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">11. Classical and quantum probability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">12. Measurements and mixed states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">13. Evolution in closed and open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">14. Classical and quantum many-body physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">15. Gate-model quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">16. Adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">17. Variational circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">18. Discrete optimisation and ensemble learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">19. Discrete optimisation and unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">20. Kernel methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">21. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">22. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">23. Quantum matrix inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">24. Quantum kernels and support vector machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">25. Variational quantum kernels</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics and Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../applied_mathematics/applied_math.html">26. Computational Fluid Dynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applied_mathematics/PDEs/NS_eq.html">26.1. The Navier–Stokes equations</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../data_science/stats/ds.html">27. Data Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../data_science/stats/statML.html">27.1. Statistics and Machine Learning</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../computer_science/software_engineering/se.html">28. Software Engineering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../computer_science/software_engineering/zipminator.html">28.1. Zipminator</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../art/art.html">29. Art</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../art/fluidart/acp.html">29.1. Acrylic Pouring Intro</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Experiments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ruter/ruter.html">30. Ruter: a travelling-salesperson route on a quantum annealer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/intro.html">Introduction to QDaria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/qdaria-business-plan-25.html">QDaria Business Plan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/qdaria-business-plan-25-cards.html">QDaria Business Plan - Premium Chart Card Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/investor-dashboards.html">QDaria Investor Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/competitive-intelligence-visualizations.html">QDaria Competitive Intelligence Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/qdaria-whitepaper.html"><strong>QDaria Quantum Computing Whitepaper</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/business/timeline.html">Strategic Plan for QDaria’s Quantum Computer Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/organization/qdaria-coo-job-description.html">Chief Operating Officer (COO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/organization/qdaria-board-resolution.html">BOARD RESOLUTION OF QDARIA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qdaria/organization/qdaria-compensation-policy.html">QDARIA EXECUTIVE COMPENSATION POLICY</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alive</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../alive/intro.html">Social Irresponsibility Analysis of WEF Partner Companies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../alive/alive.html">Comprehensive Framework for Visualizing Corporate Social Irresponsibility Using Alive Standards</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../alive/risk_dashboard.html">Risk Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../alive/technical_documentation.html">Technical Documentation: Alive-Book Visualization System</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria Quantum Book</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">QDaria Quantum Book</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations/qm/intro.html">Part I: Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qm/history.html">Historical Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qm/classical_to_quantum.html">From Classical to Quantum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qm/braket_notation.html">Dirac Bra-Ket Notation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../foundations/qm/key_concepts.html">Key Quantum Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qm/superposition.html">Superposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qm/entanglement.html">Entanglement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qm/interference.html">Quantum Interference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qm/measurement.html">Quantum Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qm/no_cloning.html">The No-Cloning Theorem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../foundations/qm/qubits.html">Qubits: The Quantum Bit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qm/single_qubit.html">Single-Qubit States and Gates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qm/multi_qubit.html">Multi-Qubit Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qm/density_matrices.html">Density Matrices and Mixed States</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qm/experimental.html">Experimental Quantum Mechanics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations/qc/intro.html">Part II: Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../foundations/qc/gate_model.html">The Gate Model of Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/circuit_notation.html">Circuit Notation and Diagrams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../foundations/qc/algorithms.html">Quantum Algorithms Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/deutsch_jozsa.html">Deutsch-Jozsa Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/grover.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/shor.html">Shor’s Factoring Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/qpe.html">Quantum Phase Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/qft.html">Quantum Fourier Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/vqe.html">Variational Quantum Eigensolver (VQE)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../foundations/qc/error_correction.html">Quantum Error Correction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/bit_phase_flip.html">Bit-Flip and Phase-Flip Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/surface_codes.html">Surface Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/logical_physical.html">Logical vs. Physical Qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../foundations/qc/frameworks.html">Quantum Programming Frameworks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/fw_getting_started.html">Getting Started with Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/fw_circuits.html">Building Circuits Across Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qc/fw_hardware.html">Running on Real Hardware</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations/hw/intro.html">Part III: Quantum Hardware</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/hw/classical_background.html">Classical Computing Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/hw/divincenzo.html">The DiVincenzo Criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/hw/superconducting.html">Superconducting Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/hw/spin.html">Spin Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/hw/nv_center.html">Nitrogen-Vacancy Centers in Diamond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/hw/photonic.html">Photonic Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/hw/trapped_ion.html">Trapped Ion Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/hw/annealing.html">Quantum Annealing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../foundations/hw/topological.html">Topological Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/hw/topo_background.html">Topological Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/hw/majorana.html">Majorana Fermions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/hw/topoconductors.html">Topoconductors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/hw/fibonacci_anyons.html">Fibonacci Anyons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/hw/topo_challenges.html">Challenges in Topological QC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/hw/topo_state_of_art.html">State of the Art</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations/qml/intro.html">Part IV: Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/classical_quantum_prob.html">Classical and Quantum Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/measurements_mixed.html">Measurements and Mixed States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/evolution_systems.html">Evolution of Quantum Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/many_body.html">Many-Body Quantum Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../foundations/qml/computation.html">Quantum Models of Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qml/gate_model_qc.html">Gate Model for QML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qml/adiabatic.html">Adiabatic Quantum Computing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/hybrid_algorithms.html">Hybrid Quantum-Classical Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/optimization_ensemble.html">Optimization and Ensemble Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/unsupervised.html">Unsupervised Quantum Learning</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../foundations/qml/kernel_methods.html">Kernel Methods in QML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../foundations/qml/quantum_kernels_svm.html">Quantum Kernels and SVMs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/graphical_models.html">Quantum Graphical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/coherent_learning.html">Coherent Quantum Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/qpe_learning.html">QPE-Based Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/qml/matrix_inversion.html">Quantum Matrix Inversion (HHL)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations/pqc/intro.html">Part V: Post-Quantum Cryptography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pqc/nist_standards.html">NIST PQC Standards (FIPS 203/204/205)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pqc/lattice_crypto.html">Lattice-Based Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pqc/qrng_vs_prng.html">QRNG vs. PRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pqc/risk_assessment.html">Quantum Risk Assessment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../products/zipminator/overview.html">Part VI: Zipminator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../products/qm9/intro.html">Part VII: Qm9</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../products/qm9/portfolio_optimization.html">Portfolio Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../products/qm9/risk_assessment.html">Quantum Risk Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../products/qm9/hft_architecture.html">HFT Architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../products/qdiana/intro.html">Part VIII: QDiana</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../products/qdiana/certification.html">Quantum Certification Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../products/qdiana/esg_sustainability.html">ESG &amp; Sustainability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../products/qdiana/green_certification.html">Green Quantum Certification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../products/qmikeai/intro.html">Part IX: QMikeAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../products/qmikeai/cfd.html">Quantum CFD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../products/qmikeai/navier_stokes.html">Quantum Navier-Stokes Solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../products/qmikeai/hpc_integration.html">HPC Integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../products/thqai/intro.html">Part X: THQAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../products/thqai/quantum_llm.html">Quantum LLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../products/thqai/quantum_artifacts.html">Quantum Artifacts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="01_quickstart.html">Part XI: Notebooks</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="02_anonymization.html">Anonymization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_qrng_entropy.html">QRNG entropy</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_shor_demo.html">Shor demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_quantum_capabilities.html">Quantum capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_vault_workflow.html">Vault workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_qmesh_physical_crypto.html">QMesh physical crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_monte_carlo_prng_vs_qrng.html">Monte Carlo, PRNG vs QRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_grover_search.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_portfolio_optimization.html">Quantum Portfolio Optimization (Qm9)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_qkd_protocol.html">Quantum Key Distribution (BB84)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_cfd_quantum.html">Quantum CFD Simulation (QMikeAI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_esg_scoring.html">Quantum ESG Scoring (QDiana)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/anonymization_techniques.html">Appendix: Anonymization techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/fips_203.html">Appendix: FIPS 203</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/glossary.html">Appendix: Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/awesome_quantum.html">Appendix: Quantum resources</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/MoHoushmand/mo/main?urlpath=tree/quantum_book/notebooks/04_compliance.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/edit/main/quantum_book/notebooks/04_compliance.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/issues/new?title=Issue%20on%20page%20%2Fquantum_book/notebooks/04_compliance.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/quantum_book/notebooks/04_compliance.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>04_compliance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="compliance">
+<h1>04_compliance<a class="headerlink" href="#compliance" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>This notebook is maintained in the <a class="reference external" href="https://github.com/QDaria/zipminator/tree/main/docs/book/notebooks/">Zipminator repository</a>.
+It is included here for cross-reference. See the Zipminator Jupyter Book for the full interactive version.</p>
+</div></blockquote>
+<div class="note admonition">
+<p class="admonition-title">Cross-Reference</p>
+<p>This notebook lives in the Zipminator SDK documentation. Visit the <a class="reference external" href="https://github.com/QDaria/zipminator">Zipminator docs</a> for the complete version.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># See zipminator/docs/book/notebooks/04_compliance.ipynb for full implementation</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "MoHoushmand/mo",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./quantum_book/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_qrng_entropy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">03_qrng_entropy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_shor_demo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">05_shor_demo</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Mo Houshmand
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

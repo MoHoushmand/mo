@@ -1,302 +1,857 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4. The Hardware of Quantum Computers &mdash; Daniel Mo Houshmand</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mo_addmination.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mo_addmination.css" type="text/css" />
-    <link rel="canonical" href="https://mohoushmand.com/quantum_computers/quantum_computers.html" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. The Hardware of Quantum Computers &#8212; Mo Houshmand</title>
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
-        <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-        <script src="../_static/tabs.js"></script>
-        <script>let toggleHintShow = 'Click to show';</script>
-        <script>let toggleHintHide = 'Click to hide';</script>
-        <script>let toggleOpenOnPrint = 'true';</script>
-        <script src="../_static/togglebutton.js"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-        <script src="../_static/design-tabs.js"></script>
-        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-        <script async="async" src="../_static/sphinx-thebe.js"></script>
-        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../_static/js/theme.js"></script>
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/mo-paper.css?v=10f58ce2" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=5a8bd289" />
+    <link rel="stylesheet" type="text/css" href="../_static/plates/plates.css?v=57981c05" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    
+    
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'quantum_computers/quantum_computers';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/mo-toggles.js?v=60db9437"></script>
+    <script src="../_static/plates/loader.js?v=5d12304b"></script>
+    <link rel="canonical" href="https://mohoushmand.com/quantum_computers/quantum_computers.html" />
+    <link rel="icon" href="../_static/mo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10.3. Spin Qubits 0" href="qubits/spin.html" />
-    <link rel="prev" title="3.1. Quantum Computation 0" href="../quantum_computation/qc/qc_0.html" /> 
-</head>
+    <link rel="next" title="4. Spin Qubits" href="spin_qubits/spin_qubits.html" />
+    <link rel="prev" title="2.1. The gate model in brief" href="../quantum_computation/qc/qc_0.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="light">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
 
-          
-          
-          <a href="../index.html">
-            
-              <img src="../_static/mo0.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">About</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../about/about.html">About</a></li>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../_static/mo0.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/mo0.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Mo Houshmand</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Daniel Mo Houshmand
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../about/about.html">About me</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/CV/CV.html">CV</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Art</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../art/art.html">1. Acrylic Pouring - tegneskole.no versjon</a></li>
+</details></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Applied Mathematics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../applied_mathematics/applied_math.html">Computational Fluid Dynamics</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_mechanics/quantum_mechanics.html">1. Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_mechanics/qm/qm_0.html">1.1. Entanglement</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Data Science</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../data_science/stats/ds.html">Data Science</a></li>
+</details></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Computer Science</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../computer_science/software_engineering/se.html">Software Engineering</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_computation/quantum_computation.html">2. Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_computation/qc/qc_0.html">2.1. The gate model in brief</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_mechanics/quantum_mechanics.html">2. Quantum Mechanics</a></li>
+</details></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quantum Computation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_computation/quantum_computation.html">3. Quantum Computation</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. The Hardware of Quantum Computers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul><li class="toctree-l2 mo-section"><a class="reference internal" href="#quiz-1">3.1. Quiz 1</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#question-1-designing-the-quantum-computer">3.1.1. Question 1: Designing the quantum computer</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#question-2-quantum-algorithms-beyond-a-speedup">3.1.2. Question 2: Quantum Algorithms: beyond a speedup</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#question-3-a-programming-language-for-a-computer">3.1.3. Question 3: A programming language for a computer</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#question-4-the-compilery">3.1.4. Question 4: The compilery</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#question-5-the-current-bottleneck">3.1.5. Question 5: The current bottleneck</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quantum Computer Hardware</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. The Hardware of Quantum Computers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#quantum-materials">5. Quantum materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#introduction-to-ket-notation">6. Introduction to Ket notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#multi-qubit-states-operations">7. Multi-Qubit States &amp; Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#advantages-and-dissadvantages-of-ket-notation">8. Advantages and dissadvantages of Ket notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#a-fact-about-maximally-entangled-states">9. A fact about maximally entangled states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#experimental-and-theoretical-measurements">10. Experimental and theoretical measurements</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="qubits/spin.html">10.3. Spin Qubits 0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qubits/nvcenter.html">10.4. NV Center Qubits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qubits/superconducting.html">10.5. Superconducting Qubits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qubits/topological.html">10.6. Topological Qubits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qubits/topological.html#anyons">10.7. Anyons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qubits/topological.html#anyonic-quantum-computer">10.8. Anyonic Quantum Computer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qubits/photonic.html">10.9. Photonic qubits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qubits/annealing.html">10.10. Quantum Annealing</a></li>
+</li><li class="toctree-l2 mo-section"><a class="reference internal" href="#quantum-materials">3.2. Quantum materials</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#main-takeaways">3.2.1. Main takeaways</a><ul>
+<li class="toctree-l4 mo-section"><a class="reference internal" href="#material-criteria-test-quizz">3.2.1.1. Material Criteria test quizz</a></li>
+<li class="toctree-l4 mo-section"><a class="reference internal" href="#question-1-the-usefulness-of-cooper-pairs">3.2.1.2. Question 1: The usefulness of Cooper pairs</a></li>
+<li class="toctree-l4 mo-section"><a class="reference internal" href="#question-2">3.2.1.3. Question 2</a></li>
+<li class="toctree-l4 mo-section"><a class="reference internal" href="#question-3-mobility">3.2.1.4. Question 3: Mobility</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="spin_qubits/spin_qubits.html">11. Spin Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits/superconducting_qubits.html">12. Superconducting qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits/superconducting_qubits.html#v">13. V</a></li>
-<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits/superconducting_qubits.html#circuit-qed">14. Circuit QED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="superconducting_qubits/superconducting_qubits.html#assembling-a-quantum-processor">15. Assembling a quantum processor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nv_center_qubits/nv_center_qubits.html">16. NV Center Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quantum_annealing/quantum_annealing.html">17. Quantum Annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html">18. Topological Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html#introduction-to-topological-qubits">19. Introduction to Topological Qubits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html#majorana-fermions-and-where-to-find-them">20. Majorana fermions and where to find them</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html#majorana-bound-states-in-superconductors">21. Majorana bound states in superconductors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="topological_qubits/topological_qubits.html#majorana-experiments">22. Majorana experiments</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/quantum_machine_learning.html">23. Quantum Machine Learning Intro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/quantum_machine_learning.html#classical-vs-quantum">24. Classical vs. Quantum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/quantum_machine_learning.html#quantum-advantage">25. Quantum Advantage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/quantum_machine_learning.html#challenges">26. Challenges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/quantum_machine_learning.html#what-are-the-elements-of-a-quantum-circuit">27. What are the elements of a quantum circuit?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">28. Classical and Quantum Probability Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-machine-learning-is-a-rocket-emerging">29. Quantum Machine Learning is a rocket emerging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#classical-probability-distributions">30. Classical probability distributions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#the-geometry-of-probability-distribution">31. The Geometry of Probability Distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#stochastic-matrix">32. Stochastic Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#quantum-states">33. Quantum states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#qubits-revisited">34. Qubits revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#superposition-revisited">35. Superposition revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#bloch-sphere-revisited">36. Bloch Sphere revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#interference">37. Interference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#more-qubits-and-entanglement">38. More qubits and entanglement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#multiple-qubits-revisited">39. Multiple Qubits revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html#further-reading">40. Further reading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">41. Measurements revisited</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#bra-ket-notation">42. Bra-Ket Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#dot-product">43. Dot product</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#ket-bra">44. Ket-Bra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-the-bra-ket-notation">45. More on the bra-ket notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#more-on-measurements">46. More on Measurements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#collapse-of-the-wave-function">47. Collapse of the Wave Function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#the-born-rule">48. The Born Rule</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#measuring-multiqubit-systems">49. Measuring multiqubit systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#mixed-states">50. Mixed States</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html#density-matrix">51. Density Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">52. Evolution in Closed Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#unitary-evolution">53. Unitary evolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#more-on-the-unitary-evolution">54. More on the Unitary evolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#open-quantum-systems">55. Open Quantum Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html#interaction-with-the-environment-open-systems">56. Interaction with the environment: open systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">57. Classical Ising Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#hamiltonian">58. Hamiltonian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-ising-model">59. The Ising model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#the-transverse-field-ising-model">60. The transverse-field Ising model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html#commuting-hamiltonian">61. Commuting Hamiltonian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">62. Gate-Model Quantum Computing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-approximate-optimization-algorithm">63. Quantum Approximate Optimization Algorithm.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#solovay-kitaev-theorem">64. Solovay-Kitaev theorem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#quantum-circuits">65. Quantum Circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#hadamard-gate">66. Hadamard gate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#the-cnot-gate">67. The CNOT gate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#defining-circuits">68. Defining circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#compilation">69. Compilation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html#references">70. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">71. Adiabatic Quantum Computing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#adiabatic-theorem">72. Adiabatic Theorem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#unitary-evolution-and-the-hamiltonian">73. Unitary evolution and the Hamiltonian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#the-adiabatic-theorem-and-adiabatic-quantum-computing">74. The adiabatic theorem and adiabatic quantum computing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#quantum-annealing">75. Quantum Annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#chimera-graph">76. Chimera Graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#id1">77. Quantum annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#references">78. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#implementations">79. Implementations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#superconducting-architectures">80. Superconducting Architectures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#dissadvantages">81. Dissadvantages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#trapped-ions">82. Trapped ions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html#photonic-systems">83. Photonic Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">84. Quantum Approximate Optimization Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#id1">85. Quantum approximate optimization algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html#analysis-of-the-results">86. Analysis of the results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">87. Encoding Classical Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#loss-functions-and-regularization">88. Loss Functions and Regularization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-learning">89. Ensemble Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#ensemble-methods">90. Ensemble methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#qboost">91. Qboost</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#more-qboost">92. More QBoost</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#solving-by-qaoa">93. Solving by QAOA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html#references">94. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">95. Clustering by Quantum Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#mapping-clustering-to-discrete-optimization">96. Mapping clustering to discrete optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-qaoa">97. Solving the max-cut problem by QAOA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#solving-the-max-cut-problem-by-annealing">98. Solving the max-cut problem by annealing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html#references">99. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">100. Kernel Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#an-inference">101. An Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#thinking-backward-learning-methods-based-on-what-the-hardware-can-do">102. Thinking backward: learning methods based on what the hardware can do</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#a-natural-kernel-on-a-shallow-circuit">103. A natural kernel on a shallow circuit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html#references">104. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">105. An Inference Circuit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#tror-ikke-skal-vaere-her-men-i-11">106. (Tror ikke skal være her men i (11))</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probalistic-graphical-model">107. Probalistic Graphical Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#gfx">108. GFX!!!??</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#probabilistic-graphical-models">109. Probabilistic graphical models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#optimization-and-sampling-pgms">110. Optimization and Sampling PGMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-igjen-i-lyx-husk-implementering-og-plots">111. Se igjen i lyx (Husk implementering og plots)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-bildet-grafen-pa-lyx">112. Se bildet grafen på lyx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#boltzmann-machines">113. Boltzmann machines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#references">114. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html#se-eksamen">115. SE EKSAMEN!!!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">116. Quantum Fourier Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#introduction">117. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#id1">118. Quantum Fourier Transform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#even-more-quantum-phase-estimation">119. Even more Quantum Phase Estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#quantum-phase-estimation">120. Quantum phase estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html#references">121. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">122. Overview of the Harrow-Hassidim-Lloyd Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#introduction">123. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#setting-up-the-problem">124. Setting up the problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-matrix-inversion">125. Quantum Matrix Inversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-phase-estimation">126. Quantum phase estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#using-quantum-linear-algebra-for-learning">127. Using Quantum Linear Algebra for Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#conditional-rotation-of-ancilla">128. Conditional rotation of ancilla</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#uncomputing-the-eigenvalue-register">129. Uncomputing the eigenvalue register</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#rejection-sampling-on-the-ancilla-register-and-a-swap-test">130. Rejection sampling on the ancilla register and a swap test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#quantum-assisted-gaussian-processes">131. Quantum-Assisted Gaussian Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html#references">132. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">133. Integrating quantum kernels into scikit-learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#preliminaries">134. Preliminaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#data-preparation">135. Data preparation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html#training">136. Training</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">137. Creating a variational classifier with PennyLane</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#the-variational-circuit">138. The variational circuit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#importing-libraries">139. Importing libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#implementing-the-circuit">140. Implementing the circuit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#loading-data">141. Loading data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#visualising-the-decision-boundary">142. Visualising the decision boundary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html#more-training">143. More Training</a></li>
+</li><li class="toctree-l2 mo-section"><a class="reference internal" href="#introduction-to-ket-notation">3.3. Introduction to Ket notation</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#operations-observables">3.3.1. Operations &amp; Observables</a><ul>
+<li class="toctree-l4 mo-section"><a class="reference internal" href="#unitary-operations">3.3.1.1. Unitary operations</a></li>
+<li class="toctree-l4 mo-section"><a class="reference internal" href="#the-bloch-sphere">3.3.1.2. The Bloch Sphere</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Ruter</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ruter/ruter.html">Ruter</a></li>
+</li>
+</ul>
+</li><li class="toctree-l2 mo-section"><a class="reference internal" href="#multi-qubit-states-operations">3.4. Multi-Qubit States &amp; Operations</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#example-bell-state-preparation">3.4.1. Example: Bell State Preparation</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#id1">3.4.2. Example: Bell State Preparation</a><ul>
+<li class="toctree-l4 mo-section"><a class="reference internal" href="#id2">3.4.2.1. Main takeaways</a></li>
+</ul>
+</li>
+</ul>
+</li><li class="toctree-l2 mo-section"><a class="reference internal" href="#advantages-and-dissadvantages-of-ket-notation">3.5. Advantages and dissadvantages of Ket notation</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#synthesising-rotations">3.5.1. Synthesising rotations</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#state-decomposition">3.5.2. State decomposition</a></li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#performing-arbitrary-measurements">3.5.3. Performing arbitrary measurements</a></li>
+</ul>
+</li><li class="toctree-l2 mo-section"><a class="reference internal" href="#a-fact-about-maximally-entangled-states">3.6. A fact about maximally entangled states</a></li><li class="toctree-l2 mo-section"><a class="reference internal" href="#experimental-and-theoretical-measurements">3.7. Experimental and theoretical measurements</a><ul>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#practice-quiz-3">3.7.1. Practice Quiz 3</a><ul>
+<li class="toctree-l4 mo-section"><a class="reference internal" href="#question-1">3.7.1.1. Question 1:</a></li>
+</ul>
+</li>
+<li class="toctree-l3 mo-section"><a class="reference internal" href="#quiz-3-ket-notation">3.7.2. Quiz 3: Ket notation</a><ul>
+<li class="toctree-l4 mo-section"><a class="reference internal" href="#question-1-expectation-values">3.7.2.1. Question 1: Expectation values</a><ul>
+<li class="toctree-l5 mo-section"><a class="reference internal" href="#hadamard-matrix">Hadamard matrix:</a></li>
+<li class="toctree-l5 mo-section"><a class="reference internal" href="#pauli-x">Pauli X</a></li>
+<li class="toctree-l5 mo-section"><a class="reference internal" href="#pauli-y-matrix">Pauli Y matrix</a></li>
+<li class="toctree-l5 mo-section"><a class="reference internal" href="#pauli-z-matrix">Pauli Z matrix:</a></li>
+<li class="toctree-l5 mo-section"><a class="reference internal" href="#question-2-entanglement-between-qubits">Question 2: Entanglement between qubits</a></li>
+<li class="toctree-l5 mo-section"><a class="reference internal" href="#question-3-two-qubit-operations">Question 3: Two-qubit operations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li></ul></details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="spin_qubits/spin_qubits.html">4. Spin Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="spin_qubits/spin_qubits_op.html">4.4. Operations on spin qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="superconducting_qubits/superconducting_qubits.html">5. Superconducting qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="superconducting_qubits/superconducting_qubits_op.html">5.5. How to do operations on superconducting qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="nv_center_qubits/nv_center_qubits.html">6. NV Center Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="nv_center_qubits/nv_center_qubits_op.html">6.3. Operations on NV center qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="topological_qubits/topological_qubits.html">7. Topological Qubits</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="topological_qubits/topological_qubits_op.html">7.5. Operations on Topological Quantum Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qubits/topological.html">7.6. Topology, Calabi–Yau manifolds and anyons</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="quantum_annealing/quantum_annealing.html">8. Quantum Annealing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="quantum_annealing/quantum_annealing_op.html">8.1. Annealing in practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="qsum.html">9. Summary: the qubit platforms compared</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantum Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_machine_learning/quantum_machine_learning.html">10. Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_machine_learning/qml/qml_0.html">10.2. About this series</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_1_QML_Quantum_Systems__Classical_And_Quantum_Probability_Theory_qiskit.html">11. Classical and quantum probability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_2_QML_Quantum_Systems__Measurements_And_Mixed_States_qiskit_QDaria.html">12. Measurements and mixed states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_3_QML_Quantum_Systems__Evolution_in_Closed_and_Open_Systems_qiskit_QDaria.html">13. Evolution in closed and open systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/1_4_QML_Quantum_Systems__Classical_and_Quantum_Many_Body_Physics_qiskitQDaria.html">14. Classical and quantum many-body physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_1_QML_Quantum_Computations_%2805%29__Gate_Model_Quantum_Computing_qiskitQDaria.html">15. Gate-model quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_2_QML_2_Quantum_Computation%2806%29__Adiabatic_Quantum_Computing_qiskit.html">16. Adiabatic quantum computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/2_3_QML_Quantum_Computation%2807%29__Variational_Circuits_qiskit.html">17. Variational circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_1_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%289%29__Discrete_Optimization_And_Ensemble_Learning_qiskit%28Ecoding_Classical_Inforfmation%29.html">18. Discrete optimisation and ensemble learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_2_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2810%29__Discrete_Optimization_and_Unsupervised_Learning_qiskit.html">19. Discrete optimisation and unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_3_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2811%29__Kernel_Methods_qiskit.html">20. Kernel methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/3_4_QML_Classical_Quantum_Hybrid_Learning_Algorithms_%2812%29__Training_Probabilistic_Graphical_Models.html">21. Probabilistic graphical models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_1_QML_Coherent_Learning_Protocols_%2813%29__Quantum_Phase_Estimation_qiskit.html">22. Quantum phase estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/4_2_QML_Coherent_Learning_%2814%29__Quantum_Matrix_Inversion_qiskit.html">23. Quantum matrix inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_1_QML_Lecture_%2815%29__quantumkernels_svm.html">24. Quantum kernels and support vector machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_machine_learning/qml/5_2_QML_Lecture_%2816%29__quantumkernels_variational.html">25. Variational quantum kernels</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics and Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../applied_mathematics/applied_math.html">26. Computational Fluid Dynamics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../applied_mathematics/PDEs/NS_eq.html">26.1. The Navier–Stokes equations</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_science/stats/ds.html">27. Data Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/stats/statML.html">27.1. Statistics and Machine Learning</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../computer_science/software_engineering/se.html">28. Software Engineering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../computer_science/software_engineering/zipminator.html">28.1. Zipminator</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Art</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../art/art.html">29. Art</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../art/fluidart/acp.html">29.1. Acrylic Pouring Intro</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Experiments</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ruter/ruter.html">30. Ruter: a travelling-salesperson route on a quantum annealer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/intro.html">Introduction to QDaria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/qdaria-business-plan-25.html">QDaria Business Plan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/qdaria-business-plan-25-cards.html">QDaria Business Plan - Premium Chart Card Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/investor-dashboards.html">QDaria Investor Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/competitive-intelligence-visualizations.html">QDaria Competitive Intelligence Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/qdaria-whitepaper.html"><strong>QDaria Quantum Computing Whitepaper</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/business/timeline.html">Strategic Plan for QDaria’s Quantum Computer Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/organization/qdaria-coo-job-description.html">Chief Operating Officer (COO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/organization/qdaria-board-resolution.html">BOARD RESOLUTION OF QDARIA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../qdaria/organization/qdaria-compensation-policy.html">QDARIA EXECUTIVE COMPENSATION POLICY</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alive</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../alive/intro.html">Social Irresponsibility Analysis of WEF Partner Companies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../alive/alive.html">Comprehensive Framework for Visualizing Corporate Social Irresponsibility Using Alive Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../alive/risk_dashboard.html">Risk Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../alive/technical_documentation.html">Technical Documentation: Alive-Book Visualization System</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">QDaria Quantum Book</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/index.html">QDaria Quantum Book</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/qm/intro.html">Part I: Quantum Mechanics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qm/history.html">Historical Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qm/classical_to_quantum.html">From Classical to Quantum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qm/braket_notation.html">Dirac Bra-Ket Notation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qm/key_concepts.html">Key Quantum Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/superposition.html">Superposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/entanglement.html">Entanglement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/interference.html">Quantum Interference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/measurement.html">Quantum Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/no_cloning.html">The No-Cloning Theorem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qm/qubits.html">Qubits: The Quantum Bit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/single_qubit.html">Single-Qubit States and Gates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/multi_qubit.html">Multi-Qubit Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qm/density_matrices.html">Density Matrices and Mixed States</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qm/experimental.html">Experimental Quantum Mechanics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/intro.html">Part II: Quantum Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/gate_model.html">The Gate Model of Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/circuit_notation.html">Circuit Notation and Diagrams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/algorithms.html">Quantum Algorithms Overview</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/deutsch_jozsa.html">Deutsch-Jozsa Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/grover.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/shor.html">Shor’s Factoring Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/qpe.html">Quantum Phase Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/qft.html">Quantum Fourier Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/vqe.html">Variational Quantum Eigensolver (VQE)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/error_correction.html">Quantum Error Correction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/bit_phase_flip.html">Bit-Flip and Phase-Flip Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/surface_codes.html">Surface Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/logical_physical.html">Logical vs. Physical Qubits</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qc/frameworks.html">Quantum Programming Frameworks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/fw_getting_started.html">Getting Started with Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/fw_circuits.html">Building Circuits Across Frameworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qc/fw_hardware.html">Running on Real Hardware</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/hw/intro.html">Part III: Quantum Hardware</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/classical_background.html">Classical Computing Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/divincenzo.html">The DiVincenzo Criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/superconducting.html">Superconducting Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/spin.html">Spin Qubits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/nv_center.html">Nitrogen-Vacancy Centers in Diamond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/photonic.html">Photonic Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/trapped_ion.html">Trapped Ion Quantum Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/hw/annealing.html">Quantum Annealing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/hw/topological.html">Topological Quantum Computing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/topo_background.html">Topological Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/majorana.html">Majorana Fermions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/topoconductors.html">Topoconductors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/fibonacci_anyons.html">Fibonacci Anyons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/topo_challenges.html">Challenges in Topological QC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/hw/topo_state_of_art.html">State of the Art</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/qml/intro.html">Part IV: Quantum Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/classical_quantum_prob.html">Classical and Quantum Probability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/measurements_mixed.html">Measurements and Mixed States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/evolution_systems.html">Evolution of Quantum Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/many_body.html">Many-Body Quantum Systems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qml/computation.html">Quantum Models of Computation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qml/gate_model_qc.html">Gate Model for QML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qml/adiabatic.html">Adiabatic Quantum Computing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/hybrid_algorithms.html">Hybrid Quantum-Classical Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/optimization_ensemble.html">Optimization and Ensemble Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/unsupervised.html">Unsupervised Quantum Learning</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quantum_book/foundations/qml/kernel_methods.html">Kernel Methods in QML</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quantum_book/foundations/qml/quantum_kernels_svm.html">Quantum Kernels and SVMs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/graphical_models.html">Quantum Graphical Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/coherent_learning.html">Coherent Quantum Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/qpe_learning.html">QPE-Based Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/qml/matrix_inversion.html">Quantum Matrix Inversion (HHL)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/foundations/pqc/intro.html">Part V: Post-Quantum Cryptography</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/pqc/nist_standards.html">NIST PQC Standards (FIPS 203/204/205)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/pqc/lattice_crypto.html">Lattice-Based Cryptography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/pqc/qrng_vs_prng.html">QRNG vs. PRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/foundations/pqc/risk_assessment.html">Quantum Risk Assessment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/products/zipminator/overview.html">Part VI: Zipminator</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/products/qm9/intro.html">Part VII: Qm9</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qm9/portfolio_optimization.html">Portfolio Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qm9/risk_assessment.html">Quantum Risk Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qm9/hft_architecture.html">HFT Architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/products/qdiana/intro.html">Part VIII: QDiana</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qdiana/certification.html">Quantum Certification Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qdiana/esg_sustainability.html">ESG &amp; Sustainability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qdiana/green_certification.html">Green Quantum Certification</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/products/qmikeai/intro.html">Part IX: QMikeAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qmikeai/cfd.html">Quantum CFD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qmikeai/navier_stokes.html">Quantum Navier-Stokes Solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/qmikeai/hpc_integration.html">HPC Integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/products/thqai/intro.html">Part X: THQAI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/thqai/quantum_llm.html">Quantum LLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/products/thqai/quantum_artifacts.html">Quantum Artifacts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quantum_book/notebooks/01_quickstart.html">Part XI: Notebooks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/02_anonymization.html">Anonymization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/03_qrng_entropy.html">QRNG entropy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/04_compliance.html">Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/05_shor_demo.html">Shor demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/06_quantum_capabilities.html">Quantum capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/07_vault_workflow.html">Vault workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/08_qmesh_physical_crypto.html">QMesh physical crypto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/09_monte_carlo_prng_vs_qrng.html">Monte Carlo, PRNG vs QRNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/10_grover_search.html">Grover’s Search Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/11_portfolio_optimization.html">Quantum Portfolio Optimization (Qm9)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/12_variational_circuits.html">Variational Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/13_qkd_protocol.html">Quantum Key Distribution (BB84)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/14_cfd_quantum.html">Quantum CFD Simulation (QMikeAI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantum_book/notebooks/15_esg_scoring.html">Quantum ESG Scoring (QDiana)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/appendix/anonymization_techniques.html">Appendix: Anonymization techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/appendix/fips_203.html">Appendix: FIPS 203</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/appendix/glossary.html">Appendix: Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quantum_book/appendix/awesome_quantum.html">Appendix: Quantum resources</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Python</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4. </span>The Hardware of Quantum Computers</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/quantum_computers/quantum_computers.md" rel="nofollow"> View page source</a>
-      </li>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/edit/main/quantum_computers/quantum_computers.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/MoHoushmand/mo/issues/new?title=Issue%20on%20page%20%2Fquantum_computers/quantum_computers.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/quantum_computers/quantum_computers.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Hardware of Quantum Computers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-1">3.1. Quiz 1</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-designing-the-quantum-computer">3.1.1. Question 1: Designing the quantum computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-quantum-algorithms-beyond-a-speedup">3.1.2. Question 2: Quantum Algorithms: beyond a speedup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-a-programming-language-for-a-computer">3.1.3. Question 3: A programming language for a computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4-the-compilery">3.1.4. Question 4: The compilery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5-the-current-bottleneck">3.1.5. Question 5: The current bottleneck</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-materials">3.2. Quantum materials</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-takeaways">3.2.1. Main takeaways</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#material-criteria-test-quizz">3.2.1.1. Material Criteria test quizz</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-the-usefulness-of-cooper-pairs">3.2.1.2. Question 1: The usefulness of Cooper pairs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">3.2.1.3. Question 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-mobility">3.2.1.4. Question 3: Mobility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-ket-notation">3.3. Introduction to Ket notation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-observables">3.3.1. Operations &amp; Observables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unitary-operations">3.3.1.1. Unitary operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bloch-sphere">3.3.1.2. The Bloch Sphere</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-qubit-states-operations">3.4. Multi-Qubit States &amp; Operations</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bell-state-preparation">3.4.1. Example: Bell State Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.4.2. Example: Bell State Preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.4.2.1. Main takeaways</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-dissadvantages-of-ket-notation">3.5. Advantages and dissadvantages of Ket notation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesising-rotations">3.5.1. Synthesising rotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-decomposition">3.5.2. State decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-arbitrary-measurements">3.5.3. Performing arbitrary measurements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-fact-about-maximally-entangled-states">3.6. A fact about maximally entangled states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-and-theoretical-measurements">3.7. Experimental and theoretical measurements</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-quiz-3">3.7.1. Practice Quiz 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">3.7.1.1. Question 1:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-3-ket-notation">3.7.2. Quiz 3: Ket notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-expectation-values">3.7.2.1. Question 1: Expectation values</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hadamard-matrix">Hadamard matrix:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pauli-x">Pauli X</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pauli-y-matrix">Pauli Y matrix</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pauli-z-matrix">Pauli Z matrix:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-entanglement-between-qubits">Question 2: Entanglement between qubits</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-two-qubit-operations">Question 3: Two-qubit operations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="the-hardware-of-quantum-computers">
-<h1><span class="section-number">4. </span>The Hardware of Quantum Computers<a class="headerlink" href="#the-hardware-of-quantum-computers" title="Permalink to this headline"></a></h1>
+<h1><span class="section-number">3. </span>The Hardware of Quantum Computers<a class="headerlink" href="#the-hardware-of-quantum-computers" title="Link to this heading">#</a></h1>
+<div class="mo-source admonition">
+<p class="admonition-title">Source</p>
+<p>This chapter follows TU Delft’s QTM2x course on edX closely, with its figures and quizzes, and adds my
+own notes. Where the text says <em>we</em>, the course’s lecturers are speaking. I am grateful to TU Delft for
+teaching this openly.</p>
+</div>
 <p>Constructing quantum computers is an extremely daunting task. In the sections that follow, we will discuss the various components of a quantum computer and explain how we can build one by integrating different technologies that interact with the machine.</p>
 <p>First, we will give an overview of the entire system and briefly touch upon all layers. Over the subsequent 4-6 chapters, we will delve deeper into the quantum chip (qubits) layer.</p>
 <p>Each qubit necessitates the use of a specific material. These materials must contain particles suitable for creating the qubits while remaining uncontaminated by other particles. As a result, it is critical to ‘grow’ these required materials.</p>
 <p>To fully grasp the concepts presented herein, we will need certain mathematical tools. The mathematical basics will be explained in the chapters on Ket notation.</p>
 <p>Generally speaking, the ‘building blocks’ of a quantum computer include components such as <em>memory</em>, <em>bus interconnect</em>, and <em>processor chips</em>. Peripheral devices like keyboards or screens are essential for interacting with the machine.</p>
 <p>In the following segments, we will discuss the broader aspects of a quantum computer: from programming it to interpreting the results. The first term we want to emphasize is <em>compute</em>. In reality, we are not merely building a quantum computer; we are developing a quantum accelerator. Specifically, we are creating a computational device that can be connected to a classical processor, which will then provide the performance required for various applications that are beyond the reach of classical computing. The concept of a heterogeneous multicore architecture offers a global view of our current understanding in this domain.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm mo-plate docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text"><img alt="alt text" src="../_images/scs0.png" /></p>
+<p class="sd-card-text"><img alt="Lecture slide: The Hardware of Quantum Computers" src="../_images/scs0.png" /></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -313,10 +868,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>GPU instruction set, and also the</p></li>
 <li><p>quantum instruction set.</p></li>
 </ol>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm mo-plate docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text"><img alt="alt text" src="../_images/scs1.png" /></p>
+<p class="sd-card-text"><img alt="Lecture slide: The Hardware of Quantum Computers" src="../_images/scs1.png" /></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -364,10 +923,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <hr class="docutils" />
 <section id="quiz-1">
-<h2><span class="section-number">4.1. </span>Quiz 1<a class="headerlink" href="#quiz-1" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">3.1. </span>Quiz 1<a class="headerlink" href="#quiz-1" title="Link to this heading">#</a></h2>
 <p>In the previous we described the current design of a quantum computer. It is not quite a ‘quantum computer’, but rather a classical computer with an extra component that is capable of doing quantum computations; the so called <em>quantum accelerator</em>. With this design, the computer is capable of doing both classical and quantum computations.</p>
 <section id="question-1-designing-the-quantum-computer">
-<h3><span class="section-number">4.1.1. </span>Question 1: Designing the quantum computer<a class="headerlink" href="#question-1-designing-the-quantum-computer" title="Permalink to this headline"></a></h3>
+<h3><span class="section-number">3.1.1. </span>Question 1: Designing the quantum computer<a class="headerlink" href="#question-1-designing-the-quantum-computer" title="Link to this heading">#</a></h3>
 <div class="admonition-why-is-it-a-good-idea-to-use-this-design admonition">
 <p class="admonition-title">Why is it a good idea to use this design?</p>
 <ul class="contains-task-list simple">
@@ -384,7 +943,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="question-2-quantum-algorithms-beyond-a-speedup">
-<h3><span class="section-number">4.1.2. </span>Question 2: Quantum Algorithms: beyond a speedup<a class="headerlink" href="#question-2-quantum-algorithms-beyond-a-speedup" title="Permalink to this headline"></a></h3>
+<h3><span class="section-number">3.1.2. </span>Question 2: Quantum Algorithms: beyond a speedup<a class="headerlink" href="#question-2-quantum-algorithms-beyond-a-speedup" title="Link to this heading">#</a></h3>
 <p>Quantum computers are supposed to be a lot faster than classical computers for certain computations. We will soon dig into it, including what we mean by ‘fast’ and why quantum algorithms can have these properties. It is good to understand that by ‘fast’ we don’t mean ‘twice as fast’ or even ‘100 times as fast’. With the quantum speedup, we mean the difference between a month and the lifetime of the universe. So, computations that are nowhere feasible on a classical computer, suddenly become so on a quantum computer.</p>
 <p>It is also good to think about whether quantum algorithms can do other things better.</p>
 <div class="admonition-is-there-a-computation-that-is-in-principle-only-possible-on-a-quantum-computer admonition">
@@ -400,7 +959,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="question-3-a-programming-language-for-a-computer">
-<h3><span class="section-number">4.1.3. </span>Question 3: A programming language for a computer<a class="headerlink" href="#question-3-a-programming-language-for-a-computer" title="Permalink to this headline"></a></h3>
+<h3><span class="section-number">3.1.3. </span>Question 3: A programming language for a computer<a class="headerlink" href="#question-3-a-programming-language-for-a-computer" title="Link to this heading">#</a></h3>
 <div class="admonition-what-does-a-programming-language-do admonition">
 <p class="admonition-title">What does a programming language do?</p>
 <ul class="contains-task-list simple">
@@ -415,7 +974,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="question-4-the-compilery">
-<h3><span class="section-number">4.1.4. </span>Question 4: The compilery<a class="headerlink" href="#question-4-the-compilery" title="Permalink to this headline"></a></h3>
+<h3><span class="section-number">3.1.4. </span>Question 4: The compilery<a class="headerlink" href="#question-4-the-compilery" title="Link to this heading">#</a></h3>
 <div class="admonition-what-does-a-compiler-do admonition">
 <p class="admonition-title">What does a compiler do?</p>
 <ul class="contains-task-list simple">
@@ -430,7 +989,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="question-5-the-current-bottleneck">
-<h3><span class="section-number">4.1.5. </span>Question 5: The current bottleneck<a class="headerlink" href="#question-5-the-current-bottleneck" title="Permalink to this headline"></a></h3>
+<h3><span class="section-number">3.1.5. </span>Question 5: The current bottleneck<a class="headerlink" href="#question-5-the-current-bottleneck" title="Link to this heading">#</a></h3>
 <p>To design a complete quantum computer is no easy feat. There are still many problems and hurdles to overcome before a quantum computer becomes something that is widely available. There are problems across all layers of the design, but there is one layer that has the bulk of all the problems. It forms the current bottleneck of the technology.</p>
 <div class="admonition-what-layer-is-that admonition">
 <p class="admonition-title">What layer is that?</p>
@@ -450,9 +1009,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In the following, we will see multiple designs of a quantum chip.</p>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="quantum-materials">
-<h1><span class="section-number">5. </span>Quantum materials<a class="headerlink" href="#quantum-materials" title="Permalink to this headline"></a></h1>
+<section id="quantum-materials">
+<h2><span class="section-number">3.2. </span>Quantum materials<a class="headerlink" href="#quantum-materials" title="Link to this heading">#</a></h2>
 <p>Quantum materials are an essential feature if one would like to build a quantum computer or use the quantum internet. On a daily basis, Giordano Scappucci is working on optimizing quantum materials at QuTech. He will introduce you to this field of quantum mechanics.</p>
 <p>Quantum mechanics describes how atoms bind and electrons interact at a fundamental level. Naively speaking, all materials are quantum because all matter, in the end, must be explained by quantum mechanics. For example, our body is largely made up of water. In water, chemical reactions bind hydrogen and oxygen atoms together. Although this can be explained by quantum mechanics, we usually don’t think about water in these terms, and a high-school-level chemistry description does the job. This is, because we can often approximate the quantum behaviour in materials by a classical description. It turns out that a classical description is in fact suitable for most of the phenomena that we experience in the macroscopic world around us.</p>
 <p>Sometimes, however, to fully understand the behaviour of certain materials, it is necessary to keep quantum in view: there is no classical explanation to help our understanding. A feature of the broad category of Quantum Materials is that their behaviour is generally rooted in the quantum world. And while behaviours observed in quantum materials cover a wide spectrum, there are some common features that recur.</p>
@@ -469,7 +1027,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Take, for example, the Si heterostructure mentioned earlier. If we cool it to the very low temperatures at which qubits usually operate, say below one degree above absolute zero, it would be insulating. However, we can make the material conducting by imposing a vertical electric field. The electric field forms a metallic channel at the interface between silicon and silicon-germanium, which is then populated by electrons. The higher the electric field, the more the electrons in the channel.</p>
 <p>By studying how the electrical resistance of such channel responds to a magnetic field, we are able to measure the number of electrons in the channel and their mobility. The mobility tells us how fast electrons can travel in such channel, and is an indication of the disorder in the system. The higher the mobility, the lower the disorder, and there will be a better chance of fabricating many qubits with similar properties. Materials homogeneity is one requirement to scale up the number of qubits into a quantum computer. Think of the billions of transistors in your laptop, if they were all behaving differently, there would be no chance of having them to work for you. And while we are currently optimizing quantum materials to build a quantum computer, ultimately, the hope is that when such a machine will exist, one of the first uses will be to efficiently simulate quantum systems, fulfilling the vision put forward by Richard Feynmann more than 30 years ago. In turn, this will help us understand and build even more complex quantum materials with extraordinary properties that today we cannot even predict.</p>
 <section id="main-takeaways">
-<h2><span class="section-number">5.1. </span>Main takeaways<a class="headerlink" href="#main-takeaways" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">3.2.1. </span>Main takeaways<a class="headerlink" href="#main-takeaways" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Quantum materials provide the environment where qubits, the elemental unit of quantum information processing, are defined and live.</p></li>
 <li><p>Precision in material uniformity, chemical composition and electrical properties are crucial for the requirements of having both many qubits and long decoherence times.</p></li>
@@ -478,7 +1036,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Temperature, electric fields and magnetic fields are useful parameters to determine properties of quantum materials such as mobility and electron density.</p></li>
 </ul>
 <section id="material-criteria-test-quizz">
-<h3><span class="section-number">5.1.1. </span>Material Criteria test quizz<a class="headerlink" href="#material-criteria-test-quizz" title="Permalink to this headline"></a></h3>
+<h4><span class="section-number">3.2.1.1. </span>Material Criteria test quizz<a class="headerlink" href="#material-criteria-test-quizz" title="Link to this heading">#</a></h4>
 <p>A quantum computer should have some necessary properties to be called a quantum computer. These are called the DiVincenzo criteria:</p>
 <ul class="simple">
 <li><p>The system must be scalable with well defined qubits;</p></li>
@@ -509,7 +1067,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="question-1-the-usefulness-of-cooper-pairs">
-<h3><span class="section-number">5.1.2. </span>Question 1: The usefulness of Cooper pairs<a class="headerlink" href="#question-1-the-usefulness-of-cooper-pairs" title="Permalink to this headline"></a></h3>
+<h4><span class="section-number">3.2.1.2. </span>Question 1: The usefulness of Cooper pairs<a class="headerlink" href="#question-1-the-usefulness-of-cooper-pairs" title="Link to this heading">#</a></h4>
 <p>Cooper pairs can, unlike single electrons or other fermions, be in the same quantum state.</p>
 <p>The invididual particles in the pair are fermions (both spin-1/2 particles), but the pair together is a boson (The total spin of the pair is 0 or 1).</p>
 <div class="admonition-how-are-cooper-pairs-created-in-superconducting-materials admonition">
@@ -523,7 +1081,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="question-2">
-<h3><span class="section-number">5.1.3. </span>Question 2<a class="headerlink" href="#question-2" title="Permalink to this headline"></a></h3>
+<h4><span class="section-number">3.2.1.3. </span>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[\lambda=\frac{h}{m*v}\]</div>
 <p>Where</p>
@@ -553,7 +1111,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </section>
 <section id="question-3-mobility">
-<h3><span class="section-number">5.1.4. </span>Question 3: Mobility<a class="headerlink" href="#question-3-mobility" title="Permalink to this headline"></a></h3>
+<h4><span class="section-number">3.2.1.4. </span>Question 3: Mobility<a class="headerlink" href="#question-3-mobility" title="Link to this heading">#</a></h4>
 <p>The higher the mobility in a semiconductor, the smaller the disorder.</p>
 <div class="admonition-which-of-the-following-can-be-done-to-best-increase-the-mobility admonition">
 <p class="admonition-title">Which of the following can be done to best increase the mobility?</p>
@@ -575,8 +1133,8 @@ const thebe_selector_output = ".output, .cell_output"
 </section>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-ket-notation">
-<h1><span class="section-number">6. </span>Introduction to Ket notation<a class="headerlink" href="#introduction-to-ket-notation" title="Permalink to this headline"></a></h1>
+<section id="introduction-to-ket-notation">
+<h2><span class="section-number">3.3. </span>Introduction to Ket notation<a class="headerlink" href="#introduction-to-ket-notation" title="Link to this heading">#</a></h2>
 <p>Before we dive deeper into the different layers of a quantum computer, we first want to introduce you to ket notation. Ket notation is a specific quantum method used to perform operations and measurements and will introduce the basics of ket notation.</p>
 <p>Note that this is a densely packed section and don’t expect to understand everything after the first viewing. Much more time is needed to grasp the basics of Ket notation, and we advice you to review the following passages. Please do not let this subject deter you from following further. It is crucially important to understand the basics, because that will be used in the continuation. This is a difficult topic!</p>
 <p>Typo:</p>
@@ -643,10 +1201,14 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[\mid\pm\rangle=\frac{\mid0\rangle\pm\mid1\rangle}{\sqrt{2}}\,\,\,\alpha\mid0\rangle+\beta\mid1\rangle=\left(\frac{\alpha+\beta}{\sqrt{2}}\right)\mid+\rangle+\left(\frac{\alpha-\beta}{\sqrt{2}}\right)\mid-\rangle\]</div>
 <p>This leaves us with a small question: if any basis is just as good as any other, is there a basis that we should use as the default? Fortunately, the devices that we use to store and manipulate qubit states provide us with just such a default basis.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm mo-plate docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text"><img alt="alt text" src="../_images/scs2.png" /></p>
+<p class="sd-card-text"><img alt="Lecture slide: Introduction to Ket notation" src="../_images/scs2.png" /></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -662,15 +1224,19 @@ const thebe_selector_output = ".output, .cell_output"
 <p>They form a comutational basis</p>
 <p><span class="math notranslate nohighlight">\(\mid\psi_{k}\rangle\mapsto\mid k\rangle\)</span></p>
 <p>Some devices have finite-dimensional state spaces, unlike the harmonic oscillator.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm mo-plate docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text"><img alt="alt text" src="../_images/scs3.png" /></p>
+<p class="sd-card-text"><img alt="Lecture slide: Introduction to Ket notation" src="../_images/scs3.png" /></p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <section id="operations-observables">
-<h2><span class="section-number">6.1. </span>Operations &amp; Observables<a class="headerlink" href="#operations-observables" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">3.3.1. </span>Operations &amp; Observables<a class="headerlink" href="#operations-observables" title="Link to this heading">#</a></h3>
 <p><strong>Logic gates \equiv unitary matrices</strong> <span class="math notranslate nohighlight">\(\equiv\)</span> changes of basis</p>
 <div class="math notranslate nohighlight">
 \[U=\sum_{k}\mid\psi_{k}\rangle\langle k\mid\,\,\,\,\,\left(\langle\psi_{j}\mid\psi_{k}\rangle=\delta_{j,k}\right)\]</div>
@@ -684,7 +1250,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[\langle\phi\mid A\mid\phi\rangle=\sum_{k}r_{k}\langle\phi\mid\psi_{k}\rangle\langle\psi_{k}\mid\phi\rangle=\sum_{k}r_{k}\mid\langle\phi\mid\psi_{k}\rangle\mid^{2}\]</div>
 <section id="unitary-operations">
-<h3><span class="section-number">6.1.1. </span>Unitary operations<a class="headerlink" href="#unitary-operations" title="Permalink to this headline"></a></h3>
+<h4><span class="section-number">3.3.1.1. </span>Unitary operations<a class="headerlink" href="#unitary-operations" title="Link to this heading">#</a></h4>
 <p>That’s probably a lot to take in all at once, so let’s take a look at a few examples. Here, we have a unitary operation that exchanges states in the computational basis, which we call X, or the Pauli X if you’re already familiar with Pauli matrices.
 $<span class="math notranslate nohighlight">\(
 X=\left[\begin{array}{cc}
@@ -738,7 +1304,7 @@ I=\left[\begin{array}{cc}
 <p>We can note that the identity doesn’t change the basis at all, so that indeed it can be expressed in any basis. Also when used as a measurement operator, it always returns 1, no matter what state is input.</p>
 </section>
 <section id="the-bloch-sphere">
-<h3><span class="section-number">6.1.2. </span>The Bloch Sphere<a class="headerlink" href="#the-bloch-sphere" title="Permalink to this headline"></a></h3>
+<h4><span class="section-number">3.3.1.2. </span>The Bloch Sphere<a class="headerlink" href="#the-bloch-sphere" title="Link to this heading">#</a></h4>
 <p>Coefficient in polar co-ordinates:</p>
 <p>normalization constrains qubits’ states further</p>
 <p>Now that we have a few examples done, I would like to focus a little on a useful geometric representation of qubit states, called the Bloch Sphere. To show how qubit states can be mapped to the surface of a sphere, let’s start by expressing the coefficients alpha and beta in polar co-ordinates.</p>
@@ -772,10 +1338,14 @@ I=\left[\begin{array}{cc}
 \]</div>
 <p>This implies that we can express them as the cosine and sine of an angle theta, since cos(theta)^2 + sin(theta)^2 is always 1.</p>
 <p>This family of angles theta and phi also describes the set of points on the surface of a sphere of unit radius in 3d space.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-md docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm mo-plate docutils">
 <div class="sd-card-body docutils">
-<p class="sd-card-text"><img alt="alt text" src="../_images/scs4.png" /></p>
+<p class="sd-card-text"><img alt="Lecture slide: The Bloch Sphere" src="../_images/scs4.png" /></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -802,8 +1372,8 @@ A_{m-1,0}B &amp; \cdots &amp; A_{m-1,n-1}B
 </section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="multi-qubit-states-operations">
-<h1><span class="section-number">7. </span>Multi-Qubit States &amp; Operations<a class="headerlink" href="#multi-qubit-states-operations" title="Permalink to this headline"></a></h1>
+<section id="multi-qubit-states-operations">
+<h2><span class="section-number">3.4. </span>Multi-Qubit States &amp; Operations<a class="headerlink" href="#multi-qubit-states-operations" title="Link to this heading">#</a></h2>
 <p>Here we see the tensor product of two states, + and 0, resulting in a state which we often call +0. Each 2-by-1 block of the state vector we’re calculating is proportional to the vector for the zero state, and it’s multiplied by one of the elements of the plus state.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mid+\rangle\otimes|0\rangle=\mid+0\rangle=\frac{1}{\sqrt{2}}\left[\begin{array}{lc}
@@ -845,7 +1415,7 @@ A_{m-1,0}B &amp; \cdots &amp; A_{m-1,n-1}B
 0 &amp; 1 &amp; 0 &amp; 0
 \end{array}\right]\end{split}\]</div>
 <section id="example-bell-state-preparation">
-<h2><span class="section-number">7.1. </span>Example: Bell State Preparation<a class="headerlink" href="#example-bell-state-preparation" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">3.4.1. </span>Example: Bell State Preparation<a class="headerlink" href="#example-bell-state-preparation" title="Link to this heading">#</a></h3>
 <p>Now that we have seen the basic formalism and notation, we’re ready to calculate the results of a small sequence of quantum operations, which prepares a Bell state. First, we introduce a two-qubit gate which cannot be written as a tensor product of one-qubit gates, the controlled not, or cnot for short.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -872,7 +1442,7 @@ A_{m-1,0}B &amp; \cdots &amp; A_{m-1,n-1}B
 <p>We can write it out using either ket notation, or as a column vector.</p>
 </section>
 <section id="id1">
-<h2><span class="section-number">7.2. </span>Example: Bell State Preparation<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">3.4.2. </span>Example: Bell State Preparation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Note that the Bell state, just like the cnot, cannot be written as a tensor product. The first step in preparing the Bell state is to perform a Hadamard operation on the first qubit, which has been initiliazed in the zero state. So we calculate the tensor product of the Hadamard with the identity, since we’re not going to do anything to the second qubit immediately.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -935,7 +1505,7 @@ H\otimes I(\mid0\rangle\otimes\mid0\rangle)=\mid+\rangle|0\rangle=\mid+0\rangle=
 \]</div>
 <p>These terms are exactly the 00 and 11 terms that we were after. And that’s how ket notation van help us to describe the effects of operations and measurements on quantum states.</p>
 <section id="id2">
-<h3><span class="section-number">7.2.1. </span>Main takeaways<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<h4><span class="section-number">3.4.2.1. </span>Main takeaways<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>In ket notation, a quantum state is expressed using a column vector with complex coefficients. The squared magnitudes of these coefficients are the probabilities of measuring that particular outcome.</p></li>
 <li><p>Devices used for storing and manipulating qubit states are described by a Hamiltonian, which is a matrix that assigns energies to each of its eigenstates or preferred basis states.</p></li>
@@ -948,8 +1518,8 @@ H\otimes I(\mid0\rangle\otimes\mid0\rangle)=\mid+\rangle|0\rangle=\mid+0\rangle=
 </section>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="advantages-and-dissadvantages-of-ket-notation">
-<h1><span class="section-number">8. </span>Advantages and dissadvantages of Ket notation<a class="headerlink" href="#advantages-and-dissadvantages-of-ket-notation" title="Permalink to this headline"></a></h1>
+<section id="advantages-and-dissadvantages-of-ket-notation">
+<h2><span class="section-number">3.5. </span>Advantages and dissadvantages of Ket notation<a class="headerlink" href="#advantages-and-dissadvantages-of-ket-notation" title="Link to this heading">#</a></h2>
 <p>In the previous ket notation we discussed three ways to represent quantum states:</p>
 <ol class="arabic simple">
 <li><p>column vectors with complex coefficients,</p></li>
@@ -974,7 +1544,7 @@ H\otimes I(\mid0\rangle\otimes\mid0\rangle)=\mid+\rangle|0\rangle=\mid+0\rangle=
 \end{split}\]</div>
 <p>And in some other times, especially if you’re considering operations - transformations on the set of states – it can be beneficial to consider the Bloch sphere, where you have the reference state zero, some other states one, plus, minus and like so…</p>
 <section id="synthesising-rotations">
-<h2><span class="section-number">8.1. </span>Synthesising rotations<a class="headerlink" href="#synthesising-rotations" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">3.5.1. </span>Synthesising rotations<a class="headerlink" href="#synthesising-rotations" title="Link to this heading">#</a></h3>
 <p>In some setups, experimentalists can only rotate along two axes of the Bloch sphere. In this video Ben will show you an example of how you can use these two rotation axes to achieve rotations around a third axis. He will do it both in vector form and in the Bloch sphere representation. Which do you think is the most convenient?</p>
 <p>Let’s show an example of something that’s a little bit difficult to do when looking at the matrix based picture of quantum mechanics, but if we put everything on the Bloch sphere it makes perfect sense.</p>
 <p>In many experiments, experimentalists can only rotate along two axes of the Bloch sphere. That is the x-axis, which goes in this direction and the y-axis, which is going in this way.</p>
@@ -1069,7 +1639,7 @@ e^{i\theta}=\cos(\frac{\theta}{2})+i\sin(\frac{\theta}{2})\\e^{-i\theta}=\cos(\f
 <p>But this is not that simple as it could be. There is a far easier way to see this, which we can do using the Bloch sphere. The action of this sequence of unitary operations. Y 90, x around some angle theta and then y minus 90 can be expressed in terms of matrices. But it’s much easier to see using the Bloch sphere. If we write down the Bloch sphere with the x axis pointing out of the board, we can see the effect of a y 90, a rotation around 90 degrees of the y axis, is just turning the sphere sort of like a steering wheel, so that the x axis now faces down and the z axis is where the x axis used to be. If we now apply a rotation around the x axis, that is giving us a rotation around our old z axis. And once we have that done, all we have to do is reverse the y 90 with a y minus 90 to restore the orientation of our original axes, having picked up a phase on the z. And that’s how we can synthesize a diagonal unitary. e^{itheta/2}, e^{-i*theta/2} out of the operations to which the experimentalists have access. A little bit of notations saves you a lot of hardware design.</p>
 </section>
 <section id="state-decomposition">
-<h2><span class="section-number">8.2. </span>State decomposition<a class="headerlink" href="#state-decomposition" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">3.5.2. </span>State decomposition<a class="headerlink" href="#state-decomposition" title="Link to this heading">#</a></h3>
 <p>Often in quantum computing , it is necessary to express one state in terms of a basis of some other states. I am going to go ahead and call this state decomposition, although you can see it under a variety of names and usually it’s clear from the context that they mean expressing one state in terms of a basis that is more familiar or convenient to. Now the rule of state decomposition is that any state phi can be expressed as a sum over k terms, where each term consists of an inner product of phi - the trial state - with one of the basis states phi_k, and the states phi_k. Number times vector. And this is the same as decomposing a vector in a basis if you are already familiar with linear algebra.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1091,7 +1661,7 @@ e^{i\theta}=\cos(\frac{\theta}{2})+i\sin(\frac{\theta}{2})\\e^{-i\theta}=\cos(\f
 \end{aligned}\end{align} \]</div>
 </section>
 <section id="performing-arbitrary-measurements">
-<h2><span class="section-number">8.3. </span>Performing arbitrary measurements<a class="headerlink" href="#performing-arbitrary-measurements" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">3.5.3. </span>Performing arbitrary measurements<a class="headerlink" href="#performing-arbitrary-measurements" title="Link to this heading">#</a></h3>
 <p>It could be that your measurement device is only capable of measuring in one basis. Ket notations helps us to show that it will not be difficult to let this simple measurement device measure in any basis. In this example Ben will show you how this works.</p>
 <p>I’d like to talk today about how a little bit of ket-notation can save us a big experimental headache, when it comes time to try measure a qubit in an arbitrary basis. First, we have to review a few of the important facts.</p>
 <p>Arbitrary measutremnent</p>
@@ -1144,8 +1714,8 @@ U^{\dagger}ZU=\underbrace{U^{\dagger}\mid0\rangle}*{\mid\psi\rangle}\underbrace{
 <p>So, it’s as if we had our original state psi, and instead of measuring Z, we measured U-dagger-Z-U. Now, U-dagger-Z-U we can write out like so. And if we label the state U-dagger-0 as psi, then U-dagger-Z-U is equal to psi-psi minus psi-perp-psi-perp. This is a measurement that will return 1 if the state is psi, and -1 if the state is psi-perp, giving us an arbitrary basis to measure in.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="a-fact-about-maximally-entangled-states">
-<h1><span class="section-number">9. </span>A fact about maximally entangled states<a class="headerlink" href="#a-fact-about-maximally-entangled-states" title="Permalink to this headline"></a></h1>
+<section id="a-fact-about-maximally-entangled-states">
+<h2><span class="section-number">3.6. </span>A fact about maximally entangled states<a class="headerlink" href="#a-fact-about-maximally-entangled-states" title="Link to this heading">#</a></h2>
 <p>Ket notation is not always the best approach to find an answer or solve an equation. Ben will give you an example about entangled states where it would be a lot of work to use ket notation.</p>
 <p>Often when doing quantum information, ket-notation can fail you. This happens a lot when you have a densely packed vector full of a bunch of different coefficients and there’s no obvious structure. Now, hopefully when that happens to you, you’re only going to deal with a few qubits. Otherwise, you are going to writing out coefficients for a very long time.</p>
 <div class="math notranslate nohighlight">
@@ -1198,14 +1768,14 @@ U^{\dagger}ZU=\underbrace{U^{\dagger}\mid0\rangle}*{\mid\psi\rangle}\underbrace{
 \end{split}\]</div>
 <p>But we have here alpha-star-alpha, alpha-star-beta, beta-star-alpha and beta-star-beta. And we’re going to add to that: beta-beta-star, minus beta-alpha-star, minus alpha-beta-star and alpha-alpha-star. Now, beta-star-beta plus alpha-alpha-star is just the magnitude of alpha squared plus the magnitude of beta squared, which is 1. And we see that same thing in the top term here, alpha-star-alpha plus beta-beta-star, that’s 1. And then these inner terms cancel. Because you have alpha-star-beta minus beta-alpha-star, that has just been flipped here. And a beta-star-alpha minus alpha-beta-star, if I flipped these two, it becomes obvious that they are equal and opposite, so they cancel. This implies for example, that for example if Alice and Bob share a Bell state, and Alice measure in a 0-1 basis, she can get a state 0 or 1 and she can tell that Bob has the same state. Now she measures instead in the basis psi-star psi-star-perp, she can tell that Bob has the state psi or psi-perp depending on her measurement result.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="experimental-and-theoretical-measurements">
-<h1><span class="section-number">10. </span>Experimental and theoretical measurements<a class="headerlink" href="#experimental-and-theoretical-measurements" title="Permalink to this headline"></a></h1>
+<section id="experimental-and-theoretical-measurements">
+<h2><span class="section-number">3.7. </span>Experimental and theoretical measurements<a class="headerlink" href="#experimental-and-theoretical-measurements" title="Link to this heading">#</a></h2>
 <p>In this section we will explain the difference between measurements that occur in a laboratory and measurements that are described in theory. What are the differences and how are those similar?</p>
 <p>Let’s take this opportunity to clarify something that confuses a lot when first learning about quantum mechanics, which is the difference between measurements that occur in a laboratory and measurements that we describe in theory. And also point out hopefully the ways in which these things are similar. So, you may have already seen a picture like this one. But, in the laboratories we can measure some currents in nanoamperes, and if there’s a spin in the down state pointing parallel to the field, there will be no bump in the current. And if it’s in the up state, there will be a bump. And this is a large macroscopic classical signal that they can detect. And this relates to a measurement operator. You can imagine that we take the total area under this curve; the total amount of current, in the case that there’s no bump, and that corresponds to the spin down state. And the total current in the case that there is a bump will be slightly higher, and that corresponds to the spin up state. So, that real number: the amount of current times the projector on to the down state plus the total amount of current in the case that there is bump times the projector on to the up state gives us our measurement operator. Now, the important thing about these two signals being distinguishable, but there being a large difference between them, is that if they’re equal, we end up with some number times down-down plus some number which is identical, times up-up. So, the measurement operator becomes the identity, which doesn’t discern between the up and down states. So as useless is the measurement. But if these numbers are discernably different, then down-down and up-up receive different measurement outcomes, and out measurement operator is \mathbf{1}more like a Z, which is one we could use to accurately distinguish between the computational basis states in quantum computing.</p>
 <section id="practice-quiz-3">
-<h2><span class="section-number">10.1. </span>Practice Quiz 3<a class="headerlink" href="#practice-quiz-3" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">3.7.1. </span>Practice Quiz 3<a class="headerlink" href="#practice-quiz-3" title="Link to this heading">#</a></h3>
 <section id="question-1">
-<h3><span class="section-number">10.1.1. </span>Question 1:<a class="headerlink" href="#question-1" title="Permalink to this headline"></a></h3>
+<h4><span class="section-number">3.7.1.1. </span>Question 1:<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h4>
 <p>Suppose we are given a pure, two-qubit state
 $<span class="math notranslate nohighlight">\(\psi\rangle_{AB}=\alpha_{00}|00\rangle+\alpha_{01}|01\rangle+\alpha_{10}|10\rangle+\alpha_{11}|11\rangle, where \left|\alpha_{00}\right|^{2}+\left|\alpha_{01}\right|^{2}+\left|\alpha_{10}\right|^{2}+\left|\alpha_{11}\right|^{2}=1 \)</span><span class="math notranslate nohighlight">\(. 
 We can compute the amount of entanglement between the two qubits, as quantified by the entanglement measure known as the concurrence, using the following expression: \)</span><span class="math notranslate nohighlight">\(C\left(|\psi\rangle_{AB}\right)=2\left|\alpha_{00}\alpha_{11}-\alpha_{01}\alpha_{10}\right\mid\)</span><span class="math notranslate nohighlight">\(. If the two qubits are maximally entangled, then \)</span><span class="math notranslate nohighlight">\(C(|\psi\rangle)=1\)</span><span class="math notranslate nohighlight">\(; and if the qubits are not entangled at all, or are in a product state, then \)</span><span class="math notranslate nohighlight">\(C(|\psi\rangle)=0\)</span>$. Use the above expression to compute the amount of entanglement between the qubits in each of the following states:</p>
@@ -1226,9 +1796,9 @@ We can compute the amount of entanglement between the two qubits, as quantified 
 </section>
 </section>
 <section id="quiz-3-ket-notation">
-<h2><span class="section-number">10.2. </span>Quiz 3: Ket notation<a class="headerlink" href="#quiz-3-ket-notation" title="Permalink to this headline"></a></h2>
+<h3><span class="section-number">3.7.2. </span>Quiz 3: Ket notation<a class="headerlink" href="#quiz-3-ket-notation" title="Link to this heading">#</a></h3>
 <section id="question-1-expectation-values">
-<h3><span class="section-number">10.2.1. </span>Question 1: Expectation values<a class="headerlink" href="#question-1-expectation-values" title="Permalink to this headline"></a></h3>
+<h4><span class="section-number">3.7.2.1. </span>Question 1: Expectation values<a class="headerlink" href="#question-1-expectation-values" title="Link to this heading">#</a></h4>
 <p>The expectation value <span class="math notranslate nohighlight">\(\langle A\rangle\)</span> of an operator <span class="math notranslate nohighlight">\(A\)</span> upon a state <span class="math notranslate nohighlight">\(\mid\psi\rangle\)</span> is, as mentioned, the average of very many outcomes of measurements of that operator. Mathematically speaking, it is the inner product of the state with itself, with the operator ‘sandwiched’ inbetween: <span class="math notranslate nohighlight">\(\langle\psi|A|\psi\rangle\)</span>.</p>
 <p>The easiest way to solve this is using the linear algebra representation: if, for instance,
 $<span class="math notranslate nohighlight">\(
@@ -1248,7 +1818,7 @@ A = \left[\begin{array}{ccc}
 \end{array}\right] For the state \sqrt{\frac{1}{3}}|0\rangle+\sqrt{\frac{2}{3}}i|1\rangle\)</span>$</p>
 <p>calculate the expectation value of the following operators:</p>
 <section id="hadamard-matrix">
-<h4><span class="section-number">10.2.1.1. </span>Hadamard matrix:<a class="headerlink" href="#hadamard-matrix" title="Permalink to this headline"></a></h4>
+<h5>Hadamard matrix:<a class="headerlink" href="#hadamard-matrix" title="Link to this heading">#</a></h5>
 <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}\begin{split}
 H=\sqrt{\frac{1}{2}}\left[\begin{array}{cc}
@@ -1300,7 +1870,7 @@ $<span class="math notranslate nohighlight">\(
 \end{split}\]</div>
 </section>
 <section id="pauli-x">
-<h4><span class="section-number">10.2.1.2. </span>Pauli X<a class="headerlink" href="#pauli-x" title="Permalink to this headline"></a></h4>
+<h5>Pauli X<a class="headerlink" href="#pauli-x" title="Link to this heading">#</a></h5>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 X=\left[\begin{array}{cc}
@@ -1329,7 +1899,7 @@ X=\left[\begin{array}{cc}
 \end{split}\]</div>
 </section>
 <section id="pauli-y-matrix">
-<h4><span class="section-number">10.2.1.3. </span>Pauli Y matrix<a class="headerlink" href="#pauli-y-matrix" title="Permalink to this headline"></a></h4>
+<h5>Pauli Y matrix<a class="headerlink" href="#pauli-y-matrix" title="Link to this heading">#</a></h5>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 Y=\left[\begin{array}{cc}
@@ -1358,7 +1928,7 @@ i &amp; 0
 \end{split}\]</div>
 </section>
 <section id="pauli-z-matrix">
-<h4><span class="section-number">10.2.1.4. </span>Pauli Z matrix:<a class="headerlink" href="#pauli-z-matrix" title="Permalink to this headline"></a></h4>
+<h5>Pauli Z matrix:<a class="headerlink" href="#pauli-z-matrix" title="Link to this heading">#</a></h5>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 Z=\left[\begin{array}{cc}
@@ -1385,7 +1955,7 @@ Z=\left[\begin{array}{cc}
 \end{split}\]</div>
 </section>
 <section id="question-2-entanglement-between-qubits">
-<h4><span class="section-number">10.2.1.5. </span>Question 2: Entanglement between qubits<a class="headerlink" href="#question-2-entanglement-between-qubits" title="Permalink to this headline"></a></h4>
+<h5>Question 2: Entanglement between qubits<a class="headerlink" href="#question-2-entanglement-between-qubits" title="Link to this heading">#</a></h5>
 <p>An entangled state is a multi-qubit quantum state that can not be written as a Kronecker product of single-qubit states.</p>
 <p>For example, if we take the tensor product of two arbitrary states |\psi\rangle=\left[\begin{array}{l}</p>
 <div class="math notranslate nohighlight">
@@ -1474,7 +2044,7 @@ as a kronecker product, we see that \)</span>\alpha^{<em>}\delta=0<span class="m
 </div>
 </section>
 <section id="question-3-two-qubit-operations">
-<h4><span class="section-number">10.2.1.6. </span>Question 3: Two-qubit operations<a class="headerlink" href="#question-3-two-qubit-operations" title="Permalink to this headline"></a></h4>
+<h5>Question 3: Two-qubit operations<a class="headerlink" href="#question-3-two-qubit-operations" title="Link to this heading">#</a></h5>
 <p>2 qubit operations are operations that involve, as expected, 2 qubits. Just as 1 qubit operations they can be written in matrix form. However, since 2 qubits are now involved, these matrices are now 4\times4 unitaries. For the following 2 qubit operations, click the appropiate matrix that corresponds with the operation. - The 2 qubit operation that applies a bit flip on the second qubit, conditioned on the first qubit being in the <span class="math notranslate nohighlight">\(\mid1\rangle\)</span> state. So, a bit flip is applied to the second qubit if the first qubit is in the <span class="math notranslate nohighlight">\(\mid1\rangle\)</span> state, and no flip is applied if the first qubit is in the <span class="math notranslate nohighlight">\(\mid0\rangle\)</span> state. A bit flip (or X ) turns a 0 into a 1 and a 1 into a 0 . so</p>
 <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}X(\alpha|0\rangle+\beta|1\rangle)=\beta|0\rangle+\alpha|1\rangle$$. \\
@@ -1537,7 +2107,7 @@ What we see in this question is a controlled bit flip, or a CNOT gate, with the 
 \end{array}\right]\end{split}\end{aligned}\end{align} \]</div>
 <p>Calculating this product results in the desired matrix.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-### Question 4: Unitaries, or mapping one basis to another
+#### Question 4: Unitaries, or mapping one basis to another
 
 Let the basis 
 
@@ -1636,16 +2206,15 @@ $$ cos(theta_1 - theta_2) or cos(theta_2 - theta_1) or cos(theta_1 - theta_2) or
 </section>
 </section>
 </section>
-<div class="toctree-wrapper compound">
-</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "MoHoushmand/mo",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1660,34 +2229,164 @@ $$ cos(theta_1 - theta_2) or cos(theta_2 - theta_1) or cos(theta_1 - theta_2) or
     </script>
     <script>kernelName = 'python3'</script>
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../quantum_computation/qc/qc_0.html" class="btn btn-neutral float-left" title="3.1. Quantum Computation 0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="qubits/spin.html" class="btn btn-neutral float-right" title="10.3. Spin Qubits 0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../quantum_computation/qc/qc_0.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>The gate model in brief</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="spin_qubits/spin_qubits.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Spin Qubits</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-1">3.1. Quiz 1</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-designing-the-quantum-computer">3.1.1. Question 1: Designing the quantum computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-quantum-algorithms-beyond-a-speedup">3.1.2. Question 2: Quantum Algorithms: beyond a speedup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-a-programming-language-for-a-computer">3.1.3. Question 3: A programming language for a computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4-the-compilery">3.1.4. Question 4: The compilery</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5-the-current-bottleneck">3.1.5. Question 5: The current bottleneck</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-materials">3.2. Quantum materials</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-takeaways">3.2.1. Main takeaways</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#material-criteria-test-quizz">3.2.1.1. Material Criteria test quizz</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-the-usefulness-of-cooper-pairs">3.2.1.2. Question 1: The usefulness of Cooper pairs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">3.2.1.3. Question 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-mobility">3.2.1.4. Question 3: Mobility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-ket-notation">3.3. Introduction to Ket notation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-observables">3.3.1. Operations &amp; Observables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unitary-operations">3.3.1.1. Unitary operations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bloch-sphere">3.3.1.2. The Bloch Sphere</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-qubit-states-operations">3.4. Multi-Qubit States &amp; Operations</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bell-state-preparation">3.4.1. Example: Bell State Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.4.2. Example: Bell State Preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.4.2.1. Main takeaways</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-dissadvantages-of-ket-notation">3.5. Advantages and dissadvantages of Ket notation</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthesising-rotations">3.5.1. Synthesising rotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-decomposition">3.5.2. State decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-arbitrary-measurements">3.5.3. Performing arbitrary measurements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-fact-about-maximally-entangled-states">3.6. A fact about maximally entangled states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-and-theoretical-measurements">3.7. Experimental and theoretical measurements</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-quiz-3">3.7.1. Practice Quiz 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">3.7.1.1. Question 1:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-3-ket-notation">3.7.2. Quiz 3: Ket notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-expectation-values">3.7.2.1. Question 1: Expectation values</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hadamard-matrix">Hadamard matrix:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pauli-x">Pauli X</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pauli-y-matrix">Pauli Y matrix</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pauli-z-matrix">Pauli Z matrix:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-entanglement-between-qubits">Question 2: Entanglement between qubits</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-two-qubit-operations">Question 3: Two-qubit operations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Mo Houshmand
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>
